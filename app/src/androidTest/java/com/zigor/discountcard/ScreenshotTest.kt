@@ -12,6 +12,8 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextClearance
+import androidx.compose.ui.test.performTextInput
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.zigor.discountcard.data.db.CardEntity
@@ -94,6 +96,17 @@ class ScreenshotTest {
         }
         composeRule.waitForIdle()
         shot("02-home-cards")
+
+        // Поиск с открытой клавиатурой: поле обязано остаться целым и показывать текст
+        composeRule.onNodeWithTag("home_search").performClick()
+        composeRule.onNodeWithTag("home_search").performTextInput("гиппо")
+        composeRule.waitForIdle()
+        Thread.sleep(1500)
+        shot("07-search-keyboard")
+        composeRule.onNodeWithTag("home_search").performTextClearance()
+        shell("input keyevent 4")
+        Thread.sleep(800)
+        composeRule.waitForIdle()
 
         // Карточка для кассы — штрих-код, номер, кнопки
         composeRule.onNodeWithText(demoCards.first().title).performClick()

@@ -1,5 +1,6 @@
 package com.zigor.discountcard
 
+import android.os.ParcelFileDescriptor
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.getUnclippedBoundsInRoot
@@ -133,8 +134,9 @@ class WindowInsetsTest {
         composeRule.onNodeWithText("гиппо").assertExists()
 
         // убираем клавиатуру, чтобы не мешала следующим тестам
-        InstrumentationRegistry.getInstrumentation().uiAutomation
+        val pfd = InstrumentationRegistry.getInstrumentation().uiAutomation
             .executeShellCommand("input keyevent 4")
+        ParcelFileDescriptor.AutoCloseInputStream(pfd).use { it.readBytes() }
         Thread.sleep(500)
     }
 }
