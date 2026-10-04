@@ -39,6 +39,8 @@ object UpdateChecker {
      * про версию, которую пользователь уже отложил.
      */
     suspend fun checkInBackground(context: Context): Release? {
+        // Отладочная сборка живёт своей жизнью: автоматически ничего не спрашиваем
+        if (context.appVersion().name.contains("debug", ignoreCase = true)) return null
         val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val since = System.currentTimeMillis() - prefs.getLong(KEY_LAST_CHECK, 0L)
         if (since in 0 until DAY_MS) return null
@@ -86,6 +88,34 @@ object UpdateChecker {
         version.trim().removePrefix("v").split('.', '-', '_', ' ')
             .mapNotNull { part -> part.takeWhile { it.isDigit() }.toIntOrNull() }
 
+    /**
+     * Описание релиза приходит в markdown. Для окна обновления оставляем только
+     * раздел «Изменения» — короткий список, без таблиц, цитат и звёздочек.
+     */
+    internal fun cleanNotes(body: String): String {
+        val lines = body.lines()
+        val start = lines.indexOfFirst { line ->
+            line.trimStart().startsWith("#") && line.contains("Изменения", ignoreCase = true)
+        }
+        val section = if (start >= 0) {
+            lines.drop(start + 1).takeWhile { !it.trimStart().startsWith("#") }
+        } else {
+            lines
+        }
+        return section
+            .map { it.trim() }
+            .filterNot { it.isEmpty() || it.startsWith(">") || it.startsWith("|") || it.startsWith("#") }
+            .map { line ->
+                line.removePrefix("- ").removePrefix("* ")
+                    .replace("**", "")
+                    .replace("`", "")
+                    .trim()
+            }
+            .filter { it.isNotEmpty() && !it.startsWith("Версия:") }
+            .take(6)
+            .joinToString("\n") { "• $it" }
+    }
+
     private suspend fun fetch(): List<Release>? = withContext(Dispatchers.IO) {
         runCatching {
             val connection = (URL(RELEASES_URL).openConnection() as HttpURLConnection).apply {
@@ -127,7 +157,7 @@ object UpdateChecker {
             result += Release(
                 version = tag.removePrefix("v"),
                 title = item.optString("name").ifBlank { tag },
-                notes = item.optString("body").trim(),
+                notes = cleanNotes(item.optString("body")),
                 apkUrl = apk,
                 pageUrl = item.optString("html_url"),
             )

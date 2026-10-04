@@ -67,4 +67,27 @@ class UpdateCheckTest {
         assertTrue(UpdateChecker.parse("это не json").isEmpty())
         assertTrue(UpdateChecker.parse("").isEmpty())
     }
+
+    @Test
+    fun releaseNotesAreCleanedFromMarkdown() {
+        val body = """
+            > Подписано **открытым запасным ключом** из репозитория (`keystore/ci-fallback.p12`).
+            **Версия:** `1.0.22` · **versionCode:** `22`
+
+            ### Что внутри
+            Хранение дисконтных карт, сканирование кодов и NFC.
+
+            ### Изменения
+            - перенос карт между телефонами
+            - автообновление
+
+            ### Файл
+            | | |
+            |---|---|
+            | APK | `MoiKarty-v1.0.22.apk` |
+        """.trimIndent()
+
+        val notes = UpdateChecker.cleanNotes(body)
+        assertEquals("• перенос карт между телефонами\n• автообновление", notes)
+    }
 }

@@ -372,11 +372,7 @@ fun HomeScreen(
                     if (release.notes.isNotBlank()) {
                         Spacer(Modifier.height(10.dp))
                         Text(
-                            text = release.notes.lineSequence()
-                                .filter { it.isNotBlank() }
-                                .take(8)
-                                .joinToString("\n")
-                                .take(400),
+                            text = release.notes.take(400),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
