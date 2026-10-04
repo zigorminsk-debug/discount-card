@@ -101,9 +101,44 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
+          set -o pipefail
           ./gradlew --no-daemon --stacktrace assembleRelease \
             -PappBuildNumber=${{ steps.ver.outputs.build }} \
-            -PappVersionBase=${{ steps.ver.outputs.base }}
+            -PappVersionBase=${{ steps.ver.outputs.base }} 2>&1 | tee "$RUNNER_TEMP/build.log"
+
+      - name: Ошибки сборки (аннотации)
+        if: failure()
+        run: |
+          LOG="$RUNNER_TEMP/build.log"
+          [ -f "$LOG" ] || exit 0
+          python3 - "$LOG" <<'PY'
+          import re, sys
+          lines = open(sys.argv[1], errors='replace').read().splitlines()
+          pat = re.compile(r'^(e: |w: .*error|error:|FAILURE|\* What went wrong|Caused by|> )')
+          keep = [l for l in lines if pat.search(l)] or lines[-80:]
+          keep = [l.replace('%', '%25').rstrip() for l in keep[:80]]
+          for i in range(0, len(keep), 15):
+              chunk = '%0A'.join(keep[i:i + 15])
+              print(f'::error title=Build {i // 15 + 1}::{chunk}')
+          PY
+
+      - name: Полный лог в ветку ci-logs
+        if: failure()
+        run: |
+          LOG="$RUNNER_TEMP/build.log"
+          [ -f "$LOG" ] || exit 0
+          WORK=$(mktemp -d)
+          tail -n 3000 "$LOG" > "$WORK/build.log"
+          cd "$WORK"
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -q -b ci-logs
+          git add build.log
+          git commit -qm "Лог сборки #${{ github.run_number }} (${{ github.sha }})"
+          git push -q --force \
+            "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
+          echo "Лог: ветка ci-logs, файл build.log"
 
       - name: Подготовить артефакт
         id: apk

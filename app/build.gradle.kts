@@ -114,9 +114,6 @@ android {
         }
     }
 
-    androidResources {
-        noCompress += "tflite"
-    }
 
     lint {
         abortOnError = false
