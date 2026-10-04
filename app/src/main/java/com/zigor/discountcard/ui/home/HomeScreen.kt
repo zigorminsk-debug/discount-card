@@ -11,7 +11,10 @@ import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
@@ -49,6 +52,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -69,12 +73,13 @@ import com.zigor.discountcard.R
 import androidx.core.content.FileProvider
 import com.zigor.discountcard.appContainer
 import com.zigor.discountcard.data.transfer.CardTransfer
+import com.zigor.discountcard.data.update.UpdateChecker
 import com.zigor.discountcard.ui.components.CardTile
 import com.zigor.discountcard.ui.components.EmptyState
 import com.zigor.discountcard.util.appVersion
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun HomeScreen(
     onOpenCard: (Long) -> Unit,
@@ -91,6 +96,31 @@ fun HomeScreen(
     var aboutVisible by remember { mutableStateOf(false) }
     var menuOpen by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
+    // Пока открыта клавиатура, нижняя панель прячется: иначе её отступ под клавиатуру
+    // и отступ содержимого складываются, и поле поиска схлопывается (обрезается текст).
+    val imeVisible = WindowInsets.isImeVisible
+
+    // Проверка новой версии: тихо при запуске (не чаще раза в сутки) и по кнопке в меню
+    var update by remember { mutableStateOf<UpdateChecker.Release?>(null) }
+    var checkingUpdate by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        update = runCatching { UpdateChecker.checkInBackground(context) }.getOrNull()
+    }
+
+    fun checkUpdatesNow() {
+        if (checkingUpdate) return
+        checkingUpdate = true
+        scope.launch {
+            val found = runCatching { UpdateChecker.check(context) }.getOrNull()
+            checkingUpdate = false
+            if (found != null) {
+                update = found
+            } else {
+                Toast.makeText(context, R.string.update_none, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     // Экспорт: карты и фото пакуются в один файл и уходят в «Поделиться»
     // (Telegram, почта, Bluetooth) — приложению для этого не нужен интернет.
@@ -139,7 +169,7 @@ fun HomeScreen(
             )
         },
         bottomBar = {
-            Surface(tonalElevation = 3.dp, shadowElevation = 8.dp) {
+            if (!imeVisible) Surface(tonalElevation = 3.dp, shadowElevation = 8.dp) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -239,6 +269,25 @@ fun HomeScreen(
                                     onImportCards()
                                 },
                             )
+                            HorizontalDivider()
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        stringResource(
+                                            if (checkingUpdate) R.string.update_checking
+                                            else R.string.action_check_updates,
+                                        ),
+                                    )
+                                },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_update), null)
+                                },
+                                enabled = !checkingUpdate,
+                                onClick = {
+                                    menuOpen = false
+                                    checkUpdatesNow()
+                                },
+                            )
                         }
                     }
                 }
@@ -256,7 +305,9 @@ fun HomeScreen(
                 onValueChange = viewModel::onQueryChange,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp),
+                    .padding(horizontal = 16.dp, vertical = 6.dp)
+                    .heightIn(min = 56.dp)
+                    .testTag("home_search"),
                 placeholder = {
                     Text(
                         text = stringResource(R.string.home_search_hint),
@@ -277,10 +328,11 @@ fun HomeScreen(
             )
 
             when {
-                state.loading -> Box(Modifier.fillMaxSize())
+                state.loading -> Box(Modifier.fillMaxWidth().weight(1f))
                 state.total == 0 -> Column(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
+                        .weight(1f)
                         .verticalScroll(rememberScrollState()),
                 ) {
                     EmptyState(
@@ -299,7 +351,7 @@ fun HomeScreen(
                     contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 6.dp, bottom = 24.dp),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp),
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxWidth().weight(1f),
                 ) {
                     items(state.cards, key = { it.id }) { card ->
                         CardTile(card = card, onClick = { onOpenCard(card.id) })
@@ -307,6 +359,57 @@ fun HomeScreen(
                 }
             }
         }
+    }
+
+    update?.let { release ->
+        val installed = remember { context.appVersion().name }
+        AlertDialog(
+            onDismissRequest = { update = null },
+            title = { Text(stringResource(R.string.update_title)) },
+            text = {
+                Column {
+                    Text(stringResource(R.string.update_text, release.version, installed))
+                    if (release.notes.isNotBlank()) {
+                        Spacer(Modifier.height(10.dp))
+                        Text(
+                            text = release.notes.lineSequence()
+                                .filter { it.isNotBlank() }
+                                .take(8)
+                                .joinToString("\n")
+                                .take(400),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    Spacer(Modifier.height(10.dp))
+                    Text(
+                        stringResource(R.string.update_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        runCatching {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse(release.downloadUrl)),
+                            )
+                        }
+                        update = null
+                    },
+                ) { Text(stringResource(R.string.update_download)) }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        UpdateChecker.skip(context, release.version)
+                        update = null
+                    },
+                ) { Text(stringResource(R.string.update_later)) }
+            },
+        )
     }
 
     if (aboutVisible) {

@@ -78,8 +78,15 @@ jobs:
           grep -q "targetSdkVersion:'35'" /tmp/badging.txt || fail "targetSdk != 35"
           grep -q "uses-permission: name='android.permission.CAMERA'" /tmp/badging.txt || fail "нет разрешения CAMERA"
           grep -q "uses-permission: name='android.permission.NFC'" /tmp/badging.txt || fail "нет разрешения NFC"
-          if grep -q "uses-permission: name='android.permission.INTERNET'" /tmp/badging.txt; then
-            fail "в APK есть разрешение INTERNET — приложение должно быть офлайн"
+          grep -q "uses-permission: name='android.permission.INTERNET'" /tmp/badging.txt \
+            || fail "нет разрешения INTERNET — не сработает проверка обновлений"
+          for P in ACCESS_NETWORK_STATE WAKE_LOCK ACCESS_FINE_LOCATION READ_CONTACTS READ_EXTERNAL_STORAGE; do
+            if grep -q "uses-permission: name='android.permission.$P'" /tmp/badging.txt; then
+              fail "в APK появилось лишнее разрешение $P"
+            fi
+          done
+          if grep -q "uses-permission: name='com.google.android.gms.permission.AD_ID'" /tmp/badging.txt; then
+            fail "в APK появилось рекламное разрешение AD_ID"
           fi
 
           echo "### Самотест подписи пройден" >> "$GITHUB_STEP_SUMMARY"

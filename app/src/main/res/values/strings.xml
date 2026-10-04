@@ -98,7 +98,7 @@
     <string name="format_unknown">Неизвестный формат</string>
     <string name="about_title">О приложении</string>
     <string name="about_version">Версия %1$s (сборка %2$d)</string>
-    <string name="about_text">Все карты, коды и фотографии хранятся только на вашем телефоне: ни один байт не уходит в интернет. Приложение работает полностью офлайн.</string>
+    <string name="about_text">Все карты, коды и фотографии хранятся только на вашем телефоне и никуда не отправляются. В интернет приложение выходит в одном-единственном случае: раз в сутки спрашивает у GitHub, не вышла ли новая версия.</string>
     <string name="about_stores_known">Магазинов в каталоге: %1$d</string>
     <string name="cd_add">Добавить карту</string>
     <string name="cd_more">Ещё</string>
@@ -127,4 +127,13 @@
     <!-- Разработчик -->
     <string name="about_developer">Разработчик: Zakharevich Igor</string>
     <string name="about_developer_phone">+375 29 337-14-12</string>
+    <!-- Обновления -->
+    <string name="action_check_updates">Проверить обновления</string>
+    <string name="update_checking">Проверяем…</string>
+    <string name="update_none">У вас последняя версия</string>
+    <string name="update_title">Вышла новая версия</string>
+    <string name="update_text">Доступна версия %1$s, у вас установлена %2$s.</string>
+    <string name="update_hint">Файл скачается браузером — откройте его и подтвердите установку. Новая версия встанет поверх, карты останутся на месте.</string>
+    <string name="update_download">Скачать</string>
+    <string name="update_later">Позже</string>
 </resources>

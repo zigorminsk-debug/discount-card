@@ -1,6 +1,10 @@
 package com.zigor.discountcard
 
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.getUnclippedBoundsInRoot
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -92,5 +96,45 @@ class WindowInsetsTest {
                 bounds.left.value >= -1f,
             )
         }
+    }
+
+    /**
+     * Клавиатура не должна съедать поле поиска. Раньше отступ под клавиатуру
+     * учитывался дважды (нижняя панель + содержимое), и на телефонах с высокой
+     * клавиатурой поле схлопывалось, пряча набранный текст.
+     */
+    @Test
+    fun searchFieldStaysVisibleWhenKeyboardIsOpen() {
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("home_search").performClick()
+        composeRule.onNodeWithTag("home_search").performTextInput("гиппо")
+
+        var keyboardShown = false
+        repeat(15) {
+            if (!keyboardShown) {
+                InstrumentationRegistry.getInstrumentation().runOnMainSync {
+                    keyboardShown = ViewCompat
+                        .getRootWindowInsets(composeRule.activity.window.decorView)
+                        ?.isVisible(WindowInsetsCompat.Type.ime()) == true
+                }
+                if (!keyboardShown) Thread.sleep(200)
+            }
+        }
+        composeRule.waitForIdle()
+
+        val bounds = composeRule.onNodeWithTag("home_search").getBoundsInRoot()
+        val visibleHeight = bounds.bottom.value - bounds.top.value
+        assertTrue(
+            "Поле поиска схлопнулось при открытой клавиатуре: видно $visibleHeight dp " +
+                "(клавиатура на экране: $keyboardShown)",
+            visibleHeight >= 40f,
+        )
+        composeRule.onNodeWithTag("home_search").assertIsDisplayed()
+        composeRule.onNodeWithText("гиппо").assertExists()
+
+        // убираем клавиатуру, чтобы не мешала следующим тестам
+        InstrumentationRegistry.getInstrumentation().uiAutomation
+            .executeShellCommand("input keyevent 4")
+        Thread.sleep(500)
     }
 }
