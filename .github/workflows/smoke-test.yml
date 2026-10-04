@@ -63,16 +63,21 @@ jobs:
           ram-size: 4096M
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
-          script: |
-            set -o pipefail
-            ./gradlew connectedDebugAndroidTest --no-daemon 2>&1 | tee "$RUNNER_TEMP/test.log"
+          # ВАЖНО: эмулятор-раннер выполняет script через sh, поэтому bash-овские
+          # возможности (pipefail) запускаем явно через bash -c.
+          script: bash -c 'set -o pipefail; ./gradlew connectedDebugAndroidTest --no-daemon 2>&1 | tee /tmp/test.log'
 
       - name: Результаты тестов в ветку ci-logs
         if: failure()
+        continue-on-error: true
         run: |
           WORK=$(mktemp -d)
           mkdir -p "$WORK/androidTest"
-          [ -f "$RUNNER_TEMP/test.log" ] && tail -n 3000 "$RUNNER_TEMP/test.log" > "$WORK/androidTest/test.log"
+          if [ -f /tmp/test.log ]; then
+            tail -n 3000 /tmp/test.log > "$WORK/androidTest/test.log"
+          else
+            echo "лог не создан: эмулятор не дошёл до запуска тестов" > "$WORK/androidTest/test.log"
+          fi
           cp -r app/build/outputs/androidTest-results/connected/* "$WORK/androidTest/" 2>/dev/null || true
           cd "$WORK"
           git init -q
@@ -80,7 +85,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -q -b ci-logs
           git add -A
-          git commit -qm "Тесты #${{ github.run_number }} (${{ github.sha }})"
+          git commit -q --allow-empty -m "Тесты #${{ github.run_number }} (${{ github.sha }})"
           git push -q --force \
             "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
 
