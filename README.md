@@ -1,11 +1,25 @@
 # Мои карты — дисконтные карты в телефоне
 
+[![Build & Release APK](https://github.com/zigorminsk-debug/discount-card/actions/workflows/android-release.yml/badge.svg)](https://github.com/zigorminsk-debug/discount-card/actions/workflows/android-release.yml)
+[![Smoke tests](https://github.com/zigorminsk-debug/discount-card/actions/workflows/smoke-test.yml/badge.svg)](https://github.com/zigorminsk-debug/discount-card/actions/workflows/smoke-test.yml)
+[![Signing self-test](https://github.com/zigorminsk-debug/discount-card/actions/workflows/signing-selftest.yml/badge.svg)](https://github.com/zigorminsk-debug/discount-card/actions/workflows/signing-selftest.yml)
+
 Android-приложение: сканирует штрих-код или QR-код дисконтной карты, определяет магазин,
 создаёт виртуальную карту для предъявления на кассе и показывает на экране ровно ту же
 информацию, что была считана. Если магазин не распознан — предлагает сфотографировать
 лицевую сторону карты. Дополнительно умеет читать NFC-метки.
 
 Всё работает **полностью офлайн**: ни коды, ни фотографии никуда не отправляются.
+
+## Скачать и установить
+
+**[→ Последний релиз (APK)](https://github.com/zigorminsk-debug/discount-card/releases/latest)**
+
+1. Откройте ссылку с телефона и скачайте файл `MoiKarty-v1.0.*.apk`.
+2. Android спросит разрешение на установку из этого источника — разрешите.
+3. При первом сканировании приложение попросит доступ к камере, при чтении метки — включить NFC.
+
+Требуется Android 7.0 или новее. Интернет не нужен ни при установке, ни при работе.
 
 | | |
 |---|---|
@@ -132,6 +146,13 @@ Workflow `.github/workflows/android-release.yml` запускается:
 ./tools/setup-signing-secrets.sh
 ```
 
+> **Пока секретов нет**, сборка не падает: APK подписывается временным debug-ключом,
+> релиз помечается как pre-release, в заголовок добавляется «— debug-подпись», а в имя
+> файла — суффикс `-DEBUGKEY`. Такие сборки работают, но обновление поверх них не встанет.
+> После добавления секретов достаточно перезапустить workflow — APK будет подписан
+> постоянным ключом с отпечатком
+> `6B:73:CC:CA:C6:FD:E2:1C:C6:B6:9C:BD:F6:E0:F9:F3:B2:DE:A1:8A:83:23:7B:3F:27:5A:69:38:7F:32:30:7F`.
+
 ## Структура проекта
 
 ```
@@ -154,8 +175,30 @@ tools/
 └── make_icons.py                   перерисовать иконки приложения
 ```
 
+## Проверки в CI
+
+Кроме сборки репозиторий гоняет два отдельных workflow:
+
+| Workflow | Что проверяет |
+|---|---|
+| `signing-selftest.yml` | генерирует временный ключ, собирает релиз и убеждается, что `apksigner` видит подпись v2+v3, а `versionCode` / `versionName` / `minSdk 24` / `targetSdk 35` / `assets/stores.json` / список разрешений в собранном APK — именно те, что заявлены |
+| `smoke-test.yml` | запускает APK на эмуляторе Android 14: приложение стартует без падения, каталог магазинов читается, EAN-13 рисуется как EAN-13 (а произвольная строка — как Code 128), Room сохраняет карту и запоминает префикс сети |
+
+Если сборка падает, полный лог Gradle и XML-отчёты тестов выкладываются в служебную
+ветку `ci-logs` — туда же, где их можно прочитать без скачивания артефактов.
+
 ## Приватность
 
-Приложение не запрашивает доступ в интернет — в манифесте нет разрешения
-`INTERNET`. Разрешения только два: камера (сканирование и фото) и NFC.
-База и фотографии лежат во внутреннем хранилище приложения и удаляются вместе с ним.
+Разрешения в собранном APK (проверяется автоматически на каждом прогоне
+`signing-selftest.yml`):
+
+```
+android.permission.CAMERA    сканирование кода и съёмка карты
+android.permission.NFC       чтение меток
+android.permission.VIBRATE   отклик при распознавании кода
+```
+
+Разрешения `INTERNET` и `ACCESS_NETWORK_STATE`, которые по умолчанию подмешивают
+библиотеки ML Kit, принудительно удалены из манифеста — приложение физически не может
+выйти в сеть. База и фотографии лежат во внутреннем хранилище приложения и удаляются
+вместе с ним.

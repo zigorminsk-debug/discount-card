@@ -240,8 +240,28 @@ jobs:
             gh release delete "$TAG" --yes --cleanup-tag || true
           fi
 
-          gh release create "$TAG" "${{ steps.apk.outputs.file }}" \
-            --title "$TITLE" \
-            --notes-file /tmp/notes.md \
-            --target "${{ github.sha }}" \
-            $PRERELEASE
+          # Публикация с ретраями: загрузка 29-мегабайтного APK иногда срывается
+          for attempt in 1 2 3; do
+            if gh release create "$TAG" "${{ steps.apk.outputs.file }}" \
+                 --title "$TITLE" \
+                 --notes-file /tmp/notes.md \
+                 --target "${{ github.sha }}" \
+                 $PRERELEASE 2>/tmp/gh_err.txt; then
+              echo "Релиз $TAG опубликован (попытка $attempt)"
+              echo "[Скачать $TITLE](https://github.com/${{ github.repository }}/releases/tag/$TAG)" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            ERR=$(tr '\n' ' ' < /tmp/gh_err.txt | head -c 800)
+            echo "::warning title=Попытка $attempt не удалась::$ERR"
+            # если релиз всё-таки создался, но упала загрузка файла — дозальём
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              if gh release upload "$TAG" "${{ steps.apk.outputs.file }}" --clobber; then
+                echo "Файл догружен к существующему релизу $TAG"
+                exit 0
+              fi
+              gh release delete "$TAG" --yes --cleanup-tag || true
+            fi
+            sleep 10
+          done
+          echo "::error title=Не удалось создать релиз::$(tr '\n' ' ' < /tmp/gh_err.txt | head -c 800)"
+          exit 1
