@@ -1,10 +1,14 @@
 package com.zigor.discountcard
 
 import android.graphics.Bitmap
+import android.util.Log
+import androidx.compose.ui.graphics.asAndroidBitmap
+import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -114,13 +118,36 @@ class ScreenshotTest {
 
     private fun shot(name: String) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
-        val bitmap: Bitmap = instrumentation.uiAutomation.takeScreenshot() ?: return
-        val dir = File(instrumentation.targetContext.getExternalFilesDir(null), "screenshots")
-        dir.mkdirs()
-        FileOutputStream(File(dir, "$name.png")).use { out ->
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+        // Снимок всего экрана вместе с системными панелями — именно он показывает,
+        // не уехал ли интерфейс под панель навигации. Если uiAutomation недоступен,
+        // берём хотя бы окно приложения средствами Compose.
+        val bitmap: Bitmap = runCatching { instrumentation.uiAutomation.takeScreenshot() }.getOrNull()
+            ?: runCatching { composeRule.onRoot().captureToImage().asAndroidBitmap() }.getOrNull()
+            ?: run {
+                Log.w(TAG, "снимок $name не получился: оба способа вернули null")
+                return
+            }
+        val context = instrumentation.targetContext
+        // Пишем и во внутреннюю память (её CI забирает через run-as),
+        // и во внешнюю (её видно через adb pull, если есть доступ).
+        listOfNotNull(context.filesDir, context.getExternalFilesDir(null)).forEach { base ->
+            runCatching {
+                val dir = File(base, "screenshots").apply { mkdirs() }
+                val file = File(dir, "$name.png")
+                FileOutputStream(file).use { out ->
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+                }
+                file.setReadable(true, false)
+                dir.setReadable(true, false)
+                dir.setExecutable(true, false)
+                Log.i(TAG, "снимок сохранён: ${file.absolutePath} (${file.length()} байт)")
+            }.onFailure { Log.w(TAG, "не удалось записать $name в $base: ${it.message}") }
         }
         bitmap.recycle()
+    }
+
+    private companion object {
+        const val TAG = "ScreenshotTest"
     }
 }
 
