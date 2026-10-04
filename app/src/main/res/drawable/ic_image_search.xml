@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24"
+    android:tint="?android:attr/colorControlNormal">
+    <!-- рамка картинки -->
+    <path android:fillColor="@android:color/white"
+        android:pathData="M4,3h12a2,2 0 0,1 2,2v4.1a6.4,6.4 0 0,0 -2,-0.1V5H4v14h7.3a6.4,6.4 0 0,0 1.2,2H4a2,2 0 0,1 -2,-2V5A2,2 0 0,1 4,3z" />
+    <!-- гора и солнце внутри -->
+    <path android:fillColor="@android:color/white"
+        android:pathData="M6.5,7.5m-1.5,0a1.5,1.5 0 1,0 3,0a1.5,1.5 0 1,0 -3,0z" />
+    <path android:fillColor="@android:color/white"
+        android:pathData="M5,17l3.2,-4.2l2.3,2.9l1.6,-1.9a6.5,6.5 0 0,0 -1.4,3.2z" />
+    <!-- лупа -->
+    <path android:fillColor="@android:color/white"
+        android:pathData="M16.5,11a4.5,4.5 0 1,0 2.6,8.2l2.1,2.1 1.4,-1.4 -2.1,-2.1A4.5,4.5 0 0,0 16.5,11zM16.5,13a2.5,2.5 0 1,1 0,5a2.5,2.5 0 0,1 0,-5z" />
+</vector>

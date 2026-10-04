@@ -14,6 +14,7 @@ import com.zigor.discountcard.data.repo.CardDraft
 import com.zigor.discountcard.ui.card.CardDetailScreen
 import com.zigor.discountcard.ui.card.CardEditScreen
 import com.zigor.discountcard.ui.home.HomeScreen
+import com.zigor.discountcard.ui.imagescan.ImageScanScreen
 import com.zigor.discountcard.ui.nfc.NfcScanScreen
 import com.zigor.discountcard.ui.photo.PhotoCaptureScreen
 import com.zigor.discountcard.ui.scan.ScanScreen
@@ -21,6 +22,7 @@ import com.zigor.discountcard.ui.scan.ScanScreen
 object Route {
     const val HOME = "home"
     const val SCAN = "scan"
+    const val IMAGE_SCAN = "image_scan"
     const val NFC = "nfc"
     const val EDIT = "edit"
     const val DETAIL = "detail"
@@ -49,6 +51,7 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                 onOpenCard = { id -> navController.navigate("${Route.DETAIL}/$id") },
                 onScanBarcode = { navController.navigate(Route.SCAN) },
                 onScanNfc = { navController.navigate(Route.NFC) },
+                onScanImage = { navController.navigate(Route.IMAGE_SCAN) },
                 onAddManual = {
                     DraftHolder.pending = null
                     navController.navigate("${Route.EDIT}?cardId=0")
@@ -74,6 +77,30 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                     DraftHolder.pending = null
                     navController.navigate("${Route.EDIT}?cardId=0") {
                         popUpTo(Route.SCAN) { inclusive = true }
+                    }
+                },
+                onScanImage = {
+                    navController.navigate(Route.IMAGE_SCAN) {
+                        popUpTo(Route.SCAN) { inclusive = true }
+                    }
+                },
+            )
+        }
+
+        composable(Route.IMAGE_SCAN) {
+            ImageScanScreen(
+                onBack = {
+                    if (!navController.popBackStack()) navController.navigate(Route.HOME)
+                },
+                onDraftReady = { draft ->
+                    DraftHolder.pending = draft
+                    navController.navigate("${Route.EDIT}?cardId=0") {
+                        popUpTo(Route.IMAGE_SCAN) { inclusive = true }
+                    }
+                },
+                onDuplicate = { id ->
+                    navController.navigate("${Route.DETAIL}/$id") {
+                        popUpTo(Route.IMAGE_SCAN) { inclusive = true }
                     }
                 },
             )

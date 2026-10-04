@@ -95,4 +95,13 @@
     <string name="about_stores_known">Stores in the catalogue: %1$d</string>
     <string name="cd_add">Add card</string>
     <string name="cd_more">More</string>
+    <!-- Scanning a code from an image/screenshot -->
+    <string name="action_scan_image">Scan a screenshot</string>
+    <string name="image_scan_title">Code from image</string>
+    <string name="image_scan_hint">Pick a screenshot or photo that shows the card\'s barcode or QR code.</string>
+    <string name="image_scan_working">Looking for a code…</string>
+    <string name="image_scan_not_found_title">No code found</string>
+    <string name="image_scan_not_found_text">This image has no barcode or QR code. You can still keep it as a card photo and show it at the checkout.</string>
+    <string name="image_scan_use_as_photo">Keep as card photo</string>
+    <string name="image_scan_pick_another">Pick another</string>
 </resources>

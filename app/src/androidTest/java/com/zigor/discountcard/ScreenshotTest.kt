@@ -1,12 +1,14 @@
 package com.zigor.discountcard
 
 import android.graphics.Bitmap
+import android.os.ParcelFileDescriptor
 import android.util.Log
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
@@ -25,9 +27,9 @@ import java.io.File
 import java.io.FileOutputStream
 
 /**
- * Снимает экраны приложения на эмуляторе и складывает PNG в
- * /sdcard/Android/data/<id>/files/screenshots — CI забирает их через adb pull.
- * Тест не проверяет пиксели, он нужен, чтобы живьём видеть вёрстку после правок.
+ * Снимает экраны приложения на эмуляторе в /sdcard/Pictures/moi-karty-shots
+ * (пишет shell, поэтому файлы переживают удаление APK после тестов) — CI забирает
+ * их через adb pull. Тест не проверяет пиксели, он нужен, чтобы живьём видеть вёрстку.
  */
 @RunWith(AndroidJUnit4::class)
 class ScreenshotTest {
@@ -109,45 +111,49 @@ class ScreenshotTest {
         composeRule.onNodeWithContentDescription(context.getString(R.string.action_back)).performClick()
         composeRule.waitForIdle()
 
-        // Ручное добавление карты
-        composeRule.onNodeWithContentDescription(context.getString(R.string.action_add_manual)).performClick()
+        // Меню с дополнительными действиями
+        composeRule.onNodeWithTag("more_button").performClick()
         composeRule.waitForIdle()
         Thread.sleep(400)
-        shot("05-card-edit")
+        shot("05-menu")
+
+        // Ручное добавление карты
+        composeRule.onNodeWithText(context.getString(R.string.action_add_manual)).performClick()
+        composeRule.waitForIdle()
+        Thread.sleep(400)
+        shot("06-card-edit")
     }
 
     private fun shot(name: String) {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
-        // Снимок всего экрана вместе с системными панелями — именно он показывает,
-        // не уехал ли интерфейс под панель навигации. Если uiAutomation недоступен,
-        // берём хотя бы окно приложения средствами Compose.
-        val bitmap: Bitmap = runCatching { instrumentation.uiAutomation.takeScreenshot() }.getOrNull()
-            ?: runCatching { composeRule.onRoot().captureToImage().asAndroidBitmap() }.getOrNull()
-            ?: run {
-                Log.w(TAG, "снимок $name не получился: оба способа вернули null")
-                return
-            }
-        val context = instrumentation.targetContext
-        // Пишем и во внутреннюю память (её CI забирает через run-as),
-        // и во внешнюю (её видно через adb pull, если есть доступ).
-        listOfNotNull(context.filesDir, context.getExternalFilesDir(null)).forEach { base ->
-            runCatching {
-                val dir = File(base, "screenshots").apply { mkdirs() }
-                val file = File(dir, "$name.png")
-                FileOutputStream(file).use { out ->
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
-                }
-                file.setReadable(true, false)
-                dir.setReadable(true, false)
-                dir.setExecutable(true, false)
-                Log.i(TAG, "снимок сохранён: ${file.absolutePath} (${file.length()} байт)")
-            }.onFailure { Log.w(TAG, "не удалось записать $name в $base: ${it.message}") }
-        }
-        bitmap.recycle()
+        // screencap выполняется от имени shell и пишет в общую папку: такие файлы
+        // переживают удаление приложения после тестов, и CI может их забрать.
+        runCatching {
+            shell("mkdir -p $SHOT_DIR")
+            shell("screencap -p $SHOT_DIR/$name.png")
+            Log.i(TAG, "screencap -> $SHOT_DIR/$name.png")
+        }.onFailure { Log.w(TAG, "screencap не сработал: ${it.message}") }
+
+        // Запасной вариант — снимок средствами Compose в память приложения
+        runCatching {
+            val bitmap: Bitmap = instrumentation.uiAutomation.takeScreenshot()
+                ?: composeRule.onRoot().captureToImage().asAndroidBitmap()
+            val dir = File(instrumentation.targetContext.filesDir, "screenshots").apply { mkdirs() }
+            val file = File(dir, "$name.png")
+            FileOutputStream(file).use { out -> bitmap.compress(Bitmap.CompressFormat.PNG, 100, out) }
+            bitmap.recycle()
+            Log.i(TAG, "снимок сохранён: ${file.absolutePath} (${file.length()} байт)")
+        }.onFailure { Log.w(TAG, "снимок $name не получился: ${it.message}") }
+    }
+
+    private fun shell(command: String) {
+        val pfd = InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(command)
+        ParcelFileDescriptor.AutoCloseInputStream(pfd).use { it.readBytes() }
     }
 
     private companion object {
         const val TAG = "ScreenshotTest"
+        const val SHOT_DIR = "/sdcard/Pictures/moi-karty-shots"
     }
 }
 

@@ -88,9 +88,12 @@ jobs:
               echo "::warning::KEYSTORE_BASE64 пустой или повреждён"
             fi
           else
+            # Запасной ключ лежит в репозитории: он не секретный, зато ОДИНАКОВЫЙ
+            # во всех сборках — значит обновление встаёт поверх установленного.
+            cp keystore/ci-fallback.p12 "$RUNNER_TEMP/release.p12"
             echo "signed=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Секрет KEYSTORE_BASE64 не задан — APK будет подписан временным debug-ключом, обновление поверх установленного не сработает. См. keystore/README.md"
-            echo "> **Внимание:** сборка без постоянного ключа (debug-подпись). Добавьте секреты — см. \`keystore/README.md\`." >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning::Секрет KEYSTORE_BASE64 не задан — APK подписан открытым запасным ключом из репозитория. Обновления ставятся поверх, но ключ известен всем. Свой ключ: keystore/README.md"
+            echo "> Сборка подписана **открытым запасным ключом** из репозитория (keystore/ci-fallback.p12). Обновления ставятся поверх друг друга. Для личного ключа добавьте секреты — см. \`keystore/README.md\`." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: chmod gradlew
@@ -99,9 +102,10 @@ jobs:
       - name: Сборка release APK
         env:
           KEYSTORE_FILE: ${{ runner.temp }}/release.p12
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          # Если своих секретов нет — берём пароль открытого запасного ключа
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || 'moikarty' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'moikarty-ci' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'moikarty' }}
         run: |
           set -o pipefail
           ./gradlew --no-daemon --stacktrace assembleRelease \
@@ -148,7 +152,7 @@ jobs:
           SRC=$(find app/build/outputs/apk/release -name '*.apk' | head -n 1)
           if [ -z "$SRC" ]; then echo "APK не найден"; exit 1; fi
           SUFFIX=""
-          if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then SUFFIX="-DEBUGKEY"; fi
+          if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then SUFFIX="-CIKEY"; fi
           OUT="MoiKarty-${{ steps.ver.outputs.tag }}${SUFFIX}.apk"
           mkdir -p dist
           cp "$SRC" "dist/$OUT"
@@ -199,7 +203,7 @@ jobs:
 
           WARN=""
           if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then
-            WARN=$'> **Внимание:** этот APK подписан временным debug-ключом, потому что в репозитории нет секрета `KEYSTORE_BASE64`.\n> Обновление поверх установленной версии не сработает. Инструкция: `keystore/README.md`.\n'
+            WARN=$'> Подписано **открытым запасным ключом** из репозитория (`keystore/ci-fallback.p12`): он одинаков во всех сборках, поэтому обновления ставятся поверх предыдущей версии.\n> Если раньше стояла сборка с другой подписью — удалите её один раз. Личный ключ подключается секретами, см. `keystore/README.md`.\n'
           fi
 
           cat > /tmp/notes.md <<EOF
@@ -232,7 +236,7 @@ jobs:
           fi
           if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then
             PRERELEASE="--prerelease"
-            TITLE="$TITLE — debug-подпись"
+            TITLE="$TITLE — открытый ключ"
           fi
 
           # Повторный запуск с тем же номером не должен ломать сборку

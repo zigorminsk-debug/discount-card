@@ -51,7 +51,7 @@ class WindowInsetsTest {
         val screenBottom = root.bottom.value
         val safeBottom = screenBottom - bars.bottom
 
-        listOf("scan_barcode_button", "scan_nfc_button", "add_manual_button").forEach { tag ->
+        listOf("scan_barcode_button", "scan_nfc_button", "more_button").forEach { tag ->
             val bounds = composeRule.onNodeWithTag(tag).getUnclippedBoundsInRoot()
             assertTrue(
                 "Кнопка $tag заходит под системную навигацию: низ ${bounds.bottom.value} dp, " +
@@ -81,7 +81,7 @@ class WindowInsetsTest {
         val root = composeRule.onRoot().getUnclippedBoundsInRoot()
         val screenRight = root.right.value
 
-        listOf("scan_barcode_button", "scan_nfc_button", "add_manual_button").forEach { tag ->
+        listOf("scan_barcode_button", "scan_nfc_button", "more_button").forEach { tag ->
             val bounds = composeRule.onNodeWithTag(tag).getUnclippedBoundsInRoot()
             assertTrue(
                 "Кнопка $tag выходит за правый край: ${bounds.right.value} dp при ширине $screenRight dp",

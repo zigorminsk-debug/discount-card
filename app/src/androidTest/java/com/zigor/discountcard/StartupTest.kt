@@ -2,7 +2,9 @@ package com.zigor.discountcard
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -33,6 +35,16 @@ class StartupTest {
         composeRule.onNodeWithText(context.getString(R.string.home_title)).assertIsDisplayed()
         composeRule.onNodeWithText(context.getString(R.string.action_scan_barcode)).assertIsDisplayed()
         composeRule.onNodeWithText(context.getString(R.string.action_scan_nfc)).assertIsDisplayed()
+    }
+
+    @Test
+    fun menuOffersScanFromImage() {
+        val context = composeRule.activity
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("more_button").performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText(context.getString(R.string.action_scan_image)).assertIsDisplayed()
+        composeRule.onNodeWithText(context.getString(R.string.action_add_manual)).assertIsDisplayed()
     }
 
     @Test

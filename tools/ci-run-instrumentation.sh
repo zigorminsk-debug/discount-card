@@ -20,25 +20,14 @@ RC=$?
 
 adb shell settings put system font_scale 1.0 || true
 
-# Снимки экранов, которые сделал ScreenshotTest. Путь во внешней памяти
-# приложения на Android 11+ не читается обычным shell, поэтому есть запасной
-# вариант через run-as (работает для debug-сборки).
+# Снимки экранов, которые сделал ScreenshotTest. Папка приложения не годится:
+# Gradle удаляет APK после тестов вместе с файлами, поэтому тест пишет снимки
+# в общую папку от имени shell (screencap).
 {
-  echo "=== снимки экранов: внешняя память приложения ==="
-  adb shell ls -l "/sdcard/Android/data/$PKG/files/screenshots" 2>&1 || true
-  adb pull "/sdcard/Android/data/$PKG/files/screenshots/." "$SHOTS" 2>&1 || true
-
-  echo "=== снимки экранов: внутренняя память через run-as ==="
-  for name in $(adb exec-out run-as "$PKG" ls files/screenshots 2>/dev/null | tr -d '\r'); do
-    if [ ! -s "$SHOTS/$name" ]; then
-      if adb exec-out run-as "$PKG" cat "files/screenshots/$name" > "$SHOTS/$name" 2>/dev/null; then
-        echo "забрали через run-as: $name"
-      else
-        rm -f "$SHOTS/$name"
-        echo "не удалось забрать: $name"
-      fi
-    fi
-  done
+  echo "=== снимки экранов (screencap от shell, переживают удаление приложения) ==="
+  adb shell ls -l /sdcard/Pictures/moi-karty-shots 2>&1 || true
+  adb pull /sdcard/Pictures/moi-karty-shots/. "$SHOTS" 2>&1 || true
+  adb shell rm -rf /sdcard/Pictures/moi-karty-shots 2>&1 || true
 
   echo "=== итог ==="
   ls -la "$SHOTS" 2>&1 || true

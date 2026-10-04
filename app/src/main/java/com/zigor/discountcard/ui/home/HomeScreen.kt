@@ -27,9 +27,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -69,6 +72,7 @@ fun HomeScreen(
     onOpenCard: (Long) -> Unit,
     onScanBarcode: () -> Unit,
     onScanNfc: () -> Unit,
+    onScanImage: () -> Unit,
     onAddManual: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -76,6 +80,7 @@ fun HomeScreen(
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModel.factory(container.repository))
     val state by viewModel.state.collectAsStateWithLifecycle()
     var aboutVisible by remember { mutableStateOf(false) }
+    var menuOpen by remember { mutableStateOf(false) }
 
     Scaffold(
         contentWindowInsets = WindowInsets.safeDrawing
@@ -138,14 +143,38 @@ fun HomeScreen(
                             overflow = TextOverflow.Ellipsis,
                         )
                     }
-                    IconButton(
-                        onClick = onAddManual,
-                        modifier = Modifier.testTag("add_manual_button"),
-                    ) {
-                        Icon(
-                            painterResource(R.drawable.ic_keyboard),
-                            contentDescription = stringResource(R.string.action_add_manual),
-                        )
+                    Box {
+                        IconButton(
+                            onClick = { menuOpen = true },
+                            modifier = Modifier.testTag("more_button"),
+                        ) {
+                            Icon(
+                                Icons.Default.MoreVert,
+                                contentDescription = stringResource(R.string.cd_more),
+                            )
+                        }
+                        DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.action_scan_image)) },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_image_search), null)
+                                },
+                                onClick = {
+                                    menuOpen = false
+                                    onScanImage()
+                                },
+                            )
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.action_add_manual)) },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_keyboard), null)
+                                },
+                                onClick = {
+                                    menuOpen = false
+                                    onAddManual()
+                                },
+                            )
+                        }
                     }
                 }
             }

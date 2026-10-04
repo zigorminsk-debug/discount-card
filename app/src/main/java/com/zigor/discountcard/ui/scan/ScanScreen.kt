@@ -61,6 +61,7 @@ fun ScanScreen(
     onDraftReady: (CardDraft) -> Unit,
     onDuplicate: (Long) -> Unit,
     onManualInput: () -> Unit,
+    onScanImage: () -> Unit,
 ) {
     val context = LocalContext.current
     val container = remember { context.appContainer }
@@ -194,17 +195,34 @@ fun ScanScreen(
             }
         }
 
-        // Нижняя кнопка ручного ввода
-        TextButton(
-            onClick = onManualInput,
+        // Нижние кнопки: распознать код с картинки и ввести номер руками
+        Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .navigationBarsPadding()
-                .padding(bottom = 22.dp),
+                .padding(bottom = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Icon(painterResource(R.drawable.ic_keyboard), null, tint = Color.White, modifier = Modifier.size(18.dp))
-            Spacer(Modifier.width(8.dp))
-            Text(stringResource(R.string.scan_manual), color = Color.White)
+            TextButton(onClick = onScanImage) {
+                Icon(
+                    painterResource(R.drawable.ic_image_search),
+                    null,
+                    tint = Color.White,
+                    modifier = Modifier.size(18.dp),
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.action_scan_image), color = Color.White)
+            }
+            TextButton(onClick = onManualInput) {
+                Icon(
+                    painterResource(R.drawable.ic_keyboard),
+                    null,
+                    tint = Color.White,
+                    modifier = Modifier.size(18.dp),
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.scan_manual), color = Color.White)
+            }
         }
     }
 }

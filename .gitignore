@@ -34,3 +34,6 @@ output.json
 # --- OS ---
 .DS_Store
 Thumbs.db
+
+# Открытый запасной ключ CI (не секрет, специально в репозитории)
+!keystore/ci-fallback.p12
