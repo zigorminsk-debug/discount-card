@@ -111,4 +111,20 @@
     <string name="image_scan_not_found_text">На этой картинке не видно штрих-кода или QR-кода. Можно сохранить её как фото карты — такую карту тоже можно показать на кассе.</string>
     <string name="image_scan_use_as_photo">Сохранить как фото карты</string>
     <string name="image_scan_pick_another">Выбрать другую</string>
+    <!-- Перенос карт на другой телефон -->
+    <string name="action_export_cards">Отправить карты</string>
+    <string name="action_import_cards">Получить карты</string>
+    <string name="export_subject">Мои карты: %1$d шт.</string>
+    <string name="export_share_title">Отправить файл с картами</string>
+    <string name="export_failed">Не удалось собрать файл с картами</string>
+    <string name="import_title">Перенос карт</string>
+    <string name="import_working">Читаем файл…</string>
+    <string name="import_found">В файле карт: %1$d. Выгружен %2$s</string>
+    <string name="import_duplicates_hint">Карты, которые уже есть на этом телефоне, добавлены не будут.</string>
+    <string name="import_action">Добавить карты</string>
+    <string name="import_done">Добавлено: %1$d. Пропущено (уже были): %2$d</string>
+    <string name="import_failed">Это не файл с картами «Мои карты»</string>
+    <!-- Разработчик -->
+    <string name="about_developer">Разработчик: Zakharevich Igor</string>
+    <string name="about_developer_phone">+375 29 337-14-12</string>
 </resources>

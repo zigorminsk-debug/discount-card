@@ -1,0 +1,137 @@
+name: Update over install
+
+# Проверяет на живом эмуляторе, что новая сборка действительно СТАВИТСЯ ПОВЕРХ
+# уже установленного приложения: без удаления, без потери карт, с тем же ключом.
+# За «прошлую версию» берётся последний опубликованный релиз — ровно то, что
+# стоит у пользователя на телефоне.
+
+on:
+  push:
+    branches: ['arena/**', main, master]
+    paths:
+      - 'app/src/main/**'
+      - 'app/build.gradle.kts'
+      - 'gradle/**'
+      - 'keystore/**'
+      - 'tools/ci-check-upgrade.sh'
+      - '.github/workflows/upgrade-test.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: upgrade-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  upgrade:
+    name: Новая версия поверх прошлой
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Включить KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: chmod
+        run: chmod +x ./gradlew tools/ci-check-upgrade.sh
+
+      - name: Ключ подписи
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | tr -d '\n' | base64 -d > "$RUNNER_TEMP/release.p12"
+          else
+            cp keystore/ci-fallback.p12 "$RUNNER_TEMP/release.p12"
+          fi
+
+      - name: Собрать новую версию
+        env:
+          KEYSTORE_FILE: ${{ runner.temp }}/release.p12
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || 'moikarty' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'moikarty-ci' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'moikarty' }}
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon assembleRelease -PappBuildNumber=9001 -PappVersionBase=9.9
+          SRC=$(find app/build/outputs/apk/release -name '*.apk' | head -n 1)
+          [ -n "$SRC" ] || { echo "::error::APK новой версии не собрался"; exit 1; }
+          cp "$SRC" /tmp/new.apk
+          ls -la /tmp/new.apk
+
+      - name: Взять прошлую версию (опубликованный релиз)
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)
+          SOURCE="сборка с меньшим versionCode"
+          if [ -n "$TAG" ] && gh release download "$TAG" --pattern '*.apk' --output /tmp/old.apk 2>/dev/null; then
+            SOURCE="опубликованный релиз $TAG"
+          else
+            ./gradlew --no-daemon assembleRelease -PappBuildNumber=9000 -PappVersionBase=9.9
+            cp "$(find app/build/outputs/apk/release -name '*.apk' | head -n 1)" /tmp/old.apk
+          fi
+          echo "source=$SOURCE" >> "$GITHUB_OUTPUT"
+          echo "Прошлая версия: $SOURCE" >> "$GITHUB_STEP_SUMMARY"
+          ls -la /tmp/old.apk
+
+      - name: Сверить отпечатки ключей подписи
+        id: certs
+        run: |
+          BT=$(ls -1 "$ANDROID_HOME/build-tools" | sort -V | tail -n 1)
+          SIGNER="$ANDROID_HOME/build-tools/$BT/apksigner"
+          OLD=$("$SIGNER" verify --print-certs /tmp/old.apk | grep -m1 'SHA-256 digest' | awk '{print $NF}')
+          NEW=$("$SIGNER" verify --print-certs /tmp/new.apk | grep -m1 'SHA-256 digest' | awk '{print $NF}')
+          {
+            echo "| | Отпечаток ключа (SHA-256) |"
+            echo "|---|---|"
+            echo "| Прошлая версия | \`$OLD\` |"
+            echo "| Новая сборка | \`$NEW\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$OLD" != "$NEW" ]; then
+            echo "::error title=Разные ключи подписи::Прошлая версия подписана $OLD, новая $NEW — обновление поверх невозможно"
+            exit 1
+          fi
+          echo "Ключ один и тот же: $NEW"
+
+      - name: Установка поверх на эмуляторе
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          ram-size: 4096M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
+          script: bash tools/ci-check-upgrade.sh /tmp/old.apk /tmp/new.apk
+
+      - name: Итог
+        if: success()
+        run: |
+          {
+            echo ""
+            echo "Обновление поверх проверено: прошлая версия (${{ steps.previous.outputs.source }})"
+            echo "обновилась новой сборкой без удаления, данные приложения уцелели,"
+            echo "приложение запустилось после обновления."
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,8 +1,12 @@
 package com.zigor.discountcard.ui.nav
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -18,6 +22,7 @@ import com.zigor.discountcard.ui.imagescan.ImageScanScreen
 import com.zigor.discountcard.ui.nfc.NfcScanScreen
 import com.zigor.discountcard.ui.photo.PhotoCaptureScreen
 import com.zigor.discountcard.ui.scan.ScanScreen
+import com.zigor.discountcard.ui.transfer.ImportScreen
 
 object Route {
     const val HOME = "home"
@@ -28,6 +33,18 @@ object Route {
     const val DETAIL = "detail"
     const val PHOTO = "photo"
     const val PHOTO_RESULT = "photo_result"
+    const val IMPORT = "import"
+}
+
+/** Файл с картами, присланный из мессенджера: ждёт, пока его откроет экран импорта. */
+object IncomingFile {
+    var pending by mutableStateOf<Uri?>(null)
+
+    fun take(): Uri? {
+        val value = pending
+        pending = null
+        return value
+    }
 }
 
 /** Черновик считанной карты передаётся между экранами в памяти процесса. */
@@ -44,6 +61,12 @@ object DraftHolder {
 
 @Composable
 fun AppNavHost(navController: NavHostController = rememberNavController()) {
+    // Пришёл файл с картами — сразу открываем экран импорта
+    val incoming = IncomingFile.pending
+    LaunchedEffect(incoming) {
+        if (incoming != null) navController.navigate(Route.IMPORT)
+    }
+
     NavHost(navController = navController, startDestination = Route.HOME) {
 
         composable(Route.HOME) {
@@ -52,6 +75,7 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                 onScanBarcode = { navController.navigate(Route.SCAN) },
                 onScanNfc = { navController.navigate(Route.NFC) },
                 onScanImage = { navController.navigate(Route.IMAGE_SCAN) },
+                onImportCards = { navController.navigate(Route.IMPORT) },
                 onAddManual = {
                     DraftHolder.pending = null
                     navController.navigate("${Route.EDIT}?cardId=0")
@@ -118,6 +142,21 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                 onDuplicate = { id ->
                     navController.navigate("${Route.DETAIL}/$id") {
                         popUpTo(Route.NFC) { inclusive = true }
+                    }
+                },
+            )
+        }
+
+        composable(Route.IMPORT) {
+            ImportScreen(
+                onBack = {
+                    IncomingFile.pending = null
+                    if (!navController.popBackStack()) navController.navigate(Route.HOME)
+                },
+                onFinished = {
+                    IncomingFile.pending = null
+                    navController.navigate(Route.HOME) {
+                        popUpTo(Route.HOME) { inclusive = true }
                     }
                 },
             )

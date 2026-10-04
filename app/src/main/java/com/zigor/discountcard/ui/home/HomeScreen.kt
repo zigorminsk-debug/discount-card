@@ -33,6 +33,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -44,10 +45,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,10 +66,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.zigor.discountcard.R
+import androidx.core.content.FileProvider
 import com.zigor.discountcard.appContainer
+import com.zigor.discountcard.data.transfer.CardTransfer
 import com.zigor.discountcard.ui.components.CardTile
 import com.zigor.discountcard.ui.components.EmptyState
 import com.zigor.discountcard.util.appVersion
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -73,6 +81,7 @@ fun HomeScreen(
     onScanBarcode: () -> Unit,
     onScanNfc: () -> Unit,
     onScanImage: () -> Unit,
+    onImportCards: () -> Unit,
     onAddManual: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -81,6 +90,40 @@ fun HomeScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     var aboutVisible by remember { mutableStateOf(false) }
     var menuOpen by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+
+    // Экспорт: карты и фото пакуются в один файл и уходят в «Поделиться»
+    // (Telegram, почта, Bluetooth) — приложению для этого не нужен интернет.
+    fun exportCards() {
+        scope.launch {
+            val done = runCatching { CardTransfer.export(context, container.repository) }
+            done.onSuccess { result ->
+                runCatching {
+                    val uri = FileProvider.getUriForFile(
+                        context,
+                        context.packageName + ".files",
+                        result.file,
+                    )
+                    val send = Intent(Intent.ACTION_SEND).apply {
+                        type = CardTransfer.MIME
+                        putExtra(Intent.EXTRA_STREAM, uri)
+                        putExtra(
+                            Intent.EXTRA_SUBJECT,
+                            context.getString(R.string.export_subject, result.cards),
+                        )
+                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    }
+                    context.startActivity(
+                        Intent.createChooser(send, context.getString(R.string.export_share_title)),
+                    )
+                }.onFailure {
+                    Toast.makeText(context, R.string.export_failed, Toast.LENGTH_LONG).show()
+                }
+            }.onFailure {
+                Toast.makeText(context, R.string.export_failed, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 
     Scaffold(
         contentWindowInsets = WindowInsets.safeDrawing
@@ -174,6 +217,28 @@ fun HomeScreen(
                                     onAddManual()
                                 },
                             )
+                            HorizontalDivider()
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.action_export_cards)) },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_share), null)
+                                },
+                                enabled = state.total > 0,
+                                onClick = {
+                                    menuOpen = false
+                                    exportCards()
+                                },
+                            )
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.action_import_cards)) },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_download), null)
+                                },
+                                onClick = {
+                                    menuOpen = false
+                                    onImportCards()
+                                },
+                            )
                         }
                     }
                 }
@@ -261,6 +326,23 @@ fun HomeScreen(
                         stringResource(R.string.about_stores_known, storesCount),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                    Spacer(Modifier.height(14.dp))
+                    Text(
+                        stringResource(R.string.about_developer),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                    TextButton(
+                        onClick = {
+                            runCatching {
+                                context.startActivity(
+                                    Intent(Intent.ACTION_DIAL, Uri.parse("tel:+375293371412")),
+                                )
+                            }
+                        },
+                        contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp),
+                    ) {
+                        Text(stringResource(R.string.about_developer_phone))
+                    }
                 }
             },
             iconContentColor = Color.Unspecified,
