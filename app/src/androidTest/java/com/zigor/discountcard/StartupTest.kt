@@ -4,6 +4,9 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -14,6 +17,13 @@ class StartupTest {
 
     @get:Rule
     val composeRule = createAndroidComposeRule<MainActivity>()
+
+    /** Тесты не должны зависеть от порядка запуска: начинаем с пустой базы. */
+    @Before
+    fun clearDatabase() = runBlocking {
+        val repository = composeRule.activity.appContainer.repository
+        repository.observeCards().first().forEach { repository.delete(it) }
+    }
 
     @Test
     fun appStartsAndShowsHomeScreen() {

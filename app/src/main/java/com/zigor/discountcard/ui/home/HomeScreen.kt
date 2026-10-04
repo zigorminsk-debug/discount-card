@@ -6,16 +6,24 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
@@ -42,8 +50,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -68,6 +78,8 @@ fun HomeScreen(
     var aboutVisible by remember { mutableStateOf(false) }
 
     Scaffold(
+        contentWindowInsets = WindowInsets.safeDrawing
+            .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top),
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.home_title)) },
@@ -83,31 +95,53 @@ fun HomeScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                        // панель рисуется поверх системной навигации, поэтому её отступы
+                        // нужно забрать себе — иначе кнопки уезжают под кнопки системы
+                        .windowInsetsPadding(
+                            WindowInsets.safeDrawing
+                                .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom),
+                        )
+                        .padding(horizontal = 12.dp, vertical = 10.dp)
+                        .testTag("home_bottom_bar"),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Button(
                         onClick = onScanBarcode,
-                        modifier = Modifier.weight(1.4f),
+                        modifier = Modifier
+                            .weight(1.4f)
+                            .testTag("scan_barcode_button"),
                         shape = RoundedCornerShape(14.dp),
-                        contentPadding = PaddingValues(vertical = 14.dp),
+                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 14.dp),
                     ) {
                         Icon(painterResource(R.drawable.ic_scan), null, modifier = Modifier.size(20.dp))
                         Spacer(Modifier.width(8.dp))
-                        Text(stringResource(R.string.action_scan_barcode))
+                        Text(
+                            text = stringResource(R.string.action_scan_barcode),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
                     }
                     FilledTonalButton(
                         onClick = onScanNfc,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(1f)
+                            .testTag("scan_nfc_button"),
                         shape = RoundedCornerShape(14.dp),
-                        contentPadding = PaddingValues(vertical = 14.dp),
+                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 14.dp),
                     ) {
                         Icon(painterResource(R.drawable.ic_nfc), null, modifier = Modifier.size(20.dp))
                         Spacer(Modifier.width(6.dp))
-                        Text(stringResource(R.string.action_scan_nfc), maxLines = 1)
+                        Text(
+                            text = stringResource(R.string.action_scan_nfc),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
                     }
-                    IconButton(onClick = onAddManual) {
+                    IconButton(
+                        onClick = onAddManual,
+                        modifier = Modifier.testTag("add_manual_button"),
+                    ) {
                         Icon(
                             painterResource(R.drawable.ic_keyboard),
                             contentDescription = stringResource(R.string.action_add_manual),
@@ -120,7 +154,8 @@ fun HomeScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding),
+                .padding(padding)
+                .imePadding(),
         ) {
             OutlinedTextField(
                 value = state.query,
@@ -128,7 +163,13 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 6.dp),
-                placeholder = { Text(stringResource(R.string.home_search_hint)) },
+                placeholder = {
+                    Text(
+                        text = stringResource(R.string.home_search_hint),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                 trailingIcon = {
                     if (state.query.isNotEmpty()) {
@@ -143,11 +184,17 @@ fun HomeScreen(
 
             when {
                 state.loading -> Box(Modifier.fillMaxSize())
-                state.total == 0 -> EmptyState(
-                    title = stringResource(R.string.home_empty_title),
-                    subtitle = stringResource(R.string.home_empty_subtitle),
-                    modifier = Modifier.padding(top = 40.dp),
-                )
+                state.total == 0 -> Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState()),
+                ) {
+                    EmptyState(
+                        title = stringResource(R.string.home_empty_title),
+                        subtitle = stringResource(R.string.home_empty_subtitle),
+                        modifier = Modifier.padding(top = 24.dp),
+                    )
+                }
                 state.cards.isEmpty() -> Text(
                     text = stringResource(R.string.home_nothing_found),
                     modifier = Modifier.padding(24.dp),

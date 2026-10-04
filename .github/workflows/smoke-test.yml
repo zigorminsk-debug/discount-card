@@ -65,20 +65,34 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
           # ВАЖНО: эмулятор-раннер выполняет script через sh, поэтому bash-овские
           # возможности (pipefail) запускаем явно через bash -c.
-          script: bash -c 'set -o pipefail; ./gradlew connectedDebugAndroidTest --no-daemon 2>&1 | tee /tmp/test.log'
+          # Крупный системный шрифт (1.3) — как у реальных телефонов с увеличенным
+          # размером текста: так ловятся переполнения вёрстки.
+          script: bash -c 'set -o pipefail;
+            adb shell settings put system font_scale 1.30;
+            sleep 3;
+            ./gradlew connectedDebugAndroidTest --no-daemon 2>&1 | tee /tmp/test.log;
+            RC=$?;
+            mkdir -p /tmp/shots;
+            adb pull /sdcard/Android/data/com.zigor.discountcard.debug/files/screenshots /tmp/shots || true;
+            adb shell settings put system font_scale 1.0 || true;
+            exit $RC'
 
-      - name: Результаты тестов в ветку ci-logs
-        if: failure()
+      - name: Результаты и снимки экранов в ветку ci-logs
+        if: always()
         continue-on-error: true
         run: |
           WORK=$(mktemp -d)
-          mkdir -p "$WORK/androidTest"
+          mkdir -p "$WORK/androidTest" "$WORK/screenshots"
           if [ -f /tmp/test.log ]; then
             tail -n 3000 /tmp/test.log > "$WORK/androidTest/test.log"
           else
             echo "лог не создан: эмулятор не дошёл до запуска тестов" > "$WORK/androidTest/test.log"
           fi
           cp -r app/build/outputs/androidTest-results/connected/* "$WORK/androidTest/" 2>/dev/null || true
+          find /tmp/shots -name '*.png' -exec cp {} "$WORK/screenshots/" \; 2>/dev/null || true
+          mkdir -p "$GITHUB_WORKSPACE/screenshots-out"
+          cp "$WORK"/screenshots/*.png "$GITHUB_WORKSPACE/screenshots-out/" 2>/dev/null || true
+          ls -la "$WORK/screenshots" || true
           cd "$WORK"
           git init -q
           git config user.name "github-actions[bot]"
@@ -123,5 +137,6 @@ jobs:
           path: |
             app/build/reports/androidTests/connected/**
             app/build/outputs/androidTest-results/connected/**
+            screenshots-out/**
           retention-days: 14
           if-no-files-found: ignore
