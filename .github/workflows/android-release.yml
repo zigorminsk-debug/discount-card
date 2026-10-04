@@ -12,6 +12,7 @@ on:
       - 'docs/**'
       - '.gitignore'
       - '.github/workflows/signing-selftest.yml'
+      - '.github/workflows/smoke-test.yml'
   pull_request:
     branches: [main, master]
   workflow_dispatch:

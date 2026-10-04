@@ -53,6 +53,8 @@ android {
         versionCode = appBuildNumber.coerceAtLeast(1)
         versionName = appVersionName
         resourceConfigurations += listOf("ru", "en")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
         vectorDrawables { useSupportLibrary = true }
     }
 
@@ -152,4 +154,10 @@ dependencies {
 
     implementation(libs.mlkit.barcode.scanning)
     implementation(libs.zxing.core)
+
+    androidTestImplementation(libs.androidx.test.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }
