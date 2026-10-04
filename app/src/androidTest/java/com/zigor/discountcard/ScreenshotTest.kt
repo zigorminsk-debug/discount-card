@@ -135,6 +135,17 @@ class ScreenshotTest {
         composeRule.waitForIdle()
         Thread.sleep(400)
         shot("06-card-edit")
+
+        // Инструкция «Как пользоваться»
+        shell("input keyevent 4")
+        Thread.sleep(700)
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("more_button").performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText(context.getString(R.string.action_help)).performClick()
+        composeRule.waitForIdle()
+        Thread.sleep(500)
+        shot("08-help")
     }
 
     private fun shot(name: String) {

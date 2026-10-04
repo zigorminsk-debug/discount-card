@@ -92,7 +92,6 @@
     <string name="about_title">About</string>
     <string name="about_version">Version %1$s (build %2$d)</string>
     <string name="about_text">All cards, codes and photos stay on your phone and are never uploaded. The app goes online for one thing only: once a day it asks GitHub whether a newer version is out.</string>
-    <string name="about_stores_known">Stores in the catalogue: %1$d</string>
     <string name="cd_add">Add card</string>
     <string name="cd_more">More</string>
     <!-- Scanning a code from an image/screenshot -->
@@ -129,4 +128,42 @@
     <string name="update_hint">The browser downloads the file — open it and confirm the install. The new version goes on top, your cards stay in place.</string>
     <string name="update_download">Download</string>
     <string name="update_later">Later</string>
+    <!-- Help -->
+    <string name="action_help">How to use</string>
+    <string name="help_title">How to use</string>
+    <string name="help_intro">The app keeps loyalty cards on your phone: number, code type, photo and NFC tag. At the till the card is shown right from the screen. The internet is used only to check for a new version.</string>
+
+    <string name="help_scan_title">1. Add a card with the scanner</string>
+    <string name="help_scan_text">Tap “Barcode” at the bottom and point the camera at the code on the back of the card. Keep the whole code inside the frame; the lightning button helps in the dark. The format (EAN-13, Code 128, QR and others) is detected automatically. Then check the store name and tap “Save”.</string>
+
+    <string name="help_unknown_title">2. If the store was not recognised</string>
+    <string name="help_unknown_text">The app offers to photograph the front of the card and type the store name. Do it once: the next card with a similar number is recognised automatically — the app remembers your names.</string>
+
+    <string name="help_image_title">3. Code from a screenshot or gallery</string>
+    <string name="help_image_text">“⋮” → “Scan a screenshot”. A screenshot from the store app, a photo of the card or a picture sent in a messenger all work. If the picture holds several codes, the app lets you pick one.</string>
+
+    <string name="help_manual_title">4. Type the number by hand</string>
+    <string name="help_manual_text">“⋮” → “Enter manually”. You need the name and the number. Pick the code format from the list: 13 digits is usually EAN-13, everything else is Code 128. If a scanner refuses the code, try another format and compare the picture with the card.</string>
+
+    <string name="help_nfc_title">5. NFC card or pass</string>
+    <string name="help_nfc_text">Tap “NFC card”, turn NFC on in the phone settings and hold the card against the back of the phone. The UID, tag type and NDEF payload are saved. Android does not allow emulating someone else’s contactless card, so show the number or the barcode at the till — the NFC record is a reference.</string>
+
+    <string name="help_checkout_title">6. Show the card at the till</string>
+    <string name="help_checkout_text">Tap a card in the list — a large code opens and the screen brightens automatically. Hold the screen flat in front of the scanner. If the scanner will not read it, tap the number under the code: it is copied and you can read it out.</string>
+
+    <string name="help_photo_title">7. Photos of the card</string>
+    <string name="help_photo_text">In card editing (the pencil) you can shoot the front and the back. Handy when the code is worn out or the cashier wants to see the card itself.</string>
+
+    <string name="help_transfer_title">8. Move cards to another phone</string>
+    <string name="help_transfer_text">“⋮” → “Send cards”: every card with its photos is packed into one file and handed to the system share sheet — for example Telegram to yourself. On the second phone tap that file in the chat: the app opens the transfer screen, then tap “Add cards”. Cards that already exist are skipped.</string>
+
+    <string name="help_update_title">9. Updates</string>
+    <string name="help_update_text">“⋮” → “Check for updates”. Once a day the app asks GitHub whether a newer version is out and offers to download the APK. A new version installs over the old one: cards, photos and history stay in place.</string>
+
+    <string name="help_privacy_title">10. Where the data lives</string>
+    <string name="help_privacy_text">Cards, photos and history are stored on this phone only and disappear together with the app. Before changing or resetting the phone use “Send cards” and keep the file — that is your backup.</string>
+
+    <!-- List -->
+    <string name="help_list_title">The card list</string>
+    <string name="help_list_text">The field at the top searches by name and number. The star on the card screen pins it to the top of the list, the rest are sorted by last use. The pencil edits, the bin deletes.</string>
 </resources>

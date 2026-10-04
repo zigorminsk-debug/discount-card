@@ -87,6 +87,7 @@ fun HomeScreen(
     onScanNfc: () -> Unit,
     onScanImage: () -> Unit,
     onImportCards: () -> Unit,
+    onOpenHelp: () -> Unit,
     onAddManual: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -227,6 +228,17 @@ fun HomeScreen(
                             )
                         }
                         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.action_help)) },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_help), null)
+                                },
+                                onClick = {
+                                    menuOpen = false
+                                    onOpenHelp()
+                                },
+                            )
+                            HorizontalDivider()
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.action_scan_image)) },
                                 leadingIcon = {
@@ -410,21 +422,23 @@ fun HomeScreen(
 
     if (aboutVisible) {
         val version = remember { context.appVersion() }
-        val storesCount = remember { container.catalog.stores.size }
         AlertDialog(
             onDismissRequest = { aboutVisible = false },
             confirmButton = { TextButton(onClick = { aboutVisible = false }) { Text(stringResource(R.string.action_ok)) } },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        aboutVisible = false
+                        onOpenHelp()
+                    },
+                ) { Text(stringResource(R.string.action_help)) }
+            },
             title = { Text(stringResource(R.string.about_title)) },
             text = {
                 Column {
                     Text(stringResource(R.string.about_version, version.name, version.code))
                     Spacer(Modifier.height(8.dp))
                     Text(stringResource(R.string.about_text))
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        stringResource(R.string.about_stores_known, storesCount),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
                     Spacer(Modifier.height(14.dp))
                     Text(
                         stringResource(R.string.about_developer),

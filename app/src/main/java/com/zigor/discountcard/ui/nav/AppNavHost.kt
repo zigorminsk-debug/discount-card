@@ -21,6 +21,7 @@ import com.zigor.discountcard.ui.home.HomeScreen
 import com.zigor.discountcard.ui.imagescan.ImageScanScreen
 import com.zigor.discountcard.ui.nfc.NfcScanScreen
 import com.zigor.discountcard.ui.photo.PhotoCaptureScreen
+import com.zigor.discountcard.ui.help.HelpScreen
 import com.zigor.discountcard.ui.scan.ScanScreen
 import com.zigor.discountcard.ui.transfer.ImportScreen
 
@@ -34,6 +35,7 @@ object Route {
     const val PHOTO = "photo"
     const val PHOTO_RESULT = "photo_result"
     const val IMPORT = "import"
+    const val HELP = "help"
 }
 
 /** Файл с картами, присланный из мессенджера: ждёт, пока его откроет экран импорта. */
@@ -76,6 +78,7 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                 onScanNfc = { navController.navigate(Route.NFC) },
                 onScanImage = { navController.navigate(Route.IMAGE_SCAN) },
                 onImportCards = { navController.navigate(Route.IMPORT) },
+                onOpenHelp = { navController.navigate(Route.HELP) },
                 onAddManual = {
                     DraftHolder.pending = null
                     navController.navigate("${Route.EDIT}?cardId=0")
@@ -145,6 +148,10 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                     }
                 },
             )
+        }
+
+        composable(Route.HELP) {
+            HelpScreen(onBack = { navController.popBackStack() })
         }
 
         composable(Route.IMPORT) {
