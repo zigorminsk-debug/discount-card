@@ -139,4 +139,42 @@ class WindowInsetsTest {
         ParcelFileDescriptor.AutoCloseInputStream(pfd).use { it.readBytes() }
         Thread.sleep(500)
     }
+
+    /** Диагностика: пишет в логкат точные размеры при открытой клавиатуре. */
+    @Test
+    fun keyboardLayoutDiagnostics() {
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("home_search").performClick()
+        composeRule.onNodeWithTag("home_search").performTextInput("гиппо")
+        Thread.sleep(2500)
+        composeRule.waitForIdle()
+
+        var window = ""
+        InstrumentationRegistry.getInstrumentation().runOnMainSync {
+            val activity = composeRule.activity
+            val decor = activity.window.decorView
+            val insets = ViewCompat.getRootWindowInsets(decor)
+            val ime = insets?.getInsets(WindowInsetsCompat.Type.ime())?.bottom
+            val imeVisible = insets?.isVisible(WindowInsetsCompat.Type.ime())
+            val content = activity.findViewById<android.view.View>(android.R.id.content)
+            window = "decor=${decor.width}x${decor.height} content=${content.width}x${content.height} " +
+                "imeInset=$ime imeVisible=$imeVisible softInput=${activity.window.attributes.softInputMode}"
+        }
+        val root = composeRule.onRoot().getUnclippedBoundsInRoot()
+        val clipped = composeRule.onNodeWithTag("home_search").getBoundsInRoot()
+        val unclipped = composeRule.onNodeWithTag("home_search").getUnclippedBoundsInRoot()
+        val bar = runCatching {
+            composeRule.onNodeWithTag("home_bottom_bar").getUnclippedBoundsInRoot().toString()
+        }.getOrDefault("нет на экране")
+
+        android.util.Log.i(
+            "LayoutDiag",
+            "$window | root=$root | поле: видно=$clipped полностью=$unclipped | нижняя панель=$bar",
+        )
+
+        val pfd = InstrumentationRegistry.getInstrumentation().uiAutomation
+            .executeShellCommand("input keyevent 4")
+        ParcelFileDescriptor.AutoCloseInputStream(pfd).use { it.readBytes() }
+        Thread.sleep(500)
+    }
 }

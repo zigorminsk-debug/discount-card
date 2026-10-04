@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.only
@@ -160,14 +159,46 @@ fun HomeScreen(
         contentWindowInsets = WindowInsets.safeDrawing
             .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top),
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.home_title)) },
-                actions = {
-                    IconButton(onClick = { aboutVisible = true }) {
-                        Icon(Icons.Default.Info, contentDescription = stringResource(R.string.about_title))
-                    }
-                },
-            )
+            Column {
+                TopAppBar(
+                    title = { Text(stringResource(R.string.home_title)) },
+                    actions = {
+                        IconButton(onClick = { aboutVisible = true }) {
+                            Icon(
+                                Icons.Default.Info,
+                                contentDescription = stringResource(R.string.about_title),
+                            )
+                        }
+                    },
+                )
+                // Поле поиска живёт в верхней панели: её высота не зависит от того,
+                // сколько места съела клавиатура, поэтому поле нельзя сжать или обрезать
+                OutlinedTextField(
+                    value = state.query,
+                    onValueChange = viewModel::onQueryChange,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 6.dp)
+                        .testTag("home_search"),
+                    placeholder = {
+                        Text(
+                            text = stringResource(R.string.home_search_hint),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                    leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                    trailingIcon = {
+                        if (state.query.isNotEmpty()) {
+                            IconButton(onClick = { viewModel.onQueryChange("") }) {
+                                Icon(Icons.Default.Close, contentDescription = null)
+                            }
+                        }
+                    },
+                    singleLine = true,
+                    shape = RoundedCornerShape(16.dp),
+                )
+            }
         },
         bottomBar = {
             if (!imeVisible) Surface(tonalElevation = 3.dp, shadowElevation = 8.dp) {
@@ -312,33 +343,6 @@ fun HomeScreen(
                 .padding(padding)
                 .imePadding(),
         ) {
-            OutlinedTextField(
-                value = state.query,
-                onValueChange = viewModel::onQueryChange,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp)
-                    .heightIn(min = 56.dp)
-                    .testTag("home_search"),
-                placeholder = {
-                    Text(
-                        text = stringResource(R.string.home_search_hint),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                },
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-                trailingIcon = {
-                    if (state.query.isNotEmpty()) {
-                        IconButton(onClick = { viewModel.onQueryChange("") }) {
-                            Icon(Icons.Default.Close, contentDescription = null)
-                        }
-                    }
-                },
-                singleLine = true,
-                shape = RoundedCornerShape(16.dp),
-            )
-
             when {
                 state.loading -> Box(Modifier.fillMaxWidth().weight(1f))
                 state.total == 0 -> Column(
