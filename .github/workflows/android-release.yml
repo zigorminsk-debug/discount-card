@@ -225,12 +225,22 @@ jobs:
           EOF
 
           PRERELEASE=""
+          TITLE="Мои карты $VERSION"
           if [ "${{ github.ref_name }}" != "main" ] && [ "${{ github.ref_name }}" != "master" ]; then
             PRERELEASE="--prerelease"
           fi
+          if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then
+            PRERELEASE="--prerelease"
+            TITLE="$TITLE — debug-подпись"
+          fi
+
+          # Повторный запуск с тем же номером не должен ломать сборку
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release delete "$TAG" --yes --cleanup-tag || true
+          fi
 
           gh release create "$TAG" "${{ steps.apk.outputs.file }}" \
-            --title "Мои карты $VERSION" \
+            --title "$TITLE" \
             --notes-file /tmp/notes.md \
             --target "${{ github.sha }}" \
             $PRERELEASE

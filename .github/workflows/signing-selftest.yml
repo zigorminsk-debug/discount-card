@@ -65,6 +65,8 @@ jobs:
           "$ANDROID_HOME/build-tools/$BT/apksigner" verify --print-certs -v "$APK" | tee /tmp/sign.txt
           "$ANDROID_HOME/build-tools/$BT/aapt" dump badging "$APK" > /tmp/badging.txt
           grep -E "package:|sdkVersion|targetSdkVersion|uses-permission|application-label" /tmp/badging.txt
+          PERMS=$(grep "uses-permission" /tmp/badging.txt | sed "s/uses-permission: name=//" | tr -d "'" | paste -sd'%0A')
+          echo "::warning title=Разрешения в APK::${PERMS:-нет ни одного}"
 
           fail() { echo "::error::$1"; exit 1; }
           grep -q "CN=SelfTest Key" /tmp/sign.txt || fail "APK подписан не тем ключом"
