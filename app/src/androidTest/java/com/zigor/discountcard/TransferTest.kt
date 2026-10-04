@@ -57,7 +57,7 @@ class TransferTest {
     }
 
     @Test
-    fun cardsAndPhotosSurviveExportAndImport() = runBlocking {
+    fun cardsAndPhotosSurviveExportAndImport(): Unit = runBlocking {
         val photo = photoStore.newFile()
         photo.writeBytes(ByteArray(2048) { (it % 251).toByte() })
 
@@ -125,7 +125,7 @@ class TransferTest {
     }
 
     @Test
-    fun foreignFileIsRejected() = runBlocking {
+    fun foreignFileIsRejected(): Unit = runBlocking {
         val junk = File(context.cacheDir, "junk.mkcards")
         junk.writeBytes("это не архив".toByteArray())
         val preview = CardTransfer.preview(context, Uri.fromFile(junk))
