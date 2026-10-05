@@ -88,8 +88,13 @@ class StoreLogoStore(context: Context) {
         if (logo(store.id) != null) return@withContext false
         val domain = store.domains.firstOrNull() ?: return@withContext false
         synchronized(attempted) { if (!attempted.add(store.id)) return@withContext false }
+        var siteAnswered = false
         for (url in iconUrls(domain)) {
+            // сервис-посредник зовём только если сам сайт отозвался: для несуществующего
+            // домена он вернёт картинку-заглушку, а чужой значок на карте хуже монограммы
+            if (url.startsWith(FAVICON_SERVICE) && !siteAnswered && !siteResponds(domain)) break
             val bytes = download(url) ?: continue
+            siteAnswered = true
             val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size) ?: continue
             if (bitmap.width < MIN_SIZE || bitmap.height < MIN_SIZE) continue
             val scaled = fit(bitmap, MAX_SIZE)
@@ -129,6 +134,21 @@ class StoreLogoStore(context: Context) {
         return runCatching { BitmapFactory.decodeFile(file.absolutePath) }.getOrNull()
     }
 
+    /** Отвечает ли сайт сети вообще — проверка перед обращением к сервису значков. */
+    private fun siteResponds(domain: String): Boolean = runCatching {
+        val connection = (URL("https://" + domain + "/").openConnection() as HttpURLConnection).apply {
+            connectTimeout = 6_000
+            readTimeout = 6_000
+            requestMethod = "HEAD"
+            setRequestProperty("User-Agent", "BY-Card")
+        }
+        try {
+            connection.responseCode in 200..499
+        } finally {
+            connection.disconnect()
+        }
+    }.getOrDefault(false)
+
     private fun download(url: String): ByteArray? = runCatching {
         val connection = (URL(url).openConnection() as HttpURLConnection).apply {
             connectTimeout = 8_000
@@ -167,6 +187,7 @@ class StoreLogoStore(context: Context) {
         private const val PREFIX_COLOR = "color_"
         private const val MIN_SIZE = 24
         private const val MAX_SIZE = 192
+        private const val FAVICON_SERVICE = "https://www.google.com/s2/favicons"
 
         /**
          * Сначала — иконка с самого сайта сети: она крупная и всегда актуальная.
