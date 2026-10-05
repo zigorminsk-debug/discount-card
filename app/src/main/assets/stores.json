@@ -104,7 +104,7 @@
       "name": "Евроопт",
       "country": "BY",
       "category": "food",
-      "color": "#E4002B",
+      "color": "#43B02A",
       "aliases": [
         "Евроопт",
         "Eurоopt",
@@ -166,7 +166,7 @@
       "name": "Доброном",
       "country": "BY",
       "category": "food",
-      "color": "#0072BC",
+      "color": "#3FA535",
       "aliases": [
         "Доброном",
         "Dobronom"
@@ -218,7 +218,7 @@
       "name": "Санта",
       "country": "BY",
       "category": "food",
-      "color": "#E2001A",
+      "color": "#00A3E0",
       "aliases": [
         "Санта",
         "Santa",
@@ -259,7 +259,7 @@
       "name": "Гиппо",
       "country": "BY",
       "category": "food",
-      "color": "#00A651",
+      "color": "#F07E13",
       "aliases": [
         "Гиппо",
         "Gippo",
@@ -280,7 +280,7 @@
       "name": "Белмаркет",
       "country": "BY",
       "category": "food",
-      "color": "#0098DA",
+      "color": "#95C02C",
       "aliases": [
         "Белмаркет",
         "BelMarket"
@@ -300,7 +300,7 @@
       "name": "Корона",
       "country": "BY",
       "category": "food",
-      "color": "#C8102E",
+      "color": "#F6610A",
       "aliases": [
         "Корона",
         "Korona",
@@ -321,7 +321,7 @@
       "name": "Green",
       "country": "BY",
       "category": "food",
-      "color": "#4CAF50",
+      "color": "#00A550",
       "aliases": [
         "Green",
         "Грин",
@@ -630,7 +630,7 @@
       "name": "Белфармация",
       "country": "BY",
       "category": "pharmacy",
-      "color": "#0F9D58",
+      "color": "#009A44",
       "aliases": [
         "Белфармация",
         "Belpharmacia",

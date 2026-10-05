@@ -63,6 +63,8 @@ import com.zigor.discountcard.ui.components.BannerTone
 import com.zigor.discountcard.ui.components.BarcodeView
 import com.zigor.discountcard.ui.components.ColorPickerRow
 import com.zigor.discountcard.ui.components.InfoBanner
+import com.zigor.discountcard.ui.components.LogoSize
+import com.zigor.discountcard.ui.components.StoreLogo
 import com.zigor.discountcard.ui.components.PhotoThumb
 import com.zigor.discountcard.util.BarcodeRenderer
 
@@ -215,10 +217,11 @@ fun CardEditScreen(
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (selectedStore != null) {
-                        Box(
-                            modifier = Modifier
-                                .size(14.dp)
-                                .background(Color(selectedStore.colorArgb), CircleShape),
+                        StoreLogo(
+                            storeId = selectedStore.id,
+                            title = selectedStore.name,
+                            color = Color(selectedStore.colorArgb),
+                            size = LogoSize.small,
                         )
                         Spacer(Modifier.width(8.dp))
                     }

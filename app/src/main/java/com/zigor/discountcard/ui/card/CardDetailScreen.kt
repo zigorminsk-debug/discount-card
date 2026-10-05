@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -63,10 +64,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.zigor.discountcard.R
 import com.zigor.discountcard.appContainer
 import com.zigor.discountcard.data.db.CardKind
+import com.zigor.discountcard.ui.components.LogoSize
 import com.zigor.discountcard.ui.components.BannerTone
 import com.zigor.discountcard.ui.components.BarcodeView
 import com.zigor.discountcard.ui.components.InfoBanner
 import com.zigor.discountcard.ui.components.rememberPhotoBitmap
+import com.zigor.discountcard.ui.components.StoreLogo
+import com.zigor.discountcard.ui.components.rememberBrandColor
 import com.zigor.discountcard.ui.theme.contrastingContent
 import com.zigor.discountcard.util.BarcodeRenderer
 import com.zigor.discountcard.util.KeepScreenBrightEffect
@@ -97,7 +101,8 @@ fun CardDetailScreen(
 
     KeepScreenBrightEffect(enabled = card != null)
 
-    val accent = card?.let { Color(it.colorArgb) } ?: MaterialTheme.colorScheme.primary
+    val fallbackAccent = MaterialTheme.colorScheme.primary
+    val accent = card?.let { rememberBrandColor(it.storeId, it.colorArgb) } ?: fallbackAccent
     val onAccent = accent.contrastingContent()
 
     Scaffold(
@@ -111,7 +116,20 @@ fun CardDetailScreen(
                     navigationIconContentColor = onAccent,
                     actionIconContentColor = onAccent,
                 ),
-                title = { Text(card?.title.orEmpty(), maxLines = 1) },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        card?.let {
+                            StoreLogo(
+                                storeId = it.storeId,
+                                title = it.title,
+                                color = accent,
+                                size = LogoSize.small,
+                            )
+                            Spacer(Modifier.width(10.dp))
+                        }
+                        Text(card?.title.orEmpty(), maxLines = 1)
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.Default.ArrowBack, stringResource(R.string.action_back))

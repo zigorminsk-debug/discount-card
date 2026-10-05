@@ -43,7 +43,7 @@ import com.zigor.discountcard.util.shortenCode
 /** Плитка карты на главном экране. */
 @Composable
 fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    val base = Color(card.colorArgb)
+    val base = rememberBrandColor(card.storeId, card.colorArgb)
     val content = base.contrastingContent()
     Box(
         modifier = modifier
@@ -64,6 +64,23 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                StoreLogo(
+                    storeId = card.storeId,
+                    title = card.title,
+                    color = base,
+                    size = LogoSize.tile,
+                )
+                Spacer(Modifier.width(10.dp))
+                Text(
+                    text = card.title,
+                    color = content,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     painter = painterResource(
                         when {
@@ -74,22 +91,9 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
                     ),
                     contentDescription = null,
                     tint = content.copy(alpha = 0.85f),
-                    modifier = Modifier.size(18.dp),
+                    modifier = Modifier.size(16.dp),
                 )
-                Spacer(Modifier.width(8.dp))
-                Text(
-                    text = card.title,
-                    color = content,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-            Column {
-                if (card.favorite) {
-                    Text("★", color = content.copy(alpha = 0.9f), fontSize = 13.sp)
-                }
+                Spacer(Modifier.width(6.dp))
                 Text(
                     text = when {
                         card.hasCode -> shortenCode(card.code)
@@ -99,7 +103,12 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
                     color = content.copy(alpha = 0.92f),
                     fontFamily = FontFamily.Monospace,
                     fontSize = 13.sp,
+                    modifier = Modifier.weight(1f, fill = false),
                 )
+                if (card.favorite) {
+                    Spacer(Modifier.width(8.dp))
+                    Text("★", color = content.copy(alpha = 0.9f), fontSize = 13.sp)
+                }
             }
         }
     }

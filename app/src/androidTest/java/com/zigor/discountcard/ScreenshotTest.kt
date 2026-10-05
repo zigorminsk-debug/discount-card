@@ -45,24 +45,27 @@ class ScreenshotTest {
     private val demoCards = listOf(
         CardEntity(
             title = "Евроопт",
-            colorArgb = 0xFFE4002B.toInt(),
+            storeId = "evroopt",
+            colorArgb = 0xFF43B02A.toInt(),
             kind = CardKind.BARCODE,
             code = "2612345678904",
             codeFormat = "EAN_13",
             favorite = true,
         ),
         CardEntity(
-            title = "Пятёрочка",
-            colorArgb = 0xFF00923F.toInt(),
+            title = "Белмаркет",
+            storeId = "belmarket",
+            colorArgb = 0xFF95C02C.toInt(),
             kind = CardKind.BARCODE,
             code = "2002345678901",
             codeFormat = "EAN_13",
         ),
         CardEntity(
-            title = "ВкусВилл",
-            colorArgb = 0xFF0E7A3C.toInt(),
+            title = "Корона",
+            storeId = "korona",
+            colorArgb = 0xFFF6610A.toInt(),
             kind = CardKind.BARCODE,
-            code = "https://vkusvill.ru/card/770123456",
+            code = "https://korona.by/card/770123456",
             codeFormat = "QR_CODE",
         ),
         CardEntity(

@@ -186,4 +186,10 @@
     <string name="help_list_text">The field at the top searches by name and number. The star on the card screen pins it to the top of the list, the rest are sorted by last use. The pencil edits, the bin deletes.</string>
     <string name="help_store_title">Link a card to a store</string>
     <string name="help_store_text">Open a card for editing (the pencil) and find the “Store from the catalog” row. Tap “Choose” to browse the whole catalog with search and sections: groceries, pharmacies, electronics, clothing, fuel. Picking a store fills in its official name and colour. “Unlink” removes the link and keeps the name.</string>
+    <string name="help_logo_title">Store logos</string>
+    <string name="help_logo_text">Cards show the chain’s logo: some logos ship inside the app and work offline, the rest are fetched once from the store’s website and kept on the phone. Only the site icon is requested — no card numbers or other data leave the device. The card colour is derived from the logo. To switch it off and delete what was downloaded use “⋮” → “Turn off store logos”. Without a logo the card shows a monogram in the brand colour.</string>
+    <string name="action_logos_on">Turn on store logos</string>
+    <string name="action_logos_off">Turn off store logos</string>
+    <string name="logos_enabled">Logos will be loaded from the chains’ websites</string>
+    <string name="logos_disabled">Logos are off, downloaded ones removed</string>
 </resources>

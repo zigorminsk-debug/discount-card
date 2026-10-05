@@ -5,12 +5,14 @@ import android.content.Context
 import com.zigor.discountcard.data.db.AppDatabase
 import com.zigor.discountcard.data.repo.CardRepository
 import com.zigor.discountcard.data.store.StoreCatalog
+import com.zigor.discountcard.data.store.StoreLogoStore
 import com.zigor.discountcard.util.PhotoStore
 
 /** Простейший DI-контейнер: без лишних библиотек и кодогенерации. */
 class AppContainer(context: Context) {
     private val database = AppDatabase.get(context)
     val catalog = StoreCatalog(context)
+    val logos = StoreLogoStore(context)
     val photoStore = PhotoStore(context)
     val repository = CardRepository(
         cardDao = database.cardDao(),

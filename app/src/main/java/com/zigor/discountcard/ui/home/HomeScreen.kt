@@ -95,6 +95,7 @@ fun HomeScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     var aboutVisible by remember { mutableStateOf(false) }
     var menuOpen by remember { mutableStateOf(false) }
+    var logosEnabled by remember { mutableStateOf(container.logos.downloadEnabled) }
     val scope = rememberCoroutineScope()
     // Пока открыта клавиатура, нижняя панель прячется: иначе её отступ под клавиатуру
     // и отступ содержимого складываются, и поле поиска схлопывается (обрезается текст).
@@ -313,6 +314,30 @@ fun HomeScreen(
                                 },
                             )
                             HorizontalDivider()
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        stringResource(
+                                            if (logosEnabled) R.string.action_logos_off
+                                            else R.string.action_logos_on,
+                                        ),
+                                    )
+                                },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_card), null)
+                                },
+                                onClick = {
+                                    menuOpen = false
+                                    logosEnabled = !logosEnabled
+                                    container.logos.downloadEnabled = logosEnabled
+                                    if (!logosEnabled) container.logos.clearDownloaded()
+                                    Toast.makeText(
+                                        context,
+                                        if (logosEnabled) R.string.logos_enabled else R.string.logos_disabled,
+                                        Toast.LENGTH_SHORT,
+                                    ).show()
+                                },
+                            )
                             DropdownMenuItem(
                                 text = {
                                     Text(
