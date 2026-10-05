@@ -2,6 +2,7 @@ package com.zigor.discountcard.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -52,11 +53,17 @@ fun StoreLogo(
     }
 
     val shape = RoundedCornerShape(size / 4)
+    val onColor = color.contrastingContent()
     Box(
         modifier = modifier
             .size(size)
             .clip(shape)
-            .background(if (bitmap != null) Color.White else color),
+            .background(if (bitmap != null) Color.White else color)
+            // монограмма на плитке того же цвета: тонкая рамка, чтобы она читалась
+            .then(
+                if (bitmap == null) Modifier.border(1.dp, onColor.copy(alpha = 0.35f), shape)
+                else Modifier,
+            ),
         contentAlignment = Alignment.Center,
     ) {
         if (bitmap != null) {
@@ -71,7 +78,7 @@ fun StoreLogo(
         } else {
             Text(
                 text = StoreLogoStore.initials(title),
-                color = color.contrastingContent(),
+                color = onColor,
                 fontWeight = FontWeight.Bold,
                 fontSize = (size.value / 2.6f).sp,
                 style = MaterialTheme.typography.titleMedium,

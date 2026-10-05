@@ -168,10 +168,15 @@ class StoreLogoStore(context: Context) {
         private const val MIN_SIZE = 24
         private const val MAX_SIZE = 192
 
+        /**
+         * Сначала — иконка с самого сайта сети: она крупная и всегда актуальная.
+         * Если её нет, берём значок сайта через сервис Google (он умеет доставать
+         * favicon из вёрстки, но картинка мельче).
+         */
         fun iconUrls(domain: String): List<String> = listOf(
-            "https://www.google.com/s2/favicons?domain=$domain&sz=128",
             "https://$domain/apple-touch-icon.png",
             "https://$domain/apple-touch-icon-precomposed.png",
+            "https://www.google.com/s2/favicons?domain=$domain&sz=128",
         )
 
         /**
