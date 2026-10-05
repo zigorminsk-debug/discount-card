@@ -100,7 +100,7 @@ class ScreenshotTest {
         }
         composeRule.waitForIdle()
         // даём списку отрисоваться и логотипам подтянуться с сайтов сетей
-        Thread.sleep(2500)
+        Thread.sleep(6000)
         composeRule.waitForIdle()
         shot("02-home-cards")
 

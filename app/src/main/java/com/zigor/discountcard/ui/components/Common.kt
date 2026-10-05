@@ -48,7 +48,7 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(124.dp)
+            .height(128.dp)
             .clip(RoundedCornerShape(20.dp))
             .background(
                 Brush.linearGradient(
@@ -104,6 +104,8 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
                     color = content.copy(alpha = 0.92f),
                     fontFamily = FontFamily.Monospace,
                     fontSize = 13.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f, fill = false),
                 )
                 if (card.favorite) {
