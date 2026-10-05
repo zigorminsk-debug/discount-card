@@ -99,6 +99,9 @@ class ScreenshotTest {
             composeRule.onAllNodesWithTextSafe(demoCards.first().title) > 0
         }
         composeRule.waitForIdle()
+        // даём списку отрисоваться и логотипам подтянуться с сайтов сетей
+        Thread.sleep(2500)
+        composeRule.waitForIdle()
         shot("02-home-cards")
 
         // Поиск с открытой клавиатурой: поле обязано остаться целым и показывать текст
