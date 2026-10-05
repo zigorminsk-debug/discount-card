@@ -89,6 +89,20 @@ class StoreLogoTest {
         logos.downloadEnabled = was
     }
 
+    @Test
+    fun deadDomainDoesNotGetAStubIcon(): Unit = runBlocking {
+        val fake = com.zigor.discountcard.data.store.StoreInfo(
+            id = "test-dead-domain",
+            name = "Несуществующий магазин",
+            country = "BY",
+            colorArgb = Color.BLUE,
+            domains = listOf("etogo-domena-tochno-net-12345.by"),
+        )
+        logos.downloadEnabled = true
+        assertFalse("для мёртвого домена логотип подставлять нельзя", logos.fetch(fake))
+        assertEquals(null, logos.logo(fake.id))
+    }
+
     /**
      * Диагностика: получится ли взять логотип с сайта сети на живом устройстве.
      * Тест не падает без интернета — результат виден в логе прогона.
