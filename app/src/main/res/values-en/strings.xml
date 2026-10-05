@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Cards</string>
+    <string name="app_name">BY-Card</string>
 
-    <string name="home_title">My Cards</string>
+    <string name="home_title">BY-Card</string>
     <string name="home_search_hint">Search by store or number</string>
     <string name="home_empty_title">No cards yet</string>
     <string name="home_empty_subtitle">Scan the barcode or QR code of a loyalty card — the app recognises the store and builds a virtual card for the checkout.</string>
@@ -53,6 +53,24 @@
     <string name="card_edit_title">Edit card</string>
     <string name="card_name_label">Store name</string>
     <string name="card_name_placeholder">For example, Tesco</string>
+    <string name="card_store_label">Store from the catalog</string>
+    <string name="card_store_none">Not selected</string>
+    <string name="card_store_choose">Choose</string>
+    <string name="card_store_change">Change</string>
+    <string name="card_store_detach">Unlink</string>
+    <string name="store_picker_title">Choose a store</string>
+    <string name="store_picker_search">Search the catalog</string>
+    <string name="store_picker_empty">Nothing found. You can simply type the name yourself.</string>
+    <string name="store_category_food">Groceries</string>
+    <string name="store_category_pharmacy">Pharmacies</string>
+    <string name="store_category_home">Home &amp; DIY</string>
+    <string name="store_category_beauty">Beauty &amp; health</string>
+    <string name="store_category_tech">Electronics</string>
+    <string name="store_category_clothes">Clothing &amp; shoes</string>
+    <string name="store_category_kids">Kids</string>
+    <string name="store_category_fuel">Fuel stations</string>
+    <string name="store_category_food_out">Cafés &amp; restaurants</string>
+    <string name="store_category_other">Other</string>
     <string name="card_number_label">Card number</string>
     <string name="card_format_label">Code format</string>
     <string name="card_note_label">Note</string>
@@ -106,7 +124,7 @@
     <!-- Moving cards to another phone -->
     <string name="action_export_cards">Send cards</string>
     <string name="action_import_cards">Receive cards</string>
-    <string name="export_subject">My Cards: %1$d item(s)</string>
+    <string name="export_subject">BY-Card: %1$d item(s)</string>
     <string name="export_share_title">Send the cards file</string>
     <string name="export_failed">Could not build the cards file</string>
     <string name="import_title">Transfer cards</string>
@@ -115,7 +133,7 @@
     <string name="import_duplicates_hint">Cards that already exist on this phone will be skipped.</string>
     <string name="import_action">Add cards</string>
     <string name="import_done">Added: %1$d. Skipped (already there): %2$d</string>
-    <string name="import_failed">This is not a My Cards file</string>
+    <string name="import_failed">This is not a BY-Card file</string>
     <!-- Developer -->
     <string name="about_developer">Developer: Zakharevich Igor</string>
     <string name="about_developer_phone">+375 29 337-14-12</string>
@@ -166,4 +184,6 @@
     <!-- List -->
     <string name="help_list_title">The card list</string>
     <string name="help_list_text">The field at the top searches by name and number. The star on the card screen pins it to the top of the list, the rest are sorted by last use. The pencil edits, the bin deletes.</string>
+    <string name="help_store_title">Link a card to a store</string>
+    <string name="help_store_text">Open a card for editing (the pencil) and find the “Store from the catalog” row. Tap “Choose” to browse the whole catalog with search and sections: groceries, pharmacies, electronics, clothing, fuel. Picking a store fills in its official name and colour. “Unlink” removes the link and keeps the name.</string>
 </resources>

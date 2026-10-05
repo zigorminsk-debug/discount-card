@@ -29,10 +29,18 @@ data class StoreInfo(
     val name: String,
     val country: String?,
     val colorArgb: Int,
+    /** Ключ раздела каталога: food, pharmacy, tech... Используется только для группировки в списке. */
+    val category: String = StoreCatalog.CATEGORY_OTHER,
     val aliases: List<String> = emptyList(),
     val domains: List<String> = emptyList(),
     val keywords: List<String> = emptyList(),
     val rules: List<CodeRule> = emptyList(),
+)
+
+/** Раздел каталога со списком магазинов — для выбора магазина вручную. */
+data class StoreGroup(
+    val category: String,
+    val stores: List<StoreInfo>,
 )
 
 enum class MatchConfidence { EXACT, LIKELY, NONE }
@@ -72,10 +80,34 @@ class StoreCatalog(private val context: Context) {
     fun suggest(query: String, limit: Int = 6): List<StoreInfo> {
         val q = query.trim().lowercase()
         if (q.length < 2) return emptyList()
-        return stores.filter { store ->
-            store.name.lowercase().contains(q) || store.aliases.any { it.lowercase().contains(q) }
-        }.take(limit)
+        return stores.filter { it.matchesQuery(q) }.take(limit)
     }
+
+    /**
+     * Поиск по всему каталогу для ручного выбора магазина.
+     * Пустой запрос возвращает весь каталог — список для диалога выбора.
+     */
+    fun search(query: String): List<StoreInfo> {
+        val q = query.trim().lowercase()
+        if (q.isEmpty()) return stores
+        return stores.filter { it.matchesQuery(q) }
+    }
+
+    /** Каталог, разложенный по разделам: «Продукты», «Аптеки», «Техника»... */
+    fun grouped(query: String = ""): List<StoreGroup> {
+        val found = search(query)
+        if (found.isEmpty()) return emptyList()
+        val countryRank = { store: StoreInfo -> if (store.country == "BY") 0 else 1 }
+        return CATEGORY_ORDER.mapNotNull { category ->
+            val items = found.filter { it.category == category }.sortedBy(countryRank)
+            if (items.isEmpty()) null else StoreGroup(category, items)
+        }
+    }
+
+    private fun StoreInfo.matchesQuery(lowerQuery: String): Boolean =
+        name.lowercase().contains(lowerQuery) ||
+            aliases.any { it.lowercase().contains(lowerQuery) } ||
+            domains.any { it.contains(lowerQuery) }
 
     /**
      * Главный метод распознавания.
@@ -141,6 +173,8 @@ class StoreCatalog(private val context: Context) {
                     name = o.getString("name"),
                     country = o.optString("country").takeIf { it.isNotBlank() },
                     colorArgb = parseColor(o.optString("color"), DEFAULT_COLOR),
+                    category = o.optString("category").lowercase()
+                        .takeIf { it in CATEGORY_ORDER } ?: CATEGORY_OTHER,
                     aliases = o.optJSONArray("aliases").toStringList(),
                     domains = o.optJSONArray("domains").toStringList().map { it.lowercase() },
                     keywords = o.optJSONArray("keywords").toStringList().map { it.lowercase() },
@@ -188,6 +222,14 @@ class StoreCatalog(private val context: Context) {
         (0 until (this?.length() ?: 0)).mapNotNull { this?.optInt(it) }
 
     companion object {
+        const val CATEGORY_OTHER = "other"
+
+        /** Порядок разделов в списке выбора магазина. */
+        val CATEGORY_ORDER: List<String> = listOf(
+            "food", "pharmacy", "home", "beauty", "tech",
+            "clothes", "kids", "fuel", "food_out", CATEGORY_OTHER,
+        )
+
         val DEFAULT_COLOR: Int = Color.parseColor("#2563EB")
 
         val PALETTE: List<Int> = listOf(

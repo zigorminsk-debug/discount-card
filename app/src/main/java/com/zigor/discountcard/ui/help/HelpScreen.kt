@@ -71,6 +71,7 @@ fun HelpScreen(onBack: () -> Unit) {
             Step(R.drawable.ic_nfc, R.string.help_nfc_title, R.string.help_nfc_text)
             Step(R.drawable.ic_barcode, R.string.help_checkout_title, R.string.help_checkout_text)
             Step(R.drawable.ic_card, R.string.help_list_title, R.string.help_list_text)
+            Step(R.drawable.ic_barcode, R.string.help_store_title, R.string.help_store_text)
             Step(R.drawable.ic_photo_camera, R.string.help_photo_title, R.string.help_photo_text)
             Step(R.drawable.ic_transfer, R.string.help_transfer_title, R.string.help_transfer_text)
             Step(R.drawable.ic_update, R.string.help_update_title, R.string.help_update_text)

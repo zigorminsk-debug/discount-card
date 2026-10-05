@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Мои карты</string>
+    <string name="app_name">BY-Card</string>
 
     <!-- Главный экран -->
-    <string name="home_title">Мои карты</string>
+    <string name="home_title">BY-Card</string>
     <string name="home_search_hint">Поиск по магазину или номеру</string>
     <string name="home_empty_title">Пока нет ни одной карты</string>
     <string name="home_empty_subtitle">Отсканируйте штрих-код или QR-код дисконтной карты — приложение распознает магазин и создаст виртуальную карту для кассы.</string>
@@ -58,6 +58,24 @@
     <string name="card_edit_title">Редактирование</string>
     <string name="card_name_label">Название магазина</string>
     <string name="card_name_placeholder">Например, Евроопт</string>
+    <string name="card_store_label">Магазин из каталога</string>
+    <string name="card_store_none">Не выбран</string>
+    <string name="card_store_choose">Выбрать</string>
+    <string name="card_store_change">Изменить</string>
+    <string name="card_store_detach">Отвязать</string>
+    <string name="store_picker_title">Выбор магазина</string>
+    <string name="store_picker_search">Поиск по каталогу</string>
+    <string name="store_picker_empty">Ничего не найдено. Можно просто ввести название вручную.</string>
+    <string name="store_category_food">Продукты</string>
+    <string name="store_category_pharmacy">Аптеки</string>
+    <string name="store_category_home">Дом, ремонт, хозтовары</string>
+    <string name="store_category_beauty">Красота и здоровье</string>
+    <string name="store_category_tech">Техника и электроника</string>
+    <string name="store_category_clothes">Одежда и обувь</string>
+    <string name="store_category_kids">Детские товары</string>
+    <string name="store_category_fuel">Заправки</string>
+    <string name="store_category_food_out">Кафе и рестораны</string>
+    <string name="store_category_other">Прочее</string>
     <string name="card_number_label">Номер карты</string>
     <string name="card_format_label">Формат кода</string>
     <string name="card_note_label">Заметка</string>
@@ -113,7 +131,7 @@
     <!-- Перенос карт на другой телефон -->
     <string name="action_export_cards">Отправить карты</string>
     <string name="action_import_cards">Получить карты</string>
-    <string name="export_subject">Мои карты: %1$d шт.</string>
+    <string name="export_subject">BY-Card: %1$d шт.</string>
     <string name="export_share_title">Отправить файл с картами</string>
     <string name="export_failed">Не удалось собрать файл с картами</string>
     <string name="import_title">Перенос карт</string>
@@ -122,7 +140,7 @@
     <string name="import_duplicates_hint">Карты, которые уже есть на этом телефоне, добавлены не будут.</string>
     <string name="import_action">Добавить карты</string>
     <string name="import_done">Добавлено: %1$d. Пропущено (уже были): %2$d</string>
-    <string name="import_failed">Это не файл с картами «Мои карты»</string>
+    <string name="import_failed">Это не файл с картами BY-Card</string>
     <!-- Разработчик -->
     <string name="about_developer">Разработчик: Zakharevich Igor</string>
     <string name="about_developer_phone">+375 29 337-14-12</string>
@@ -173,4 +191,6 @@
     <!-- Поиск и список -->
     <string name="help_list_title">Список карт</string>
     <string name="help_list_text">Поле вверху ищет по названию и номеру. Звёздочка на экране карты поднимает её в начало списка, остальные идут по дате последнего использования. Карандаш — правка, корзина — удаление.</string>
+    <string name="help_store_title">Привязать карту к магазину</string>
+    <string name="help_store_text">В правке карты (карандаш) есть строка «Магазин из каталога». Нажмите «Выбрать» — откроется весь каталог сетей с поиском и разделами: продукты, аптеки, техника, одежда, заправки. Выбор подставит фирменное название и цвет сети, а код такой карты будет узнаваться и дальше. Кнопка «Отвязать» снимает привязку, название остаётся.</string>
 </resources>

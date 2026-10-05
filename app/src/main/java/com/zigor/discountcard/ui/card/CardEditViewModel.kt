@@ -74,6 +74,16 @@ class CardEditViewModel(
         error = null
     }
 
+    /** Отвязать карту от магазина каталога, название и цвет остаются. */
+    fun detachStore() {
+        draft = draft.copy(storeId = null)
+    }
+
+    /** Магазин, к которому сейчас привязана карта. */
+    val selectedStore: StoreInfo? get() = repository.catalog.byId(draft.storeId)
+
+    val catalog: StoreCatalog get() = repository.catalog
+
     fun setCode(value: String) {
         draft = draft.copy(code = value.trim())
         error = null

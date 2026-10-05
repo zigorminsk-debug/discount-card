@@ -1,5 +1,6 @@
 package com.zigor.discountcard.ui.card
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -34,6 +36,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,8 +44,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -78,6 +84,7 @@ fun CardEditScreen(
         factory = CardEditViewModel.factory(container.repository, container.photoStore, cardId, initialDraft),
     )
     val draft = viewModel.draft
+    var storePickerVisible by remember { mutableStateOf(false) }
     var formatMenu by remember { mutableStateOf(false) }
 
     LaunchedEffect(photoResult) {
@@ -199,6 +206,51 @@ fun CardEditScreen(
                 }
             }
 
+            val selectedStore = viewModel.selectedStore
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    text = stringResource(R.string.card_store_label),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    if (selectedStore != null) {
+                        Box(
+                            modifier = Modifier
+                                .size(14.dp)
+                                .background(Color(selectedStore.colorArgb), CircleShape),
+                        )
+                        Spacer(Modifier.width(8.dp))
+                    }
+                    Text(
+                        text = selectedStore?.name ?: stringResource(R.string.card_store_none),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = if (selectedStore == null) {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        } else {
+                            MaterialTheme.colorScheme.onSurface
+                        },
+                        modifier = Modifier.weight(1f),
+                    )
+                    TextButton(
+                        onClick = { storePickerVisible = true },
+                        modifier = Modifier.testTag("store_pick_button"),
+                    ) {
+                        Text(
+                            stringResource(
+                                if (selectedStore == null) R.string.card_store_choose
+                                else R.string.card_store_change,
+                            ),
+                        )
+                    }
+                    if (selectedStore != null) {
+                        TextButton(onClick = viewModel::detachStore) {
+                            Text(stringResource(R.string.card_store_detach))
+                        }
+                    }
+                }
+            }
+
             OutlinedTextField(
                 value = draft.code,
                 onValueChange = viewModel::setCode,
@@ -298,5 +350,16 @@ fun CardEditScreen(
             }
             Spacer(Modifier.height(24.dp))
         }
+    }
+
+    if (storePickerVisible) {
+        StorePickerDialog(
+            catalog = viewModel.catalog,
+            onDismiss = { storePickerVisible = false },
+            onPick = { store ->
+                viewModel.applyStore(store)
+                storePickerVisible = false
+            },
+        )
     }
 }

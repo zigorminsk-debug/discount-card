@@ -154,7 +154,7 @@ jobs:
           if [ -z "$SRC" ]; then echo "APK не найден"; exit 1; fi
           SUFFIX=""
           if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then SUFFIX="-CIKEY"; fi
-          OUT="MoiKarty-${{ steps.ver.outputs.tag }}${SUFFIX}.apk"
+          OUT="BY-Card-${{ steps.ver.outputs.tag }}${SUFFIX}.apk"
           mkdir -p dist
           cp "$SRC" "dist/$OUT"
           SHA=$(sha256sum "dist/$OUT" | cut -d' ' -f1)
@@ -231,7 +231,7 @@ jobs:
           EOF
 
           PRERELEASE=""
-          TITLE="Мои карты $VERSION"
+          TITLE="BY-Card $VERSION"
           if [ "${{ github.ref_name }}" != "main" ] && [ "${{ github.ref_name }}" != "master" ]; then
             PRERELEASE="--prerelease"
           fi

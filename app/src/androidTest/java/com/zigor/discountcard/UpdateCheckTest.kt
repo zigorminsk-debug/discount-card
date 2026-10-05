@@ -30,18 +30,18 @@ class UpdateCheckTest {
             [
               {
                 "tag_name": "v1.0.20",
-                "name": "Мои карты 1.0.20",
+                "name": "BY-Card 1.0.20",
                 "body": "- перенос карт\n- автообновление",
                 "draft": false,
                 "html_url": "https://github.com/zigorminsk-debug/discount-card/releases/tag/v1.0.20",
                 "assets": [
                   {"name": "notes.txt", "browser_download_url": "https://example.test/notes.txt"},
-                  {"name": "MoiKarty-v1.0.20-CIKEY.apk", "browser_download_url": "https://example.test/app.apk"}
+                  {"name": "BY-Card-v1.0.20-CIKEY.apk", "browser_download_url": "https://example.test/app.apk"}
                 ]
               },
               {
                 "tag_name": "v1.0.19",
-                "name": "Мои карты 1.0.19",
+                "name": "BY-Card 1.0.19",
                 "body": "",
                 "draft": false,
                 "html_url": "https://example.test/19",
@@ -84,7 +84,7 @@ class UpdateCheckTest {
             ### Файл
             | | |
             |---|---|
-            | APK | `MoiKarty-v1.0.22.apk` |
+            | APK | `BY-Card-v1.0.22.apk` |
         """.trimIndent()
 
         val notes = UpdateChecker.cleanNotes(body)

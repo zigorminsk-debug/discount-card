@@ -54,7 +54,7 @@ rm -f keystore/release.p12 keystore/keystore.properties keystore.properties
 ## Проверить, каким ключом подписан APK
 
 ```bash
-$ANDROID_HOME/build-tools/35.0.0/apksigner verify --print-certs -v MoiKarty-v1.0.12.apk
+$ANDROID_HOME/build-tools/35.0.0/apksigner verify --print-certs -v BY-Card-v1.0.12.apk
 ```
 
 Отпечаток SHA-256 печатается и в логе каждой сборки, и в описании каждого релиза —

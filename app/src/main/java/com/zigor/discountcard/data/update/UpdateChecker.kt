@@ -123,7 +123,7 @@ object UpdateChecker {
                 readTimeout = 8_000
                 requestMethod = "GET"
                 setRequestProperty("Accept", "application/vnd.github+json")
-                setRequestProperty("User-Agent", "MoiKarty")
+                setRequestProperty("User-Agent", "BY-Card")
             }
             try {
                 if (connection.responseCode != HttpURLConnection.HTTP_OK) return@runCatching null

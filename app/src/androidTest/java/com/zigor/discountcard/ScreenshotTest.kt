@@ -12,6 +12,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextClearance
 import androidx.compose.ui.test.performTextInput
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -135,6 +136,14 @@ class ScreenshotTest {
         composeRule.waitForIdle()
         Thread.sleep(400)
         shot("06-card-edit")
+
+        // Диалог выбора магазина из каталога
+        composeRule.onNodeWithTag("store_pick_button").performScrollTo().performClick()
+        composeRule.waitForIdle()
+        Thread.sleep(500)
+        shot("09-store-picker")
+        composeRule.onNodeWithText(context.getString(R.string.action_close)).performClick()
+        composeRule.waitForIdle()
 
         // Инструкция «Как пользоваться»
         shell("input keyevent 4")
