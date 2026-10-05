@@ -108,7 +108,7 @@ fun rememberBrandColor(storeId: String?, savedColorArgb: Int): Color {
 
 /** Размеры логотипов, чтобы они совпадали на всех экранах. */
 object LogoSize {
-    val tile: Dp = 44.dp
+    val tile: Dp = 38.dp
     val row: Dp = 34.dp
     val small: Dp = 24.dp
 }

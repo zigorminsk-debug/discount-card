@@ -63,7 +63,7 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
                 .padding(14.dp),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(verticalAlignment = Alignment.Top) {
                 StoreLogo(
                     storeId = card.storeId,
                     title = card.title,
@@ -74,10 +74,11 @@ fun CardTile(card: CardEntity, onClick: () -> Unit, modifier: Modifier = Modifie
                 Text(
                     text = card.title,
                     color = content,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.SemiBold,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
                 )
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
