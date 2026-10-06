@@ -27,7 +27,7 @@ class StoreLogoTest {
 
     @Test
     fun bundledLogosAreReadable() {
-        val bundled = listOf("belmarket", "korona")
+        val bundled = listOf("belmarket", "korona", "sosedi", "kupilka", "mile", "santa")
         bundled.forEach { id ->
             assertTrue("логотипа $id нет в APK", logos.isBundled(id))
             val bitmap = logos.logo(id)
