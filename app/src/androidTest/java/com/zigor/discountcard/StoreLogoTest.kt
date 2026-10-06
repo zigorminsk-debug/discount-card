@@ -103,6 +103,22 @@ class StoreLogoTest {
         assertEquals(null, logos.logo(fake.id))
     }
 
+    @Test
+    fun iconsAreTakenFromPageMarkup() {
+        val html = "<html><head>" +
+            "<link rel=\"shortcut icon\" href=\"/favicon.ico\">" +
+            "<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/local/favicon-32.png\">" +
+            "<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"https://sosedi.by/touch.png\">" +
+            "<link rel=\"icon\" href=\"data:image/png;base64,AAA\">" +
+            "</head></html>"
+        val urls = StoreLogoStore.iconsFromHtml("sosedi.by", html)
+        assertEquals(
+            listOf("https://sosedi.by/touch.png", "https://sosedi.by/local/favicon-32.png"),
+            urls,
+        )
+        assertTrue("значки .ico Android не читает", urls.none { it.endsWith(".ico") })
+    }
+
     /**
      * Диагностика: получится ли взять логотип с сайта сети на живом устройстве.
      * Тест не падает без интернета — результат виден в логе прогона.

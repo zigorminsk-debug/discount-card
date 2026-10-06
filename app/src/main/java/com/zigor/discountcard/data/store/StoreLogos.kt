@@ -88,28 +88,39 @@ class StoreLogoStore(context: Context) {
         if (logo(store.id) != null) return@withContext false
         val domain = store.domains.firstOrNull() ?: return@withContext false
         synchronized(attempted) { if (!attempted.add(store.id)) return@withContext false }
-        var siteAnswered = false
-        for (url in iconUrls(domain)) {
-            // сервис-посредник зовём только если сам сайт отозвался: для несуществующего
-            // домена он вернёт картинку-заглушку, а чужой значок на карте хуже монограммы
-            if (url.startsWith(FAVICON_SERVICE) && !siteAnswered && !siteResponds(domain)) break
-            val bytes = download(url) ?: continue
-            siteAnswered = true
-            val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size) ?: continue
-            if (bitmap.width < MIN_SIZE || bitmap.height < MIN_SIZE) continue
-            val scaled = fit(bitmap, MAX_SIZE)
-            runCatching {
-                File(cacheDir, "${store.id}.png").outputStream().use { out ->
-                    scaled.compress(Bitmap.CompressFormat.PNG, 100, out)
-                }
-            }.onFailure { Log.w(TAG, "логотип ${store.id} не сохранился: ${it.message}") }
-            missing -= store.id
-            memory.put(store.id, scaled)
-            extractBrandColor(scaled)?.let { prefs.edit().putInt(colorKey(store.id), it).apply() }
-            _updates.value += 1
-            return@withContext true
+        // 1. привычные адреса значка на самом сайте
+        for (url in iconUrls(domain).filterNot { it.startsWith(FAVICON_SERVICE) }) {
+            if (saveIcon(store.id, download(url) ?: continue)) return@withContext true
         }
-        false
+        // 2. значок, объявленный в вёрстке главной страницы — многие сети держат его там
+        val html = downloadText("https://$domain/")
+        if (html != null) {
+            for (url in iconsFromHtml(domain, html)) {
+                if (saveIcon(store.id, download(url) ?: continue)) return@withContext true
+            }
+        }
+        // 3. сервис-посредник зовём только если сайт вообще отозвался: для несуществующего
+        // домена он вернёт картинку-заглушку, а чужой значок на карте хуже монограммы
+        if (html == null && !siteResponds(domain)) return@withContext false
+        val service = iconUrls(domain).first { it.startsWith(FAVICON_SERVICE) }
+        saveIcon(store.id, download(service) ?: return@withContext false)
+    }
+
+    /** Сохраняет скачанный значок, если это картинка годного размера. */
+    private fun saveIcon(id: String, bytes: ByteArray): Boolean {
+        val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size) ?: return false
+        if (bitmap.width < MIN_SIZE || bitmap.height < MIN_SIZE) return false
+        val scaled = fit(bitmap, MAX_SIZE)
+        runCatching {
+            File(cacheDir, "$id.png").outputStream().use { out ->
+                scaled.compress(Bitmap.CompressFormat.PNG, 100, out)
+            }
+        }.onFailure { Log.w(TAG, "логотип $id не сохранился: ${it.message}") }
+        missing -= id
+        memory.put(id, scaled)
+        extractBrandColor(scaled)?.let { prefs.edit().putInt(colorKey(id), it).apply() }
+        _updates.value += 1
+        return true
     }
 
     /** Забыть скачанные логотипы (из APK остаются). */
@@ -135,12 +146,15 @@ class StoreLogoStore(context: Context) {
     }
 
     /** Отвечает ли сайт сети вообще — проверка перед обращением к сервису значков. */
-    private fun siteResponds(domain: String): Boolean = runCatching {
+    private fun siteResponds(domain: String): Boolean =
+        respondsTo(domain, "HEAD") || respondsTo(domain, "GET")
+
+    private fun respondsTo(domain: String, method: String): Boolean = runCatching {
         val connection = (URL("https://" + domain + "/").openConnection() as HttpURLConnection).apply {
             connectTimeout = 6_000
             readTimeout = 6_000
-            requestMethod = "HEAD"
-            setRequestProperty("User-Agent", "BY-Card")
+            requestMethod = method
+            setRequestProperty("User-Agent", USER_AGENT)
         }
         try {
             connection.responseCode in 200..499
@@ -149,12 +163,38 @@ class StoreLogoStore(context: Context) {
         }
     }.getOrDefault(false)
 
+    /** Главная страница сайта — нужна, чтобы достать из неё адрес значка. */
+    private fun downloadText(url: String): String? = runCatching {
+        val connection = (URL(url).openConnection() as HttpURLConnection).apply {
+            connectTimeout = 8_000
+            readTimeout = 8_000
+            instanceFollowRedirects = true
+            setRequestProperty("User-Agent", USER_AGENT)
+            setRequestProperty("Accept", "text/html,application/xhtml+xml")
+        }
+        try {
+            if (connection.responseCode !in 200..299) return null
+            connection.inputStream.use { stream ->
+                val buffer = ByteArray(MAX_HTML)
+                var read = 0
+                while (read < MAX_HTML) {
+                    val part = stream.read(buffer, read, MAX_HTML - read)
+                    if (part <= 0) break
+                    read += part
+                }
+                String(buffer, 0, read, Charsets.UTF_8)
+            }
+        } finally {
+            connection.disconnect()
+        }
+    }.getOrNull()
+
     private fun download(url: String): ByteArray? = runCatching {
         val connection = (URL(url).openConnection() as HttpURLConnection).apply {
             connectTimeout = 8_000
             readTimeout = 8_000
             instanceFollowRedirects = true
-            setRequestProperty("User-Agent", "BY-Card")
+            setRequestProperty("User-Agent", USER_AGENT)
             setRequestProperty("Accept", "image/png,image/*;q=0.8")
         }
         try {
@@ -187,6 +227,8 @@ class StoreLogoStore(context: Context) {
         private const val PREFIX_COLOR = "color_"
         private const val MIN_SIZE = 24
         private const val MAX_SIZE = 192
+        private const val MAX_HTML = 256 * 1024
+        private const val USER_AGENT = "Mozilla/5.0 (Linux; Android 14) BY-Card/1.0"
         private const val FAVICON_SERVICE = "https://www.google.com/s2/favicons"
 
         /**
@@ -197,8 +239,41 @@ class StoreLogoStore(context: Context) {
         fun iconUrls(domain: String): List<String> = listOf(
             "https://$domain/apple-touch-icon.png",
             "https://$domain/apple-touch-icon-precomposed.png",
+            "https://$domain/favicon.png",
             "https://www.google.com/s2/favicons?domain=$domain&sz=128",
         )
+
+        /**
+         * Значки, объявленные в вёрстке страницы: <link rel="icon" href="...">.
+         * Крупные идут первыми. Форматы .ico и .svg пропускаем — Android их не читает.
+         */
+        fun iconsFromHtml(domain: String, html: String): List<String> {
+            val relPattern = Regex("""rel\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE)
+            val hrefPattern = Regex("""href\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE)
+            val sizePattern = Regex("""sizes\s*=\s*["'](\d+)x""", RegexOption.IGNORE_CASE)
+            val found = ArrayList<Pair<Int, String>>()
+            for (tag in Regex("<link\\s[^>]*>", RegexOption.IGNORE_CASE).findAll(html)) {
+                val text = tag.value
+                val rel = relPattern.find(text)?.groupValues?.get(1)?.lowercase() ?: continue
+                if (!rel.contains("icon")) continue
+                val href = hrefPattern.find(text)?.groupValues?.get(1) ?: continue
+                val url = absoluteUrl(domain, href) ?: continue
+                if (url.endsWith(".ico", true) || url.endsWith(".svg", true)) continue
+                val size = sizePattern.find(text)?.groupValues?.get(1)?.toIntOrNull()
+                    ?: if (rel.contains("apple")) 180 else 32
+                found += size to url
+            }
+            return found.sortedByDescending { it.first }.map { it.second }.distinct()
+        }
+
+        private fun absoluteUrl(domain: String, href: String): String? = when {
+            href.isBlank() || href.startsWith("data:") -> null
+            href.startsWith("https://") -> href
+            href.startsWith("http://") -> "https://" + href.removePrefix("http://")
+            href.startsWith("//") -> "https:$href"
+            href.startsWith("/") -> "https://$domain$href"
+            else -> "https://$domain/$href"
+        }
 
         /**
          * Фирменный цвет логотипа: самый «весомый» насыщенный оттенок.
