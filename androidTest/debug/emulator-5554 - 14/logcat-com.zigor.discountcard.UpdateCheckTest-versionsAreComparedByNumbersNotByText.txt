@@ -1,0 +1,2 @@
+10-06 08:20:53.101  2410  2429 I TestRunner: started: versionsAreComparedByNumbersNotByText(com.zigor.discountcard.UpdateCheckTest)
+10-06 08:20:53.106  2410  2429 I TestRunner: finished: versionsAreComparedByNumbersNotByText(com.zigor.discountcard.UpdateCheckTest)

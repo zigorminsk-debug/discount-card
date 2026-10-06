@@ -1,0 +1,545 @@
+10-06 08:19:50.117  2410  2429 I TestRunner: started: captureMainScreens(com.zigor.discountcard.ScreenshotTest)
+10-06 08:19:50.122  2410  2429 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@8c222ea]
+10-06 08:19:50.127  2410  2429 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-06 08:19:50.135   804   875 D SplashScreenView: Build android.window.SplashScreenView{152d1af V.E...... ......ID 0,0-0,0}
+10-06 08:19:50.135   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:19:50.135   804   875 D SplashScreenView: Branding: view: android.view.View{880c9bc G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:19:50.148  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: PRE_ON_CREATE
+10-06 08:19:50.149  2410  2410 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-06 08:19:50.156   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:19:50.184  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: CREATED
+10-06 08:19:50.186  2410  2410 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.zigor.discountcard.MainActivity@1ff538e
+10-06 08:19:50.187  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: STARTED
+10-06 08:19:50.188  2410  2410 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.zigor.discountcard.MainActivity@1ff538e
+10-06 08:19:50.194  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: RESUMED
+10-06 08:19:50.195  2410  2410 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.zigor.discountcard.MainActivity@1ff538e
+10-06 08:19:50.241  2410  2410 D AutofillManager: Fill dialog is enabled:false, hints=[]
+10-06 08:19:50.368  1049  1049 W FrameTracker: Missed App frame:UNKNOWN: 328, 4738, 179082918, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:19:50.368  1049  1049 W FrameTracker: Missed SF frame:PREDICTION_ERROR, 4909, 8965442, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:19:50.368  1049  1851 V PerfettoTrigger: Not triggering com.android.telemetry.interaction-jank-monitor-9 - not enough time since last trigger
+10-06 08:19:50.392   507  2497 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:50.516   507   524 W ziparchive: Unable to open '/data/app/~~AF-z3NKPE5e8Z1kRbNvWNQ==/com.zigor.discountcard.debug-esoQiCoLaygM0vduBgsOHg==/base.dm': No such file or directory
+10-06 08:19:50.517   507   524 I ActivityTaskManager: Displayed com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity for user 0: +386ms
+10-06 08:19:50.535  1049  1105 I ImeTracker: com.android.launcher3:c3d72f16: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+10-06 08:19:50.544   507  2310 I ImeTracker: com.zigor.discountcard.debug:bcf21f6f: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:19:50.545   507  2310 I ImeTracker: com.zigor.discountcard.debug:bcf21f6f: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:50.545   507  1831 I ImeTracker: com.android.launcher3:c3d72f16: onCancelled at PHASE_SERVER_CLIENT_FOCUSED
+10-06 08:19:50.548   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@d823866
+10-06 08:19:50.562   507  1817 W InputManager-JNI: Input channel object 'f102098 Splash Screen com.zigor.discountcard.debug (client)' was disposed without first being removed with the input manager!
+10-06 08:19:50.689  2410  2429 I UiAutomation: Initialized for user 0 on display 0
+10-06 08:19:50.710  2410  2499 V UiAutomation: Init UiAutomation@ed8466d[id=1, displayId=0, flags=0]
+10-06 08:19:50.802  2505  2505 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:19:50.804  1432  1686 D CompatibilityChangeReporter: Compat change id reported: 183155436; UID 10133; state: ENABLED
+10-06 08:19:50.807  1432  1686 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:19:50.808  1432  1686 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:19:50.810  2505  2505 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:19:50.812   390   402 W ServiceManagerCppClient: Permission failure: android.permission.CAPTURE_BLACKOUT_CONTENT from uid=2000 pid=2505
+10-06 08:19:50.812   390   402 D PermissionCache: checking android.permission.CAPTURE_BLACKOUT_CONTENT for uid=2000 => denied (126 us)
+10-06 08:19:50.825   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:19:50.825  2505  2508 I Gralloc4: mapper 4.x is not supported
+10-06 08:19:50.972   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:19:50.977   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:19:50.978  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:19:50.983  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:19:50.989  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/01-home-empty.png
+10-06 08:19:51.001   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:19:51.001  2397  2409 I Gralloc4: mapper 4.x is not supported
+10-06 08:19:51.021  2397  2513 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+10-06 08:19:51.022  2397  2513 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+10-06 08:19:51.023  2397  2513 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+10-06 08:19:51.038  2397  2513 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:51.204  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/01-home-empty.png (115495 байт)
+10-06 08:19:51.341   327  2514 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:19:51.341   327  2516 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:19:51.342   327  2515 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:19:51.813   327  2515 I resolv  : res_nsend: used send_dg 79 terrno: 0
+10-06 08:19:51.813   327  2515 I resolv  : doQuery: rcode=0, ancount=0, return value=79
+10-06 08:19:52.026   327  2516 I resolv  : res_nsend: used send_dg 44 terrno: 0
+10-06 08:19:52.026   327  2516 I resolv  : doQuery: rcode=0, ancount=1, return value=44
+10-06 08:19:52.028  2410  2433 D TrafficStats: tagSocket(121) with statsTag=0xffffffff, statsUid=-1
+10-06 08:19:52.214  2410  2417 W countcard.debug: Cleared Reference was only reachable from finalizer (only reported once)
+10-06 08:19:52.223  2410  2419 W System  : A resource failed to call release.
+10-06 08:19:52.224  2410  2419 W System  : A resource failed to call release.
+10-06 08:19:52.520   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:19:53.009   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:19:53.507  2410  2433 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:19:53.749  2410  2433 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:19:53.982  2410  2433 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:19:54.147   327  2520 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:19:54.148   327  2522 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:19:54.148   327  2522 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d4302caae0
+10-06 08:19:54.148   327  2522 I resolv  : doQuery: rcode=0, ancount=1, return value=44
+10-06 08:19:54.148   327  2521 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:19:54.148   327  2521 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d3d02d43f0
+10-06 08:19:54.148   327  2521 I resolv  : doQuery: rcode=0, ancount=0, return value=79
+10-06 08:19:54.150  2410  2433 D TrafficStats: tagSocket(6) with statsTag=0xffffffff, statsUid=-1
+10-06 08:19:54.974   327  2523 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:19:54.974   327  2525 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:19:54.975   327  2524 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:19:54.979   327  2525 I resolv  : res_nsend: used send_dg 160 terrno: 0
+10-06 08:19:54.979   327  2525 I resolv  : doQuery: rcode=0, ancount=8, return value=160
+10-06 08:19:54.981   327  2524 I resolv  : res_nsend: used send_dg 256 terrno: 0
+10-06 08:19:54.981   327  2524 I resolv  : doQuery: rcode=0, ancount=8, return value=256
+10-06 08:19:54.982  2410  2433 D TrafficStats: tagSocket(109) with statsTag=0xffffffff, statsUid=-1
+10-06 08:19:55.532   327  2526 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:19:55.532   327  2528 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:19:55.532   327  2527 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:19:55.566   327  2527 I resolv  : res_nsend: used send_dg 144 terrno: 0
+10-06 08:19:55.567   327  2527 I resolv  : doQuery: rcode=0, ancount=4, return value=144
+10-06 08:19:55.567   327  2528 I resolv  : res_nsend: used send_dg 128 terrno: 0
+10-06 08:19:55.567   327  2528 I resolv  : doQuery: rcode=0, ancount=6, return value=128
+10-06 08:19:55.568  2410  2433 D TrafficStats: tagSocket(120) with statsTag=0xffffffff, statsUid=-1
+10-06 08:19:56.004  1432  1491 D PickerSyncController: syncAllMedia
+10-06 08:19:56.004  1432  1491 D PickerSyncController: syncAllMediaFromProvider() LOCAL, auth=com.android.providers.media.photopicker, retry=true
+10-06 08:19:56.004  1432  1491 D PickerSyncController: getSyncRequestParams() LOCAL, auth=com.android.providers.media.photopicker
+10-06 08:19:56.006  1432  1491 D PickerSyncController:    Latest ID/Gen=1407:de5bbc72-b690-4874-a23b-50c7337bb828:external_primary/8
+10-06 08:19:56.006  1432  1491 D PickerSyncController:    Cached ID/Gen=null/-1
+10-06 08:19:56.006  1432  1491 D PickerSyncController:    RESULT=SyncRequestParams{type=MEDIA_FULL, gen=0, latest=Bundle[{last_media_sync_generation=8, media_collection_id=1407:de5bbc72-b690-4874-a23b-50c7337bb828:external_primary}]}
+10-06 08:19:56.006  1432  1491 I PickerSyncController: Executing SyncReset. isLocal: true. authority: com.android.providers.media.photopicker
+10-06 08:19:56.006  1432  1491 I PickerSyncController: SyncReset. isLocal:true. authority: com.android.providers.media.photopicker. result count: 0
+10-06 08:19:56.006  1432  1491 I PickerSyncController: Executing SyncAdd. isLocal: true. authority: com.android.providers.media.photopicker
+10-06 08:19:56.007  1432  1491 I PickerSyncController: Paged sync successful. QueryArgs: Bundle[{}]. Result count: 1. Cursor count: 1
+10-06 08:19:56.007  1432  1491 D PickerSyncController: syncAllMediaFromProvider() CLOUD, auth=null, retry=true
+10-06 08:19:56.007  1432  1491 D PickerSyncController: getSyncRequestParams() CLOUD, auth=null
+10-06 08:19:56.007  1432  1491 D PickerSyncController:    RESULT=SyncRequestParams{type=MEDIA_RESET, gen=0, latest=null}
+10-06 08:19:56.007  1432  1491 I PickerSyncController: Executing SyncReset. isLocal: false. authority: null
+10-06 08:19:56.007  1432  1491 I PickerSyncController: SyncReset. isLocal:false. authority: null. result count: 0
+10-06 08:19:56.007  1432  1491 D PickerSyncController: Ignoring cache media info for null authority with bundle: null
+10-06 08:19:56.007  1432  1491 I PickerSyncController: Executing SyncAlbumReset. isLocal: true. authority: com.android.providers.media.photopicker. albumId: null
+10-06 08:19:56.008  1432  1491 I PickerSyncController: Successfully executed SyncResetAlbum. authority: com.android.providers.media.photopicker. albumId: null. Result count: 0
+10-06 08:19:56.008  1432  1491 I PickerSyncController: Executing SyncAlbumReset. isLocal: false. authority: null. albumId: null
+10-06 08:19:56.008  1432  1491 I PickerSyncController: Successfully executed SyncResetAlbum. authority: null. albumId: null. Result count: 0
+10-06 08:19:57.622  2410  2438 D EGL_emulation: app_time_stats: avg=1777.78ms min=32.00ms max=6046.28ms count=4
+10-06 08:19:57.685  2532  2532 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:19:57.687  1432  2104 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:19:57.690  2532  2532 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:19:57.701   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:19:57.701  2532  2535 I Gralloc4: mapper 4.x is not supported
+10-06 08:19:58.117   507   788 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:19:58.121   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:19:58.122  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:19:58.127  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:19:58.132  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/02-home-cards.png
+10-06 08:19:58.150  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:19:58.156  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:19:58.156  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:19:58.156  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:19:58.156  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:19:58.156  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:19:58.156  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:19:58.156  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:19:58.156  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:19:58.156  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:19:58.173  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.zigor.discountcard.debug>
+10-06 08:19:58.387  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/02-home-cards.png (376858 байт)
+10-06 08:19:58.415  2410  2410 I ImeTracker: com.zigor.discountcard.debug:cfe43b2: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:58.415  2410  2410 D InsetsController: show(ime(), fromIme=false)
+10-06 08:19:58.416  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{8062f2 VFED..... .F....ID 0,0-1080,1920 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:58.418  1380  1380 I LatinIME: Starting input. Cursor position = 0,0
+10-06 08:19:58.538  2410  2410 I ImeTracker: com.zigor.discountcard.debug:2ed992da: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+10-06 08:19:58.538  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{8062f2 VFED..... .F....ID 0,0-1080,1920 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+10-06 08:19:58.601  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.zigor.discountcard.debug>
+10-06 08:19:58.643  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:58.645  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:58.645  2410  2410 I ImeTracker: com.zigor.discountcard.debug:2ed992da: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:19:58.669   804   882 D EGL_emulation: app_time_stats: avg=4584.17ms min=896.85ms max=8271.48ms count=2
+10-06 08:19:58.680  2410  2410 I ImeTracker: com.zigor.discountcard.debug:cfe43b2: onShown
+10-06 08:19:58.714  2410  2438 D EGL_emulation: app_time_stats: avg=363.85ms min=137.01ms max=809.24ms count=3
+10-06 08:19:58.894  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.zigor.discountcard.debug>
+10-06 08:20:00.030   804   882 D EGL_emulation: app_time_stats: avg=2641.76ms min=17.20ms max=9616.90ms count=4
+10-06 08:20:00.611  2544  2544 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:00.613  1432  1691 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:00.614  2544  2544 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:00.625   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:00.625  2544  2547 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:00.778   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:00.783   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:00.785  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:00.790  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:00.796  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/07-search-keyboard.png
+10-06 08:20:00.915  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/07-search-keyboard.png (91524 байт)
+10-06 08:20:00.942   507   788 I ImeTracker: com.zigor.discountcard.debug:c9ac9667: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_SOFT_INPUT_BY_BACK_KEY
+10-06 08:20:00.945  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@113842520 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@dd943af
+10-06 08:20:00.971   804   882 D EGL_emulation: app_time_stats: avg=1150.56ms min=43.83ms max=2257.30ms count=2
+10-06 08:20:00.981  2410  2410 I ImeTracker: com.zigor.discountcard.debug:bc77da24: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:00.982   507  2310 I ImeTracker: com.zigor.discountcard.debug:bc77da24: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:00.982  2410  2410 I ImeTracker: com.zigor.discountcard.debug:c9ac9667: onHidden
+10-06 08:20:01.026  1380  1421 D EGL_emulation: app_time_stats: avg=795.99ms min=209.88ms max=1871.39ms count=3
+10-06 08:20:01.050  2410  2438 D EGL_emulation: app_time_stats: avg=332.96ms min=21.91ms max=2005.61ms count=7
+10-06 08:20:01.914  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:01.914  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:02.070  2410  2410 I ImeTracker: com.zigor.discountcard.debug:af7ad02d: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:02.070  2410  2410 I ImeTracker: com.zigor.discountcard.debug:af7ad02d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:02.078  2410  2438 D EGL_emulation: app_time_stats: avg=204.39ms min=28.99ms max=737.87ms count=5
+10-06 08:20:02.912  2562  2562 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:02.914  1432  1691 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:02.915  2562  2562 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:02.925   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:02.925  2562  2565 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:03.012   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:20:03.069   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:03.072   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:03.073  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:03.077  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:03.081  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/03-card-detail.png
+10-06 08:20:03.189  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/03-card-detail.png (78308 байт)
+10-06 08:20:03.219  2410  2438 D EGL_emulation: app_time_stats: avg=570.20ms min=171.97ms max=968.43ms count=2
+10-06 08:20:03.283  2410  2419 W System  : A resource failed to call release.
+10-06 08:20:03.506  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:03.506  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:03.519  2410  2410 V NFC     : this device does not have NFC support
+10-06 08:20:04.129  2574  2574 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:04.131  1432  1686 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:04.134  2574  2574 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:04.143   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:04.143  2574  2577 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:04.287   507  1790 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:04.293   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:04.295  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:04.303  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/04-nfc.png
+10-06 08:20:04.324  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:04.324  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:04.324  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:04.324  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:04.324  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:04.324  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:04.324  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:04.324  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:04.324  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:04.324  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:04.329  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:04.413  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/04-nfc.png (87681 байт)
+10-06 08:20:04.435  2410  2438 D EGL_emulation: app_time_stats: avg=303.96ms min=71.03ms max=767.95ms count=4
+10-06 08:20:04.537   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:20:04.719  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:04.719  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:04.906   507  2310 I ImeTracker: com.zigor.discountcard.debug:c24ff5ba: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:04.906   507  2310 I ImeTracker: com.zigor.discountcard.debug:c24ff5ba: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:05.462  2586  2586 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:05.463  1432  1686 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:05.464  2586  2586 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:05.474   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:05.475  2586  2589 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:05.700   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:05.705   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:05.705  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:05.711  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:05.715  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/05-menu.png
+10-06 08:20:05.909  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/05-menu.png (308956 байт)
+10-06 08:20:05.954  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:05.954  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:05.956  2410  2438 D EGL_emulation: app_time_stats: avg=369.98ms min=56.05ms max=916.72ms count=3
+10-06 08:20:06.106  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@4781848
+10-06 08:20:06.108   507  2310 W InputManager-JNI: Input channel object 'b788a56 Pop-Up Window (client)' was disposed without first being removed with the input manager!
+10-06 08:20:06.221   507   788 I ImeTracker: com.zigor.discountcard.debug:727ed609: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:06.221   507   788 I ImeTracker: com.zigor.discountcard.debug:727ed609: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:06.363  2410  2438 D EGL_emulation: app_time_stats: avg=275.32ms min=48.67ms max=1365.89ms count=7
+10-06 08:20:06.835  2598  2598 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:06.837  1432  1686 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:06.839  2598  2598 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:06.848   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:06.849  2598  2601 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:06.996   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:07.000   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:07.001  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:07.005  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:07.010  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/06-card-edit.png
+10-06 08:20:07.117  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/06-card-edit.png (122676 байт)
+10-06 08:20:07.165  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:07.165  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:07.250   327  2606 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:07.251   327  2607 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:07.251   327  2608 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:07.259   327  2609 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:07.260   327  2610 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:07.260   327  2611 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:07.383  2410  2438 D EGL_emulation: app_time_stats: avg=252.97ms min=16.17ms max=759.76ms count=4
+10-06 08:20:07.393   507  1790 I ImeTracker: com.zigor.discountcard.debug:f21d0e86: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:07.393   507  1790 I ImeTracker: com.zigor.discountcard.debug:f21d0e86: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:07.424   804   882 D EGL_emulation: app_time_stats: avg=7393.86ms min=7393.86ms max=7393.86ms count=1
+10-06 08:20:07.454   804   882 D EGL_emulation: app_time_stats: avg=3241.55ms min=20.51ms max=6462.60ms count=2
+10-06 08:20:07.490   327  2607 I resolv  : res_nsend: used send_dg 57 terrno: 0
+10-06 08:20:07.490   327  2607 I resolv  : doQuery: rcode=0, ancount=1, return value=57
+10-06 08:20:07.507   327  2608 I resolv  : res_nsend: used send_dg 45 terrno: 0
+10-06 08:20:07.508   327  2608 I resolv  : doQuery: rcode=0, ancount=1, return value=45
+10-06 08:20:07.523  2410  2594 D TrafficStats: tagSocket(118) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:07.564   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:20:07.591   327  2610 I resolv  : res_nsend: used send_dg 84 terrno: 0
+10-06 08:20:07.591   327  2610 I resolv  : doQuery: rcode=0, ancount=0, return value=84
+10-06 08:20:07.744   327  2611 I resolv  : res_nsend: used send_dg 46 terrno: 0
+10-06 08:20:07.744   327  2611 I resolv  : doQuery: rcode=0, ancount=1, return value=46
+10-06 08:20:07.745  2410  2432 D TrafficStats: tagSocket(134) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:08.161  2616  2616 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:08.163  1432  1691 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:08.164  2616  2616 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:08.175   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:08.175  2616  2619 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:08.332   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:08.336   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:08.336  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:08.344  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:08.345  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/09-store-picker.png
+10-06 08:20:08.367  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:08.367  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:08.367  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:08.367  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:08.367  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:08.367  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:08.367  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:08.367  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:08.367  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:08.367  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:08.367  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:08.367  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:08.367  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:08.476  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/09-store-picker.png (141188 байт)
+10-06 08:20:08.524  2410  2410 I ImeTracker: com.zigor.discountcard.debug:8ba18cfc: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:08.524  2410  2410 D InsetsController: show(ime(), fromIme=false)
+10-06 08:20:08.525  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{f6271c VFED..... .F....ID 0,0-840,1731 aid=1073741827} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:08.531  1380  1380 I LatinIME: Starting input. Cursor position = 0,0
+10-06 08:20:08.544  2410  2438 D EGL_emulation: app_time_stats: avg=613.88ms min=216.92ms max=1010.85ms count=2
+10-06 08:20:08.665  2410  2410 I ImeTracker: com.zigor.discountcard.debug:8e85207e: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+10-06 08:20:08.665  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{f6271c VFED..... .F....ID 0,0-840,1731 aid=1073741827} flags=0 reason=SHOW_SOFT_INPUT
+10-06 08:20:08.700  2410  2432 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:08.737  2410  2594 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:08.786   507  1790 I ImeTracker: com.zigor.discountcard.debug:8ba18cfc: onFailed at PHASE_WM_SHOW_IME_RUNNER
+10-06 08:20:08.950  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:20:09.055  2410  2432 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:09.058  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.zigor.discountcard.debug>
+10-06 08:20:09.133  2410  2438 D EGL_emulation: app_time_stats: avg=581.35ms min=37.68ms max=1558.97ms count=3
+10-06 08:20:09.145  2410  2410 I ImeTracker: com.zigor.discountcard.debug:8e85207e: onShown
+10-06 08:20:09.214   804   882 D EGL_emulation: app_time_stats: avg=1756.41ms min=1756.41ms max=1756.41ms count=1
+10-06 08:20:09.220  2410  2594 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:09.406  2410  2432 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:09.595  2410  2594 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:09.770  2629  2629 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:09.772  1432  2104 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:09.773  2629  2629 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:09.783   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:09.784  2629  2632 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:09.950   507  1790 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:09.954   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:09.955  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:09.959  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:09.964  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/10-picker-by-card-name.png
+10-06 08:20:10.101  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/10-picker-by-card-name.png (135069 байт)
+10-06 08:20:10.129  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@113842520 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@ac05591
+10-06 08:20:10.130  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@159df93
+10-06 08:20:10.132  2410  2438 D EGL_emulation: app_time_stats: avg=544.64ms min=41.27ms max=1048.02ms count=2
+10-06 08:20:10.169   507  1817 W InputManager-JNI: Input channel object '2214faf com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:10.217  2410  2410 I ImeTracker: com.zigor.discountcard.debug:9f53e4f3: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+10-06 08:20:10.218  2410  2410 I ImeTracker: com.zigor.discountcard.debug:9f53e4f3: onFailed at PHASE_CLIENT_VIEW_SERVED
+10-06 08:20:10.227   507   788 I ImeTracker: com.zigor.discountcard.debug:31c6e370: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:10.230   507   788 I ImeTracker: com.zigor.discountcard.debug:31c6e370: onFailed at PHASE_WM_HAS_IME_INSETS_CONTROL_TARGET
+10-06 08:20:10.233  2410  2410 E ImeBackDispatcher: Ime callback not found. Ignoring unregisterReceivedCallback. callbackId: 113842520
+10-06 08:20:10.238   327  2637 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:10.238   327  2638 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:10.254   804   882 D EGL_emulation: app_time_stats: avg=1414.06ms min=33.66ms max=2794.47ms count=2
+10-06 08:20:10.264   327  2639 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:10.269   804   882 D EGL_emulation: app_time_stats: avg=1054.82ms min=1054.82ms max=1054.82ms count=1
+10-06 08:20:10.328   327  2638 I resolv  : res_nsend: used send_dg 144 terrno: 0
+10-06 08:20:10.328   327  2638 I resolv  : doQuery: rcode=0, ancount=4, return value=144
+10-06 08:20:10.331   327  2639 I resolv  : res_nsend: used send_dg 128 terrno: 0
+10-06 08:20:10.331   327  2639 I resolv  : doQuery: rcode=0, ancount=6, return value=128
+10-06 08:20:10.334  2410  2594 D TrafficStats: tagSocket(111) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:10.418  1380  1421 D EGL_emulation: app_time_stats: avg=816.59ms min=518.86ms max=1114.31ms count=2
+10-06 08:20:10.444  2410  2438 D EGL_emulation: app_time_stats: avg=655.16ms min=80.21ms max=1230.11ms count=2
+10-06 08:20:10.448   507   516 I system_server: NativeAlloc concurrent copying GC freed 189000(8295KB) AllocSpace objects, 22(440KB) LOS objects, 50% free, 16MB/33MB, paused 50us,44us total 267.421ms
+10-06 08:20:10.450   507   517 W JavaBinder: BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: com.android.server.am.ActivityManagerService$14
+10-06 08:20:10.450   507   517 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:11.397  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.zigor.discountcard.debug>
+10-06 08:20:11.455  2410  2438 D EGL_emulation: app_time_stats: avg=333.04ms min=27.69ms max=925.69ms count=3
+10-06 08:20:11.511  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:11.511  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:11.740   507  1817 I ImeTracker: com.zigor.discountcard.debug:94033626: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:11.740   507  1817 I ImeTracker: com.zigor.discountcard.debug:94033626: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:11.880  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:11.880  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:12.010  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@b6249bf
+10-06 08:20:12.012   507  1817 W InputManager-JNI: Input channel object 'cef2fd6 Pop-Up Window (client)' was disposed without first being removed with the input manager!
+10-06 08:20:12.111   507  1817 I ImeTracker: com.zigor.discountcard.debug:c83b2bed: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:12.111   507  1817 I ImeTracker: com.zigor.discountcard.debug:c83b2bed: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:12.686  2654  2654 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:12.688  1432  1691 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:12.690  2654  2654 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:12.699   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:12.700  2654  2657 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:12.858   507  1817 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:12.862   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:12.863  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:12.870  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:12.871  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/08-help.png
+10-06 08:20:12.990  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/08-help.png (192500 байт)
+10-06 08:20:13.009   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:20:13.859  2410  2419 W System  : A resource failed to call release.
+10-06 08:20:13.874  2410  2438 D EGL_emulation: app_time_stats: avg=483.28ms min=62.72ms max=1750.57ms count=5
+10-06 08:20:13.935  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:13.935  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:14.065   507  2310 I ImeTracker: com.zigor.discountcard.debug:c2630fb7: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:14.066   507  2310 I ImeTracker: com.zigor.discountcard.debug:c2630fb7: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:14.244  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:14.244  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:14.319  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@7f61cd0
+10-06 08:20:14.326   507  2310 W InputManager-JNI: Input channel object '80b4ac2 Pop-Up Window (client)' was disposed without first being removed with the input manager!
+10-06 08:20:14.420   507   788 I ImeTracker: com.zigor.discountcard.debug:6ce850e2: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:14.420   507   788 I ImeTracker: com.zigor.discountcard.debug:6ce850e2: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:15.197  2672  2672 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:15.199  1432  2104 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:15.200  2672  2672 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:15.213   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:15.213  2672  2675 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:15.366   507  2310 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:15.370   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:15.370  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:15.379  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:15.380  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/11-bank-cards-empty.png
+10-06 08:20:15.394  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:15.395  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:15.395  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:15.395  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:15.395  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:15.395  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:15.395  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:15.395  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:15.395  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:15.395  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:15.395  2397  2406 W System  : A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+10-06 08:20:15.395  2397  2406 W System  : java.lang.Throwable: Explicit termination method 'HardwareBuffer.close' not called
+10-06 08:20:15.395  2397  2406 W System  : 	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java:288)
+10-06 08:20:15.395  2397  2406 W System  : 	at dalvik.system.CloseGuard.open(CloseGuard.java:257)
+10-06 08:20:15.395  2397  2406 W System  : 	at android.hardware.HardwareBuffer.<init>(HardwareBuffer.java:266)
+10-06 08:20:15.516  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/11-bank-cards-empty.png (148920 байт)
+10-06 08:20:15.554  2410  2438 D EGL_emulation: app_time_stats: avg=279.35ms min=26.04ms max=1126.21ms count=6
+10-06 08:20:15.841  2410  2410 I ImeTracker: com.zigor.discountcard.debug:7bb1be1e: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:15.841  2410  2410 D InsetsController: show(ime(), fromIme=false)
+10-06 08:20:15.842  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{8062f2 VFED..... .F....ID 0,0-1080,1920 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:15.847  1380  1380 I LatinIME: Starting input. Cursor position = 0,0
+10-06 08:20:15.959  2410  2410 I ImeTracker: com.zigor.discountcard.debug:4b329d8b: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+10-06 08:20:15.959  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{8062f2 VFED..... .F....ID 0,0-1080,1920 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+10-06 08:20:16.006   507  1886 I ImeTracker: com.zigor.discountcard.debug:cf54e5a4: onRequestShow at ORIGIN_SERVER_START_INPUT reason ATTACH_NEW_INPUT
+10-06 08:20:16.075  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:20:16.079  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:20:16.079  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:20:16.080  2410  2410 I ImeTracker: com.zigor.discountcard.debug:4b329d8b: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:16.081  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:20:16.082  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:20:16.095   804   882 D EGL_emulation: app_time_stats: avg=2913.12ms min=73.79ms max=5752.44ms count=2
+10-06 08:20:16.097  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:20:16.098  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:20:16.098  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:20:16.100  1380  1380 I LatinIME: Starting input. Cursor position = 16,16
+10-06 08:20:16.116  2410  2410 I ImeTracker: com.zigor.discountcard.debug:7bb1be1e: onShown
+10-06 08:20:16.215  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:20:16.216  2410  2410 I ImeTracker: com.zigor.discountcard.debug:cf54e5a4: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:16.344   507   788 I ImeTracker: com.zigor.discountcard.debug:6ab5693e: onRequestShow at ORIGIN_SERVER_START_INPUT reason ATTACH_NEW_INPUT
+10-06 08:20:16.345  2410  2410 I ImeTracker: com.zigor.discountcard.debug:5881f5b0: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:16.345  2410  2410 D InsetsController: show(ime(), fromIme=false)
+10-06 08:20:16.347  2410  2410 I ImeTracker: com.zigor.discountcard.debug:5881f5b0: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:16.348  2410  2410 I ImeTracker: com.zigor.discountcard.debug:55f8a7a6: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+10-06 08:20:16.349  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{8062f2 VFED..... .F...... 0,0-1080,1920 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+10-06 08:20:16.352  1380  1380 I LatinIME: Starting input. Cursor position = 0,0
+10-06 08:20:16.513   507  2116 I ImeTracker: com.zigor.discountcard.debug:6ab5693e: onFailed at PHASE_WM_SHOW_IME_RUNNER
+10-06 08:20:16.515  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:20:16.515  2410  2410 I ImeTracker: com.zigor.discountcard.debug:55f8a7a6: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:16.567   507  1791 I ImeTracker: com.zigor.discountcard.debug:ddf43c81: onRequestShow at ORIGIN_SERVER_START_INPUT reason ATTACH_NEW_INPUT
+10-06 08:20:16.577   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:20:16.588  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:20:16.588  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:20:16.589  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:20:16.593  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:20:16.593  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:20:16.593  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:20:16.598  1380  1380 I LatinIME: Starting input. Cursor position = 4,4
+10-06 08:20:16.601  2410  2438 D EGL_emulation: app_time_stats: avg=103.88ms min=17.80ms max=296.33ms count=10
+10-06 08:20:16.610  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:20:16.611  2410  2410 I ImeTracker: com.zigor.discountcard.debug:ddf43c81: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:17.269  2684  2684 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:17.271  1432  1686 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:17.272  2684  2684 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:17.281   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:17.281  2684  2687 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:17.434   507  1791 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:17.439   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:17.440  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:17.444  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:17.448  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/12-bank-card-edit.png
+10-06 08:20:17.566  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/12-bank-card-edit.png (117783 байт)
+10-06 08:20:17.625  2410  2438 D EGL_emulation: app_time_stats: avg=512.20ms min=29.38ms max=995.01ms count=2
+10-06 08:20:17.762  2410  2410 I ImeTracker: com.zigor.discountcard.debug:12ed134d: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:17.763  2410  2410 I ImeTracker: com.zigor.discountcard.debug:931568ac: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:17.795   804   882 D EGL_emulation: app_time_stats: avg=849.70ms min=37.84ms max=1661.55ms count=2
+10-06 08:20:17.840  1380  1421 D EGL_emulation: app_time_stats: avg=303.15ms min=81.45ms max=1102.73ms count=6
+10-06 08:20:17.866  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@113842520 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@f4c2d76
+10-06 08:20:17.867  2410  2410 I ImeTracker: com.zigor.discountcard.debug:931568ac: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:20:17.873  2410  2410 I ImeTracker: com.zigor.discountcard.debug:85430e58: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:20:17.873   507  1791 I ImeTracker: com.zigor.discountcard.debug:85430e58: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:17.876  2410  2410 I ImeTracker: com.zigor.discountcard.debug:12ed134d: onHidden
+10-06 08:20:18.018  2410  2417 I countcard.debug: Background concurrent copying GC freed 195194(7484KB) AllocSpace objects, 7(236KB) LOS objects, 49% free, 8807KB/17MB, paused 133us,8us total 129.708ms
+10-06 08:20:18.032  2410  2419 W System  : A resource failed to call release.
+10-06 08:20:18.959  2696  2696 W BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+10-06 08:20:18.960  1432  1691 W MediaProvider: isAppCloneUserPair for user 0: false
+10-06 08:20:18.961  2696  2696 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-06 08:20:18.973   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:20:18.973  2696  2699 I Gralloc4: mapper 4.x is not supported
+10-06 08:20:19.178   507  1767 I ActivityManager: Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x400000 }
+10-06 08:20:19.181   507   524 I ActivityManager: Broadcast completed: result=0
+10-06 08:20:19.182  1432  1820 I MediaProvider: Begin Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:19.191  1432  1820 W ExifInterface: Invalid image: ExifInterface got an unsupported image format file(ExifInterface supports JPEG and some RAW image formats only) or a corrupted JPEG file to ExifInterface.
+10-06 08:20:19.191  1432  1820 W ExifInterface: java.io.EOFException
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface$ByteOrderedDataInputStream.readShort(ExifInterface.java:5044)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface.readByteOrder(ExifInterface.java:3995)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface.parseTiffHeaders(ExifInterface.java:4015)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface.getRawAttributes(ExifInterface.java:2974)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface.loadAttributes(ExifInterface.java:2023)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface.<init>(ExifInterface.java:1640)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.media.ExifInterface.<init>(ExifInterface.java:1591)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner.scanItemImage(ModernMediaScanner.java:1376)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner.scanItem(ModernMediaScanner.java:1038)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner.-$$Nest$smscanItem(ModernMediaScanner.java:0)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner$Scan.visitFile(ModernMediaScanner.java:839)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner$Scan.visitFile(ModernMediaScanner.java:338)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at java.nio.file.Files.walkFileTree(Files.java:2670)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at java.nio.file.Files.walkFileTree(Files.java:2742)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner$Scan.walkFileTree(ModernMediaScanner.java:454)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner$Scan.runInternal(ModernMediaScanner.java:417)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner$Scan.run(ModernMediaScanner.java:406)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.scan.ModernMediaScanner.scanFile(ModernMediaScanner.java:272)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.MediaProvider.scanFile(MediaProvider.java:1943)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.MediaService.onScanFile(MediaService.java:225)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at com.android.providers.media.MediaService.onHandleWork(MediaService.java:85)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at androidx.core.app.JobIntentService$CommandProcessor.doInBackground(JobIntentService.java:396)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at androidx.core.app.JobIntentService$CommandProcessor.doInBackground(JobIntentService.java:387)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at android.os.AsyncTask$3.call(AsyncTask.java:394)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+10-06 08:20:19.191  1432  1820 W ExifInterface: 	at java.lang.Thread.run(Thread.java:1012)
+10-06 08:20:19.192  2410  2429 I ScreenshotTest: screencap -> /sdcard/Pictures/moi-karty-shots/13-bank-card-detail.png
+10-06 08:20:19.211  1432  1820 I MediaProvider: End Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///... flg=0x1400010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService }
+10-06 08:20:19.359  2410  2429 I ScreenshotTest: снимок сохранён: /data/user/0/com.zigor.discountcard.debug/files/screenshots/13-bank-card-detail.png (241651 байт)
+10-06 08:20:19.380   804   875 D SplashScreenView: Build android.window.SplashScreenView{ebb7a37 V.E...... ......ID 0,0-0,0}
+10-06 08:20:19.380   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:20:19.380   804   875 D SplashScreenView: Branding: view: android.view.View{299fba4 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:20:19.382  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: PAUSED
+10-06 08:20:19.383  2410  2410 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.zigor.discountcard.MainActivity@1ff538e
+10-06 08:20:19.418  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::0@0@com.zigor.discountcard.debug>
+10-06 08:20:19.422   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:19.586   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:19.604  2463  2483 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:20:19.769  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: STOPPED
+10-06 08:20:19.769  2410  2410 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.zigor.discountcard.MainActivity@1ff538e
+10-06 08:20:19.848  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1ff538e in: DESTROYED
+10-06 08:20:19.858  2410  2410 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-06 08:20:19.860  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@d17066e
+10-06 08:20:19.888   804   882 D EGL_emulation: app_time_stats: avg=4816.69ms min=85.83ms max=9547.55ms count=2
+10-06 08:20:19.891  2410  2429 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@8c222ea]
+10-06 08:20:19.891   804   882 D EGL_emulation: app_time_stats: avg=1043.18ms min=33.08ms max=2053.27ms count=2
+10-06 08:20:19.895   507  1791 W InputManager-JNI: Input channel object '1853d29 com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:19.909  2410  2429 I TestRunner: finished: captureMainScreens(com.zigor.discountcard.ScreenshotTest)

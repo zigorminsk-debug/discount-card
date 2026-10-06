@@ -1,0 +1,2 @@
+10-06 08:20:25.003  2410  2429 I TestRunner: started: belarusianChainsArePresent(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:25.043  2410  2429 I TestRunner: finished: belarusianChainsArePresent(com.zigor.discountcard.StoreCatalogTest)

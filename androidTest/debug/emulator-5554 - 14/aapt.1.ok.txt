@@ -1,0 +1,52 @@
+EXECUTING: /usr/local/lib/android/sdk/build-tools/34.0.0/aapt dump badging /home/runner/work/discount-card/discount-card/app/build/outputs/apk/debug/app-debug.apk
+CURRENT_WORKING_DIRECTORY: /home/runner/work/discount-card/discount-card
+START_TIME: 2026-10-06 08:21:04.630
+START_TIME-NANOS: 2026-10-06 08:21:04.630100488
+ENVIRONMENT:
+
+*****************************************
+STDOUT/STDERR BELOW
+===================
+package: name='com.zigor.discountcard.debug' versionCode='1' versionName='1.0.0-debug' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+sdkVersion:'24'
+targetSdkVersion:'35'
+uses-permission: name='android.permission.CAMERA'
+uses-permission: name='android.permission.NFC'
+uses-permission: name='android.permission.VIBRATE'
+uses-permission: name='android.permission.INTERNET'
+uses-permission: name='com.zigor.discountcard.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+application-label:'BY-Card'
+application-label-en:'BY-Card'
+application-label-ru:'BY-Card'
+application-icon-160:'res/mipmap-anydpi-v26/ic_launcher.xml'
+application-icon-240:'res/mipmap-anydpi-v26/ic_launcher.xml'
+application-icon-320:'res/mipmap-anydpi-v26/ic_launcher.xml'
+application-icon-480:'res/mipmap-anydpi-v26/ic_launcher.xml'
+application-icon-640:'res/mipmap-anydpi-v26/ic_launcher.xml'
+application-icon-65534:'res/mipmap-anydpi-v26/ic_launcher.xml'
+application: label='BY-Card' icon='res/mipmap-anydpi-v26/ic_launcher.xml'
+application-debuggable
+launchable-activity: name='com.zigor.discountcard.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature-not-required: name='android.hardware.camera.any'
+  uses-feature-not-required: name='android.hardware.nfc'
+  uses-feature: name='android.hardware.camera'
+  uses-implied-feature: name='android.hardware.camera' reason='requested android.permission.CAMERA permission'
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+  uses-feature: name='android.hardware.screen.portrait'
+  uses-implied-feature: name='android.hardware.screen.portrait' reason='one or more activities have specified a portrait orientation'
+main
+other-activities
+other-receivers
+other-services
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--' 'en' 'ru'
+densities: '160' '240' '320' '480' '640' '65534'
+native-code: 'arm64-v8a' 'armeabi-v7a' 'x86' 'x86_64'
+===================
+END_TIME: 2026-10-06 08:21:04.796
+END_TIME-NANOS: 2026-10-06 08:21:04.796636464
+DURATION: 166ms
+EXIT CODE: 0

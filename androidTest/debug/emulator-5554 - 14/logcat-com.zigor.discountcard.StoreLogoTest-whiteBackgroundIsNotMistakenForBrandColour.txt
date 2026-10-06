@@ -1,0 +1,2 @@
+10-06 08:20:48.871  2410  2429 I TestRunner: started: whiteBackgroundIsNotMistakenForBrandColour(com.zigor.discountcard.StoreLogoTest)
+10-06 08:20:48.877  2410  2429 I TestRunner: finished: whiteBackgroundIsNotMistakenForBrandColour(com.zigor.discountcard.StoreLogoTest)

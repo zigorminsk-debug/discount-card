@@ -1,0 +1,2 @@
+10-06 08:20:25.044  2410  2429 I TestRunner: started: loyaltyCardNamesAreKnown(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:25.095  2410  2429 I TestRunner: finished: loyaltyCardNamesAreKnown(com.zigor.discountcard.StoreCatalogTest)

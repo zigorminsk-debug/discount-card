@@ -1,0 +1,2 @@
+10-06 08:19:50.042  2410  2429 I TestRunner: started: storeNameIsLearnedFromPreviousCard(com.zigor.discountcard.CardRepositoryTest)
+10-06 08:19:50.115  2410  2429 I TestRunner: finished: storeNameIsLearnedFromPreviousCard(com.zigor.discountcard.CardRepositoryTest)

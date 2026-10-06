@@ -1,0 +1,2 @@
+10-06 08:19:42.942  2410  2429 I TestRunner: started: expiryIsFormattedAndChecked(com.zigor.discountcard.BankCardTest)
+10-06 08:19:42.947  2410  2429 I TestRunner: finished: expiryIsFormattedAndChecked(com.zigor.discountcard.BankCardTest)

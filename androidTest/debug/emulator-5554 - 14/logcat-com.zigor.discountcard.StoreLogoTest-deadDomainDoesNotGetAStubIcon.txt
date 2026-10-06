@@ -1,0 +1,9 @@
+10-06 08:20:48.746  2410  2429 I TestRunner: started: deadDomainDoesNotGetAStubIcon(com.zigor.discountcard.StoreLogoTest)
+10-06 08:20:48.750   327  2758 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:48.750   327  2760 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:48.750   327  2759 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:48.828   327  2759 I resolv  : res_nsend: used send_dg 111 terrno: 0
+10-06 08:20:48.828   327  2759 I resolv  : doQuery: rcode=3, ancount=0, return value=111
+10-06 08:20:48.863   327  2760 I resolv  : res_nsend: used send_dg 111 terrno: 0
+10-06 08:20:48.863   327  2760 I resolv  : doQuery: rcode=3, ancount=0, return value=111
+10-06 08:20:48.869  2410  2429 I TestRunner: finished: deadDomainDoesNotGetAStubIcon(com.zigor.discountcard.StoreLogoTest)

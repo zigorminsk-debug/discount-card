@@ -1,0 +1,2 @@
+10-06 08:20:25.097  2410  2429 I TestRunner: started: catalogHasNoDuplicatesAndKnownCategories(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:25.134  2410  2429 I TestRunner: finished: catalogHasNoDuplicatesAndKnownCategories(com.zigor.discountcard.StoreCatalogTest)

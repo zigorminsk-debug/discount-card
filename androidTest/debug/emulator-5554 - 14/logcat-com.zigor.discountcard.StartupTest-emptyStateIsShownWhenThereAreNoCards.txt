@@ -1,0 +1,52 @@
+10-06 08:20:21.862  2410  2429 I TestRunner: started: emptyStateIsShownWhenThereAreNoCards(com.zigor.discountcard.StartupTest)
+10-06 08:20:21.865  2410  2429 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@71a768b]
+10-06 08:20:21.869  2410  2429 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-06 08:20:21.908  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: PRE_ON_CREATE
+10-06 08:20:21.910  2410  2410 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-06 08:20:21.918   804   875 D SplashScreenView: Build android.window.SplashScreenView{3e94180 V.E...... ......ID 0,0-0,0}
+10-06 08:20:21.918   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:20:21.918   804   875 D SplashScreenView: Branding: view: android.view.View{54613b9 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:20:21.925   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:21.963  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: CREATED
+10-06 08:20:21.964  2410  2410 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.zigor.discountcard.MainActivity@1a8855f
+10-06 08:20:21.965  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: STARTED
+10-06 08:20:21.965  2410  2410 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.zigor.discountcard.MainActivity@1a8855f
+10-06 08:20:21.976  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: RESUMED
+10-06 08:20:21.977  2410  2410 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.zigor.discountcard.MainActivity@1a8855f
+10-06 08:20:22.106  2410  2410 D AutofillManager: Fill dialog is enabled:false, hints=[]
+10-06 08:20:22.213   507  1790 D OpenGLRenderer: --- Failed to create image decoder with message 'unimplemented'
+10-06 08:20:22.424  1049  1049 W FrameTracker: Missing SF jank callback for vsyncId: 8572, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:20:22.424  1049  1049 W FrameTracker: Missed App frame:UNKNOWN: 10, 8711, 127559550, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:20:22.424  1049  1049 W FrameTracker: Missed SF frame:UNKNOWN: 10, 8711, 127559550, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:20:22.436  1049  1851 V PerfettoTrigger: Not triggering com.android.telemetry.interaction-jank-monitor-9 - not enough time since last trigger
+10-06 08:20:22.491   507   524 W ziparchive: Unable to open '/data/app/~~AF-z3NKPE5e8Z1kRbNvWNQ==/com.zigor.discountcard.debug-esoQiCoLaygM0vduBgsOHg==/base.dm': No such file or directory
+10-06 08:20:22.492   507   524 I ActivityTaskManager: Displayed com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity for user 0: +620ms
+10-06 08:20:22.498   507  1791 I ImeTracker: com.zigor.discountcard.debug:dc7c21f1: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:22.498   507  1791 I ImeTracker: com.zigor.discountcard.debug:dc7c21f1: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:22.507  1049  1105 I ImeTracker: com.android.launcher3:6fcc2ad1: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+10-06 08:20:22.508  1049  1105 I ImeTracker: com.android.launcher3:6fcc2ad1: onFailed at PHASE_CLIENT_VIEW_SERVED
+10-06 08:20:22.529   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@2eef3fe
+10-06 08:20:22.548   507   521 W InputManager-JNI: Input channel object 'a8c0a35 Splash Screen com.zigor.discountcard.debug (client)' was disposed without first being removed with the input manager!
+10-06 08:20:22.659   804   875 D SplashScreenView: Build android.window.SplashScreenView{b48495e V.E...... ......ID 0,0-0,0}
+10-06 08:20:22.659   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:20:22.659   804   875 D SplashScreenView: Branding: view: android.view.View{d6113f G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:20:22.663  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: PAUSED
+10-06 08:20:22.663  2410  2410 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.zigor.discountcard.MainActivity@1a8855f
+10-06 08:20:22.672   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:22.744  2463  2483 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:20:22.913   507   524 W ziparchive: Unable to open '/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/base.dm': No such file or directory
+10-06 08:20:22.917   507   524 I ActivityTaskManager: Displayed com.zigor.discountcard.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity for user 0: +256ms
+10-06 08:20:22.933   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@1564bd1
+10-06 08:20:22.934   507  1791 I ImeTracker: com.zigor.discountcard.debug.test:2e04dce1: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:22.934   507  1791 I ImeTracker: com.zigor.discountcard.debug.test:2e04dce1: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:22.937  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: STOPPED
+10-06 08:20:22.938  2410  2410 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.zigor.discountcard.MainActivity@1a8855f
+10-06 08:20:22.939   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:22.946   507  1791 W InputManager-JNI: Input channel object 'a2d860b Splash Screen com.zigor.discountcard.debug.test (client)' was disposed without first being removed with the input manager!
+10-06 08:20:22.991  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@1a8855f in: DESTROYED
+10-06 08:20:22.991  2410  2410 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-06 08:20:22.991  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@5cca18c
+10-06 08:20:23.010  2410  2429 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@71a768b]
+10-06 08:20:23.035   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:20:23.075   507   521 W InputManager-JNI: Input channel object '590d17 com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:23.085  2410  2429 I TestRunner: finished: emptyStateIsShownWhenThereAreNoCards(com.zigor.discountcard.StartupTest)

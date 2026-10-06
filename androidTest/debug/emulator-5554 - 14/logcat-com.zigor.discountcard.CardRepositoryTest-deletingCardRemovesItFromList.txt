@@ -1,0 +1,2 @@
+10-06 08:19:50.012  2410  2429 I TestRunner: started: deletingCardRemovesItFromList(com.zigor.discountcard.CardRepositoryTest)
+10-06 08:19:50.024  2410  2429 I TestRunner: finished: deletingCardRemovesItFromList(com.zigor.discountcard.CardRepositoryTest)

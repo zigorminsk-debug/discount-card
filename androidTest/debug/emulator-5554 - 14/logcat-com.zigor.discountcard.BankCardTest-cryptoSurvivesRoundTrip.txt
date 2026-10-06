@@ -1,0 +1,2 @@
+10-06 08:19:42.948  2410  2429 I TestRunner: started: cryptoSurvivesRoundTrip(com.zigor.discountcard.BankCardTest)
+10-06 08:19:42.984  2410  2429 I TestRunner: finished: cryptoSurvivesRoundTrip(com.zigor.discountcard.BankCardTest)

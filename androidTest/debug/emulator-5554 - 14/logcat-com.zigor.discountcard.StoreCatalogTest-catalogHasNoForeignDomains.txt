@@ -1,0 +1,2 @@
+10-06 08:20:25.190  2410  2429 I TestRunner: started: catalogHasNoForeignDomains(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:25.221  2410  2429 I TestRunner: finished: catalogHasNoForeignDomains(com.zigor.discountcard.StoreCatalogTest)

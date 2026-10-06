@@ -1,0 +1,2 @@
+10-06 08:19:43.051  2410  2429 I TestRunner: started: bankCardsStayOutOfExport(com.zigor.discountcard.BankCardTest)
+10-06 08:19:43.091  2410  2429 I TestRunner: finished: bankCardsStayOutOfExport(com.zigor.discountcard.BankCardTest)

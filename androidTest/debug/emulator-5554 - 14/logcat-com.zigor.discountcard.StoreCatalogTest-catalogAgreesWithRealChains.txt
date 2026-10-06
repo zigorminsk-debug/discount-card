@@ -1,0 +1,3 @@
+10-06 08:20:24.801  2410  2429 I TestRunner: started: catalogAgreesWithRealChains(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:24.816   507   516 I system_server: NativeAlloc concurrent copying GC freed 62099(2381KB) AllocSpace objects, 6(120KB) LOS objects, 49% free, 16MB/33MB, paused 45us,41us total 500.833ms
+10-06 08:20:24.872  2410  2429 I TestRunner: finished: catalogAgreesWithRealChains(com.zigor.discountcard.StoreCatalogTest)

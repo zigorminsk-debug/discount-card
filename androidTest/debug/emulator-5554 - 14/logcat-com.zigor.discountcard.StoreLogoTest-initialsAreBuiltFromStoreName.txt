@@ -1,0 +1,2 @@
+10-06 08:20:25.294  2410  2429 I TestRunner: started: initialsAreBuiltFromStoreName(com.zigor.discountcard.StoreLogoTest)
+10-06 08:20:25.296  2410  2429 I TestRunner: finished: initialsAreBuiltFromStoreName(com.zigor.discountcard.StoreLogoTest)

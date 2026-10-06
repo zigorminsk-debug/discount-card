@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.zigor.discountcard.BankCardTest" tests="55" failures="0" errors="0" skipped="0" time="82.009" timestamp="2026-10-06T08:21:05" hostname="localhost">
+  <properties>
+    <property name="device" value="emulator-5554 - 14" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="paymentSystemIsDetectedByBin" classname="com.zigor.discountcard.BankCardTest" time="0.011" />
+  <testcase name="luhnCatchesTypos" classname="com.zigor.discountcard.BankCardTest" time="0.002" />
+  <testcase name="migrationSqlMatchesRoomSchema" classname="com.zigor.discountcard.BankCardTest" time="0.001" />
+  <testcase name="expiryIsFormattedAndChecked" classname="com.zigor.discountcard.BankCardTest" time="0.001" />
+  <testcase name="cryptoSurvivesRoundTrip" classname="com.zigor.discountcard.BankCardTest" time="0.001" />
+  <testcase name="numberIsGroupedAndMasked" classname="com.zigor.discountcard.BankCardTest" time="0.026" />
+  <testcase name="savedCardKeepsNumberEncrypted" classname="com.zigor.discountcard.BankCardTest" time="0.055" />
+  <testcase name="bankCardsStayOutOfExport" classname="com.zigor.discountcard.BankCardTest" time="0.028" />
+  <testcase name="cardAddedFromMenuIsStoredMasked" classname="com.zigor.discountcard.BankCardUiTest" time="6.251" />
+  <testcase name="qrCodeIsRenderedSquare" classname="com.zigor.discountcard.BarcodeRendererTest" time="0.5" />
+  <testcase name="invalidValueForFormatFallsBackToCode128" classname="com.zigor.discountcard.BarcodeRendererTest" time="0.027" />
+  <testcase name="validEan13IsRenderedAsEan13" classname="com.zigor.discountcard.BarcodeRendererTest" time="0.002" />
+  <testcase name="longTextStillProducesSomething" classname="com.zigor.discountcard.BarcodeRendererTest" time="0.078" />
+  <testcase name="qrLinkIsResolvedFromCatalog" classname="com.zigor.discountcard.CardRepositoryTest" time="0.053" />
+  <testcase name="deletingCardRemovesItFromList" classname="com.zigor.discountcard.CardRepositoryTest" time="0.001" />
+  <testcase name="cardIsSavedAndFoundByCode" classname="com.zigor.discountcard.CardRepositoryTest" time="0.031" />
+  <testcase name="storeNameIsLearnedFromPreviousCard" classname="com.zigor.discountcard.CardRepositoryTest" time="0.09" />
+  <testcase name="captureMainScreens" classname="com.zigor.discountcard.ScreenshotTest" time="29.763" />
+  <testcase name="menuOffersScanFromImage" classname="com.zigor.discountcard.StartupTest" time="1.927" />
+  <testcase name="emptyStateIsShownWhenThereAreNoCards" classname="com.zigor.discountcard.StartupTest" time="1.213" />
+  <testcase name="appStartsAndShowsHomeScreen" classname="com.zigor.discountcard.StartupTest" time="1.463" />
+  <testcase name="gs1IssuerIsDetected" classname="com.zigor.discountcard.StoreCatalogTest" time="0.126" />
+  <testcase name="suggestionsWorkForTyping" classname="com.zigor.discountcard.StoreCatalogTest" time="0.1" />
+  <testcase name="catalogAgreesWithRealChains" classname="com.zigor.discountcard.StoreCatalogTest" time="0.047" />
+  <testcase name="catalogIsLoadedFromAssets" classname="com.zigor.discountcard.StoreCatalogTest" time="0.051" />
+  <testcase name="unknownNumericCodeIsNotGuessed" classname="com.zigor.discountcard.StoreCatalogTest" time="0.051" />
+  <testcase name="catalogIsGroupedForThePicker" classname="com.zigor.discountcard.StoreCatalogTest" time="0.026" />
+  <testcase name="belarusianChainsArePresent" classname="com.zigor.discountcard.StoreCatalogTest" time="0.052" />
+  <testcase name="loyaltyCardNamesAreKnown" classname="com.zigor.discountcard.StoreCatalogTest" time="0.053" />
+  <testcase name="catalogHasNoDuplicatesAndKnownCategories" classname="com.zigor.discountcard.StoreCatalogTest" time="0.03" />
+  <testcase name="pickerSearchFindsByNameAndDomain" classname="com.zigor.discountcard.StoreCatalogTest" time="0.05" />
+  <testcase name="catalogHasNoForeignDomains" classname="com.zigor.discountcard.StoreCatalogTest" time="0.025" />
+  <testcase name="qrWithStoreLinkIsRecognised" classname="com.zigor.discountcard.StoreCatalogTest" time="0.052" />
+  <testcase name="downloadIsSkippedWhenSwitchedOff" classname="com.zigor.discountcard.StoreLogoTest" time="0.028" />
+  <testcase name="iconUrlsPointToTheStoreSite" classname="com.zigor.discountcard.StoreLogoTest" time="0.004" />
+  <testcase name="storeWithoutLogoReturnsNothing" classname="com.zigor.discountcard.StoreLogoTest" time="0.003" />
+  <testcase name="iconsAreTakenFromPageMarkup" classname="com.zigor.discountcard.StoreLogoTest" time="0.0" />
+  <testcase name="initialsAreBuiltFromStoreName" classname="com.zigor.discountcard.StoreLogoTest" time="0.0" />
+  <testcase name="bundledLogosAreReadable" classname="com.zigor.discountcard.StoreLogoTest" time="0.001" />
+  <testcase name="brandColourIsTakenFromTheLogo" classname="com.zigor.discountcard.StoreLogoTest" time="0.0" />
+  <testcase name="logoDownloadFromSiteIsReported" classname="com.zigor.discountcard.StoreLogoTest" time="23.443" />
+  <testcase name="deadDomainDoesNotGetAStubIcon" classname="com.zigor.discountcard.StoreLogoTest" time="0.131" />
+  <testcase name="whiteBackgroundIsNotMistakenForBrandColour" classname="com.zigor.discountcard.StoreLogoTest" time="0.001" />
+  <testcase name="savedCardCanBeAttachedToStoreFromCatalog" classname="com.zigor.discountcard.StorePickerTest" time="3.805" />
+  <testcase name="foreignFileIsRejected" classname="com.zigor.discountcard.TransferTest" time="0.006" />
+  <testcase name="cardsAndPhotosSurviveExportAndImport" classname="com.zigor.discountcard.TransferTest" time="0.336" />
+  <testcase name="brokenAnswerDoesNotCrash" classname="com.zigor.discountcard.UpdateCheckTest" time="0.001" />
+  <testcase name="releaseNotesAreCleanedFromMarkdown" classname="com.zigor.discountcard.UpdateCheckTest" time="0.012" />
+  <testcase name="releaseListIsParsed" classname="com.zigor.discountcard.UpdateCheckTest" time="0.001" />
+  <testcase name="versionsAreComparedByNumbersNotByText" classname="com.zigor.discountcard.UpdateCheckTest" time="0.002" />
+  <testcase name="bottomButtonsAreAboveSystemNavigationBar" classname="com.zigor.discountcard.WindowInsetsTest" time="1.094" />
+  <testcase name="searchFieldStaysVisibleWhenKeyboardIsOpen" classname="com.zigor.discountcard.WindowInsetsTest" time="2.054" />
+  <testcase name="titleIsBelowStatusBar" classname="com.zigor.discountcard.WindowInsetsTest" time="1.476" />
+  <testcase name="keyboardLayoutDiagnostics" classname="com.zigor.discountcard.WindowInsetsTest" time="4.673" />
+  <testcase name="bottomBarFitsIntoScreenWidth" classname="com.zigor.discountcard.WindowInsetsTest" time="1.352" />
+</testsuite>

@@ -1,0 +1,2 @@
+10-06 08:20:24.575  2410  2429 I TestRunner: started: gs1IssuerIsDetected(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:24.708  2410  2429 I TestRunner: finished: gs1IssuerIsDetected(com.zigor.discountcard.StoreCatalogTest)

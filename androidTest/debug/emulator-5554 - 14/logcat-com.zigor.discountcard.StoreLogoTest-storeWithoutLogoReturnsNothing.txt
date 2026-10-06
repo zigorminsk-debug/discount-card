@@ -1,0 +1,2 @@
+10-06 08:20:25.288  2410  2429 I TestRunner: started: storeWithoutLogoReturnsNothing(com.zigor.discountcard.StoreLogoTest)
+10-06 08:20:25.290  2410  2429 I TestRunner: finished: storeWithoutLogoReturnsNothing(com.zigor.discountcard.StoreLogoTest)

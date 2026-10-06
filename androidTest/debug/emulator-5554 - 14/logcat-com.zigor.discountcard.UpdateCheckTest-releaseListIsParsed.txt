@@ -1,0 +1,2 @@
+10-06 08:20:53.097  2410  2429 I TestRunner: started: releaseListIsParsed(com.zigor.discountcard.UpdateCheckTest)
+10-06 08:20:53.101  2410  2429 I TestRunner: finished: releaseListIsParsed(com.zigor.discountcard.UpdateCheckTest)

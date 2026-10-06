@@ -1,0 +1,2 @@
+10-06 08:20:53.090  2410  2429 I TestRunner: started: releaseNotesAreCleanedFromMarkdown(com.zigor.discountcard.UpdateCheckTest)
+10-06 08:20:53.096  2410  2429 I TestRunner: finished: releaseNotesAreCleanedFromMarkdown(com.zigor.discountcard.UpdateCheckTest)

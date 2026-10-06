@@ -1,0 +1,10 @@
+10-06 08:19:49.335  2410  2429 I TestRunner: started: qrCodeIsRenderedSquare(com.zigor.discountcard.BarcodeRendererTest)
+10-06 08:19:49.447   507  2116 I ImeTracker: com.android.launcher3:632fa9c1: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:19:49.451   507  2116 I ImeTracker: com.android.launcher3:632fa9c1: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:49.463   804   882 D EGL_emulation: app_time_stats: avg=2959.78ms min=17.75ms max=5901.82ms count=2
+10-06 08:19:49.501   804   882 D EGL_emulation: app_time_stats: avg=250.47ms min=12.46ms max=1222.65ms count=8
+10-06 08:19:49.643   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@3ff8cd7
+10-06 08:19:49.643   507  2310 W InputManager-JNI: Input channel object '3d279a Splash Screen com.zigor.discountcard.debug.test (client)' was disposed without first being removed with the input manager!
+10-06 08:19:49.645  2463  2463 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@62271b
+10-06 08:19:49.652   507  1817 W InputManager-JNI: Input channel object 'a612e9e com.zigor.discountcard.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:19:49.859  2410  2429 I TestRunner: finished: qrCodeIsRenderedSquare(com.zigor.discountcard.BarcodeRendererTest)

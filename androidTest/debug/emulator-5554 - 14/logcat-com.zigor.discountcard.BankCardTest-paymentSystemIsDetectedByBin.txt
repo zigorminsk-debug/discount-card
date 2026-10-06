@@ -1,0 +1,2 @@
+10-06 08:19:42.897  2410  2429 I TestRunner: started: paymentSystemIsDetectedByBin(com.zigor.discountcard.BankCardTest)
+10-06 08:19:42.912  2410  2429 I TestRunner: finished: paymentSystemIsDetectedByBin(com.zigor.discountcard.BankCardTest)

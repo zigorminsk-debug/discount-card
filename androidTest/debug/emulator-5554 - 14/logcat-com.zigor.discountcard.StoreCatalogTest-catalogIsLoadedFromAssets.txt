@@ -1,0 +1,2 @@
+10-06 08:20:24.873  2410  2429 I TestRunner: started: catalogIsLoadedFromAssets(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:24.919  2410  2429 I TestRunner: finished: catalogIsLoadedFromAssets(com.zigor.discountcard.StoreCatalogTest)

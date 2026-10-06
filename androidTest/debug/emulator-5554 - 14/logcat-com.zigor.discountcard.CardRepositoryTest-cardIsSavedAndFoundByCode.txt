@@ -1,0 +1,2 @@
+10-06 08:19:50.025  2410  2429 I TestRunner: started: cardIsSavedAndFoundByCode(com.zigor.discountcard.CardRepositoryTest)
+10-06 08:19:50.041  2410  2429 I TestRunner: finished: cardIsSavedAndFoundByCode(com.zigor.discountcard.CardRepositoryTest)

@@ -1,0 +1,2 @@
+10-06 08:20:25.223  2410  2429 I TestRunner: started: qrWithStoreLinkIsRecognised(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:25.253  2410  2429 I TestRunner: finished: qrWithStoreLinkIsRecognised(com.zigor.discountcard.StoreCatalogTest)

@@ -1,0 +1,93 @@
+INFO: Constructing runner from config.
+INFO: Configuring Android Instrumentation driver: android_instrumentation_runtime {
+  instrumentation_info {
+    app_package: "com.zigor.discountcard.debug"
+    test_package: "com.zigor.discountcard.debug.test"
+    test_runner_class: "androidx.test.runner.AndroidJUnitRunner"
+  }
+  instrumentation_args {
+    args_map {
+      key: "additionalTestOutputDir"
+      value: "/sdcard/Android/media/com.zigor.discountcard.debug/additional_test_output"
+    }
+  }
+}
+am_instrument_timeout: 31536000
+
+INFO: Configuring AndroidTestApkInstallerPlugin: apks_to_install {
+  apk_paths: "/home/runner/work/discount-card/discount-card/app/build/outputs/apk/debug/app-debug.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+apks_to_install {
+  apk_paths: "/home/runner/work/discount-card/discount-card/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+
+INFO: No installables found in test fixture. Nothing to install.
+INFO: Installing [/home/runner/work/discount-card/discount-card/app/build/outputs/apk/debug/app-debug.apk] on device emulator-5554.
+INFO: Installing [/home/runner/work/discount-card/discount-card/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk] on device emulator-5554.
+INFO: Start logcat streaming.
+INFO: Running Android Instrumentation driver.
+INFO: Copying files from device to host: /sdcard/Android/media/com.zigor.discountcard.debug/additional_test_output to /home/runner/work/discount-card/discount-card/app/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/emulator-5554 - 14
+INFO: Stop logcat streaming.
+INFO: Uninstalling com.zigor.discountcard.debug for device emulator-5554.
+INFO: Uninstalling com.zigor.discountcard.debug.test for device emulator-5554.
+INFO: Execute com.zigor.discountcard.BankCardTest.paymentSystemIsDetectedByBin: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.luhnCatchesTypos: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.migrationSqlMatchesRoomSchema: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.expiryIsFormattedAndChecked: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.cryptoSurvivesRoundTrip: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.numberIsGroupedAndMasked: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.savedCardKeepsNumberEncrypted: PASSED
+INFO: Execute com.zigor.discountcard.BankCardTest.bankCardsStayOutOfExport: PASSED
+INFO: Execute com.zigor.discountcard.BankCardUiTest.cardAddedFromMenuIsStoredMasked: PASSED
+INFO: Execute com.zigor.discountcard.BarcodeRendererTest.qrCodeIsRenderedSquare: PASSED
+INFO: Execute com.zigor.discountcard.BarcodeRendererTest.invalidValueForFormatFallsBackToCode128: PASSED
+INFO: Execute com.zigor.discountcard.BarcodeRendererTest.validEan13IsRenderedAsEan13: PASSED
+INFO: Execute com.zigor.discountcard.BarcodeRendererTest.longTextStillProducesSomething: PASSED
+INFO: Execute com.zigor.discountcard.CardRepositoryTest.qrLinkIsResolvedFromCatalog: PASSED
+INFO: Execute com.zigor.discountcard.CardRepositoryTest.deletingCardRemovesItFromList: PASSED
+INFO: Execute com.zigor.discountcard.CardRepositoryTest.cardIsSavedAndFoundByCode: PASSED
+INFO: Execute com.zigor.discountcard.CardRepositoryTest.storeNameIsLearnedFromPreviousCard: PASSED
+INFO: Execute com.zigor.discountcard.ScreenshotTest.captureMainScreens: PASSED
+INFO: Execute com.zigor.discountcard.StartupTest.menuOffersScanFromImage: PASSED
+INFO: Execute com.zigor.discountcard.StartupTest.emptyStateIsShownWhenThereAreNoCards: PASSED
+INFO: Execute com.zigor.discountcard.StartupTest.appStartsAndShowsHomeScreen: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.gs1IssuerIsDetected: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.suggestionsWorkForTyping: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.catalogAgreesWithRealChains: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.catalogIsLoadedFromAssets: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.unknownNumericCodeIsNotGuessed: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.catalogIsGroupedForThePicker: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.belarusianChainsArePresent: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.loyaltyCardNamesAreKnown: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.catalogHasNoDuplicatesAndKnownCategories: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.pickerSearchFindsByNameAndDomain: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.catalogHasNoForeignDomains: PASSED
+INFO: Execute com.zigor.discountcard.StoreCatalogTest.qrWithStoreLinkIsRecognised: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.downloadIsSkippedWhenSwitchedOff: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.iconUrlsPointToTheStoreSite: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.storeWithoutLogoReturnsNothing: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.iconsAreTakenFromPageMarkup: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.initialsAreBuiltFromStoreName: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.bundledLogosAreReadable: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.brandColourIsTakenFromTheLogo: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.logoDownloadFromSiteIsReported: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.deadDomainDoesNotGetAStubIcon: PASSED
+INFO: Execute com.zigor.discountcard.StoreLogoTest.whiteBackgroundIsNotMistakenForBrandColour: PASSED
+INFO: Execute com.zigor.discountcard.StorePickerTest.savedCardCanBeAttachedToStoreFromCatalog: PASSED
+INFO: Execute com.zigor.discountcard.TransferTest.foreignFileIsRejected: PASSED
+INFO: Execute com.zigor.discountcard.TransferTest.cardsAndPhotosSurviveExportAndImport: PASSED
+INFO: Execute com.zigor.discountcard.UpdateCheckTest.brokenAnswerDoesNotCrash: PASSED
+INFO: Execute com.zigor.discountcard.UpdateCheckTest.releaseNotesAreCleanedFromMarkdown: PASSED
+INFO: Execute com.zigor.discountcard.UpdateCheckTest.releaseListIsParsed: PASSED
+INFO: Execute com.zigor.discountcard.UpdateCheckTest.versionsAreComparedByNumbersNotByText: PASSED
+INFO: Execute com.zigor.discountcard.WindowInsetsTest.bottomButtonsAreAboveSystemNavigationBar: PASSED
+INFO: Execute com.zigor.discountcard.WindowInsetsTest.searchFieldStaysVisibleWhenKeyboardIsOpen: PASSED
+INFO: Execute com.zigor.discountcard.WindowInsetsTest.titleIsBelowStatusBar: PASSED
+INFO: Execute com.zigor.discountcard.WindowInsetsTest.keyboardLayoutDiagnostics: PASSED
+INFO: Execute com.zigor.discountcard.WindowInsetsTest.bottomBarFitsIntoScreenWidth: PASSED

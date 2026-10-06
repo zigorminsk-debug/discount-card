@@ -1,0 +1,3 @@
+10-06 08:19:42.918  2410  2429 I TestRunner: started: migrationSqlMatchesRoomSchema(com.zigor.discountcard.BankCardTest)
+10-06 08:19:42.932  2410  2429 D CompatibilityChangeReporter: Compat change id reported: 247079863; UID 10141; state: ENABLED
+10-06 08:19:42.941  2410  2429 I TestRunner: finished: migrationSqlMatchesRoomSchema(com.zigor.discountcard.BankCardTest)

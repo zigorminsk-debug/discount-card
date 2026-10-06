@@ -1,0 +1,2 @@
+10-06 08:20:24.963  2410  2429 I TestRunner: started: catalogIsGroupedForThePicker(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:25.002  2410  2429 I TestRunner: finished: catalogIsGroupedForThePicker(com.zigor.discountcard.StoreCatalogTest)

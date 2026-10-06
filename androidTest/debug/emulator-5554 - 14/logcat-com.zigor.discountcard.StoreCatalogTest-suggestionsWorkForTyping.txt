@@ -1,0 +1,3 @@
+10-06 08:20:24.712  2410  2429 I TestRunner: started: suggestionsWorkForTyping(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:24.789   804   812 I ndroid.systemui: NativeAlloc concurrent copying GC freed 52689(2722KB) AllocSpace objects, 1(20KB) LOS objects, 49% free, 12MB/25MB, paused 33us,26us total 401.747ms
+10-06 08:20:24.800  2410  2429 I TestRunner: finished: suggestionsWorkForTyping(com.zigor.discountcard.StoreCatalogTest)

@@ -1,0 +1,9 @@
+10-06 08:20:52.748  2410  2429 I TestRunner: started: cardsAndPhotosSurviveExportAndImport(com.zigor.discountcard.TransferTest)
+10-06 08:20:52.823   507  1791 I ImeTracker: com.android.launcher3:1c4b972f: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:52.825   507  1791 I ImeTracker: com.android.launcher3:1c4b972f: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:52.849  2463  2463 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@fc7fbdd
+10-06 08:20:52.853   507  2310 W InputManager-JNI: Input channel object '309d968 com.zigor.discountcard.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:52.925   804   882 D EGL_emulation: app_time_stats: avg=622.85ms min=146.96ms max=1098.74ms count=2
+10-06 08:20:52.955   804   882 D EGL_emulation: app_time_stats: avg=563.82ms min=147.72ms max=1040.38ms count=3
+10-06 08:20:53.027   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:20:53.083  2410  2429 I TestRunner: finished: cardsAndPhotosSurviveExportAndImport(com.zigor.discountcard.TransferTest)

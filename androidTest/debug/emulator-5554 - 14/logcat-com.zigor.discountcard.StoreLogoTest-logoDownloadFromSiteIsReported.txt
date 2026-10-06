@@ -1,0 +1,73 @@
+10-06 08:20:25.304  2410  2429 I TestRunner: started: logoDownloadFromSiteIsReported(com.zigor.discountcard.StoreLogoTest)
+10-06 08:20:25.343  2410  2429 I LogoDiag: evroopt (evroopt.by): загружен=false размер=128x128 цвет=#8DC640
+10-06 08:20:25.352  2410  2429 I LogoDiag: sosedi (sosedi.by): загружен=false размер=192x51 цвет=#0683C9
+10-06 08:20:25.367  2410  2429 I LogoDiag: mile (mile.by): загружен=false размер=165x44 цвет=#972A31
+10-06 08:20:25.370   327  2740 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:25.370   327  2742 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:25.370   327  2741 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:25.593   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:20:25.606   327  2742 I resolv  : res_nsend: used send_dg 43 terrno: 0
+10-06 08:20:25.606   327  2742 I resolv  : doQuery: rcode=0, ancount=1, return value=43
+10-06 08:20:25.837   327  2741 I resolv  : res_nsend: used send_dg 81 terrno: 0
+10-06 08:20:25.837   327  2741 I resolv  : doQuery: rcode=0, ancount=0, return value=81
+10-06 08:20:25.838  2410  2594 D TrafficStats: tagSocket(6) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:26.512  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.zigor.discountcard.debug>
+10-06 08:20:26.662  2410  2594 D TrafficStats: tagSocket(6) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:27.490  2410  2594 D TrafficStats: tagSocket(6) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:27.955   327  2743 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:27.955   327  2745 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:27.955   327  2744 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:27.955   327  2745 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d4302c9bc0
+10-06 08:20:27.955   327  2745 I resolv  : doQuery: rcode=0, ancount=1, return value=43
+10-06 08:20:27.956   327  2744 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d3d02d2d30
+10-06 08:20:27.956   327  2744 I resolv  : doQuery: rcode=0, ancount=0, return value=81
+10-06 08:20:27.957  2410  2594 D TrafficStats: tagSocket(6) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:28.147  2410  2410 E FrameTracker: force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.zigor.discountcard.debug>
+10-06 08:20:28.597   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:20:28.774  2410  2594 D TrafficStats: tagSocket(6) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:29.610   327  2746 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:29.611   327  2748 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:29.611   327  2747 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:29.643   327  2747 I resolv  : res_nsend: used send_dg 144 terrno: 0
+10-06 08:20:29.644   327  2747 I resolv  : doQuery: rcode=0, ancount=4, return value=144
+10-06 08:20:29.648   327  2748 I resolv  : res_nsend: used send_dg 128 terrno: 0
+10-06 08:20:29.648   327  2748 I resolv  : doQuery: rcode=0, ancount=6, return value=128
+10-06 08:20:29.649  2410  2594 D TrafficStats: tagSocket(120) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:29.671  2410  2419 W System  : A resource failed to call end.
+10-06 08:20:29.671  2410  2419 W System  : A resource failed to call end.
+10-06 08:20:29.671  2410  2419 W System  : A resource failed to call end.
+10-06 08:20:29.671  2410  2419 W System  : A resource failed to call end.
+10-06 08:20:30.222  2410  2429 I LogoDiag: mastak (mastac.by): загружен=true размер=128x128 цвет=#E96A15
+10-06 08:20:30.241  2410  2429 I LogoDiag: santa (santa.by): загружен=false размер=192x93 цвет=#01A6E3
+10-06 08:20:30.243   327  2749 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:30.243   327  2751 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:30.243   327  2750 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:30.704   327  2751 I resolv  : res_nsend: used send_dg 42 terrno: 0
+10-06 08:20:30.704   327  2751 I resolv  : doQuery: rcode=0, ancount=1, return value=42
+10-06 08:20:30.705   327  2750 I resolv  : res_nsend: used send_dg 77 terrno: 0
+10-06 08:20:30.705   327  2750 I resolv  : doQuery: rcode=0, ancount=0, return value=77
+10-06 08:20:30.706  2410  2594 D TrafficStats: tagSocket(118) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:33.013   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:20:36.542   327  2752 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:36.542   327  2754 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:36.542   327  2754 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d4302cc710
+10-06 08:20:36.542   327  2754 I resolv  : doQuery: rcode=0, ancount=1, return value=42
+10-06 08:20:36.543   327  2753 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:36.543   327  2753 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d3d02d4bd0
+10-06 08:20:36.543   327  2753 I resolv  : doQuery: rcode=0, ancount=0, return value=77
+10-06 08:20:36.543  2410  2594 D TrafficStats: tagSocket(118) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:37.067   507   507 I ResourceTimer: GetResourceValue count=4018 pvalues=1000,5000,7000,20000
+10-06 08:20:37.068   507   507 I ResourceTimer: RetrieveAttributes count=3385 pvalues=1000,1000,2000,6000
+10-06 08:20:39.051   327  2755 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10141 0}
+10-06 08:20:39.051   327  2757 I resolv  : res_nmkquery: (QUERY, IN, A)
+10-06 08:20:39.051   327  2757 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d4302cc710
+10-06 08:20:39.051   327  2757 I resolv  : doQuery: rcode=0, ancount=1, return value=42
+10-06 08:20:39.051   327  2756 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+10-06 08:20:39.051   327  2756 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x77d3d02d4bd0
+10-06 08:20:39.051   327  2756 I resolv  : doQuery: rcode=0, ancount=0, return value=77
+10-06 08:20:39.052  2410  2594 D TrafficStats: tagSocket(118) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:39.895  2410  2594 D TrafficStats: tagSocket(118) with statsTag=0xffffffff, statsUid=-1
+10-06 08:20:43.013   804   804 D StatusBarIconController: ignoring old pipeline callbacks, because the new mobile icons are enabled
+10-06 08:20:46.622   804   804 D StatusBarIconController: ignoring old pipeline callback because the new wifi icon is enabled
+10-06 08:20:48.744  2410  2429 I LogoDiag: gippo (gippo.by): загружен=true размер=144x144 цвет=#E9A952
+10-06 08:20:48.744  2410  2429 I TestRunner: finished: logoDownloadFromSiteIsReported(com.zigor.discountcard.StoreLogoTest)

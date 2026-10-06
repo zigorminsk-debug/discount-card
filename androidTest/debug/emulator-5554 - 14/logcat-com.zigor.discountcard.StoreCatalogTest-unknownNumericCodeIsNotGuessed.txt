@@ -1,0 +1,2 @@
+10-06 08:20:24.921  2410  2429 I TestRunner: started: unknownNumericCodeIsNotGuessed(com.zigor.discountcard.StoreCatalogTest)
+10-06 08:20:24.962  2410  2429 I TestRunner: finished: unknownNumericCodeIsNotGuessed(com.zigor.discountcard.StoreCatalogTest)

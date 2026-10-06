@@ -1,0 +1,2 @@
+10-06 08:19:42.986  2410  2429 I TestRunner: started: numberIsGroupedAndMasked(com.zigor.discountcard.BankCardTest)
+10-06 08:19:42.995  2410  2429 I TestRunner: finished: numberIsGroupedAndMasked(com.zigor.discountcard.BankCardTest)

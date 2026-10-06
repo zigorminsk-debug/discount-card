@@ -1,0 +1,2 @@
+10-06 08:19:49.960  2410  2429 I TestRunner: started: qrLinkIsResolvedFromCatalog(com.zigor.discountcard.CardRepositoryTest)
+10-06 08:19:50.011  2410  2429 I TestRunner: finished: qrLinkIsResolvedFromCatalog(com.zigor.discountcard.CardRepositoryTest)

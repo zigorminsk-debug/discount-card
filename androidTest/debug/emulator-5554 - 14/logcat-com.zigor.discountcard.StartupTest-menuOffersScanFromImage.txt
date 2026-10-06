@@ -1,0 +1,70 @@
+10-06 08:20:19.918  2410  2429 I TestRunner: started: menuOffersScanFromImage(com.zigor.discountcard.StartupTest)
+10-06 08:20:19.922  2410  2429 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@efabd6e]
+10-06 08:20:19.928   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@b599b0e
+10-06 08:20:19.929   507  1791 W InputManager-JNI: Input channel object 'd12f33d Splash Screen com.zigor.discountcard.debug.test (client)' was disposed without first being removed with the input manager!
+10-06 08:20:19.933   507  1791 I ImeTracker: com.android.launcher3:c445c195: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:19.933   507  1791 I ImeTracker: com.android.launcher3:c445c195: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:20.072  2463  2463 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@2beca94
+10-06 08:20:20.111   804   812 I ndroid.systemui: NativeAlloc concurrent copying GC freed 249169(10094KB) AllocSpace objects, 12(240KB) LOS objects, 49% free, 13MB/26MB, paused 43us,26us total 259.550ms
+10-06 08:20:20.117   507  1817 W InputManager-JNI: Input channel object '10c25ad com.zigor.discountcard.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:20.120  2410  2429 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-06 08:20:20.155   804   875 D SplashScreenView: Build android.window.SplashScreenView{40bc88c V.E...... ......ID 0,0-0,0}
+10-06 08:20:20.155   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:20:20.155   804   875 D SplashScreenView: Branding: view: android.view.View{8673bd5 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:20:20.239   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:20.289  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: PRE_ON_CREATE
+10-06 08:20:20.289  2410  2410 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-06 08:20:20.353  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: CREATED
+10-06 08:20:20.353  2410  2410 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.zigor.discountcard.MainActivity@819a6d2
+10-06 08:20:20.354  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: STARTED
+10-06 08:20:20.354  2410  2410 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.zigor.discountcard.MainActivity@819a6d2
+10-06 08:20:20.358  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: RESUMED
+10-06 08:20:20.358  2410  2410 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.zigor.discountcard.MainActivity@819a6d2
+10-06 08:20:20.404  2410  2410 D AutofillManager: Fill dialog is enabled:false, hints=[]
+10-06 08:20:20.532  1049  1049 W FrameTracker: Missed App frame:UNKNOWN: 74, 7764, 135026267, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:20:20.532  1049  1049 W FrameTracker: Missed SF frame:UNKNOWN: 74, 7764, 135026267, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:20:20.532  1049  1049 W FrameTracker: Missing SF jank callback for vsyncId: 7885, CUJ=J<LAUNCHER_APP_CLOSE_TO_HOME>
+10-06 08:20:20.541  1049  1851 V PerfettoTrigger: Not triggering com.android.telemetry.interaction-jank-monitor-9 - not enough time since last trigger
+10-06 08:20:20.648   507   524 W ziparchive: Unable to open '/data/app/~~AF-z3NKPE5e8Z1kRbNvWNQ==/com.zigor.discountcard.debug-esoQiCoLaygM0vduBgsOHg==/base.dm': No such file or directory
+10-06 08:20:20.650  1049  1105 I ImeTracker: com.android.launcher3:183b28f7: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+10-06 08:20:20.650   507  1817 I ImeTracker: com.android.launcher3:183b28f7: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:20.651   507   524 I ActivityTaskManager: Displayed com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity for user 0: +522ms
+10-06 08:20:20.669   507   521 I ImeTracker: com.zigor.discountcard.debug:c3ef33f7: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:20.669   507   521 I ImeTracker: com.zigor.discountcard.debug:c3ef33f7: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:20.676   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@de9b1b7
+10-06 08:20:20.678   507   721 W InputManager-JNI: Input channel object '3acb4a7 Splash Screen com.zigor.discountcard.debug (client)' was disposed without first being removed with the input manager!
+10-06 08:20:20.862  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:20:20.862  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:20:20.967   507   721 I ImeTracker: com.zigor.discountcard.debug:204151ac: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:20.968   507   721 I ImeTracker: com.zigor.discountcard.debug:204151ac: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:21.114   804   875 D SplashScreenView: Build android.window.SplashScreenView{b5ad216 V.E...... ......ID 0,0-0,0}
+10-06 08:20:21.114   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:20:21.114   804   875 D SplashScreenView: Branding: view: android.view.View{4b25797 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:20:21.124  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: PAUSED
+10-06 08:20:21.126  2410  2410 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.zigor.discountcard.MainActivity@819a6d2
+10-06 08:20:21.139   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:21.174  2463  2483 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:20:21.440   507   524 W ziparchive: Unable to open '/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/base.dm': No such file or directory
+10-06 08:20:21.443   507   524 I ActivityTaskManager: Displayed com.zigor.discountcard.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity for user 0: +314ms
+10-06 08:20:21.455   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:20:21.461   507  2310 I ImeTracker: com.zigor.discountcard.debug.test:4c3f7fe9: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:21.461   507  2310 I ImeTracker: com.zigor.discountcard.debug.test:4c3f7fe9: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:21.462   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@a1e9f69
+10-06 08:20:21.463   507  1767 W InputManager-JNI: Input channel object 'cfae067 Splash Screen com.zigor.discountcard.debug.test (client)' was disposed without first being removed with the input manager!
+10-06 08:20:21.585  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: STOPPED
+10-06 08:20:21.585  2410  2410 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.zigor.discountcard.MainActivity@819a6d2
+10-06 08:20:21.602   804   882 D EGL_emulation: app_time_stats: avg=422.20ms min=16.00ms max=1026.46ms count=4
+10-06 08:20:21.634   507   521 I ImeTracker: com.android.launcher3:4a65b037: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:20:21.634   507   521 I ImeTracker: com.android.launcher3:4a65b037: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:20:21.668   804   882 D EGL_emulation: app_time_stats: avg=888.26ms min=658.51ms max=1118.01ms count=2
+10-06 08:20:21.759   507   516 I system_server: NativeAlloc concurrent copying GC freed 74957(2912KB) AllocSpace objects, 5(100KB) LOS objects, 49% free, 16MB/33MB, paused 41us,37us total 310.265ms
+10-06 08:20:21.769  2463  2463 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@ef0a45c
+10-06 08:20:21.781  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@e8663ca
+10-06 08:20:21.784   507  1886 W InputManager-JNI: Input channel object '43d4698 com.zigor.discountcard.debug.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:21.808   507  1886 W InputManager-JNI: Input channel object 'ca8209b Pop-Up Window (client)' was disposed without first being removed with the input manager!
+10-06 08:20:21.817  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@819a6d2 in: DESTROYED
+10-06 08:20:21.817  2410  2410 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-06 08:20:21.817  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@bfc7b75
+10-06 08:20:21.838   507   521 W InputManager-JNI: Input channel object '4dfa8bb com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:20:21.848  2410  2429 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@efabd6e]
+10-06 08:20:21.848  2410  2429 I TestRunner: finished: menuOffersScanFromImage(com.zigor.discountcard.StartupTest)

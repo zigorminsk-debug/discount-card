@@ -1,0 +1,2 @@
+10-06 08:19:49.875  2410  2429 I TestRunner: started: longTextStillProducesSomething(com.zigor.discountcard.BarcodeRendererTest)
+10-06 08:19:49.959  2410  2429 I TestRunner: finished: longTextStillProducesSomething(com.zigor.discountcard.BarcodeRendererTest)

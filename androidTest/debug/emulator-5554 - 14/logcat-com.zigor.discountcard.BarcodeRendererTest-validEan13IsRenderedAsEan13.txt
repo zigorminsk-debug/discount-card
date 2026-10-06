@@ -1,0 +1,2 @@
+10-06 08:19:49.869  2410  2429 I TestRunner: started: validEan13IsRenderedAsEan13(com.zigor.discountcard.BarcodeRendererTest)
+10-06 08:19:49.873  2410  2429 I TestRunner: finished: validEan13IsRenderedAsEan13(com.zigor.discountcard.BarcodeRendererTest)

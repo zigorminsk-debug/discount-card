@@ -1,0 +1,265 @@
+10-06 08:19:43.093  2410  2429 I TestRunner: started: cardAddedFromMenuIsStoredMasked(com.zigor.discountcard.BankCardUiTest)
+10-06 08:19:43.112  2410  2429 W FileTestStorage: Output properties is not supported.
+10-06 08:19:43.113  2410  2429 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+10-06 08:19:43.118  2410  2410 D EventInjectionStrategy: Creating injection strategy with input manager.
+10-06 08:19:43.118  2410  2410 W countcard.debug: Accessing hidden method Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager; (unsupported, reflection, allowed)
+10-06 08:19:43.119  2410  2410 W countcard.debug: Accessing hidden method Landroid/hardware/input/InputManager;->injectInputEvent(Landroid/view/InputEvent;I)Z (unsupported, reflection, allowed)
+10-06 08:19:43.119  2410  2410 W countcard.debug: Accessing hidden field Landroid/hardware/input/InputManager;->INJECT_INPUT_EVENT_MODE_WAIT_FOR_FINISH:I (unsupported, reflection, allowed)
+10-06 08:19:43.123  2410  2410 W countcard.debug: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (unsupported, reflection, allowed)
+10-06 08:19:43.124  2410  2410 W countcard.debug: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (unsupported, reflection, allowed)
+10-06 08:19:43.124  2410  2410 W countcard.debug: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (unsupported, reflection, allowed)
+10-06 08:19:43.125  2410  2429 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@299a8c0]
+10-06 08:19:43.134  2410  2429 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-06 08:19:43.152   804   875 D SplashScreenView: Build android.window.SplashScreenView{542ba2b V.E...... ......ID 0,0-0,0}
+10-06 08:19:43.152   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:19:43.152   804   875 D SplashScreenView: Branding: view: android.view.View{a648e88 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:19:43.155   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:19:43.180  1049  1742 D EGL_emulation: app_time_stats: avg=32099.96ms min=41.37ms max=224040.50ms count=7
+10-06 08:19:43.232  2410  2439 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+10-06 08:19:43.233  2410  2439 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+10-06 08:19:43.237  2410  2439 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+10-06 08:19:43.297  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: PRE_ON_CREATE
+10-06 08:19:43.298  2410  2410 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-06 08:19:43.334  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: CREATED
+10-06 08:19:43.334  2410  2410 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.zigor.discountcard.MainActivity@c31e369
+10-06 08:19:43.335  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: STARTED
+10-06 08:19:43.335  2410  2410 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.zigor.discountcard.MainActivity@c31e369
+10-06 08:19:43.337  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: RESUMED
+10-06 08:19:43.337  2410  2410 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.zigor.discountcard.MainActivity@c31e369
+10-06 08:19:43.340  2410  2410 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10141; state: DISABLED
+10-06 08:19:43.340  2410  2410 W OpenGLRenderer: Unknown dataspace 0
+10-06 08:19:43.543   804   882 D EGL_emulation: app_time_stats: avg=20515.64ms min=20515.64ms max=20515.64ms count=1
+10-06 08:19:43.546   804   882 D EGL_emulation: app_time_stats: avg=112398.04ms min=487.11ms max=224308.97ms count=2
+10-06 08:19:43.642  2410  2410 W countcard.debug: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate(boolean, kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+10-06 08:19:43.642  2410  2410 W countcard.debug: Common causes for lock verification issues are non-optimized dex code
+10-06 08:19:43.642  2410  2410 W countcard.debug: and incorrect proguard optimizations.
+10-06 08:19:43.642  2410  2410 W countcard.debug: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate$default(androidx.compose.runtime.snapshots.SnapshotStateList, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) failed lock verification and will run slower.
+10-06 08:19:43.642  2410  2410 W countcard.debug: Method java.lang.Object androidx.compose.runtime.snapshots.SnapshotStateList.mutate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+10-06 08:19:43.642  2410  2410 W countcard.debug: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update(boolean, kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+10-06 08:19:43.642  2410  2410 W countcard.debug: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update$default(androidx.compose.runtime.snapshots.SnapshotStateList, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) failed lock verification and will run slower.
+10-06 08:19:43.794  2410  2410 D CompatibilityChangeReporter: Compat change id reported: 289878283; UID 10141; state: ENABLED
+10-06 08:19:43.848   390   556 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10141 pid=0
+10-06 08:19:43.848   390   556 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10141 => denied (156 us)
+10-06 08:19:43.849   390   556 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10141 pid=0
+10-06 08:19:43.849   390   556 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10141 => denied (154 us)
+10-06 08:19:43.849   390   401 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10141 pid=2410
+10-06 08:19:43.849   390   401 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10141 => denied (98 us)
+10-06 08:19:43.849   390   556 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10141 pid=0
+10-06 08:19:43.849   390   556 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10141 => denied (305 us)
+10-06 08:19:43.849   390   401 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10141 pid=2410
+10-06 08:19:43.849   390   401 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10141 => denied (220 us)
+10-06 08:19:43.862  2410  2438 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:43.886   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:19:43.887  2410  2438 I Gralloc4: mapper 4.x is not supported
+10-06 08:19:44.225  2410  2410 I Choreographer: Skipped 48 frames!  The application may be doing too much work on its main thread.
+10-06 08:19:44.227   507   521 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10141 pid=0
+10-06 08:19:44.227   507   521 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10141 => denied (202 us)
+10-06 08:19:44.227   507   521 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10141 pid=0
+10-06 08:19:44.227   507   521 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10141 => denied (58 us)
+10-06 08:19:44.227   507   521 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10141 pid=0
+10-06 08:19:44.227   507   521 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10141 => denied (21 us)
+10-06 08:19:44.233   507   524 W ziparchive: Unable to open '/data/app/~~AF-z3NKPE5e8Z1kRbNvWNQ==/com.zigor.discountcard.debug-esoQiCoLaygM0vduBgsOHg==/base.dm': No such file or directory
+10-06 08:19:44.234   507   524 I ActivityTaskManager: Displayed com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity for user 0: +1s95ms
+10-06 08:19:44.236  1049  1105 I ImeTracker: com.android.launcher3:4a46fb31: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+10-06 08:19:44.236   507  1767 I ImeTracker: com.android.launcher3:4a46fb31: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:44.244   804   865 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@130ce07
+10-06 08:19:44.245   507  2310 W InputManager-JNI: Input channel object 'bc3592f Splash Screen com.zigor.discountcard.debug (client)' was disposed without first being removed with the input manager!
+10-06 08:19:44.247   507  2310 I ImeTracker: com.zigor.discountcard.debug:85c35a19: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:19:44.247   507  2310 I ImeTracker: com.zigor.discountcard.debug:85c35a19: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:44.273  2410  2423 I OpenGLRenderer: Davey! duration=883ms; Flags=1, FrameTimelineVsyncId=3432, IntendedVsync=258487614520, Vsync=258537614518, InputEventId=0, HandleInputStart=258539339530, AnimationStart=258539344349, PerformTraversalsStart=258539346974, DrawStart=259037789249, FrameDeadline=258504281186, FrameInterval=258539268258, FrameStartTime=16666666, SyncQueued=259050487505, SyncStart=259050693099, IssueDrawCommandsStart=259051093446, SwapBuffers=259253004918, FrameCompleted=259371210854, DequeueBufferDuration=2536, QueueBufferDuration=202898, GpuCompleted=259371210854, SwapBuffersCompleted=259356785355, DisplayPresentTime=0, CommandSubmissionCompleted=259253004918,
+10-06 08:19:44.837  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:19:44.837  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:19:45.023   507  2310 I ImeTracker: com.zigor.discountcard.debug:e4b7d442: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:19:45.023   507  2310 I ImeTracker: com.zigor.discountcard.debug:e4b7d442: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:45.232  2410  2410 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+10-06 08:19:45.232  2410  2410 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+10-06 08:19:45.394  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@d6e3ae2
+10-06 08:19:45.403   507  2310 W InputManager-JNI: Input channel object 'd968df6 Pop-Up Window (client)' was disposed without first being removed with the input manager!
+10-06 08:19:45.538   507  2310 I ImeTracker: com.zigor.discountcard.debug:a8b7739c: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+10-06 08:19:45.538   507  2310 I ImeTracker: com.zigor.discountcard.debug:a8b7739c: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:45.670  2410  2438 D EGL_emulation: app_time_stats: avg=206.49ms min=41.20ms max=538.70ms count=7
+10-06 08:19:46.200  2410  2410 I ImeTracker: com.zigor.discountcard.debug:bed82600: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:46.200  2410  2410 D InsetsController: show(ime(), fromIme=false)
+10-06 08:19:46.201  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{81aa203 VFED..... .F....ID 0,0-1080,1920 aid=1073741825} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:46.237  1380  1380 D CompatibilityChangeReporter: Compat change id reported: 210923482; UID 10109; state: DISABLED
+10-06 08:19:46.237  1380  1380 D CompatibilityChangeReporter: Compat change id reported: 37756858; UID 10109; state: ENABLED
+10-06 08:19:46.252  1380  1380 D CompatibilityChangeReporter: Compat change id reported: 183155436; UID 10109; state: DISABLED
+10-06 08:19:46.253  1380  1380 W RichInputMethodSubtype: Can't find emoji subtype
+10-06 08:19:46.253  1380  1380 W RichInputMethodSubtype: No input method subtype found; returning placeholder subtype: Multi-lingual subtype: android.view.inputmethod.InputMethodSubtype@d78b2ed0, zz
+10-06 08:19:46.286  1380  1380 I EmojiCategory: Last Emoji category id is 8
+10-06 08:19:46.288  1380  1380 D CompatibilityChangeReporter: Compat change id reported: 171228096; UID 10109; state: ENABLED
+10-06 08:19:46.293  1380  1380 W ViewPager: Requested offscreen page limit 0 too small; defaulting to 1
+10-06 08:19:46.300  1380  1380 I LatinIME: Starting input. Cursor position = 0,0
+10-06 08:19:46.426  2410  2410 I ImeTracker: com.zigor.discountcard.debug:91f981fb: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+10-06 08:19:46.426  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{81aa203 VFED..... .F....ID 0,0-1080,1920 aid=1073741825} flags=0 reason=SHOW_SOFT_INPUT
+10-06 08:19:46.471   507  1791 I ImeTracker: com.zigor.discountcard.debug:ca4d97f2: onRequestShow at ORIGIN_SERVER_START_INPUT reason ATTACH_NEW_INPUT
+10-06 08:19:46.504   390   556 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10109 pid=0
+10-06 08:19:46.504   390   556 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10109 => denied (79 us)
+10-06 08:19:46.505   390   598 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10109 pid=1380
+10-06 08:19:46.505   390   556 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10109 pid=0
+10-06 08:19:46.505   390   556 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10109 => denied (327 us)
+10-06 08:19:46.505   390   598 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10109 => denied (315 us)
+10-06 08:19:46.505   390   556 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10109 pid=0
+10-06 08:19:46.505   390   556 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10109 => denied (40 us)
+10-06 08:19:46.505   390   598 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10109 pid=1380
+10-06 08:19:46.505   390   598 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10109 => denied (672 us)
+10-06 08:19:46.528  1380  1421 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+10-06 08:19:46.533  1380  1421 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+10-06 08:19:46.534  1380  1421 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+10-06 08:19:46.555  1380  1421 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:46.570   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:19:46.570  1380  1421 I Gralloc4: mapper 4.x is not supported
+10-06 08:19:46.682  2410  2438 D EGL_emulation: app_time_stats: avg=253.02ms min=32.33ms max=441.18ms count=4
+10-06 08:19:46.815   507   521 I ImeTracker: com.zigor.discountcard.debug:20b6409d: onRequestShow at ORIGIN_SERVER_START_INPUT reason ATTACH_NEW_INPUT
+10-06 08:19:46.816  2410  2410 I ImeTracker: com.zigor.discountcard.debug:aec4756f: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:46.816  2410  2410 D InsetsController: show(ime(), fromIme=false)
+10-06 08:19:46.817  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{81aa203 VFED..... .F...... 0,0-1080,1920 aid=1073741825} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:47.046  2410  2410 I ImeTracker: com.zigor.discountcard.debug:190d1846: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+10-06 08:19:47.046  2410  2410 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{81aa203 VFED..... .F....ID 0,0-1080,1920 aid=1073741825} flags=0 reason=SHOW_SOFT_INPUT
+10-06 08:19:47.113   507  1791 I ImeTracker: com.zigor.discountcard.debug:d5cf9fdd: onRequestShow at ORIGIN_SERVER_START_INPUT reason ATTACH_NEW_INPUT
+10-06 08:19:47.316   507  1791 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10109 pid=0
+10-06 08:19:47.316   507  1791 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10109 => denied (109 us)
+10-06 08:19:47.316   507  1791 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10109 pid=0
+10-06 08:19:47.316   507  1791 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10109 => denied (31 us)
+10-06 08:19:47.316   507  1791 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10109 pid=0
+10-06 08:19:47.316   507  1791 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10109 => denied (23 us)
+10-06 08:19:47.329  1380  1403 I OpenGLRenderer: Davey! duration=1097ms; Flags=1, FrameTimelineVsyncId=3912, IntendedVsync=261354281072, Vsync=261620947728, InputEventId=0, HandleInputStart=261634279387, AnimationStart=261634279968, PerformTraversalsStart=261634280158, DrawStart=261715869274, FrameDeadline=261370947738, FrameInterval=261634119208, FrameStartTime=16666666, SyncQueued=261718679638, SyncStart=261721395487, IssueDrawCommandsStart=261730680968, SwapBuffers=262249140223, FrameCompleted=262454558858, DequeueBufferDuration=3056, QueueBufferDuration=199863, GpuCompleted=262454558858, SwapBuffersCompleted=262447989482, DisplayPresentTime=0, CommandSubmissionCompleted=262249140223,
+10-06 08:19:47.382  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.382  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:47.383  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.383  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:19:47.393  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:47.394  2410  2410 I ImeTracker: com.zigor.discountcard.debug:91f981fb: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:19:47.414  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.421  2410  2410 I ImeTracker: com.zigor.discountcard.debug:bed82600: onShown
+10-06 08:19:47.441  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.441  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:47.453   804   882 D EGL_emulation: app_time_stats: avg=3905.78ms min=3905.78ms max=3905.78ms count=1
+10-06 08:19:47.465  1380  1380 I LatinIME: Starting input. Cursor position = 16,16
+10-06 08:19:47.496   804  1333 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:47.497  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.498  2410  2410 W RemoteInputConnectionImpl: getSelectedText on inactive InputConnection
+10-06 08:19:47.499  2410  2410 W RemoteInputConnectionImpl: requestCursorAnchorInfo on inactive InputConnection
+10-06 08:19:47.499  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.499  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.502  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:19:47.502  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.502  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.502  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:47.502  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.503  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.503  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:47.504  1380  1380 I Choreographer: Skipped 59 frames!  The application may be doing too much work on its main thread.
+10-06 08:19:47.509  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:47.510  2410  2410 I ImeTracker: com.zigor.discountcard.debug:ca4d97f2: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:19:47.527  1380  1380 I LatinIME: Starting input. Cursor position = 0,0
+10-06 08:19:47.529  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.532  2410  2410 W RemoteInputConnectionImpl: getSelectedText on inactive InputConnection
+10-06 08:19:47.540  2410  2410 W RemoteInputConnectionImpl: requestCursorAnchorInfo on inactive InputConnection
+10-06 08:19:47.541  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.541  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.541  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:19:47.541  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.542  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.542  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:47.652  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:47.676  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:47.676  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:47.677   507  1791 I ImeTracker: com.zigor.discountcard.debug:20b6409d: onFailed at PHASE_WM_SHOW_IME_RUNNER
+10-06 08:19:47.677   507  1791 I ImeTracker: com.zigor.discountcard.debug:aec4756f: onFailed at PHASE_WM_SHOW_IME_RUNNER
+10-06 08:19:47.749  1380  1406 I OpenGLRenderer: Davey! duration=1152ms; Flags=0, FrameTimelineVsyncId=3955, IntendedVsync=261637614394, Vsync=262620947688, InputEventId=0, HandleInputStart=262637315026, AnimationStart=262637315768, PerformTraversalsStart=262637320367, DrawStart=262638844972, FrameDeadline=262487614360, FrameInterval=262637096899, FrameStartTime=16666666, SyncQueued=262639026300, SyncStart=262656458451, IssueDrawCommandsStart=262656517962, SwapBuffers=262674732991, FrameCompleted=262807644062, DequeueBufferDuration=4669, QueueBufferDuration=38445423, GpuCompleted=262807644062, SwapBuffersCompleted=262757587127, DisplayPresentTime=0, CommandSubmissionCompleted=262674732991,
+10-06 08:19:47.959  2410  2410 I ImeTracker: com.zigor.discountcard.debug:8d1a2146: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:47.960  2410  2410 I ImeTracker: com.zigor.discountcard.debug:517febc8: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:47.987  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:47.988  2410  2410 I ImeTracker: com.zigor.discountcard.debug:8d1a2146: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+10-06 08:19:47.993  2410  2438 D EGL_emulation: app_time_stats: avg=149.66ms min=26.81ms max=412.26ms count=8
+10-06 08:19:47.996  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:48.001  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:48.001  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:19:48.023  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:48.030  2410  2410 I ImeTracker: com.zigor.discountcard.debug:190d1846: onShown
+10-06 08:19:48.036  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:48.036  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:48.037  1380  1380 I LatinIME: Starting input. Cursor position = 4,4
+10-06 08:19:48.173  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:48.174  2410  2410 W RemoteInputConnectionImpl: getSelectedText on inactive InputConnection
+10-06 08:19:48.174  2410  2410 W RemoteInputConnectionImpl: requestCursorAnchorInfo on inactive InputConnection
+10-06 08:19:48.175  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:48.176  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:48.176  1380  1380 D RichInputConnection: Will try to retrieve text later.
+10-06 08:19:48.179  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:48.182  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:48.182  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:48.187  2410  2410 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+10-06 08:19:48.190  1380  1380 E RichInputConnection: Unable to connect to the editor to retrieve text.
+10-06 08:19:48.191  1380  1380 W RichInputConnection: Unable to connect to the editor. Setting caps mode without knowing text.
+10-06 08:19:48.191  1380  1380 I Choreographer: Skipped 40 frames!  The application may be doing too much work on its main thread.
+10-06 08:19:48.195  2410  2410 D InsetsController: show(ime(), fromIme=true)
+10-06 08:19:48.196  2410  2410 I ImeTracker: com.zigor.discountcard.debug:d5cf9fdd: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+10-06 08:19:48.252  1380  1403 I OpenGLRenderer: Davey! duration=709ms; Flags=0, FrameTimelineVsyncId=4145, IntendedVsync=262654281020, Vsync=263320947660, InputEventId=0, HandleInputStart=263330825810, AnimationStart=263330826352, PerformTraversalsStart=263330831010, DrawStart=263331114920, FrameDeadline=262837614346, FrameInterval=263324053863, FrameStartTime=16666666, SyncQueued=263331251044, SyncStart=263331265391, IssueDrawCommandsStart=263331309734, SwapBuffers=263336443998, FrameCompleted=263364039675, DequeueBufferDuration=2835, QueueBufferDuration=143528, GpuCompleted=263363990203, SwapBuffersCompleted=263364039675, DisplayPresentTime=72057628414509145, CommandSubmissionCompleted=263336443998,
+10-06 08:19:48.252  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@113842520 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@1df4985
+10-06 08:19:48.285  2410  2462 D ProfileInstaller: Installing profile for com.zigor.discountcard.debug
+10-06 08:19:48.510  1380  1380 W RichInputConnection: Slow InputConnection: GET_TEXT_BEFORE_CURSOR took 257 ms.
+10-06 08:19:48.516  2410  2410 I ImeTracker: com.zigor.discountcard.debug:a7786ecc: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+10-06 08:19:48.517   507  2116 I ImeTracker: com.zigor.discountcard.debug:a7786ecc: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-06 08:19:48.518  2410  2410 I ImeTracker: com.zigor.discountcard.debug:517febc8: onHidden
+10-06 08:19:48.628   804   875 D SplashScreenView: Build android.window.SplashScreenView{957612c V.E...... ......ID 0,0-0,0}
+10-06 08:19:48.628   804   875 D SplashScreenView: Icon: view: null drawable: null size: 0
+10-06 08:19:48.628   804   875 D SplashScreenView: Branding: view: android.view.View{dd7f7f5 G.ED..... ......I. 0,0-0,0 #10204ef android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+10-06 08:19:48.638  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: PAUSED
+10-06 08:19:48.639  2410  2410 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.zigor.discountcard.MainActivity@c31e369
+10-06 08:19:48.668   328   328 D Zygote  : Forked child process 2463
+10-06 08:19:48.732   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:19:48.763  1380  1421 D EGL_emulation: app_time_stats: avg=482.40ms min=309.58ms max=606.46ms count=3
+10-06 08:19:48.828  2463  2463 I card.debug.test: Late-enabling -Xcheck:jni
+10-06 08:19:48.840  2463  2463 I card.debug.test: Using CollectorTypeCC GC.
+10-06 08:19:48.841  2463  2463 W card.debug.test: Unexpected CPU variant for x86: x86_64.
+10-06 08:19:48.841  2463  2463 W card.debug.test: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+10-06 08:19:48.844   398   415 I adbd    : jdwp connection from 2463
+10-06 08:19:48.867   507  2476 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:48.891  2463  2463 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10142; state: ENABLED
+10-06 08:19:48.892  2463  2463 D CompatibilityChangeReporter: Compat change id reported: 242716250; UID 10142; state: ENABLED
+10-06 08:19:48.906  2463  2463 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+10-06 08:19:48.911  2463  2463 D nativeloader: Configuring clns-6 for other apk /system/framework/android.test.mock.jar. target_sdk_version=35, uses_libraries=ALL, library_path=/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.zigor.discountcard.debug.test
+10-06 08:19:48.911  2463  2463 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+10-06 08:19:48.913  2463  2463 D nativeloader: Configuring clns-7 for other apk /system/framework/android.test.runner.jar. target_sdk_version=35, uses_libraries=ALL, library_path=/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.zigor.discountcard.debug.test
+10-06 08:19:48.913  2463  2463 W ziparchive: Unable to open '/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/base.dm': No such file or directory
+10-06 08:19:48.913  2463  2463 W ziparchive: Unable to open '/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/base.dm': No such file or directory
+10-06 08:19:48.930  2463  2463 D nativeloader: Configuring clns-8 for other apk /data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~97T40gMMw8tLG6l-Uxq1bQ==/com.zigor.discountcard.debug.test-xn5dW0mzaEN62N7dqPSWTA==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.zigor.discountcard.debug.test
+10-06 08:19:48.940  2463  2463 V GraphicsEnvironment: Currently set values for:
+10-06 08:19:48.940  2463  2463 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+10-06 08:19:48.940  2463  2463 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+10-06 08:19:48.940  2463  2463 V GraphicsEnvironment: ANGLE GameManagerService for com.zigor.discountcard.debug.test: false
+10-06 08:19:48.940  2463  2463 V GraphicsEnvironment: com.zigor.discountcard.debug.test is not listed in per-application setting
+10-06 08:19:48.940  2463  2463 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+10-06 08:19:48.969  2463  2485 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+10-06 08:19:48.971  2463  2485 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+10-06 08:19:48.974  2463  2485 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+10-06 08:19:49.015  2463  2463 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10142; state: DISABLED
+10-06 08:19:49.022  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: STOPPED
+10-06 08:19:49.023  2410  2410 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.zigor.discountcard.MainActivity@c31e369
+10-06 08:19:49.023  2463  2463 W OpenGLRenderer: Unknown dataspace 0
+10-06 08:19:49.046   390   780 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10142 pid=0
+10-06 08:19:49.046   390   780 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10142 => denied (403 us)
+10-06 08:19:49.047   390   780 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10142 pid=0
+10-06 08:19:49.047   390   780 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10142 => denied (498 us)
+10-06 08:19:49.047   390   780 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10142 pid=0
+10-06 08:19:49.047   390   780 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10142 => denied (284 us)
+10-06 08:19:49.047   390   401 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10142 pid=2463
+10-06 08:19:49.047   390   401 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10142 => denied (1368 us)
+10-06 08:19:49.055   390   390 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-06 08:19:49.066  2463  2483 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-06 08:19:49.090   134   134 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+10-06 08:19:49.090  2463  2483 I Gralloc4: mapper 4.x is not supported
+10-06 08:19:49.102  2410  2410 D LifecycleMonitor: Lifecycle status change: com.zigor.discountcard.MainActivity@c31e369 in: DESTROYED
+10-06 08:19:49.103  2410  2410 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+10-06 08:19:49.124  2410  2410 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@e172d38
+10-06 08:19:49.158  2410  2429 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@299a8c0]
+10-06 08:19:49.289   507  1831 W InputManager-JNI: Input channel object '7849258 com.zigor.discountcard.debug/com.zigor.discountcard.MainActivity (client)' was disposed without first being removed with the input manager!
+10-06 08:19:49.301   507  1817 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10142 pid=0
+10-06 08:19:49.306   507  1817 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10142 => denied (5339 us)
+10-06 08:19:49.306   507  1817 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10142 pid=0
+10-06 08:19:49.306   507  1817 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10142 => denied (42 us)
+10-06 08:19:49.306   507  1817 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10142 pid=0
+10-06 08:19:49.306   507  1817 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10142 => denied (15 us)
+10-06 08:19:49.330  2410  2429 I TestRunner: finished: cardAddedFromMenuIsStoredMasked(com.zigor.discountcard.BankCardUiTest)
