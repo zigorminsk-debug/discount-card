@@ -192,4 +192,46 @@
     <string name="action_logos_off">Turn off store logos</string>
     <string name="logos_enabled">Logos will be loaded from the chains’ websites</string>
     <string name="logos_disabled">Logos are off, downloaded ones removed</string>
+
+    <!-- Bank cards -->
+    <string name="bank_cards_title">Bank cards</string>
+    <string name="bank_add">Add card</string>
+    <string name="bank_empty_title">No bank cards yet</string>
+    <string name="bank_empty_text">Save a card so you do not have to dig out the plastic when paying online: the number stays here, encrypted.</string>
+    <string name="bank_notice_pos_title">Tap-to-pay at the till is not possible</string>
+    <string name="bank_notice_pos_text">Contactless NFC payments only work in bank apps and Google Pay: they need issuer keys that are never handed to third-party apps. Here the card is kept for online payments — show the number or copy it into a checkout form.</string>
+    <string name="bank_notice_safe_title">Card details are encrypted</string>
+    <string name="bank_notice_safe_text">The number, expiry date and holder name are encrypted with a key from the phone’s secure storage and never leave the device. The CVV is not stored, and bank cards are excluded from the Telegram export.</string>
+    <string name="bank_new_title">New bank card</string>
+    <string name="bank_edit_title">Edit card</string>
+    <string name="bank_number_label">Card number</string>
+    <string name="bank_number_hint">16 digits from the front of the card</string>
+    <string name="bank_number_invalid">The checksum does not match — please check the digits</string>
+    <string name="bank_system_detected">Payment system: %1$s</string>
+    <string name="bank_expiry_label">Expiry (MM/YY)</string>
+    <string name="bank_expiry_invalid">For example, 09/29</string>
+    <string name="bank_expiry_expired">This card has expired</string>
+    <string name="bank_title_label">Name</string>
+    <string name="bank_title_placeholder">Salary card</string>
+    <string name="bank_holder_label">Cardholder (as printed)</string>
+    <string name="bank_bank_label">Bank</string>
+    <string name="bank_cvv_title">The CVV/CVC is not stored</string>
+    <string name="bank_cvv_text">You will type the three digits from the back by hand — but without them a stolen number is useless.</string>
+    <string name="bank_color_label">Card colour</string>
+    <string name="bank_note_label">Note</string>
+    <string name="bank_show">Show number</string>
+    <string name="bank_hide">Hide number</string>
+    <string name="bank_copied">Number copied, the clipboard clears in a minute</string>
+    <string name="bank_autohide">The number hides itself in %1$d seconds</string>
+    <string name="bank_unlock_title">Confirm it is you</string>
+    <string name="bank_unlock_text">Show the bank card details</string>
+    <string name="bank_decrypt_failed_title">Could not decrypt the card</string>
+    <string name="bank_decrypt_failed_text">The encryption key is gone — this happens after changing the screen lock or moving data to another phone. Please add the card again.</string>
+    <string name="bank_no_lock_title">No screen lock is set</string>
+    <string name="bank_no_lock_text">Details open without confirmation. Set a PIN, password or fingerprint in the phone settings and the app will ask for it before showing the number.</string>
+    <string name="bank_delete_title">Delete this card?</string>
+    <string name="bank_delete_text">The encrypted details will be wiped from the phone.</string>
+    <string name="bank_last4">Card %1$s</string>
+    <string name="help_bank_title">Bank cards</string>
+    <string name="help_bank_text">The “⋮” menu has a “Bank cards” section where you can store the number, expiry date and cardholder name. The app verifies the checksum and detects the payment system — Visa, Mastercard, MIR or BELCARD. Details are encrypted with a key from the phone’s secure storage, the CVV is never stored, screens with the number are protected from screenshots, and a fingerprint or PIN is requested before the number is shown. The number is meant for online payments: you cannot tap the phone at a till, because contactless payment needs issuer keys and is only available to bank apps and Google Pay.</string>
 </resources>

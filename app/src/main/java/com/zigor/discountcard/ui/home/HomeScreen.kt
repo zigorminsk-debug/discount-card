@@ -88,6 +88,7 @@ fun HomeScreen(
     onImportCards: () -> Unit,
     onOpenHelp: () -> Unit,
     onAddManual: () -> Unit,
+    onOpenBankCards: () -> Unit,
 ) {
     val context = LocalContext.current
     val container = remember { context.appContainer }
@@ -290,6 +291,18 @@ fun HomeScreen(
                                     menuOpen = false
                                     onAddManual()
                                 },
+                            )
+                            HorizontalDivider()
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.bank_cards_title)) },
+                                leadingIcon = {
+                                    Icon(painterResource(R.drawable.ic_bank_card), null)
+                                },
+                                onClick = {
+                                    menuOpen = false
+                                    onOpenBankCards()
+                                },
+                                modifier = Modifier.testTag("bank_cards_menu"),
                             )
                             HorizontalDivider()
                             DropdownMenuItem(

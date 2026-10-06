@@ -19,6 +19,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.zigor.discountcard.data.db.CardEntity
 import com.zigor.discountcard.data.db.CardKind
+import com.zigor.discountcard.ui.bank.SecureScreenSettings
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -41,6 +42,8 @@ class ScreenshotTest {
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     private val repository get() = composeRule.activity.appContainer.repository
+
+    private val bankCards get() = composeRule.activity.appContainer.bankCards
 
     private val demoCards = listOf(
         CardEntity(
@@ -85,6 +88,8 @@ class ScreenshotTest {
     @After
     fun cleanUp() = runBlocking {
         repository.observeCards().first().forEach { repository.delete(it) }
+        bankCards.observeCards().first().forEach { bankCards.delete(it.id) }
+        SecureScreenSettings.enabled = true
     }
 
     @Test
@@ -168,6 +173,32 @@ class ScreenshotTest {
         composeRule.waitForIdle()
         Thread.sleep(500)
         shot("08-help")
+
+        // Банковские карты. FLAG_SECURE временно снимаем: иначе screencap даст чёрный кадр
+        SecureScreenSettings.enabled = false
+        shell("input keyevent 4")
+        Thread.sleep(700)
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("more_button").performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("bank_cards_menu").performClick()
+        composeRule.waitForIdle()
+        Thread.sleep(700)
+        shot("11-bank-cards-empty")
+
+        composeRule.onNodeWithTag("bank_add_button").performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("bank_number_field").performTextInput("4111111111111111")
+        composeRule.onNodeWithTag("bank_expiry_field").performTextInput("0929")
+        composeRule.waitForIdle()
+        Thread.sleep(600)
+        shot("12-bank-card-edit")
+
+        composeRule.onNodeWithTag("bank_save_button").performClick()
+        composeRule.waitUntil(10_000) { runBlocking { bankCards.count() } == 1 }
+        composeRule.waitForIdle()
+        Thread.sleep(900)
+        shot("13-bank-card-detail")
     }
 
     private fun shot(name: String) {

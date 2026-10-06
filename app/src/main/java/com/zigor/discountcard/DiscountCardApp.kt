@@ -3,6 +3,7 @@ package com.zigor.discountcard
 import android.app.Application
 import android.content.Context
 import com.zigor.discountcard.data.db.AppDatabase
+import com.zigor.discountcard.data.repo.BankCardRepository
 import com.zigor.discountcard.data.repo.CardRepository
 import com.zigor.discountcard.data.store.StoreCatalog
 import com.zigor.discountcard.data.store.StoreLogoStore
@@ -20,6 +21,7 @@ class AppContainer(context: Context) {
         catalog = catalog,
         photoStore = photoStore,
     )
+    val bankCards = BankCardRepository(database.bankCardDao())
 }
 
 class DiscountCardApp : Application() {

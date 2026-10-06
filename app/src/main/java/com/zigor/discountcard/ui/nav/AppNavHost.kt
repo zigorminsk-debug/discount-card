@@ -15,6 +15,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.zigor.discountcard.data.repo.CardDraft
+import com.zigor.discountcard.ui.bank.BankCardDetailScreen
+import com.zigor.discountcard.ui.bank.BankCardEditScreen
+import com.zigor.discountcard.ui.bank.BankCardsScreen
 import com.zigor.discountcard.ui.card.CardDetailScreen
 import com.zigor.discountcard.ui.card.CardEditScreen
 import com.zigor.discountcard.ui.home.HomeScreen
@@ -36,6 +39,9 @@ object Route {
     const val PHOTO_RESULT = "photo_result"
     const val IMPORT = "import"
     const val HELP = "help"
+    const val BANK_LIST = "bank_cards"
+    const val BANK_EDIT = "bank_edit"
+    const val BANK_DETAIL = "bank_detail"
 }
 
 /** Файл с картами, присланный из мессенджера: ждёт, пока его откроет экран импорта. */
@@ -79,6 +85,7 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                 onScanImage = { navController.navigate(Route.IMAGE_SCAN) },
                 onImportCards = { navController.navigate(Route.IMPORT) },
                 onOpenHelp = { navController.navigate(Route.HELP) },
+                onOpenBankCards = { navController.navigate(Route.BANK_LIST) },
                 onAddManual = {
                     DraftHolder.pending = null
                     navController.navigate("${Route.EDIT}?cardId=0")
@@ -213,6 +220,52 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
                     }
                 },
                 onEdit = { id -> navController.navigate("${Route.EDIT}?cardId=$id") },
+            )
+        }
+
+        composable(Route.BANK_LIST) {
+            BankCardsScreen(
+                onBack = {
+                    if (!navController.popBackStack()) navController.navigate(Route.HOME)
+                },
+                onAdd = { navController.navigate("${Route.BANK_EDIT}?cardId=0") },
+                onOpen = { id -> navController.navigate("${Route.BANK_DETAIL}/$id") },
+            )
+        }
+
+        composable(
+            route = "${Route.BANK_EDIT}?cardId={cardId}",
+            arguments = listOf(
+                navArgument("cardId") { type = NavType.LongType; defaultValue = 0L },
+            ),
+        ) { entry ->
+            val cardId = entry.arguments?.getLong("cardId") ?: 0L
+            BankCardEditScreen(
+                cardId = cardId,
+                onBack = { navController.popBackStack() },
+                onSaved = { id ->
+                    if (cardId == 0L) {
+                        navController.navigate("${Route.BANK_DETAIL}/$id") {
+                            popUpTo(Route.BANK_LIST)
+                        }
+                    } else {
+                        navController.popBackStack()
+                    }
+                },
+            )
+        }
+
+        composable(
+            route = "${Route.BANK_DETAIL}/{cardId}",
+            arguments = listOf(navArgument("cardId") { type = NavType.LongType }),
+        ) { entry ->
+            val cardId = entry.arguments?.getLong("cardId") ?: 0L
+            BankCardDetailScreen(
+                cardId = cardId,
+                onBack = {
+                    if (!navController.popBackStack()) navController.navigate(Route.BANK_LIST)
+                },
+                onEdit = { id -> navController.navigate("${Route.BANK_EDIT}?cardId=$id") },
             )
         }
 
