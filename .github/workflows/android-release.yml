@@ -1,0 +1,272 @@
+name: Build & Release APK
+
+# Автосборка готового APK. Каждому запуску — свой номер версии (github.run_number).
+on:
+  push:
+    branches:
+      - main
+      - master
+      - 'arena/**'
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+      - '.github/workflows/signing-selftest.yml'
+      - '.github/workflows/smoke-test.yml'
+      - '.github/workflows/upgrade-test.yml'
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      version_base:
+        description: 'Базовая версия, например 1.1 (пусто — взять из gradle.properties)'
+        required: false
+        default: ''
+      make_release:
+        description: 'Опубликовать GitHub Release с APK'
+        type: boolean
+        default: true
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Сборка APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Номер версии
+        id: ver
+        run: |
+          BASE="${{ github.event.inputs.version_base }}"
+          if [ -z "$BASE" ]; then
+            BASE=$(grep -E '^appVersionBase=' gradle.properties | cut -d'=' -f2 | tr -d '[:space:]')
+          fi
+          BASE=${BASE:-1.0}
+          BUILD="${{ github.run_number }}"
+          echo "base=$BASE"              >> "$GITHUB_OUTPUT"
+          echo "build=$BUILD"            >> "$GITHUB_OUTPUT"
+          echo "name=$BASE.$BUILD"       >> "$GITHUB_OUTPUT"
+          echo "tag=v$BASE.$BUILD"       >> "$GITHUB_OUTPUT"
+          echo "### Версия: \`$BASE.$BUILD\` (versionCode $BUILD)" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+
+      - name: Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Подготовить постоянный ключ подписи
+        id: signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | tr -d '\n' | base64 -d > "$RUNNER_TEMP/release.p12"
+            if [ -s "$RUNNER_TEMP/release.p12" ]; then
+              echo "signed=true" >> "$GITHUB_OUTPUT"
+              echo "Постоянный ключ подписи найден в secrets." >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "signed=false" >> "$GITHUB_OUTPUT"
+              echo "::warning::KEYSTORE_BASE64 пустой или повреждён"
+            fi
+          else
+            # Запасной ключ лежит в репозитории: он не секретный, зато ОДИНАКОВЫЙ
+            # во всех сборках — значит обновление встаёт поверх установленного.
+            cp keystore/ci-fallback.p12 "$RUNNER_TEMP/release.p12"
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Секрет KEYSTORE_BASE64 не задан — APK подписан открытым запасным ключом из репозитория. Обновления ставятся поверх, но ключ известен всем. Свой ключ: keystore/README.md"
+            echo "> Сборка подписана **открытым запасным ключом** из репозитория (keystore/ci-fallback.p12). Обновления ставятся поверх друг друга. Для личного ключа добавьте секреты — см. \`keystore/README.md\`." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: chmod gradlew
+        run: chmod +x ./gradlew
+
+      - name: Сборка release APK
+        env:
+          KEYSTORE_FILE: ${{ runner.temp }}/release.p12
+          # Если своих секретов нет — берём пароль открытого запасного ключа
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || 'moikarty' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'moikarty-ci' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'moikarty' }}
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon --stacktrace assembleRelease \
+            -PappBuildNumber=${{ steps.ver.outputs.build }} \
+            -PappVersionBase=${{ steps.ver.outputs.base }} 2>&1 | tee "$RUNNER_TEMP/build.log"
+
+      - name: Ошибки сборки (аннотации)
+        if: failure()
+        run: |
+          LOG="$RUNNER_TEMP/build.log"
+          [ -f "$LOG" ] || exit 0
+          python3 - "$LOG" <<'PY'
+          import re, sys
+          lines = open(sys.argv[1], errors='replace').read().splitlines()
+          pat = re.compile(r'^(e: |w: .*error|error:|FAILURE|\* What went wrong|Caused by|> )')
+          keep = [l for l in lines if pat.search(l)] or lines[-80:]
+          keep = [l.replace('%', '%25').rstrip() for l in keep[:80]]
+          for i in range(0, len(keep), 15):
+              chunk = '%0A'.join(keep[i:i + 15])
+              print(f'::error title=Build {i // 15 + 1}::{chunk}')
+          PY
+
+      - name: Полный лог в ветку ci-logs
+        if: failure()
+        run: |
+          LOG="$RUNNER_TEMP/build.log"
+          [ -f "$LOG" ] || exit 0
+          WORK=$(mktemp -d)
+          tail -n 3000 "$LOG" > "$WORK/build.log"
+          cd "$WORK"
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -q -b ci-logs
+          git add build.log
+          git commit -qm "Лог сборки #${{ github.run_number }} (${{ github.sha }})"
+          git push -q --force \
+            "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
+          echo "Лог: ветка ci-logs, файл build.log"
+
+      - name: Подготовить артефакт
+        id: apk
+        run: |
+          SRC=$(find app/build/outputs/apk/release -name '*.apk' | head -n 1)
+          if [ -z "$SRC" ]; then echo "APK не найден"; exit 1; fi
+          SUFFIX=""
+          if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then SUFFIX="-CIKEY"; fi
+          OUT="BY-Card-${{ steps.ver.outputs.tag }}${SUFFIX}.apk"
+          mkdir -p dist
+          cp "$SRC" "dist/$OUT"
+          SHA=$(sha256sum "dist/$OUT" | cut -d' ' -f1)
+          SIZE=$(du -h "dist/$OUT" | cut -f1)
+          echo "file=dist/$OUT"  >> "$GITHUB_OUTPUT"
+          echo "name=$OUT"       >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA"     >> "$GITHUB_OUTPUT"
+          echo "size=$SIZE"      >> "$GITHUB_OUTPUT"
+          echo "| APK | $OUT |"            >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|"                 >> "$GITHUB_STEP_SUMMARY"
+          echo "| Размер | $SIZE |"        >> "$GITHUB_STEP_SUMMARY"
+          echo "| SHA-256 | \`$SHA\` |"    >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Проверить подпись APK
+        id: verify
+        continue-on-error: true
+        run: |
+          BT=$(ls -1 "$ANDROID_HOME/build-tools" | sort -V | tail -n 1)
+          APKSIGNER="$ANDROID_HOME/build-tools/$BT/apksigner"
+          "$APKSIGNER" verify --print-certs -v "${{ steps.apk.outputs.file }}" | tee /tmp/signer.txt
+          FP=$(grep -m1 'SHA-256 digest' /tmp/signer.txt | awk '{print $NF}')
+          echo "cert=$FP" >> "$GITHUB_OUTPUT"
+          echo "| Отпечаток ключа (SHA-256) | \`$FP\` |" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Загрузить артефакт сборки
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.apk.outputs.name }}
+          path: ${{ steps.apk.outputs.file }}
+          retention-days: 60
+          if-no-files-found: error
+
+      - name: Создать GitHub Release
+        if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || github.event.inputs.make_release == 'true')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.ver.outputs.tag }}
+          VERSION: ${{ steps.ver.outputs.name }}
+        run: |
+          PREV=$(git tag --list 'v*' --sort=-v:refname | head -n 1)
+          if [ -n "$PREV" ]; then
+            CHANGES=$(git log --no-merges --pretty='- %s' "$PREV"..HEAD | head -n 40)
+          else
+            CHANGES=$(git log --no-merges --pretty='- %s' -n 20)
+          fi
+          [ -z "$CHANGES" ] && CHANGES="- без изменений в коде"
+
+          WARN=""
+          if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then
+            WARN=$'> Подписано **открытым запасным ключом** из репозитория (`keystore/ci-fallback.p12`): он одинаков во всех сборках, поэтому обновления ставятся поверх предыдущей версии.\n> Если раньше стояла сборка с другой подписью — удалите её один раз. Личный ключ подключается секретами, см. `keystore/README.md`.\n'
+          fi
+
+          cat > /tmp/notes.md <<EOF
+          $WARN
+          **Версия:** \`$VERSION\`  ·  **versionCode:** \`${{ steps.ver.outputs.build }}\`  ·  **minSdk:** 24 (Android 7+)
+
+          ### Что внутри
+          Хранение дисконтных карт: сканирование штрих-кода и QR, распознавание магазина,
+          виртуальная карта для кассы, фото карты и чтение NFC-меток. Всё работает офлайн.
+
+          ### Изменения
+          $CHANGES
+
+          ### Файл
+          | | |
+          |---|---|
+          | APK | \`${{ steps.apk.outputs.name }}\` |
+          | Размер | ${{ steps.apk.outputs.size }} |
+          | SHA-256 | \`${{ steps.apk.outputs.sha256 }}\` |
+          | Отпечаток ключа подписи | \`${{ steps.verify.outputs.cert }}\` |
+
+          Установка: скачайте APK на телефон и разрешите установку из этого источника.
+          Отпечаток ключа одинаков во всех релизах — новые версии ставятся поверх старых без удаления данных.
+          EOF
+
+          PRERELEASE=""
+          TITLE="BY-Card $VERSION"
+          if [ "${{ github.ref_name }}" != "main" ] && [ "${{ github.ref_name }}" != "master" ]; then
+            PRERELEASE="--prerelease"
+          fi
+          if [ "${{ steps.signing.outputs.signed }}" != "true" ]; then
+            PRERELEASE="--prerelease"
+            TITLE="$TITLE — открытый ключ"
+          fi
+
+          # Повторный запуск с тем же номером не должен ломать сборку
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release delete "$TAG" --yes --cleanup-tag || true
+          fi
+
+          # Публикация с ретраями: загрузка 29-мегабайтного APK иногда срывается
+          for attempt in 1 2 3; do
+            if gh release create "$TAG" "${{ steps.apk.outputs.file }}" \
+                 --title "$TITLE" \
+                 --notes-file /tmp/notes.md \
+                 --target "${{ github.sha }}" \
+                 $PRERELEASE 2>/tmp/gh_err.txt; then
+              echo "Релиз $TAG опубликован (попытка $attempt)"
+              echo "[Скачать $TITLE](https://github.com/${{ github.repository }}/releases/tag/$TAG)" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            ERR=$(tr '\n' ' ' < /tmp/gh_err.txt | head -c 800)
+            echo "::warning title=Попытка $attempt не удалась::$ERR"
+            # если релиз всё-таки создался, но упала загрузка файла — дозальём
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              if gh release upload "$TAG" "${{ steps.apk.outputs.file }}" --clobber; then
+                echo "Файл догружен к существующему релизу $TAG"
+                exit 0
+              fi
+              gh release delete "$TAG" --yes --cleanup-tag || true
+            fi
+            sleep 10
+          done
+          echo "::error title=Не удалось создать релиз::$(tr '\n' ' ' < /tmp/gh_err.txt | head -c 800)"
+          exit 1

@@ -1,0 +1,2470 @@
+{
+  "version": 6,
+  "updated": "2026-10-06",
+  "comment": "Каталог сетей для автоопределения магазина по ссылке из QR и по ключевым словам. Основной упор — Беларусь: продуктовые сети, аптеки, техника, заправки. Префиксы штрих-кодов намеренно не используются: по ним магазин угадать нельзя. Домены проверены обращением к сайту — непроверенные удалены, чтобы не подтянуть чужой логотип. У сетей указано название их карты лояльности — по нему магазин тоже находится поиском.",
+  "issuers": {
+    "20-29": "внутренний код магазина (не экспортируется за пределы сети)",
+    "460-469": "Россия (GS1 RUS)",
+    "470": "Кыргызстан",
+    "471": "Тайвань",
+    "474": "Эстония",
+    "475": "Латвия",
+    "476": "Азербайджан",
+    "477": "Литва",
+    "478": "Узбекистан",
+    "479": "Шри-Ланка",
+    "480": "Филиппины",
+    "481": "Беларусь (ГС1 Бел)",
+    "482": "Украина",
+    "483": "Туркменистан",
+    "484": "Молдова",
+    "485": "Армения",
+    "486": "Грузия",
+    "487": "Казахстан",
+    "488": "Таджикистан",
+    "489": "Гонконг",
+    "300-379": "Франция / Болгария / Словения",
+    "400-440": "Германия",
+    "450-459": "Япония",
+    "490-499": "Япония",
+    "500-509": "Великобритания",
+    "520-521": "Греция",
+    "528": "Ливан",
+    "529": "Кипр",
+    "531": "Северная Македония",
+    "535": "Мальта",
+    "539": "Ирландия",
+    "540-549": "Бельгия и Люксембург",
+    "560": "Португалия",
+    "569": "Исландия",
+    "570-579": "Дания",
+    "590": "Польша",
+    "594": "Румыния",
+    "599": "Венгрия",
+    "600-601": "ЮАР",
+    "608": "Бахрейн",
+    "611": "Марокко",
+    "613": "Алжир",
+    "625": "Иордания",
+    "626": "Иран",
+    "628": "Саудовская Аравия",
+    "629": "ОАЭ",
+    "640-649": "Финляндия",
+    "690-699": "Китай",
+    "700-709": "Норвегия",
+    "729": "Израиль",
+    "730-739": "Швеция",
+    "740-745": "Центральная Америка",
+    "750": "Мексика",
+    "754-755": "Канада",
+    "759": "Венесуэла",
+    "760-769": "Швейцария",
+    "770-771": "Колумбия",
+    "773": "Уругвай",
+    "775": "Перу",
+    "777": "Боливия",
+    "779": "Аргентина",
+    "780": "Чили",
+    "784": "Парагвай",
+    "786": "Эквадор",
+    "789-790": "Бразилия",
+    "800-839": "Италия",
+    "840-849": "Испания",
+    "850": "Куба",
+    "858": "Словакия",
+    "859": "Чехия",
+    "860": "Сербия",
+    "865": "Монголия",
+    "867": "КНДР",
+    "868-869": "Турция",
+    "870-879": "Нидерланды",
+    "880": "Южная Корея",
+    "884": "Камбоджа",
+    "885": "Таиланд",
+    "888": "Сингапур",
+    "890": "Индия",
+    "893": "Вьетнам",
+    "896": "Пакистан",
+    "899": "Индонезия",
+    "900-919": "Австрия",
+    "930-939": "Австралия",
+    "940-949": "Новая Зеландия",
+    "955": "Малайзия",
+    "958": "Макао",
+    "977": "периодические издания (ISSN)",
+    "978-979": "книги (ISBN)",
+    "980": "возвратные чеки",
+    "981-984": "купоны GS1",
+    "990-999": "купоны",
+    "00-13": "США и Канада (GS1 US)"
+  },
+  "stores": [
+    {
+      "id": "evroopt",
+      "name": "Евроопт",
+      "card": "Еплюс",
+      "country": "BY",
+      "category": "food",
+      "color": "#43B02A",
+      "aliases": [
+        "Евроопт",
+        "Eurоopt",
+        "Eurotorg",
+        "Е-доставка",
+        "Еплюс",
+        "Е-плюс",
+        "E-plus"
+      ],
+      "domains": [
+        "evroopt.by",
+        "e-dostavka.by",
+        "eurotorg.by",
+        "e-plus.by",
+        "eplus.by"
+      ],
+      "keywords": [
+        "evroopt",
+        "евроопт",
+        "eurotorg",
+        "edostavka",
+        "еплюс",
+        "е-плюс",
+        "e-plus"
+      ],
+      "rules": []
+    },
+    {
+      "id": "hit",
+      "name": "Хит!",
+      "card": "Еплюс",
+      "country": "BY",
+      "category": "food",
+      "color": "#F7941E",
+      "aliases": [
+        "Хит!",
+        "Хит Экспресс",
+        "Hit",
+        "Еплюс"
+      ],
+      "domains": [],
+      "keywords": [
+        "хит экспресс",
+        "hit express",
+        "еплюс",
+        "e-plus"
+      ],
+      "rules": []
+    },
+    {
+      "id": "groshyk",
+      "name": "Грошык",
+      "card": "Мой Грошык",
+      "country": "BY",
+      "category": "food",
+      "color": "#8DC63F",
+      "aliases": [
+        "Грошык",
+        "Groshyk",
+        "Мой Грошык"
+      ],
+      "domains": [],
+      "keywords": [
+        "грошык",
+        "groshyk",
+        "мой грошык"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dobronom",
+      "name": "Доброном",
+      "card": "Добрая карта",
+      "country": "BY",
+      "category": "food",
+      "color": "#3FA535",
+      "aliases": [
+        "Доброном",
+        "Dobronom",
+        "Добрая карта"
+      ],
+      "domains": [
+        "dobronom.by",
+        "dobraya.by"
+      ],
+      "keywords": [
+        "доброном",
+        "dobronom",
+        "добрая карта",
+        "dobraya"
+      ],
+      "rules": []
+    },
+    {
+      "id": "kopeechka",
+      "name": "Копеечка",
+      "country": "BY",
+      "category": "food",
+      "color": "#F9A825",
+      "aliases": [
+        "Копеечка"
+      ],
+      "domains": [
+        "kopeechka.by"
+      ],
+      "keywords": [
+        "копеечка",
+        "kopeechka"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mayak",
+      "name": "Маяк",
+      "country": "BY",
+      "category": "food",
+      "color": "#1565C0",
+      "aliases": [
+        "Маяк"
+      ],
+      "domains": [],
+      "keywords": [
+        "маяк магазин"
+      ],
+      "rules": []
+    },
+    {
+      "id": "santa",
+      "name": "Санта",
+      "card": "Санта Бонус",
+      "country": "BY",
+      "category": "food",
+      "color": "#00A3E0",
+      "aliases": [
+        "Санта",
+        "Santa",
+        "Санта Ритейл",
+        "Санта Бонус",
+        "Санта социальная"
+      ],
+      "domains": [
+        "santa.by"
+      ],
+      "keywords": [
+        "санта",
+        "santa",
+        "санта бонус"
+      ],
+      "rules": []
+    },
+    {
+      "id": "sosedi",
+      "name": "Соседи",
+      "card": "Купилка",
+      "country": "BY",
+      "category": "food",
+      "color": "#F58220",
+      "aliases": [
+        "Соседи",
+        "Sosedi",
+        "Купилка",
+        "Суперкупилка",
+        "Соседи Экспресс",
+        "Тропинка"
+      ],
+      "domains": [
+        "sosedi.by"
+      ],
+      "keywords": [
+        "соседи",
+        "sosedi",
+        "купилка",
+        "купiлка",
+        "суперкупилка",
+        "тропинка",
+        "kupilka"
+      ],
+      "rules": []
+    },
+    {
+      "id": "kupilka",
+      "name": "Купилка",
+      "card": "Купилка",
+      "country": "BY",
+      "category": "food",
+      "color": "#F58220",
+      "aliases": [
+        "Купилка",
+        "Суперкупилка",
+        "Карта Соседей"
+      ],
+      "domains": [],
+      "keywords": [
+        "купилка",
+        "kupilka",
+        "суперкупилка"
+      ],
+      "rules": []
+    },
+    {
+      "id": "umny_vybor",
+      "name": "Умный выбор",
+      "country": "BY",
+      "category": "food",
+      "color": "#455A64",
+      "aliases": [
+        "Умный выбор"
+      ],
+      "domains": [],
+      "keywords": [
+        "умный выбор"
+      ],
+      "rules": []
+    },
+    {
+      "id": "gippo",
+      "name": "Гиппо",
+      "card": "АсобаЯ",
+      "country": "BY",
+      "category": "food",
+      "color": "#F07E13",
+      "aliases": [
+        "Гиппо",
+        "Gippo",
+        "Hippo",
+        "БелВиллесДен",
+        "АсобаЯ",
+        "Асоба",
+        "Асобая"
+      ],
+      "domains": [
+        "gippo.by"
+      ],
+      "keywords": [
+        "гиппо",
+        "gippo",
+        "асобая",
+        "асоба"
+      ],
+      "rules": []
+    },
+    {
+      "id": "belmarket",
+      "name": "Белмаркет",
+      "card": "Хамелеон",
+      "country": "BY",
+      "category": "food",
+      "color": "#95C02C",
+      "aliases": [
+        "Белмаркет",
+        "BelMarket",
+        "Хамелеон"
+      ],
+      "domains": [
+        "bel-market.by"
+      ],
+      "keywords": [
+        "белмаркет",
+        "belmarket",
+        "хамелеон"
+      ],
+      "rules": []
+    },
+    {
+      "id": "korona",
+      "name": "Корона",
+      "card": "Магазин приятных покупок",
+      "country": "BY",
+      "category": "food",
+      "color": "#F6610A",
+      "aliases": [
+        "Корона",
+        "Korona",
+        "Табак-инвест",
+        "Магазин приятных покупок"
+      ],
+      "domains": [
+        "korona.by"
+      ],
+      "keywords": [
+        "корона",
+        "korona",
+        "магазин приятных покупок"
+      ],
+      "rules": []
+    },
+    {
+      "id": "green",
+      "name": "Green",
+      "card": "GREENКАРТА",
+      "country": "BY",
+      "category": "food",
+      "color": "#00A550",
+      "aliases": [
+        "Green",
+        "Грин",
+        "ГРИНрозница",
+        "GREENКАРТА",
+        "Грин карта"
+      ],
+      "domains": [
+        "green-market.by"
+      ],
+      "keywords": [
+        "green market",
+        "грин",
+        "greenкарта",
+        "грин карта"
+      ],
+      "rules": []
+    },
+    {
+      "id": "almi",
+      "name": "Алми",
+      "country": "BY",
+      "category": "food",
+      "color": "#0072BC",
+      "aliases": [
+        "Алми",
+        "Almi"
+      ],
+      "domains": [
+        "almi.by"
+      ],
+      "keywords": [
+        "алми",
+        "almi"
+      ],
+      "rules": []
+    },
+    {
+      "id": "zakrama",
+      "name": "Закрама",
+      "country": "BY",
+      "category": "food",
+      "color": "#7B5E57",
+      "aliases": [
+        "Закрама",
+        "Zakrama"
+      ],
+      "domains": [],
+      "keywords": [
+        "закрама",
+        "zakrama"
+      ],
+      "rules": []
+    },
+    {
+      "id": "svetofor",
+      "name": "Светофор",
+      "country": "BY",
+      "category": "food",
+      "color": "#E30613",
+      "aliases": [
+        "Светофор",
+        "Svetofor"
+      ],
+      "domains": [
+        "svetoforrb.by"
+      ],
+      "keywords": [
+        "светофор",
+        "svetofor"
+      ],
+      "rules": []
+    },
+    {
+      "id": "sem_pyatnits",
+      "name": "7 пятниц",
+      "country": "BY",
+      "category": "food",
+      "color": "#00897B",
+      "aliases": [
+        "7 пятниц",
+        "Семь пятниц"
+      ],
+      "domains": [],
+      "keywords": [
+        "7 пятниц",
+        "семь пятниц"
+      ],
+      "rules": []
+    },
+    {
+      "id": "vesta",
+      "name": "Веста",
+      "country": "BY",
+      "category": "food",
+      "color": "#2E7D32",
+      "aliases": [
+        "Веста",
+        "Vesta"
+      ],
+      "domains": [],
+      "keywords": [
+        "веста магазин"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dionis",
+      "name": "Дионис",
+      "country": "BY",
+      "category": "food",
+      "color": "#6A1B9A",
+      "aliases": [
+        "Дионис",
+        "Dionis"
+      ],
+      "domains": [],
+      "keywords": [
+        "дионис"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dobrocen",
+      "name": "Доброцен",
+      "country": "BY",
+      "category": "food",
+      "color": "#C62828",
+      "aliases": [
+        "Доброцен"
+      ],
+      "domains": [
+        "dobrotsen.ru"
+      ],
+      "keywords": [
+        "доброцен",
+        "dobrocen"
+      ],
+      "rules": []
+    },
+    {
+      "id": "zorina",
+      "name": "Зорина",
+      "country": "BY",
+      "category": "food",
+      "color": "#AD1457",
+      "aliases": [
+        "Зорина"
+      ],
+      "domains": [],
+      "keywords": [
+        "зорина"
+      ],
+      "rules": []
+    },
+    {
+      "id": "unistore",
+      "name": "UNISTORE",
+      "country": "BY",
+      "category": "food",
+      "color": "#455A64",
+      "aliases": [
+        "UNISTORE",
+        "Юнистор",
+        "Unistore",
+        "Юнистор опт"
+      ],
+      "domains": [],
+      "keywords": [
+        "юнистор",
+        "unistore"
+      ],
+      "rules": []
+    },
+    {
+      "id": "vozhyk",
+      "name": "Вожык",
+      "country": "BY",
+      "category": "food",
+      "color": "#8D6E63",
+      "aliases": [
+        "Вожык",
+        "Вожик",
+        "Vozhyk"
+      ],
+      "domains": [],
+      "keywords": [
+        "вожык",
+        "вожик",
+        "vozhyk"
+      ],
+      "rules": []
+    },
+    {
+      "id": "martinn",
+      "name": "Марцiн",
+      "country": "BY",
+      "category": "food",
+      "color": "#D32F2F",
+      "aliases": [
+        "Марцiн",
+        "Марцін",
+        "Mart Inn",
+        "Март Инн",
+        "Martin"
+      ],
+      "domains": [
+        "martinn.by"
+      ],
+      "keywords": [
+        "марцин",
+        "марцін",
+        "mart inn",
+        "мартинн",
+        "martin"
+      ],
+      "rules": []
+    },
+    {
+      "id": "prostore",
+      "name": "ProStore",
+      "country": "BY",
+      "category": "food",
+      "color": "#F57C00",
+      "aliases": [
+        "ProStore",
+        "Простор"
+      ],
+      "domains": [
+        "prostore.by"
+      ],
+      "keywords": [
+        "prostore",
+        "простор"
+      ],
+      "rules": []
+    },
+    {
+      "id": "belkoopsoyuz",
+      "name": "Белкоопсоюз",
+      "country": "BY",
+      "category": "food",
+      "color": "#1B5E20",
+      "aliases": [
+        "Белкоопсоюз",
+        "Родны кут",
+        "Райпо"
+      ],
+      "domains": [
+        "bks.gov.by"
+      ],
+      "keywords": [
+        "белкоопсоюз",
+        "родны кут",
+        "райпо"
+      ],
+      "rules": []
+    },
+    {
+      "id": "vitalur",
+      "name": "Виталюр",
+      "country": "BY",
+      "category": "food",
+      "color": "#8BC34A",
+      "aliases": [
+        "Виталюр"
+      ],
+      "domains": [
+        "vitalur.by"
+      ],
+      "keywords": [
+        "виталюр",
+        "vitalur"
+      ],
+      "rules": []
+    },
+    {
+      "id": "rublevski",
+      "name": "Рублёвский",
+      "country": "BY",
+      "category": "food",
+      "color": "#B71C1C",
+      "aliases": [
+        "Рублёвский",
+        "Рублевский"
+      ],
+      "domains": [
+        "rublevski.by"
+      ],
+      "keywords": [
+        "рублевский",
+        "rublevski"
+      ],
+      "rules": []
+    },
+    {
+      "id": "triceny",
+      "name": "Три цены",
+      "country": "BY",
+      "category": "other",
+      "color": "#FFB300",
+      "aliases": [
+        "Три цены",
+        "3 цены"
+      ],
+      "domains": [],
+      "keywords": [
+        "три цены"
+      ],
+      "rules": []
+    },
+    {
+      "id": "galamart",
+      "name": "Галамарт",
+      "country": "BY",
+      "category": "home",
+      "color": "#E91E63",
+      "aliases": [
+        "Галамарт",
+        "Galamart"
+      ],
+      "domains": [
+        "galamart.ru"
+      ],
+      "keywords": [
+        "галамарт",
+        "galamart"
+      ],
+      "rules": []
+    },
+    {
+      "id": "belfarmacia",
+      "name": "Белфармация",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#009A44",
+      "aliases": [
+        "Белфармация",
+        "Belpharmacia",
+        "Государственная аптека"
+      ],
+      "domains": [
+        "pharma.by"
+      ],
+      "keywords": [
+        "белфармация",
+        "belpharmacia"
+      ],
+      "rules": []
+    },
+    {
+      "id": "minskaya_farmacia",
+      "name": "Минская Фармация",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#2E7D32",
+      "aliases": [
+        "Минская Фармация"
+      ],
+      "domains": [],
+      "keywords": [
+        "минская фармация"
+      ],
+      "rules": []
+    },
+    {
+      "id": "farmacia_rup",
+      "name": "Фармация (РУП)",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#388E3C",
+      "aliases": [
+        "Брестское РУП Фармация",
+        "Витебское РУП Фармация",
+        "Гомельское УП Фармация",
+        "Гродненское РУП Фармация",
+        "Могилевское РУП Фармация"
+      ],
+      "domains": [],
+      "keywords": [
+        "руп фармация",
+        "уп фармация"
+      ],
+      "rules": []
+    },
+    {
+      "id": "planeta_zdorovya",
+      "name": "Планета здоровья",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#00A99D",
+      "aliases": [
+        "Планета здоровья",
+        "Интерфармакс"
+      ],
+      "domains": [
+        "healthplanet.by"
+      ],
+      "keywords": [
+        "планета здоровья",
+        "healthplanet"
+      ],
+      "rules": []
+    },
+    {
+      "id": "adel",
+      "name": "ADEL",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#1E88E5",
+      "aliases": [
+        "ADEL",
+        "Адель",
+        "Аптека групп"
+      ],
+      "domains": [
+        "apteka-adel.by"
+      ],
+      "keywords": [
+        "adel",
+        "адель аптека"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dobryya_leki",
+      "name": "Добрыя лекі",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#43A047",
+      "aliases": [
+        "Добрыя лекі",
+        "Добрые лекарства",
+        "Добрыя леки"
+      ],
+      "domains": [],
+      "keywords": [
+        "добрыя лекi",
+        "добрыя леки"
+      ],
+      "rules": []
+    },
+    {
+      "id": "alfa_apteka",
+      "name": "АльфаАптека",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#F4511E",
+      "aliases": [
+        "АльфаАптека",
+        "Альфа аптека",
+        "Доктор До",
+        "Доктор А"
+      ],
+      "domains": [],
+      "keywords": [
+        "альфааптека",
+        "альфа аптека"
+      ],
+      "rules": []
+    },
+    {
+      "id": "zelenaya_apteka",
+      "name": "Зелёная аптека",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#2E7D32",
+      "aliases": [
+        "Зелёная аптека",
+        "Зеленая аптека",
+        "Зялёная крама"
+      ],
+      "domains": [],
+      "keywords": [
+        "зеленая аптека",
+        "зялёная крама"
+      ],
+      "rules": []
+    },
+    {
+      "id": "moya_apteka",
+      "name": "Моя аптека",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#8E24AA",
+      "aliases": [
+        "Моя аптека",
+        "КОМФАРМ"
+      ],
+      "domains": [],
+      "keywords": [
+        "моя аптека"
+      ],
+      "rules": []
+    },
+    {
+      "id": "iskamed",
+      "name": "Искамед",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#039BE5",
+      "aliases": [
+        "Искамед",
+        "Iskamed"
+      ],
+      "domains": [
+        "iskamed.by"
+      ],
+      "keywords": [
+        "искамед",
+        "iskamed"
+      ],
+      "rules": []
+    },
+    {
+      "id": "remedika",
+      "name": "Ремедика",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#00838F",
+      "aliases": [
+        "Ремедика",
+        "Интерофицина плюс",
+        "Бальзам"
+      ],
+      "domains": [],
+      "keywords": [
+        "ремедика"
+      ],
+      "rules": []
+    },
+    {
+      "id": "inlek",
+      "name": "InLek",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#7CB342",
+      "aliases": [
+        "InLek",
+        "Зелёный лист",
+        "Sava"
+      ],
+      "domains": [],
+      "keywords": [
+        "inlek",
+        "зеленый лист"
+      ],
+      "rules": []
+    },
+    {
+      "id": "unifarm",
+      "name": "Юнифарм",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#5E35B1",
+      "aliases": [
+        "Юнифарм",
+        "Арника-Люкс",
+        "Пласид",
+        "Экомаркет"
+      ],
+      "domains": [],
+      "keywords": [
+        "юнифарм",
+        "арника-люкс"
+      ],
+      "rules": []
+    },
+    {
+      "id": "farmostrov",
+      "name": "ФармОстров",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#00ACC1",
+      "aliases": [
+        "ФармОстров"
+      ],
+      "domains": [],
+      "keywords": [
+        "фармостров"
+      ],
+      "rules": []
+    },
+    {
+      "id": "astrafarma",
+      "name": "АстраФарма",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#3949AB",
+      "aliases": [
+        "АстраФарма"
+      ],
+      "domains": [],
+      "keywords": [
+        "астрафарма"
+      ],
+      "rules": []
+    },
+    {
+      "id": "stolichnaya_apteka",
+      "name": "Столичная аптека",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#D81B60",
+      "aliases": [
+        "Столичная аптека",
+        "САМБЕСТ"
+      ],
+      "domains": [],
+      "keywords": [
+        "столичная аптека"
+      ],
+      "rules": []
+    },
+    {
+      "id": "recept_zdorovya",
+      "name": "Рецепт здоровья",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#43A047",
+      "aliases": [
+        "Рецепт здоровья"
+      ],
+      "domains": [],
+      "keywords": [
+        "рецепт здоровья"
+      ],
+      "rules": []
+    },
+    {
+      "id": "yanina",
+      "name": "Янина",
+      "country": "BY",
+      "category": "pharmacy",
+      "color": "#6D4C41",
+      "aliases": [
+        "Янина",
+        "Промснабсервис"
+      ],
+      "domains": [],
+      "keywords": [
+        "аптека янина"
+      ],
+      "rules": []
+    },
+    {
+      "id": "5element",
+      "name": "5 элемент",
+      "country": "BY",
+      "category": "tech",
+      "color": "#E30613",
+      "aliases": [
+        "5 элемент",
+        "5element",
+        "Пятый элемент"
+      ],
+      "domains": [
+        "5element.by"
+      ],
+      "keywords": [
+        "5 элемент",
+        "5element"
+      ],
+      "rules": []
+    },
+    {
+      "id": "elektrosila",
+      "name": "Электросила",
+      "country": "BY",
+      "category": "tech",
+      "color": "#F9A825",
+      "aliases": [
+        "Электросила",
+        "Elektrosila"
+      ],
+      "domains": [
+        "elektrosila.by"
+      ],
+      "keywords": [
+        "электросила",
+        "elektrosila"
+      ],
+      "rules": []
+    },
+    {
+      "id": "korona_techno",
+      "name": "Корона Техно",
+      "country": "BY",
+      "category": "tech",
+      "color": "#C8102E",
+      "aliases": [
+        "Корона Техно",
+        "Korona Techno"
+      ],
+      "domains": [
+        "korona.by"
+      ],
+      "keywords": [
+        "корона техно"
+      ],
+      "rules": []
+    },
+    {
+      "id": "21vek",
+      "name": "21vek.by",
+      "country": "BY",
+      "category": "tech",
+      "color": "#0057B8",
+      "aliases": [
+        "21 век",
+        "21vek"
+      ],
+      "domains": [
+        "21vek.by"
+      ],
+      "keywords": [
+        "21vek",
+        "21 век"
+      ],
+      "rules": []
+    },
+    {
+      "id": "imarket",
+      "name": "iMarket",
+      "country": "BY",
+      "category": "tech",
+      "color": "#1976D2",
+      "aliases": [
+        "iMarket",
+        "Имаркет"
+      ],
+      "domains": [
+        "imarket.by"
+      ],
+      "keywords": [
+        "imarket"
+      ],
+      "rules": []
+    },
+    {
+      "id": "oma",
+      "name": "ОМА",
+      "country": "BY",
+      "category": "home",
+      "color": "#F58220",
+      "aliases": [
+        "ОМА",
+        "OMA"
+      ],
+      "domains": [
+        "oma.by"
+      ],
+      "keywords": [
+        "ома",
+        "oma"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mastak",
+      "name": "Мастак",
+      "country": "BY",
+      "category": "home",
+      "color": "#546E7A",
+      "aliases": [
+        "Мастак",
+        "Mastac",
+        "Mastak"
+      ],
+      "domains": [
+        "mastac.by"
+      ],
+      "keywords": [
+        "мастак",
+        "mastac"
+      ],
+      "rules": []
+    },
+    {
+      "id": "materik",
+      "name": "Материк",
+      "country": "BY",
+      "category": "home",
+      "color": "#2E7D32",
+      "aliases": [
+        "Материк",
+        "Materik"
+      ],
+      "domains": [
+        "diy.by"
+      ],
+      "keywords": [
+        "материк",
+        "materik"
+      ],
+      "rules": []
+    },
+    {
+      "id": "ostrov",
+      "name": "Остров чистоты и вкуса",
+      "country": "BY",
+      "category": "home",
+      "color": "#00A3E0",
+      "aliases": [
+        "Остров чистоты",
+        "Остров чистоты и вкуса"
+      ],
+      "domains": [
+        "ostrov-chistoty.by"
+      ],
+      "keywords": [
+        "остров чистоты"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mila",
+      "name": "Мила",
+      "country": "BY",
+      "category": "beauty",
+      "color": "#E6007E",
+      "aliases": [
+        "Мила",
+        "Mila"
+      ],
+      "domains": [
+        "mila.by"
+      ],
+      "keywords": [
+        "мила",
+        "mila"
+      ],
+      "rules": []
+    },
+    {
+      "id": "oliva",
+      "name": "Oliva",
+      "card": "Добрая карта",
+      "country": "BY",
+      "category": "beauty",
+      "color": "#7CB342",
+      "aliases": [
+        "Oliva",
+        "Олива",
+        "Добрая карта"
+      ],
+      "domains": [],
+      "keywords": [
+        "oliva",
+        "олива"
+      ],
+      "rules": []
+    },
+    {
+      "id": "novoselkin",
+      "name": "Новосёлкин",
+      "country": "BY",
+      "category": "home",
+      "color": "#795548",
+      "aliases": [
+        "Новосёлкин",
+        "Новоселкин"
+      ],
+      "domains": [
+        "novoselkin.by"
+      ],
+      "keywords": [
+        "новоселкин",
+        "новосёлкин"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mile",
+      "name": "Mile",
+      "country": "BY",
+      "category": "home",
+      "color": "#607D8B",
+      "aliases": [
+        "Mile",
+        "МИЛЯ",
+        "Миля"
+      ],
+      "domains": [
+        "mile.by"
+      ],
+      "keywords": [
+        "mile",
+        "миля"
+      ],
+      "rules": []
+    },
+    {
+      "id": "pinskdrev",
+      "name": "Пинскдрев",
+      "country": "BY",
+      "category": "home",
+      "color": "#6D4C41",
+      "aliases": [
+        "Пинскдрев",
+        "Pinskdrev"
+      ],
+      "domains": [
+        "pinskdrev.by"
+      ],
+      "keywords": [
+        "пинскдрев"
+      ],
+      "rules": []
+    },
+    {
+      "id": "markformelle",
+      "name": "Mark Formelle",
+      "country": "BY",
+      "category": "clothes",
+      "color": "#111111",
+      "aliases": [
+        "Mark Formelle",
+        "Марк Формэль"
+      ],
+      "domains": [
+        "markformelle.by"
+      ],
+      "keywords": [
+        "mark formelle"
+      ],
+      "rules": []
+    },
+    {
+      "id": "conte",
+      "name": "Conte",
+      "country": "BY",
+      "category": "clothes",
+      "color": "#B8860B",
+      "aliases": [
+        "Conte",
+        "Конте"
+      ],
+      "domains": [
+        "conte.by"
+      ],
+      "keywords": [
+        "conte"
+      ],
+      "rules": []
+    },
+    {
+      "id": "milavitsa",
+      "name": "Milavitsa",
+      "country": "BY",
+      "category": "clothes",
+      "color": "#C2185B",
+      "aliases": [
+        "Milavitsa",
+        "Милавица"
+      ],
+      "domains": [
+        "milavitsa.com"
+      ],
+      "keywords": [
+        "milavitsa",
+        "милавица"
+      ],
+      "rules": []
+    },
+    {
+      "id": "belwest",
+      "name": "Белвест",
+      "country": "BY",
+      "category": "clothes",
+      "color": "#0D47A1",
+      "aliases": [
+        "Белвест",
+        "Belwest"
+      ],
+      "domains": [
+        "belwest.by"
+      ],
+      "keywords": [
+        "белвест",
+        "belwest"
+      ],
+      "rules": []
+    },
+    {
+      "id": "marko",
+      "name": "Марко",
+      "country": "BY",
+      "category": "clothes",
+      "color": "#B71C1C",
+      "aliases": [
+        "Марко",
+        "Marko"
+      ],
+      "domains": [
+        "marko.by"
+      ],
+      "keywords": [
+        "марко обувь"
+      ],
+      "rules": []
+    },
+    {
+      "id": "buslik",
+      "name": "Буслік",
+      "country": "BY",
+      "category": "kids",
+      "color": "#F9A825",
+      "aliases": [
+        "Буслік",
+        "Буслик",
+        "Buslik"
+      ],
+      "domains": [
+        "buslik.by"
+      ],
+      "keywords": [
+        "буслик",
+        "buslik"
+      ],
+      "rules": []
+    },
+    {
+      "id": "belorusneft",
+      "name": "Белоруснефть",
+      "country": "BY",
+      "category": "fuel",
+      "color": "#0072BC",
+      "aliases": [
+        "Белоруснефть",
+        "АЗС Белоруснефть",
+        "Нефтяной клуб"
+      ],
+      "domains": [
+        "belorusneft.by"
+      ],
+      "keywords": [
+        "белоруснефть",
+        "belorusneft"
+      ],
+      "rules": []
+    },
+    {
+      "id": "a100",
+      "name": "А-100",
+      "country": "BY",
+      "category": "fuel",
+      "color": "#E30613",
+      "aliases": [
+        "А-100",
+        "A-100"
+      ],
+      "domains": [
+        "a-100.by"
+      ],
+      "keywords": [
+        "а-100",
+        "a100"
+      ],
+      "rules": []
+    },
+    {
+      "id": "lukoil_by",
+      "name": "Лукойл",
+      "country": "BY",
+      "category": "fuel",
+      "color": "#C8102E",
+      "aliases": [
+        "Лукойл",
+        "Lukoil"
+      ],
+      "domains": [
+        "lukoil.by"
+      ],
+      "keywords": [
+        "лукойл",
+        "lukoil"
+      ],
+      "rules": []
+    },
+    {
+      "id": "gazpromneft_by",
+      "name": "Газпромнефть",
+      "country": "BY",
+      "category": "fuel",
+      "color": "#0072CE",
+      "aliases": [
+        "Газпромнефть",
+        "Gazpromneft"
+      ],
+      "domains": [
+        "gazpromneft-bel.by"
+      ],
+      "keywords": [
+        "газпромнефть"
+      ],
+      "rules": []
+    },
+    {
+      "id": "tatneft_by",
+      "name": "Татнефть",
+      "country": "BY",
+      "category": "fuel",
+      "color": "#E30613",
+      "aliases": [
+        "Татнефть",
+        "Tatneft"
+      ],
+      "domains": [],
+      "keywords": [
+        "татнефть"
+      ],
+      "rules": []
+    },
+    {
+      "id": "ziko",
+      "name": "Ziko",
+      "country": "BY",
+      "category": "other",
+      "color": "#B8860B",
+      "aliases": [
+        "Ziko",
+        "Зико"
+      ],
+      "domains": [
+        "ziko.by"
+      ],
+      "keywords": [
+        "ziko"
+      ],
+      "rules": []
+    },
+    {
+      "id": "belkniga",
+      "name": "Белкнига",
+      "country": "BY",
+      "category": "other",
+      "color": "#1565C0",
+      "aliases": [
+        "Белкнига",
+        "Белкнiга"
+      ],
+      "domains": [
+        "belkniga.by"
+      ],
+      "keywords": [
+        "белкнига"
+      ],
+      "rules": []
+    },
+    {
+      "id": "oz",
+      "name": "OZ.by",
+      "country": "BY",
+      "category": "other",
+      "color": "#E91E63",
+      "aliases": [
+        "OZ.by",
+        "ОЗ"
+      ],
+      "domains": [
+        "oz.by"
+      ],
+      "keywords": [
+        "oz.by"
+      ],
+      "rules": []
+    },
+    {
+      "id": "lido",
+      "name": "Лидо",
+      "country": "BY",
+      "category": "food_out",
+      "color": "#E65100",
+      "aliases": [
+        "Лидо",
+        "Lido"
+      ],
+      "domains": [
+        "lido.by"
+      ],
+      "keywords": [
+        "лидо",
+        "lido"
+      ],
+      "rules": []
+    },
+    {
+      "id": "vasilki",
+      "name": "Васильки",
+      "country": "BY",
+      "category": "food_out",
+      "color": "#1976D2",
+      "aliases": [
+        "Васильки",
+        "Vasilki"
+      ],
+      "domains": [
+        "vasilki.by"
+      ],
+      "keywords": [
+        "васильки"
+      ],
+      "rules": []
+    },
+    {
+      "id": "magnit",
+      "name": "Магнит",
+      "country": "RU",
+      "category": "food",
+      "color": "#E2231A",
+      "aliases": [
+        "Магнит",
+        "Магнит Косметик"
+      ],
+      "domains": [
+        "magnit.ru",
+        "moy-magnit.ru",
+        "magnit.com"
+      ],
+      "keywords": [
+        "magnit",
+        "магнит"
+      ],
+      "rules": []
+    },
+    {
+      "id": "pyaterochka",
+      "name": "Пятёрочка",
+      "country": "RU",
+      "category": "food",
+      "color": "#E30613",
+      "aliases": [
+        "Пятёрочка",
+        "Выручай-карта"
+      ],
+      "domains": [
+        "5ka.ru",
+        "5ka.app"
+      ],
+      "keywords": [
+        "5ka",
+        "пятерочка",
+        "пятёрочка",
+        "выручай"
+      ],
+      "rules": []
+    },
+    {
+      "id": "perekrestok",
+      "name": "Перекрёсток",
+      "country": "RU",
+      "category": "food",
+      "color": "#00843D",
+      "aliases": [
+        "Перекрёсток",
+        "Клуб Перекрёсток"
+      ],
+      "domains": [
+        "perekrestok.ru",
+        "vprok.ru"
+      ],
+      "keywords": [
+        "perekrestok",
+        "перекресток",
+        "перекрёсток"
+      ],
+      "rules": []
+    },
+    {
+      "id": "lenta",
+      "name": "Лента",
+      "country": "RU",
+      "category": "food",
+      "color": "#0033A0",
+      "aliases": [
+        "Лента"
+      ],
+      "domains": [
+        "lenta.com",
+        "lenta.ru"
+      ],
+      "keywords": [
+        "lenta",
+        "лента"
+      ],
+      "rules": []
+    },
+    {
+      "id": "auchan",
+      "name": "Ашан",
+      "country": "RU",
+      "category": "food",
+      "color": "#E2001A",
+      "aliases": [
+        "Ашан"
+      ],
+      "domains": [
+        "auchan.ru"
+      ],
+      "keywords": [
+        "auchan",
+        "ашан"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dixy",
+      "name": "Дикси",
+      "country": "RU",
+      "category": "food",
+      "color": "#E4002B",
+      "aliases": [
+        "Дикси"
+      ],
+      "domains": [
+        "dixy.ru",
+        "dixy.club"
+      ],
+      "keywords": [
+        "dixy",
+        "дикси"
+      ],
+      "rules": []
+    },
+    {
+      "id": "monetka",
+      "name": "Монетка",
+      "country": "RU",
+      "category": "food",
+      "color": "#F5A623",
+      "aliases": [
+        "Монетка"
+      ],
+      "domains": [
+        "monetka.ru"
+      ],
+      "keywords": [
+        "monetka",
+        "монетка"
+      ],
+      "rules": []
+    },
+    {
+      "id": "okey",
+      "name": "О’КЕЙ",
+      "country": "RU",
+      "category": "food",
+      "color": "#E30613",
+      "aliases": [
+        "О’КЕЙ",
+        "OKEY"
+      ],
+      "domains": [
+        "okmarket.ru"
+      ],
+      "keywords": [
+        "okmarket",
+        "окей"
+      ],
+      "rules": []
+    },
+    {
+      "id": "vkusvill",
+      "name": "ВкусВилл",
+      "country": "RU",
+      "category": "food",
+      "color": "#78BE20",
+      "aliases": [
+        "ВкусВилл"
+      ],
+      "domains": [
+        "vkusvill.ru"
+      ],
+      "keywords": [
+        "vkusvill",
+        "вкусвилл"
+      ],
+      "rules": []
+    },
+    {
+      "id": "azbuka",
+      "name": "Азбука Вкуса",
+      "country": "RU",
+      "category": "food",
+      "color": "#003A70",
+      "aliases": [
+        "Азбука Вкуса"
+      ],
+      "domains": [
+        "av.ru",
+        "azbukavkusa.ru"
+      ],
+      "keywords": [
+        "azbukavkusa",
+        "азбука вкуса"
+      ],
+      "rules": []
+    },
+    {
+      "id": "metro",
+      "name": "METRO",
+      "country": "RU",
+      "category": "food",
+      "color": "#003D8F",
+      "aliases": [
+        "METRO Cash & Carry"
+      ],
+      "domains": [
+        "metro-cc.ru",
+        "metro.de"
+      ],
+      "keywords": [
+        "metro-cc",
+        "метро кэш"
+      ],
+      "rules": []
+    },
+    {
+      "id": "globus",
+      "name": "Глобус",
+      "country": "RU",
+      "category": "food",
+      "color": "#005CA9",
+      "aliases": [
+        "Глобус"
+      ],
+      "domains": [
+        "globus.ru"
+      ],
+      "keywords": [
+        "globus",
+        "глобус"
+      ],
+      "rules": []
+    },
+    {
+      "id": "kb",
+      "name": "Красное&Белое",
+      "country": "RU",
+      "category": "food",
+      "color": "#C8102E",
+      "aliases": [
+        "Красное и Белое"
+      ],
+      "domains": [
+        "krasnoeibeloe.ru",
+        "kb.ru"
+      ],
+      "keywords": [
+        "krasnoeibeloe",
+        "красное белое"
+      ],
+      "rules": []
+    },
+    {
+      "id": "bristol",
+      "name": "Бристоль",
+      "country": "RU",
+      "category": "food",
+      "color": "#00529B",
+      "aliases": [
+        "Бристоль"
+      ],
+      "domains": [
+        "bristol.ru"
+      ],
+      "keywords": [
+        "bristol",
+        "бристоль"
+      ],
+      "rules": []
+    },
+    {
+      "id": "samokat",
+      "name": "Самокат",
+      "country": "RU",
+      "category": "food",
+      "color": "#FF3C7E",
+      "aliases": [
+        "Самокат"
+      ],
+      "domains": [
+        "samokat.ru"
+      ],
+      "keywords": [
+        "samokat",
+        "самокат"
+      ],
+      "rules": []
+    },
+    {
+      "id": "yandex_plus",
+      "name": "Яндекс Плюс",
+      "country": "RU",
+      "category": "other",
+      "color": "#FFCC00",
+      "aliases": [
+        "Яндекс Лавка",
+        "Яндекс Еда"
+      ],
+      "domains": [
+        "plus.yandex.ru",
+        "yandex.ru",
+        "ya.cc"
+      ],
+      "keywords": [
+        "yandex plus",
+        "яндекс плюс",
+        "яндекс лавка"
+      ],
+      "rules": []
+    },
+    {
+      "id": "sportmaster",
+      "name": "Спортмастер",
+      "country": "RU",
+      "category": "clothes",
+      "color": "#003E7E",
+      "aliases": [
+        "Спортмастер"
+      ],
+      "domains": [
+        "sportmaster.ru"
+      ],
+      "keywords": [
+        "sportmaster",
+        "спортмастер"
+      ],
+      "rules": []
+    },
+    {
+      "id": "letual",
+      "name": "Л’Этуаль",
+      "country": "RU",
+      "category": "beauty",
+      "color": "#000000",
+      "aliases": [
+        "Летуаль"
+      ],
+      "domains": [
+        "letu.ru",
+        "letoile.ru"
+      ],
+      "keywords": [
+        "letu",
+        "летуаль",
+        "л'этуаль"
+      ],
+      "rules": []
+    },
+    {
+      "id": "rivegauche",
+      "name": "Рив Гош",
+      "country": "RU",
+      "category": "beauty",
+      "color": "#D4145A",
+      "aliases": [
+        "Рив Гош"
+      ],
+      "domains": [
+        "rivegauche.ru"
+      ],
+      "keywords": [
+        "rivegauche",
+        "рив гош"
+      ],
+      "rules": []
+    },
+    {
+      "id": "goldapple",
+      "name": "Золотое Яблоко",
+      "country": "RU",
+      "category": "beauty",
+      "color": "#D9A441",
+      "aliases": [
+        "Золотое Яблоко"
+      ],
+      "domains": [
+        "goldapple.ru"
+      ],
+      "keywords": [
+        "goldapple",
+        "золотое яблоко"
+      ],
+      "rules": []
+    },
+    {
+      "id": "podrygka",
+      "name": "Подружка",
+      "country": "RU",
+      "category": "beauty",
+      "color": "#E6007E",
+      "aliases": [
+        "Подружка"
+      ],
+      "domains": [
+        "podrygka.ru"
+      ],
+      "keywords": [
+        "podrygka",
+        "подружка"
+      ],
+      "rules": []
+    },
+    {
+      "id": "ulybka",
+      "name": "Улыбка радуги",
+      "country": "RU",
+      "category": "beauty",
+      "color": "#F39200",
+      "aliases": [
+        "Улыбка радуги"
+      ],
+      "domains": [
+        "r-ulybka.ru"
+      ],
+      "keywords": [
+        "ulybka",
+        "улыбка радуги"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mvideo",
+      "name": "М.Видео",
+      "country": "RU",
+      "category": "tech",
+      "color": "#E30613",
+      "aliases": [
+        "М.Видео"
+      ],
+      "domains": [
+        "mvideo.ru"
+      ],
+      "keywords": [
+        "mvideo",
+        "м.видео",
+        "м видео"
+      ],
+      "rules": []
+    },
+    {
+      "id": "eldorado",
+      "name": "Эльдорадо",
+      "country": "RU",
+      "category": "tech",
+      "color": "#004C97",
+      "aliases": [
+        "Эльдорадо"
+      ],
+      "domains": [
+        "eldorado.ru"
+      ],
+      "keywords": [
+        "eldorado",
+        "эльдорадо"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dns",
+      "name": "DNS",
+      "country": "RU",
+      "category": "tech",
+      "color": "#F8A51B",
+      "aliases": [
+        "DNS"
+      ],
+      "domains": [
+        "dns-shop.ru"
+      ],
+      "keywords": [
+        "dns-shop",
+        "днс"
+      ],
+      "rules": []
+    },
+    {
+      "id": "citilink",
+      "name": "Ситилинк",
+      "country": "RU",
+      "category": "tech",
+      "color": "#F6A800",
+      "aliases": [
+        "Ситилинк"
+      ],
+      "domains": [
+        "citilink.ru"
+      ],
+      "keywords": [
+        "citilink",
+        "ситилинк"
+      ],
+      "rules": []
+    },
+    {
+      "id": "detmir",
+      "name": "Детский мир",
+      "country": "RU",
+      "category": "kids",
+      "color": "#E4002B",
+      "aliases": [
+        "Детский мир"
+      ],
+      "domains": [
+        "detmir.ru"
+      ],
+      "keywords": [
+        "detmir",
+        "детский мир"
+      ],
+      "rules": []
+    },
+    {
+      "id": "leroy",
+      "name": "Леруа Мерлен",
+      "country": "RU",
+      "category": "home",
+      "color": "#78BE20",
+      "aliases": [
+        "Лемана ПРО"
+      ],
+      "domains": [
+        "leroymerlin.ru",
+        "lemanapro.ru"
+      ],
+      "keywords": [
+        "leroymerlin",
+        "леруа",
+        "лемана"
+      ],
+      "rules": []
+    },
+    {
+      "id": "obi",
+      "name": "OBI",
+      "country": "RU",
+      "category": "home",
+      "color": "#FF7900",
+      "aliases": [
+        "ОБИ"
+      ],
+      "domains": [
+        "obi.ru"
+      ],
+      "keywords": [
+        "obi.ru",
+        "оби"
+      ],
+      "rules": []
+    },
+    {
+      "id": "petrovich",
+      "name": "Петрович",
+      "country": "RU",
+      "category": "home",
+      "color": "#F6A800",
+      "aliases": [
+        "Петрович"
+      ],
+      "domains": [
+        "petrovich.ru"
+      ],
+      "keywords": [
+        "petrovich",
+        "петрович"
+      ],
+      "rules": []
+    },
+    {
+      "id": "fixprice",
+      "name": "Fix Price",
+      "country": "RU",
+      "category": "home",
+      "color": "#E2231A",
+      "aliases": [
+        "Фикс Прайс"
+      ],
+      "domains": [
+        "fix-price.com",
+        "fix-price.ru"
+      ],
+      "keywords": [
+        "fix-price",
+        "фикс прайс"
+      ],
+      "rules": []
+    },
+    {
+      "id": "chitaigorod",
+      "name": "Читай-город",
+      "country": "RU",
+      "category": "other",
+      "color": "#E30613",
+      "aliases": [
+        "Читай-город"
+      ],
+      "domains": [
+        "chitai-gorod.ru"
+      ],
+      "keywords": [
+        "chitai-gorod",
+        "читай город"
+      ],
+      "rules": []
+    },
+    {
+      "id": "bookvoed",
+      "name": "Буквоед",
+      "country": "RU",
+      "category": "other",
+      "color": "#F58220",
+      "aliases": [
+        "Буквоед"
+      ],
+      "domains": [
+        "bookvoed.ru"
+      ],
+      "keywords": [
+        "bookvoed",
+        "буквоед"
+      ],
+      "rules": []
+    },
+    {
+      "id": "4lapy",
+      "name": "Четыре лапы",
+      "country": "RU",
+      "category": "other",
+      "color": "#00A651",
+      "aliases": [
+        "Четыре лапы"
+      ],
+      "domains": [
+        "4lapy.ru"
+      ],
+      "keywords": [
+        "4lapy",
+        "четыре лапы"
+      ],
+      "rules": []
+    },
+    {
+      "id": "rigla",
+      "name": "Ригла",
+      "country": "RU",
+      "category": "pharmacy",
+      "color": "#009640",
+      "aliases": [
+        "Ригла"
+      ],
+      "domains": [
+        "rigla.ru"
+      ],
+      "keywords": [
+        "rigla",
+        "ригла"
+      ],
+      "rules": []
+    },
+    {
+      "id": "apteka366",
+      "name": "Аптека 36,6",
+      "country": "RU",
+      "category": "pharmacy",
+      "color": "#E2001A",
+      "aliases": [
+        "36,6"
+      ],
+      "domains": [
+        "366.ru"
+      ],
+      "keywords": [
+        "366.ru",
+        "аптека 36.6"
+      ],
+      "rules": []
+    },
+    {
+      "id": "burgerking",
+      "name": "Burger King",
+      "country": "RU",
+      "category": "food_out",
+      "color": "#D62300",
+      "aliases": [
+        "Бургер Кинг"
+      ],
+      "domains": [
+        "burgerking.ru",
+        "burgerking.by"
+      ],
+      "keywords": [
+        "burgerking",
+        "бургер кинг"
+      ],
+      "rules": []
+    },
+    {
+      "id": "dodo",
+      "name": "Додо Пицца",
+      "country": "RU",
+      "category": "food_out",
+      "color": "#FF6900",
+      "aliases": [
+        "Додо Пицца"
+      ],
+      "domains": [
+        "dodopizza.ru",
+        "dodopizza.by"
+      ],
+      "keywords": [
+        "dodopizza",
+        "додо"
+      ],
+      "rules": []
+    },
+    {
+      "id": "shokoladnitsa",
+      "name": "Шоколадница",
+      "country": "RU",
+      "category": "food_out",
+      "color": "#6B3F2B",
+      "aliases": [
+        "Шоколадница"
+      ],
+      "domains": [
+        "shoko.ru",
+        "shokoladnitsa.ru"
+      ],
+      "keywords": [
+        "shokoladnitsa",
+        "шоколадница"
+      ],
+      "rules": []
+    },
+    {
+      "id": "ikea",
+      "name": "IKEA",
+      "country": "INT",
+      "category": "home",
+      "color": "#0058A3",
+      "aliases": [
+        "IKEA Family"
+      ],
+      "domains": [
+        "ikea.com",
+        "ikea.ru"
+      ],
+      "keywords": [
+        "ikea",
+        "икеа"
+      ],
+      "rules": []
+    },
+    {
+      "id": "decathlon",
+      "name": "Decathlon",
+      "country": "INT",
+      "category": "clothes",
+      "color": "#3643BA",
+      "aliases": [
+        "Декатлон"
+      ],
+      "domains": [
+        "decathlon.ru",
+        "decathlon.com"
+      ],
+      "keywords": [
+        "decathlon",
+        "декатлон"
+      ],
+      "rules": []
+    },
+    {
+      "id": "hm",
+      "name": "H&M",
+      "country": "INT",
+      "category": "clothes",
+      "color": "#E50010",
+      "aliases": [
+        "H&M"
+      ],
+      "domains": [
+        "hm.com"
+      ],
+      "keywords": [
+        "hm.com",
+        "h&m"
+      ],
+      "rules": []
+    },
+    {
+      "id": "zara",
+      "name": "ZARA",
+      "country": "INT",
+      "category": "clothes",
+      "color": "#000000",
+      "aliases": [
+        "ZARA"
+      ],
+      "domains": [
+        "zara.com"
+      ],
+      "keywords": [
+        "zara",
+        "зара"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mcdonalds",
+      "name": "McDonald’s",
+      "country": "INT",
+      "category": "food_out",
+      "color": "#FFC72C",
+      "aliases": [
+        "Вкусно — и точка"
+      ],
+      "domains": [
+        "mcdonalds.com",
+        "mcdonalds.ru"
+      ],
+      "keywords": [
+        "mcdonalds",
+        "макдоналдс"
+      ],
+      "rules": []
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "country": "INT",
+      "category": "food_out",
+      "color": "#00704A",
+      "aliases": [
+        "Starbucks Rewards"
+      ],
+      "domains": [
+        "starbucks.com"
+      ],
+      "keywords": [
+        "starbucks",
+        "старбакс"
+      ],
+      "rules": []
+    },
+    {
+      "id": "kfc",
+      "name": "KFC / Rostic’s",
+      "country": "INT",
+      "category": "food_out",
+      "color": "#A4343A",
+      "aliases": [
+        "Ростикс"
+      ],
+      "domains": [
+        "kfc.ru",
+        "rostics.ru"
+      ],
+      "keywords": [
+        "kfc",
+        "ростикс",
+        "rostics"
+      ],
+      "rules": []
+    }
+  ]
+}

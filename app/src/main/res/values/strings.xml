@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BY-Card</string>
+
+    <!-- Главный экран -->
+    <string name="home_title">BY-Card</string>
+    <string name="home_search_hint">Поиск по магазину или номеру</string>
+    <string name="home_empty_title">Пока нет ни одной карты</string>
+    <string name="home_empty_subtitle">Отсканируйте штрих-код или QR-код дисконтной карты — приложение распознает магазин и создаст виртуальную карту для кассы.</string>
+    <string name="home_nothing_found">Ничего не найдено</string>
+    <string name="home_cards_count">Карт: %1$d</string>
+
+    <!-- Действия -->
+    <string name="action_scan">Сканировать</string>
+    <string name="action_scan_barcode">Штрих-код</string>
+    <string name="action_scan_nfc">NFC-карта</string>
+    <string name="action_add_manual">Ввести вручную</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_edit">Изменить</string>
+    <string name="action_retry">Повторить</string>
+    <string name="action_close">Закрыть</string>
+    <string name="action_back">Назад</string>
+    <string name="action_ok">Понятно</string>
+    <string name="action_rescan">Сканировать заново</string>
+    <string name="action_open_settings">Открыть настройки</string>
+    <string name="action_copy">Копировать номер</string>
+    <string name="action_favorite">В избранное</string>
+
+    <!-- Сканирование -->
+    <string name="scan_title">Сканирование кода</string>
+    <string name="scan_hint">Наведите камеру на штрих-код или QR-код карты</string>
+    <string name="scan_torch_on">Включить подсветку</string>
+    <string name="scan_torch_off">Выключить подсветку</string>
+    <string name="scan_manual">Ввести код вручную</string>
+    <string name="scan_permission_title">Нужен доступ к камере</string>
+    <string name="scan_permission_text">Чтобы отсканировать штрих-код карты, разрешите приложению использовать камеру. Снимки и коды остаются только на вашем телефоне.</string>
+    <string name="scan_permission_grant">Разрешить доступ</string>
+    <string name="scan_duplicate">Такая карта уже сохранена</string>
+    <string name="scan_camera_error">Не удалось запустить камеру: %1$s</string>
+
+    <!-- Распознавание магазина -->
+    <string name="store_found_title">Магазин распознан</string>
+    <string name="store_guess_title">Похоже на магазин</string>
+    <string name="store_not_found_title">Магазин не распознан</string>
+    <string name="store_not_found_text">В каталоге нет магазина с таким кодом. Сфотографируйте лицевую сторону карты — фото будет показано на кассе вместе с кодом, а название можно ввести вручную.</string>
+    <string name="store_photo_front">Сфотографировать лицевую сторону</string>
+    <string name="store_photo_back">Фото оборотной стороны</string>
+    <string name="store_photo_retake">Переснять</string>
+    <string name="store_photo_front_added">Лицевая сторона добавлена</string>
+    <string name="store_learn_hint">Название сохранится для этого префикса кода: следующие карты этого магазина распознаются автоматически.</string>
+    <string name="store_issuer_hint">Код выпущен: %1$s</string>
+    <string name="store_internal_code">внутренний код магазина (серия 20–29)</string>
+
+    <!-- Карточка -->
+    <string name="card_new_title">Новая карта</string>
+    <string name="card_edit_title">Редактирование</string>
+    <string name="card_name_label">Название магазина</string>
+    <string name="card_name_placeholder">Например, Евроопт</string>
+    <string name="card_store_label">Магазин из каталога</string>
+    <string name="card_store_none">Не выбран</string>
+    <string name="card_store_choose">Выбрать</string>
+    <string name="card_store_change">Изменить</string>
+    <string name="card_store_detach">Отвязать</string>
+    <string name="store_picker_title">Выбор магазина</string>
+    <string name="store_picker_search">Поиск по каталогу</string>
+    <string name="store_picker_empty">Ничего не найдено. Можно просто ввести название вручную.</string>
+    <string name="store_category_food">Продукты</string>
+    <string name="store_category_pharmacy">Аптеки</string>
+    <string name="store_category_home">Дом, ремонт, хозтовары</string>
+    <string name="store_category_beauty">Красота и здоровье</string>
+    <string name="store_category_tech">Техника и электроника</string>
+    <string name="store_category_clothes">Одежда и обувь</string>
+    <string name="store_category_kids">Детские товары</string>
+    <string name="store_category_fuel">Заправки</string>
+    <string name="store_category_food_out">Кафе и рестораны</string>
+    <string name="store_category_other">Прочее</string>
+    <string name="card_number_label">Номер карты</string>
+    <string name="card_format_label">Формат кода</string>
+    <string name="card_note_label">Заметка</string>
+    <string name="card_color_label">Цвет карты</string>
+    <string name="card_photos_label">Фотографии карты</string>
+    <string name="card_front">Лицевая</string>
+    <string name="card_back">Оборот</string>
+    <string name="card_saved">Карта сохранена</string>
+    <string name="card_deleted">Карта удалена</string>
+    <string name="card_delete_title">Удалить карту?</string>
+    <string name="card_delete_text">Карта «%1$s» и её фотографии будут удалены с телефона.</string>
+    <string name="card_name_required">Введите название магазина</string>
+    <string name="card_code_required">Нужен номер карты или фотография</string>
+    <string name="card_number_copied">Номер скопирован</string>
+    <string name="card_show_at_checkout">Покажите этот экран на кассе</string>
+    <string name="card_brightness_boosted">Яркость экрана увеличена для сканера</string>
+    <string name="card_render_error">Этот номер нельзя закодировать в формате %1$s. Выбран запасной формат.</string>
+    <string name="card_no_code">У карты нет кода — покажите фотографию</string>
+    <string name="card_used_times">Открыта раз: %1$d</string>
+    <string name="card_added_on">Добавлена %1$s</string>
+    <string name="card_tap_photo">Нажмите, чтобы открыть фото</string>
+
+    <!-- NFC -->
+    <string name="nfc_title">NFC-карта</string>
+    <string name="nfc_hint">Приложите карту к задней панели телефона</string>
+    <string name="nfc_searching">Ожидание метки…</string>
+    <string name="nfc_unavailable">В этом телефоне нет NFC</string>
+    <string name="nfc_disabled">NFC выключен в настройках телефона</string>
+    <string name="nfc_enable">Включить NFC</string>
+    <string name="nfc_read_ok">Метка прочитана</string>
+    <string name="nfc_uid">Идентификатор (UID)</string>
+    <string name="nfc_tech">Технологии</string>
+    <string name="nfc_payload">Данные метки</string>
+    <string name="nfc_warning_title">Важно про NFC</string>
+    <string name="nfc_warning_text">Android не умеет копировать и эмулировать чужие NFC-карты: защищённый UID повторить нельзя. Приложение сохраняет прочитанные данные и номер карты — на кассе покажите номер или штрих-код, либо саму пластиковую карту.</string>
+
+    <!-- Прочее -->
+    <string name="format_unknown">Неизвестный формат</string>
+    <string name="about_title">О приложении</string>
+    <string name="about_version">Версия %1$s (сборка %2$d)</string>
+    <string name="about_text">Все карты, коды и фотографии хранятся только на вашем телефоне и никуда не отправляются. В интернет приложение выходит в одном-единственном случае: раз в сутки спрашивает у GitHub, не вышла ли новая версия.</string>
+    <string name="cd_add">Добавить карту</string>
+    <string name="cd_more">Ещё</string>
+    <!-- Скан кода с картинки/скриншота -->
+    <string name="action_scan_image">Скан со скриншота</string>
+    <string name="image_scan_title">Код с картинки</string>
+    <string name="image_scan_hint">Выберите скриншот или фото, на котором виден штрих-код либо QR-код карты.</string>
+    <string name="image_scan_working">Ищем код на изображении…</string>
+    <string name="image_scan_not_found_title">Код не найден</string>
+    <string name="image_scan_not_found_text">На этой картинке не видно штрих-кода или QR-кода. Можно сохранить её как фото карты — такую карту тоже можно показать на кассе.</string>
+    <string name="image_scan_use_as_photo">Сохранить как фото карты</string>
+    <string name="image_scan_pick_another">Выбрать другую</string>
+    <!-- Перенос карт на другой телефон -->
+    <string name="action_export_cards">Отправить карты</string>
+    <string name="action_import_cards">Получить карты</string>
+    <string name="export_subject">BY-Card: %1$d шт.</string>
+    <string name="export_share_title">Отправить файл с картами</string>
+    <string name="export_failed">Не удалось собрать файл с картами</string>
+    <string name="import_title">Перенос карт</string>
+    <string name="import_working">Читаем файл…</string>
+    <string name="import_found">В файле карт: %1$d. Выгружен %2$s</string>
+    <string name="import_duplicates_hint">Карты, которые уже есть на этом телефоне, добавлены не будут.</string>
+    <string name="import_action">Добавить карты</string>
+    <string name="import_done">Добавлено: %1$d. Пропущено (уже были): %2$d</string>
+    <string name="import_failed">Это не файл с картами BY-Card</string>
+    <!-- Разработчик -->
+    <string name="about_developer">Разработчик: Zakharevich Igor</string>
+    <string name="about_developer_phone">+375 29 337-14-12</string>
+    <!-- Обновления -->
+    <string name="action_check_updates">Проверить обновления</string>
+    <string name="update_checking">Проверяем…</string>
+    <string name="update_none">У вас последняя версия</string>
+    <string name="update_title">Вышла новая версия</string>
+    <string name="update_text">Доступна версия %1$s, у вас установлена %2$s.</string>
+    <string name="update_hint">Файл скачается браузером — откройте его и подтвердите установку. Новая версия встанет поверх, карты останутся на месте.</string>
+    <string name="update_download">Скачать</string>
+    <string name="update_later">Позже</string>
+    <!-- Инструкция -->
+    <string name="action_help">Как пользоваться</string>
+    <string name="help_title">Как пользоваться</string>
+    <string name="help_intro">Приложение держит дисконтные карты в телефоне: номер, тип кода, фотографию и NFC-метку. На кассе карта показывается прямо с экрана. Интернет нужен только для проверки новой версии.</string>
+
+    <string name="help_scan_title">1. Добавить карту сканером</string>
+    <string name="help_scan_text">Внизу нажмите «Штрих-код» и наведите камеру на код с обратной стороны карты. Код должен попасть в рамку целиком; в темноте помогает кнопка с молнией. Формат (EAN-13, Code 128, QR и другие) определяется сам. Останется проверить название магазина и нажать «Сохранить».</string>
+
+    <string name="help_unknown_title">2. Если магазин не определился</string>
+    <string name="help_unknown_text">Приложение предложит сфотографировать лицевую сторону карты и ввести название магазина. Сделайте это один раз: следующая карта с похожим номером определится сама — приложение запоминает ваши названия.</string>
+
+    <string name="help_image_title">3. Код со скриншота или из галереи</string>
+    <string name="help_image_text">«⋮» → «Скан со скриншота». Подойдёт скриншот из приложения магазина, фотография карты или картинка, присланная в мессенджере. Если на картинке несколько кодов, приложение предложит выбрать нужный.</string>
+
+    <string name="help_manual_title">4. Ввести номер руками</string>
+    <string name="help_manual_text">«⋮» → «Ввести вручную». Нужны название и номер карты. Формат кода выбирается списком: 13 цифр — это обычно EAN-13, остальное — Code 128. Если код на карте не читается сканером, попробуйте другой формат и сравните рисунок с картой.</string>
+
+    <string name="help_nfc_title">5. NFC-карта или пропуск</string>
+    <string name="help_nfc_text">Кнопка «NFC-карта»: включите NFC в настройках телефона и приложите карту к задней крышке. Сохранятся UID, тип метки и содержимое NDEF. Android не разрешает эмулировать чужую бесконтактную карту, поэтому на кассе показывайте номер или штрих-код, а NFC-запись нужна как справка.</string>
+
+    <string name="help_checkout_title">6. Показать карту на кассе</string>
+    <string name="help_checkout_text">Нажмите карту в списке — откроется крупный код, экран автоматически станет ярче. Поднесите экран к сканеру ровно, не под углом. Если сканер не берёт с экрана, нажмите на номер под кодом: он скопируется, и его можно продиктовать кассиру.</string>
+
+    <string name="help_photo_title">7. Фотографии карты</string>
+    <string name="help_photo_text">В правке карты (карандаш) можно снять лицевую и оборотную стороны. Пригодится, когда код затёрся или кассир просит показать саму карту.</string>
+
+    <string name="help_transfer_title">8. Перенести карты на другой телефон</string>
+    <string name="help_transfer_text">«⋮» → «Отправить карты»: все карты вместе с фотографиями складываются в один файл и уходят в «Поделиться» — например, в Telegram самому себе. На втором телефоне нажмите на этот файл в чате: приложение откроет окно переноса, останется нажать «Добавить карты». Карты, которые уже есть, не задвоятся.</string>
+
+    <string name="help_update_title">9. Обновления</string>
+    <string name="help_update_text">«⋮» → «Проверить обновления». Раз в сутки приложение само спрашивает у GitHub, не вышла ли новая версия, и предлагает скачать APK. Новая версия ставится поверх старой: карты, фотографии и история остаются на месте.</string>
+
+    <string name="help_privacy_title">10. Где лежат данные</string>
+    <string name="help_privacy_text">Карты, фотографии и история хранятся только в этом телефоне и удаляются вместе с приложением. Перед сменой телефона или сбросом обязательно сделайте «Отправить карты» и сохраните файл — это и есть резервная копия.</string>
+
+    <!-- Поиск и список -->
+    <string name="help_list_title">Список карт</string>
+    <string name="help_list_text">Поле вверху ищет по названию и номеру. Звёздочка на экране карты поднимает её в начало списка, остальные идут по дате последнего использования. Карандаш — правка, корзина — удаление.</string>
+    <string name="help_store_title">Привязать карту к магазину</string>
+    <string name="help_store_text">В правке карты (карандаш) есть строка «Магазин из каталога». Нажмите «Выбрать» — откроется весь каталог сетей с поиском и разделами: продукты, аптеки, техника, одежда, заправки. Выбор подставит фирменное название и цвет сети, а код такой карты будет узнаваться и дальше. Кнопка «Отвязать» снимает привязку, название остаётся.</string>
+    <string name="help_logo_title">Логотипы магазинов</string>
+    <string name="help_logo_text">На карте показывается логотип сети: для части сетей он лежит внутри приложения и работает офлайн, остальные подтягиваются с сайта магазина один раз и сохраняются на телефоне. Запрашивается только значок сайта — ни номера карт, ни другие данные никуда не уходят. По логотипу вычисляется фирменный цвет карты. Отключить загрузку и стереть скачанное: «⋮» → «Выключить логотипы магазинов». Если логотипа нет, карта показывает монограмму — первые буквы названия на фирменном цвете.</string>
+    <string name="action_logos_on">Включить логотипы магазинов</string>
+    <string name="action_logos_off">Выключить логотипы магазинов</string>
+    <string name="logos_enabled">Логотипы будут подгружаться с сайтов сетей</string>
+    <string name="logos_disabled">Логотипы выключены, скачанные удалены</string>
+
+    <!-- Банковские карты -->
+    <string name="bank_cards_title">Банковские карты</string>
+    <string name="bank_add">Добавить карту</string>
+    <string name="bank_empty_title">Банковских карт пока нет</string>
+    <string name="bank_empty_text">Сохраните карту — номер будет под рукой при оплате в интернете.</string>
+    <string name="bank_notice_pos_title">Оплатить телефоном на кассе нельзя</string>
+    <string name="bank_notice_pos_text">Для неё нужны ключи банка-эмитента: их выдают только приложениям банков и Google Pay. Здесь карта хранится для оплаты в интернете — номер можно показать или скопировать в форму оплаты.</string>
+    <string name="bank_notice_safe_title">Реквизиты зашифрованы</string>
+    <string name="bank_notice_safe_text">Ключ шифрования лежит в защищённом хранилище телефона. CVV не сохраняется, в экспорт карт банковские не попадают. Подробнее — «⋮» → «Как пользоваться».</string>
+    <string name="bank_new_title">Новая банковская карта</string>
+    <string name="bank_edit_title">Изменение карты</string>
+    <string name="bank_number_label">Номер карты</string>
+    <string name="bank_number_hint">16 цифр с лицевой стороны карты</string>
+    <string name="bank_number_invalid">Номер не сходится по контрольной цифре — проверьте цифры</string>
+    <string name="bank_system_detected">Платёжная система: %1$s</string>
+    <string name="bank_expiry_label">Срок (ММ/ГГ)</string>
+    <string name="bank_expiry_invalid">Например, 09/29</string>
+    <string name="bank_expiry_expired">Срок действия уже истёк</string>
+    <string name="bank_title_label">Название карты</string>
+    <string name="bank_title_placeholder">Зарплатная</string>
+    <string name="bank_holder_label">Держатель (как на карте)</string>
+    <string name="bank_bank_label">Банк</string>
+    <string name="bank_cvv_title">CVV/CVC не сохраняем</string>
+    <string name="bank_cvv_text">Три цифры с оборота придётся вводить при оплате вручную — зато без них сохранённый номер бесполезен для чужого.</string>
+    <string name="bank_color_label">Цвет карты</string>
+    <string name="bank_note_label">Заметка</string>
+    <string name="bank_show">Показать номер</string>
+    <string name="bank_hide">Скрыть номер</string>
+    <string name="bank_copied">Номер скопирован, через минуту буфер очистится</string>
+    <string name="bank_autohide">Номер скроется сам через %1$d секунд</string>
+    <string name="bank_unlock_title">Подтвердите, что это вы</string>
+    <string name="bank_unlock_text">Показать реквизиты банковской карты</string>
+    <string name="bank_decrypt_failed_title">Не удалось расшифровать карту</string>
+    <string name="bank_decrypt_failed_text">Ключ шифрования недоступен — так бывает после смены блокировки экрана или переноса данных на другой телефон. Добавьте карту заново.</string>
+    <string name="bank_no_lock_title">Блокировка экрана не настроена</string>
+    <string name="bank_no_lock_text">Реквизиты открываются без подтверждения. Задайте ПИН, пароль или отпечаток в настройках телефона — тогда перед показом номера будет спрашиваться подтверждение.</string>
+    <string name="bank_delete_title">Удалить карту?</string>
+    <string name="bank_delete_text">Зашифрованные реквизиты будут стёрты с телефона.</string>
+    <string name="help_bank_title">Банковские карты</string>
+    <string name="help_bank_text">В меню «⋮» есть раздел «Банковские карты»: там можно сохранить номер, срок и имя держателя. Приложение проверяет номер по контрольной цифре и само определяет платёжную систему — Visa, Mastercard, МИР или БЕЛКАРТ. Реквизиты шифруются ключом из защищённого хранилища телефона, CVV не сохраняется, экраны с номером закрыты от скриншотов, а перед показом номера спрашивается отпечаток или ПИН. Номер нужен для оплаты в интернете: приложить телефон к терминалу на кассе нельзя — бесконтактная оплата требует ключей банка и доступна только приложениям банков и Google Pay.</string>
+</resources>

@@ -1,0 +1,100 @@
+name: Signing self-test
+
+# Проверяет весь путь подписи постоянным ключом БЕЗ настоящих секретов:
+# создаёт временный PKCS12-ключ ровно так же, как tools/make-keystore.sh,
+# прогоняет его через base64 (как секрет KEYSTORE_BASE64) и проверяет,
+# что APK подписан именно этим ключом, а манифест содержит ожидаемое.
+
+on:
+  push:
+    branches: ['arena/**', main, master]
+    paths: ['.github/workflows/signing-selftest.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    name: Проверка подписи и манифеста
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Создать временный ключ (как tools/make-keystore.sh)
+        run: |
+          openssl req -x509 -newkey rsa:4096 -sha256 -days 365 -nodes \
+            -keyout /tmp/k.pem -out /tmp/c.pem \
+            -subj "/CN=SelfTest Key/OU=Android/O=ci/C=BY"
+          openssl pkcs12 -export -inkey /tmp/k.pem -in /tmp/c.pem \
+            -name discountcard -out /tmp/selftest.p12 -passout pass:selftestpass \
+            -macalg sha256 -keypbe aes-256-cbc -certpbe aes-256-cbc
+          base64 -w0 /tmp/selftest.p12 > /tmp/selftest.b64
+
+      - name: Декодировать как секрет KEYSTORE_BASE64
+        run: |
+          tr -d '\n' < /tmp/selftest.b64 | base64 -d > "$RUNNER_TEMP/release.p12"
+          test -s "$RUNNER_TEMP/release.p12"
+
+      - name: Собрать release APK этим ключом
+        env:
+          KEYSTORE_FILE: ${{ runner.temp }}/release.p12
+          KEYSTORE_PASSWORD: selftestpass
+          KEY_ALIAS: discountcard
+          KEY_PASSWORD: selftestpass
+        run: |
+          chmod +x ./gradlew
+          ./gradlew --no-daemon assembleRelease -PappBuildNumber=9000 -PappVersionBase=9.9
+
+      - name: Проверить подпись и манифест
+        run: |
+          set -e
+          APK=$(find app/build/outputs/apk/release -name '*.apk' | head -n 1)
+          BT=$(ls -1 "$ANDROID_HOME/build-tools" | sort -V | tail -n 1)
+          "$ANDROID_HOME/build-tools/$BT/apksigner" verify --print-certs -v "$APK" | tee /tmp/sign.txt
+          "$ANDROID_HOME/build-tools/$BT/aapt" dump badging "$APK" > /tmp/badging.txt
+          grep -E "package:|sdkVersion|targetSdkVersion|uses-permission|application-label" /tmp/badging.txt
+          PERMS=$(grep "uses-permission" /tmp/badging.txt | sed "s/uses-permission: name=//" | tr -d "'" | paste -sd'%0A')
+          echo "::warning title=Разрешения в APK::${PERMS:-нет ни одного}"
+
+          fail() { echo "::error::$1"; exit 1; }
+          grep -q "CN=SelfTest Key" /tmp/sign.txt || fail "APK подписан не тем ключом"
+          grep -q "Verified using v2 scheme (APK Signature Scheme v2): true" /tmp/sign.txt || fail "нет v2-подписи"
+          grep -q "Verified using v3 scheme (APK Signature Scheme v3): true" /tmp/sign.txt || fail "нет v3-подписи"
+          grep -q "versionCode='9000'" /tmp/badging.txt || fail "versionCode не из номера сборки"
+          grep -q "versionName='9.9.9000'" /tmp/badging.txt || fail "versionName собран неверно"
+          grep -q "sdkVersion:'24'" /tmp/badging.txt || fail "minSdk != 24"
+          grep -q "targetSdkVersion:'35'" /tmp/badging.txt || fail "targetSdk != 35"
+          grep -q "uses-permission: name='android.permission.CAMERA'" /tmp/badging.txt || fail "нет разрешения CAMERA"
+          grep -q "uses-permission: name='android.permission.NFC'" /tmp/badging.txt || fail "нет разрешения NFC"
+          grep -q "uses-permission: name='android.permission.INTERNET'" /tmp/badging.txt \
+            || fail "нет разрешения INTERNET — не сработает проверка обновлений"
+          for P in ACCESS_NETWORK_STATE WAKE_LOCK ACCESS_FINE_LOCATION READ_CONTACTS READ_EXTERNAL_STORAGE; do
+            if grep -q "uses-permission: name='android.permission.$P'" /tmp/badging.txt; then
+              fail "в APK появилось лишнее разрешение $P"
+            fi
+          done
+          if grep -q "uses-permission: name='com.google.android.gms.permission.AD_ID'" /tmp/badging.txt; then
+            fail "в APK появилось рекламное разрешение AD_ID"
+          fi
+
+          echo "### Самотест подписи пройден" >> "$GITHUB_STEP_SUMMARY"
+          grep -m1 "SHA-256 digest" /tmp/sign.txt >> "$GITHUB_STEP_SUMMARY"
+          grep -m1 "^package:" /tmp/badging.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Содержимое APK
+        run: |
+          APK=$(find app/build/outputs/apk/release -name '*.apk' | head -n 1)
+          unzip -l "$APK" | grep -E "assets/stores.json|lib/|classes" | head -20
+          unzip -p "$APK" assets/stores.json | head -c 200

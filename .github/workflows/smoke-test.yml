@@ -1,0 +1,131 @@
+name: Smoke tests
+
+# Запускает приложение на реальном эмуляторе Android и проверяет,
+# что оно стартует без падений, каталог магазинов читается,
+# коды рисуются, а база и «самообучение» работают.
+
+on:
+  push:
+    branches: ['arena/**', main, master]
+    paths:
+      - 'app/src/**'
+      - 'app/build.gradle.kts'
+      - 'gradle/**'
+      - '.github/workflows/smoke-test.yml'
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  instrumentation:
+    name: Тесты на эмуляторе Android 34
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Включить KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: chmod gradlew
+        run: chmod +x ./gradlew
+
+      - name: Инструментальные тесты
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          ram-size: 4096M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
+          # Раннер выполняет script через sh, поэтому логика вынесена в bash-скрипт.
+          script: bash tools/ci-run-instrumentation.sh
+
+      - name: Результаты и снимки экранов в ветку ci-logs
+        if: always()
+        continue-on-error: true
+        run: |
+          WORK=$(mktemp -d)
+          mkdir -p "$WORK/androidTest" "$WORK/screenshots"
+          if [ -f /tmp/test.log ]; then
+            tail -n 3000 /tmp/test.log > "$WORK/androidTest/test.log"
+          else
+            echo "лог не создан: эмулятор не дошёл до запуска тестов" > "$WORK/androidTest/test.log"
+          fi
+          cp -r app/build/outputs/androidTest-results/connected/* "$WORK/androidTest/" 2>/dev/null || true
+          find /tmp/shots -name '*.png' -exec cp {} "$WORK/screenshots/" \; 2>/dev/null || true
+          mkdir -p "$GITHUB_WORKSPACE/screenshots-out"
+          cp "$WORK"/screenshots/*.png "$GITHUB_WORKSPACE/screenshots-out/" 2>/dev/null || true
+          ls -la "$WORK/screenshots" || true
+          cd "$WORK"
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -q -b ci-logs
+          git add -A
+          git commit -q --allow-empty -m "Тесты #${{ github.run_number }} (${{ github.sha }})"
+          git push -q --force \
+            "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
+
+      - name: Ошибки тестов (аннотации)
+        if: failure()
+        run: |
+          python3 - <<'PY'
+          import glob, re, xml.etree.ElementTree as ET
+          msgs = []
+          for path in glob.glob('app/build/outputs/androidTest-results/connected/**/*.xml', recursive=True):
+              try:
+                  root = ET.parse(path).getroot()
+              except Exception:
+                  continue
+              for case in root.iter('testcase'):
+                  for bad in list(case.iter('failure')) + list(case.iter('error')):
+                      text = (bad.get('message') or bad.text or '').strip().splitlines()
+                      head = ' | '.join(text[:4])
+                      msgs.append(f"{case.get('classname')}.{case.get('name')}: {head}")
+          if not msgs:
+              try:
+                  log = open('/tmp/test.log', errors='replace').read().splitlines()
+                  msgs = [l for l in log if re.search(r'^e: |FAILURE|error:', l)][:20]
+              except OSError:
+                  pass
+          for m in msgs[:10]:
+              print(f"::error title=Test failed::{m.replace('%', '%25')[:1200]}")
+          PY
+
+      - name: Отчёт тестов артефактом
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-test-report
+          path: |
+            app/build/reports/androidTests/connected/**
+            app/build/outputs/androidTest-results/connected/**
+            screenshots-out/**
+          retention-days: 14
+          if-no-files-found: ignore

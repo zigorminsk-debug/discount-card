@@ -1,0 +1,39 @@
+# --- Секреты подписи: НИКОГДА не коммитим ---
+keystore.properties
+keystore/keystore.properties
+keystore/*.base64*
+*.base64.txt
+keystore/*.p12
+keystore/*.jks
+keystore/*.keystore
+*.p12
+*.jks
+*.keystore
+local.properties
+
+# --- Android / Gradle ---
+*.iml
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+app/release/
+app/debug/
+*.apk
+*.aab
+*.ap_
+*.dex
+output.json
+
+# --- IDE ---
+.idea/
+.vscode/
+*.hprof
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# Открытый запасной ключ CI (не секрет, специально в репозитории)
+!keystore/ci-fallback.p12

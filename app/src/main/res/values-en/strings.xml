@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BY-Card</string>
+
+    <string name="home_title">BY-Card</string>
+    <string name="home_search_hint">Search by store or number</string>
+    <string name="home_empty_title">No cards yet</string>
+    <string name="home_empty_subtitle">Scan the barcode or QR code of a loyalty card — the app recognises the store and builds a virtual card for the checkout.</string>
+    <string name="home_nothing_found">Nothing found</string>
+    <string name="home_cards_count">Cards: %1$d</string>
+
+    <string name="action_scan">Scan</string>
+    <string name="action_scan_barcode">Barcode</string>
+    <string name="action_scan_nfc">NFC card</string>
+    <string name="action_add_manual">Enter manually</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_ok">Got it</string>
+    <string name="action_rescan">Scan again</string>
+    <string name="action_open_settings">Open settings</string>
+    <string name="action_copy">Copy number</string>
+    <string name="action_favorite">Favourite</string>
+
+    <string name="scan_title">Scan code</string>
+    <string name="scan_hint">Point the camera at the card barcode or QR code</string>
+    <string name="scan_torch_on">Turn on torch</string>
+    <string name="scan_torch_off">Turn off torch</string>
+    <string name="scan_manual">Enter code manually</string>
+    <string name="scan_permission_title">Camera access needed</string>
+    <string name="scan_permission_text">Allow camera access to scan the card barcode. Photos and codes never leave your phone.</string>
+    <string name="scan_permission_grant">Allow access</string>
+    <string name="scan_duplicate">This card is already saved</string>
+    <string name="scan_camera_error">Could not start the camera: %1$s</string>
+
+    <string name="store_found_title">Store recognised</string>
+    <string name="store_guess_title">Looks like</string>
+    <string name="store_not_found_title">Store not recognised</string>
+    <string name="store_not_found_text">No store in the catalogue matches this code. Take a photo of the front of the card — it will be shown at the checkout together with the code, and you can type the name manually.</string>
+    <string name="store_photo_front">Photograph the front side</string>
+    <string name="store_photo_back">Photo of the back side</string>
+    <string name="store_photo_retake">Retake</string>
+    <string name="store_photo_front_added">Front side added</string>
+    <string name="store_learn_hint">The name is remembered for this code prefix: next cards of this store will be recognised automatically.</string>
+    <string name="store_issuer_hint">Code issued in: %1$s</string>
+    <string name="store_internal_code">in-store internal code (series 20–29)</string>
+
+    <string name="card_new_title">New card</string>
+    <string name="card_edit_title">Edit card</string>
+    <string name="card_name_label">Store name</string>
+    <string name="card_name_placeholder">For example, Tesco</string>
+    <string name="card_store_label">Store from the catalog</string>
+    <string name="card_store_none">Not selected</string>
+    <string name="card_store_choose">Choose</string>
+    <string name="card_store_change">Change</string>
+    <string name="card_store_detach">Unlink</string>
+    <string name="store_picker_title">Choose a store</string>
+    <string name="store_picker_search">Search the catalog</string>
+    <string name="store_picker_empty">Nothing found. You can simply type the name yourself.</string>
+    <string name="store_category_food">Groceries</string>
+    <string name="store_category_pharmacy">Pharmacies</string>
+    <string name="store_category_home">Home &amp; DIY</string>
+    <string name="store_category_beauty">Beauty &amp; health</string>
+    <string name="store_category_tech">Electronics</string>
+    <string name="store_category_clothes">Clothing &amp; shoes</string>
+    <string name="store_category_kids">Kids</string>
+    <string name="store_category_fuel">Fuel stations</string>
+    <string name="store_category_food_out">Cafés &amp; restaurants</string>
+    <string name="store_category_other">Other</string>
+    <string name="card_number_label">Card number</string>
+    <string name="card_format_label">Code format</string>
+    <string name="card_note_label">Note</string>
+    <string name="card_color_label">Card colour</string>
+    <string name="card_photos_label">Card photos</string>
+    <string name="card_front">Front</string>
+    <string name="card_back">Back</string>
+    <string name="card_saved">Card saved</string>
+    <string name="card_deleted">Card deleted</string>
+    <string name="card_delete_title">Delete card?</string>
+    <string name="card_delete_text">Card “%1$s” and its photos will be removed from the phone.</string>
+    <string name="card_name_required">Enter the store name</string>
+    <string name="card_code_required">A card number or a photo is required</string>
+    <string name="card_number_copied">Number copied</string>
+    <string name="card_show_at_checkout">Show this screen at the checkout</string>
+    <string name="card_brightness_boosted">Screen brightness raised for the scanner</string>
+    <string name="card_render_error">This number cannot be encoded as %1$s. A fallback format is used.</string>
+    <string name="card_no_code">The card has no code — show the photo</string>
+    <string name="card_used_times">Opened %1$d times</string>
+    <string name="card_added_on">Added %1$s</string>
+    <string name="card_tap_photo">Tap to open the photo</string>
+
+    <string name="nfc_title">NFC card</string>
+    <string name="nfc_hint">Hold the card against the back of the phone</string>
+    <string name="nfc_searching">Waiting for a tag…</string>
+    <string name="nfc_unavailable">This phone has no NFC</string>
+    <string name="nfc_disabled">NFC is turned off in system settings</string>
+    <string name="nfc_enable">Turn on NFC</string>
+    <string name="nfc_read_ok">Tag read</string>
+    <string name="nfc_uid">Identifier (UID)</string>
+    <string name="nfc_tech">Technologies</string>
+    <string name="nfc_payload">Tag data</string>
+    <string name="nfc_warning_title">About NFC</string>
+    <string name="nfc_warning_text">Android cannot clone or emulate third-party NFC cards: the protected UID cannot be replayed. The app stores the data it read — at the checkout show the number, the barcode or the plastic card itself.</string>
+
+    <string name="format_unknown">Unknown format</string>
+    <string name="about_title">About</string>
+    <string name="about_version">Version %1$s (build %2$d)</string>
+    <string name="about_text">All cards, codes and photos stay on your phone and are never uploaded. The app goes online for one thing only: once a day it asks GitHub whether a newer version is out.</string>
+    <string name="cd_add">Add card</string>
+    <string name="cd_more">More</string>
+    <!-- Scanning a code from an image/screenshot -->
+    <string name="action_scan_image">Scan a screenshot</string>
+    <string name="image_scan_title">Code from image</string>
+    <string name="image_scan_hint">Pick a screenshot or photo that shows the card\'s barcode or QR code.</string>
+    <string name="image_scan_working">Looking for a code…</string>
+    <string name="image_scan_not_found_title">No code found</string>
+    <string name="image_scan_not_found_text">This image has no barcode or QR code. You can still keep it as a card photo and show it at the checkout.</string>
+    <string name="image_scan_use_as_photo">Keep as card photo</string>
+    <string name="image_scan_pick_another">Pick another</string>
+    <!-- Moving cards to another phone -->
+    <string name="action_export_cards">Send cards</string>
+    <string name="action_import_cards">Receive cards</string>
+    <string name="export_subject">BY-Card: %1$d item(s)</string>
+    <string name="export_share_title">Send the cards file</string>
+    <string name="export_failed">Could not build the cards file</string>
+    <string name="import_title">Transfer cards</string>
+    <string name="import_working">Reading the file…</string>
+    <string name="import_found">Cards in the file: %1$d. Exported %2$s</string>
+    <string name="import_duplicates_hint">Cards that already exist on this phone will be skipped.</string>
+    <string name="import_action">Add cards</string>
+    <string name="import_done">Added: %1$d. Skipped (already there): %2$d</string>
+    <string name="import_failed">This is not a BY-Card file</string>
+    <!-- Developer -->
+    <string name="about_developer">Developer: Zakharevich Igor</string>
+    <string name="about_developer_phone">+375 29 337-14-12</string>
+    <!-- Updates -->
+    <string name="action_check_updates">Check for updates</string>
+    <string name="update_checking">Checking…</string>
+    <string name="update_none">You have the latest version</string>
+    <string name="update_title">A new version is out</string>
+    <string name="update_text">Version %1$s is available, you have %2$s.</string>
+    <string name="update_hint">The browser downloads the file — open it and confirm the install. The new version goes on top, your cards stay in place.</string>
+    <string name="update_download">Download</string>
+    <string name="update_later">Later</string>
+    <!-- Help -->
+    <string name="action_help">How to use</string>
+    <string name="help_title">How to use</string>
+    <string name="help_intro">The app keeps loyalty cards on your phone: number, code type, photo and NFC tag. At the till the card is shown right from the screen. The internet is used only to check for a new version.</string>
+
+    <string name="help_scan_title">1. Add a card with the scanner</string>
+    <string name="help_scan_text">Tap “Barcode” at the bottom and point the camera at the code on the back of the card. Keep the whole code inside the frame; the lightning button helps in the dark. The format (EAN-13, Code 128, QR and others) is detected automatically. Then check the store name and tap “Save”.</string>
+
+    <string name="help_unknown_title">2. If the store was not recognised</string>
+    <string name="help_unknown_text">The app offers to photograph the front of the card and type the store name. Do it once: the next card with a similar number is recognised automatically — the app remembers your names.</string>
+
+    <string name="help_image_title">3. Code from a screenshot or gallery</string>
+    <string name="help_image_text">“⋮” → “Scan a screenshot”. A screenshot from the store app, a photo of the card or a picture sent in a messenger all work. If the picture holds several codes, the app lets you pick one.</string>
+
+    <string name="help_manual_title">4. Type the number by hand</string>
+    <string name="help_manual_text">“⋮” → “Enter manually”. You need the name and the number. Pick the code format from the list: 13 digits is usually EAN-13, everything else is Code 128. If a scanner refuses the code, try another format and compare the picture with the card.</string>
+
+    <string name="help_nfc_title">5. NFC card or pass</string>
+    <string name="help_nfc_text">Tap “NFC card”, turn NFC on in the phone settings and hold the card against the back of the phone. The UID, tag type and NDEF payload are saved. Android does not allow emulating someone else’s contactless card, so show the number or the barcode at the till — the NFC record is a reference.</string>
+
+    <string name="help_checkout_title">6. Show the card at the till</string>
+    <string name="help_checkout_text">Tap a card in the list — a large code opens and the screen brightens automatically. Hold the screen flat in front of the scanner. If the scanner will not read it, tap the number under the code: it is copied and you can read it out.</string>
+
+    <string name="help_photo_title">7. Photos of the card</string>
+    <string name="help_photo_text">In card editing (the pencil) you can shoot the front and the back. Handy when the code is worn out or the cashier wants to see the card itself.</string>
+
+    <string name="help_transfer_title">8. Move cards to another phone</string>
+    <string name="help_transfer_text">“⋮” → “Send cards”: every card with its photos is packed into one file and handed to the system share sheet — for example Telegram to yourself. On the second phone tap that file in the chat: the app opens the transfer screen, then tap “Add cards”. Cards that already exist are skipped.</string>
+
+    <string name="help_update_title">9. Updates</string>
+    <string name="help_update_text">“⋮” → “Check for updates”. Once a day the app asks GitHub whether a newer version is out and offers to download the APK. A new version installs over the old one: cards, photos and history stay in place.</string>
+
+    <string name="help_privacy_title">10. Where the data lives</string>
+    <string name="help_privacy_text">Cards, photos and history are stored on this phone only and disappear together with the app. Before changing or resetting the phone use “Send cards” and keep the file — that is your backup.</string>
+
+    <!-- List -->
+    <string name="help_list_title">The card list</string>
+    <string name="help_list_text">The field at the top searches by name and number. The star on the card screen pins it to the top of the list, the rest are sorted by last use. The pencil edits, the bin deletes.</string>
+    <string name="help_store_title">Link a card to a store</string>
+    <string name="help_store_text">Open a card for editing (the pencil) and find the “Store from the catalog” row. Tap “Choose” to browse the whole catalog with search and sections: groceries, pharmacies, electronics, clothing, fuel. Picking a store fills in its official name and colour. “Unlink” removes the link and keeps the name.</string>
+    <string name="help_logo_title">Store logos</string>
+    <string name="help_logo_text">Cards show the chain’s logo: some logos ship inside the app and work offline, the rest are fetched once from the store’s website and kept on the phone. Only the site icon is requested — no card numbers or other data leave the device. The card colour is derived from the logo. To switch it off and delete what was downloaded use “⋮” → “Turn off store logos”. Without a logo the card shows a monogram in the brand colour.</string>
+    <string name="action_logos_on">Turn on store logos</string>
+    <string name="action_logos_off">Turn off store logos</string>
+    <string name="logos_enabled">Logos will be loaded from the chains’ websites</string>
+    <string name="logos_disabled">Logos are off, downloaded ones removed</string>
+
+    <!-- Bank cards -->
+    <string name="bank_cards_title">Bank cards</string>
+    <string name="bank_add">Add card</string>
+    <string name="bank_empty_title">No bank cards yet</string>
+    <string name="bank_empty_text">Save a card and the number is at hand when you pay online.</string>
+    <string name="bank_notice_pos_title">Tap-to-pay at the till is not possible</string>
+    <string name="bank_notice_pos_text">It needs issuer keys that only bank apps and Google Pay get. Here the card is kept for online payments — show the number or copy it into a checkout form.</string>
+    <string name="bank_notice_safe_title">Card details are encrypted</string>
+    <string name="bank_notice_safe_text">The encryption key lives in the phone’s secure storage. The CVV is not stored and bank cards are excluded from the card export. Details: “⋮” → “How to use”.</string>
+    <string name="bank_new_title">New bank card</string>
+    <string name="bank_edit_title">Edit card</string>
+    <string name="bank_number_label">Card number</string>
+    <string name="bank_number_hint">16 digits from the front of the card</string>
+    <string name="bank_number_invalid">The checksum does not match — please check the digits</string>
+    <string name="bank_system_detected">Payment system: %1$s</string>
+    <string name="bank_expiry_label">Expiry (MM/YY)</string>
+    <string name="bank_expiry_invalid">For example, 09/29</string>
+    <string name="bank_expiry_expired">This card has expired</string>
+    <string name="bank_title_label">Card name</string>
+    <string name="bank_title_placeholder">Salary card</string>
+    <string name="bank_holder_label">Cardholder (as printed)</string>
+    <string name="bank_bank_label">Bank</string>
+    <string name="bank_cvv_title">The CVV/CVC is not stored</string>
+    <string name="bank_cvv_text">You will type the three digits from the back by hand — but without them a stolen number is useless.</string>
+    <string name="bank_color_label">Card colour</string>
+    <string name="bank_note_label">Note</string>
+    <string name="bank_show">Show number</string>
+    <string name="bank_hide">Hide number</string>
+    <string name="bank_copied">Number copied, the clipboard clears in a minute</string>
+    <string name="bank_autohide">The number hides itself in %1$d seconds</string>
+    <string name="bank_unlock_title">Confirm it is you</string>
+    <string name="bank_unlock_text">Show the bank card details</string>
+    <string name="bank_decrypt_failed_title">Could not decrypt the card</string>
+    <string name="bank_decrypt_failed_text">The encryption key is gone — this happens after changing the screen lock or moving data to another phone. Please add the card again.</string>
+    <string name="bank_no_lock_title">No screen lock is set</string>
+    <string name="bank_no_lock_text">Details open without confirmation. Set a PIN, password or fingerprint in the phone settings and the app will ask for it before showing the number.</string>
+    <string name="bank_delete_title">Delete this card?</string>
+    <string name="bank_delete_text">The encrypted details will be wiped from the phone.</string>
+    <string name="help_bank_title">Bank cards</string>
+    <string name="help_bank_text">The “⋮” menu has a “Bank cards” section where you can store the number, expiry date and cardholder name. The app verifies the checksum and detects the payment system — Visa, Mastercard, MIR or BELCARD. Details are encrypted with a key from the phone’s secure storage, the CVV is never stored, screens with the number are protected from screenshots, and a fingerprint or PIN is requested before the number is shown. The number is meant for online payments: you cannot tap the phone at a till, because contactless payment needs issuer keys and is only available to bank apps and Google Pay.</string>
+</resources>
