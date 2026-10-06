@@ -1,7 +1,7 @@
 {
-  "version": 3,
-  "updated": "2026-10-05",
-  "comment": "Каталог сетей для автоопределения магазина по ссылке из QR и по ключевым словам. Основной упор — Беларусь: продуктовые сети, аптеки, техника, заправки. Префиксы штрих-кодов намеренно не используются: по ним магазин угадать нельзя.",
+  "version": 4,
+  "updated": "2026-10-06",
+  "comment": "Каталог сетей для автоопределения магазина по ссылке из QR и по ключевым словам. Основной упор — Беларусь: продуктовые сети, аптеки, техника, заправки. Префиксы штрих-кодов намеренно не используются: по ним магазин угадать нельзя. Домены проверены обращением к сайту — непроверенные удалены, чтобы не подтянуть чужой логотип.",
   "issuers": {
     "20-29": "внутренний код магазина (не экспортируется за пределы сети)",
     "460-469": "Россия (GS1 RUS)",
@@ -135,9 +135,7 @@
         "Хит Экспресс",
         "Hit"
       ],
-      "domains": [
-        "hit.by"
-      ],
+      "domains": [],
       "keywords": [
         "хит экспресс",
         "hit express"
@@ -225,8 +223,7 @@
         "Санта Ритейл"
       ],
       "domains": [
-        "santa.by",
-        "santaretail.by"
+        "santa.by"
       ],
       "keywords": [
         "санта",
@@ -245,12 +242,26 @@
         "Sosedi"
       ],
       "domains": [
-        "sosedi.by",
-        "sosedi-shop.by"
+        "sosedi.by"
       ],
       "keywords": [
         "соседи",
         "sosedi"
+      ],
+      "rules": []
+    },
+    {
+      "id": "umny_vybor",
+      "name": "Умный выбор",
+      "country": "BY",
+      "category": "food",
+      "color": "#455A64",
+      "aliases": [
+        "Умный выбор"
+      ],
+      "domains": [],
+      "keywords": [
+        "умный выбор"
       ],
       "rules": []
     },
@@ -286,8 +297,7 @@
         "BelMarket"
       ],
       "domains": [
-        "bel-market.by",
-        "belmarket.by"
+        "bel-market.by"
       ],
       "keywords": [
         "белмаркет",
@@ -307,8 +317,7 @@
         "Табак-инвест"
       ],
       "domains": [
-        "korona.by",
-        "korona-market.by"
+        "korona.by"
       ],
       "keywords": [
         "корона",
@@ -328,8 +337,7 @@
         "ГРИНрозница"
       ],
       "domains": [
-        "green-market.by",
-        "greenmarket.by"
+        "green-market.by"
       ],
       "keywords": [
         "green market",
@@ -384,7 +392,7 @@
         "Svetofor"
       ],
       "domains": [
-        "svetofor-market.by"
+        "svetoforrb.by"
       ],
       "keywords": [
         "светофор",
@@ -451,7 +459,7 @@
         "Доброцен"
       ],
       "domains": [
-        "dobrocen.by"
+        "dobrotsen.ru"
       ],
       "keywords": [
         "доброцен",
@@ -476,40 +484,64 @@
     },
     {
       "id": "unistore",
-      "name": "Юнистор",
+      "name": "UNISTORE",
       "country": "BY",
       "category": "food",
       "color": "#455A64",
       "aliases": [
+        "UNISTORE",
         "Юнистор",
         "Unistore",
-        "Вожык"
+        "Юнистор опт"
       ],
       "domains": [],
       "keywords": [
         "юнистор",
-        "unistore",
-        "вожык"
+        "unistore"
+      ],
+      "rules": []
+    },
+    {
+      "id": "vozhyk",
+      "name": "Вожык",
+      "country": "BY",
+      "category": "food",
+      "color": "#8D6E63",
+      "aliases": [
+        "Вожык",
+        "Вожик",
+        "Vozhyk"
+      ],
+      "domains": [],
+      "keywords": [
+        "вожык",
+        "вожик",
+        "vozhyk"
       ],
       "rules": []
     },
     {
       "id": "martinn",
-      "name": "Mart Inn",
+      "name": "Марцiн",
       "country": "BY",
       "category": "food",
       "color": "#D32F2F",
       "aliases": [
+        "Марцiн",
+        "Марцін",
         "Mart Inn",
-        "МартИнн",
-        "Март Инн"
+        "Март Инн",
+        "Martin"
       ],
       "domains": [
         "martinn.by"
       ],
       "keywords": [
+        "марцин",
+        "марцін",
         "mart inn",
-        "мартинн"
+        "мартинн",
+        "martin"
       ],
       "rules": []
     },
@@ -617,7 +649,7 @@
         "Galamart"
       ],
       "domains": [
-        "galamart.by"
+        "galamart.ru"
       ],
       "keywords": [
         "галамарт",
@@ -637,7 +669,7 @@
         "Государственная аптека"
       ],
       "domains": [
-        "belpharmacia.by"
+        "pharma.by"
       ],
       "keywords": [
         "белфармация",
@@ -654,9 +686,7 @@
       "aliases": [
         "Минская Фармация"
       ],
-      "domains": [
-        "minfarm.by"
-      ],
+      "domains": [],
       "keywords": [
         "минская фармация"
       ],
@@ -693,8 +723,7 @@
         "Интерфармакс"
       ],
       "domains": [
-        "healthplanet.by",
-        "planetazdorovo.by"
+        "healthplanet.by"
       ],
       "keywords": [
         "планета здоровья",
@@ -873,8 +902,7 @@
       "category": "pharmacy",
       "color": "#00ACC1",
       "aliases": [
-        "ФармОстров",
-        "Остров здоровья"
+        "ФармОстров"
       ],
       "domains": [],
       "keywords": [
@@ -994,7 +1022,7 @@
         "Korona Techno"
       ],
       "domains": [
-        "koronatechno.by"
+        "korona.by"
       ],
       "keywords": [
         "корона техно"
@@ -1058,6 +1086,26 @@
       "rules": []
     },
     {
+      "id": "mastak",
+      "name": "Мастак",
+      "country": "BY",
+      "category": "home",
+      "color": "#546E7A",
+      "aliases": [
+        "Мастак",
+        "Mastac",
+        "Mastak"
+      ],
+      "domains": [
+        "mastac.by"
+      ],
+      "keywords": [
+        "мастак",
+        "mastac"
+      ],
+      "rules": []
+    },
+    {
       "id": "materik",
       "name": "Материк",
       "country": "BY",
@@ -1068,7 +1116,7 @@
         "Materik"
       ],
       "domains": [
-        "materik.by"
+        "diy.by"
       ],
       "keywords": [
         "материк",
@@ -1087,8 +1135,7 @@
         "Остров чистоты и вкуса"
       ],
       "domains": [
-        "ostrov.by",
-        "ostrovcs.by"
+        "ostrov-chistoty.by"
       ],
       "keywords": [
         "остров чистоты"
@@ -1122,15 +1169,34 @@
       "color": "#795548",
       "aliases": [
         "Новосёлкин",
-        "Новоселкин",
-        "Mile"
+        "Новоселкин"
       ],
       "domains": [
         "novoselkin.by"
       ],
       "keywords": [
         "новоселкин",
-        "mile"
+        "новосёлкин"
+      ],
+      "rules": []
+    },
+    {
+      "id": "mile",
+      "name": "Mile",
+      "country": "BY",
+      "category": "home",
+      "color": "#607D8B",
+      "aliases": [
+        "Mile",
+        "МИЛЯ",
+        "Миля"
+      ],
+      "domains": [
+        "mile.by"
+      ],
+      "keywords": [
+        "mile",
+        "миля"
       ],
       "rules": []
     },
@@ -1181,8 +1247,7 @@
         "Конте"
       ],
       "domains": [
-        "conte.by",
-        "conteshop.by"
+        "conte.by"
       ],
       "keywords": [
         "conte"
@@ -1200,8 +1265,7 @@
         "Милавица"
       ],
       "domains": [
-        "milavitsa.com",
-        "milavitsa.by"
+        "milavitsa.com"
       ],
       "keywords": [
         "milavitsa",

@@ -94,4 +94,41 @@ class StoreCatalogTest {
         assertTrue(catalog.search("такого магазина нет").isEmpty())
         assertEquals("пустой запрос — весь каталог", catalog.stores.size, catalog.search("").size)
     }
+
+    @Test
+    fun catalogAgreesWithRealChains() {
+        // сетей не хватало в каталоге
+        for (id in listOf("mastak", "mile", "vozhyk")) {
+            assertTrue("нет сети $id", catalog.byId(id) != null)
+        }
+        assertEquals("mastac.by", catalog.byId("mastak")?.domains?.firstOrNull())
+        assertEquals("mile.by", catalog.byId("mile")?.domains?.firstOrNull())
+        // Mile — отдельный бренд ООО «Астомстрой», а не второе имя «Новосёлкина»
+        val novoselkin = catalog.byId("novoselkin")!!
+        assertTrue(
+            "Mile не должен быть алиасом Новосёлкина",
+            novoselkin.aliases.none { it.contains("mile", ignoreCase = true) },
+        )
+        // «Вожык» — своя сеть «ЮниСтор Групп», а не алиас UNISTORE
+        assertTrue(
+            "Вожык не должен быть алиасом UNISTORE",
+            catalog.byId("unistore")!!.aliases.none { it.contains("вожык", ignoreCase = true) },
+        )
+    }
+
+    @Test
+    fun catalogHasNoForeignDomains() {
+        // домены, которые на деле принадлежат чужим сайтам: вернуться не должны
+        val foreign = setOf(
+            "hit.by", "belmarket.by", "materik.by", "ostrov.by", "ostrovcs.by",
+            "svetofor-market.by", "koronatechno.by", "belpharmacia.by", "dobrocen.by",
+        )
+        val wrong = catalog.stores.filter { store -> store.domains.any { it in foreign } }
+        assertTrue("чужие домены у сетей: ${wrong.map { it.id }}", wrong.isEmpty())
+        // каждый домен записан как домен, без схемы и пути
+        val broken = catalog.stores.filter { store ->
+            store.domains.any { !it.contains('.') || it.contains('/') || it.contains(' ') }
+        }
+        assertTrue("домен записан неверно: ${broken.map { it.id }}", broken.isEmpty())
+    }
 }
