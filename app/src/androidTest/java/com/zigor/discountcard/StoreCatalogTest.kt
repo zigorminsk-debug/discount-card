@@ -135,7 +135,7 @@ class StoreCatalogTest {
     @Test
     fun loyaltyCardNamesAreKnown() {
         // название карты сети помогает узнать её в кошельке
-        assertEquals("Купiлка", catalog.byId("sosedi")?.card)
+        assertEquals("Купилка", catalog.byId("sosedi")?.card)
         assertEquals("Хамелеон", catalog.byId("belmarket")?.card)
         assertEquals("АсобаЯ", catalog.byId("gippo")?.card)
         assertEquals("Еплюс", catalog.byId("evroopt")?.card)

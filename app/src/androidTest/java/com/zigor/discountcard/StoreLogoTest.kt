@@ -109,14 +109,17 @@ class StoreLogoTest {
      */
     @Test
     fun logoDownloadFromSiteIsReported(): Unit = runBlocking {
-        val store = catalog.byId("evroopt")!!
         logos.downloadEnabled = true
-        val loaded = logos.fetch(store)
-        val bitmap = logos.logo(store.id)
-        val color = logos.brandColor(store.id)?.let { "#%06X".format(0xFFFFFF and it) }
-        Log.i(
-            "LogoDiag",
-            "evroopt.by: загружен=$loaded размер=${bitmap?.width}x${bitmap?.height} цвет=$color",
-        )
+        for (id in listOf("evroopt", "sosedi", "mile", "mastak", "santa", "gippo")) {
+            val store = catalog.byId(id) ?: continue
+            val domain = store.domains.firstOrNull() ?: "—"
+            val loaded = logos.fetch(store)
+            val bitmap = logos.logo(store.id)
+            val color = logos.brandColor(store.id)?.let { "#%06X".format(0xFFFFFF and it) }
+            Log.i(
+                "LogoDiag",
+                "$id ($domain): загружен=$loaded размер=${bitmap?.width}x${bitmap?.height} цвет=$color",
+            )
+        }
     }
 }
