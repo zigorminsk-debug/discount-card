@@ -231,7 +231,6 @@
     <string name="bank_no_lock_text">Details open without confirmation. Set a PIN, password or fingerprint in the phone settings and the app will ask for it before showing the number.</string>
     <string name="bank_delete_title">Delete this card?</string>
     <string name="bank_delete_text">The encrypted details will be wiped from the phone.</string>
-    <string name="bank_last4">Card %1$s</string>
     <string name="help_bank_title">Bank cards</string>
     <string name="help_bank_text">The “⋮” menu has a “Bank cards” section where you can store the number, expiry date and cardholder name. The app verifies the checksum and detects the payment system — Visa, Mastercard, MIR or BELCARD. Details are encrypted with a key from the phone’s secure storage, the CVV is never stored, screens with the number are protected from screenshots, and a fingerprint or PIN is requested before the number is shown. The number is meant for online payments: you cannot tap the phone at a till, because contactless payment needs issuer keys and is only available to bank apps and Google Pay.</string>
 </resources>

@@ -44,7 +44,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.zigor.discountcard.R
 import com.zigor.discountcard.appContainer
-import com.zigor.discountcard.data.bank.CardNumber
 import com.zigor.discountcard.ui.components.BannerTone
 import com.zigor.discountcard.ui.components.InfoBanner
 import com.zigor.discountcard.util.formatDate
@@ -195,8 +194,7 @@ fun BankCardDetailScreen(
                 }
 
                 Text(
-                    text = stringResource(R.string.bank_last4, CardNumber.mask(current.last4)) +
-                        " · " + formatDate(current.createdAt),
+                    text = stringResource(R.string.card_added_on, formatDate(current.createdAt)),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
