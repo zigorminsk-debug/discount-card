@@ -175,6 +175,7 @@ class BankCardTest {
         cardRepository.save(
             CardEntity(
                 title = "Евроопт",
+                colorArgb = 0xFF43B02A.toInt(),
                 kind = CardKind.BARCODE,
                 code = "2612345678904",
                 codeFormat = "EAN_13",
