@@ -218,25 +218,6 @@
       "rules": []
     },
     {
-      "id": "oliva",
-      "name": "Oliva",
-      "card": "Добрая карта",
-      "country": "BY",
-      "category": "food",
-      "color": "#6A8F3C",
-      "aliases": [
-        "Oliva",
-        "Олива",
-        "Добрая карта"
-      ],
-      "domains": [],
-      "keywords": [
-        "oliva",
-        "олива"
-      ],
-      "rules": []
-    },
-    {
       "id": "mayak",
       "name": "Маяк",
       "country": "BY",
@@ -288,7 +269,8 @@
         "Купiлка",
         "Купилка",
         "Суперкупилка",
-        "Соседи Экспресс"
+        "Соседи Экспресс",
+        "Тропинка"
       ],
       "domains": [
         "sosedi.by"
@@ -298,7 +280,8 @@
         "sosedi",
         "купилка",
         "купiлка",
-        "суперкупилка"
+        "суперкупилка",
+        "тропинка"
       ],
       "rules": []
     },
@@ -1227,6 +1210,25 @@
       "keywords": [
         "мила",
         "mila"
+      ],
+      "rules": []
+    },
+    {
+      "id": "oliva",
+      "name": "Oliva",
+      "card": "Добрая карта",
+      "country": "BY",
+      "category": "beauty",
+      "color": "#7CB342",
+      "aliases": [
+        "Oliva",
+        "Олива",
+        "Добрая карта"
+      ],
+      "domains": [],
+      "keywords": [
+        "oliva",
+        "олива"
       ],
       "rules": []
     },
