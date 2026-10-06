@@ -54,9 +54,12 @@ fun BankCardFace(
             .padding(if (compact) 16.dp else 20.dp),
         verticalArrangement = Arrangement.spacedBy(if (compact) 10.dp else 16.dp),
     ) {
+        val system = PaymentSystem.title(card.system)
         Row(verticalAlignment = Alignment.CenterVertically) {
+            // Если карта так и не получила имени, слева пусто: справа уже есть «VISA»
+            val caption = card.title.ifBlank { card.bank }
             Text(
-                text = card.title.ifBlank { card.bank },
+                text = if (caption == system) "" else caption,
                 color = content,
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
@@ -64,7 +67,6 @@ fun BankCardFace(
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f),
             )
-            val system = PaymentSystem.title(card.system)
             if (system.isNotEmpty()) {
                 Text(
                     text = system,
@@ -80,9 +82,9 @@ fun BankCardFace(
                 // Условный чип — карта должна выглядеть как карта
                 Box(
                     modifier = Modifier
-                        .size(width = 34.dp, height = 26.dp)
-                        .clip(RoundedCornerShape(5.dp))
-                        .background(content.copy(alpha = 0.3f)),
+                        .size(width = 36.dp, height = 27.dp)
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(Color(0xFFD9B35C).copy(alpha = 0.92f)),
                 )
             }
         }

@@ -3,10 +3,8 @@ package com.zigor.discountcard.ui.bank
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.lazy.LazyColumn
@@ -80,24 +78,8 @@ fun BankCardsScreen(
             contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 96.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            item {
-                InfoBanner(
-                    title = stringResource(R.string.bank_notice_pos_title),
-                    text = stringResource(R.string.bank_notice_pos_text),
-                    tone = BannerTone.WARNING,
-                )
-            }
-            item {
-                InfoBanner(
-                    title = stringResource(R.string.bank_notice_safe_title),
-                    text = stringResource(R.string.bank_notice_safe_text),
-                    tone = BannerTone.INFO,
-                )
-            }
-
             if (cards.isEmpty()) {
                 item {
-                    Spacer(Modifier.height(8.dp))
                     EmptyState(
                         title = stringResource(R.string.bank_empty_title),
                         subtitle = stringResource(R.string.bank_empty_text),
@@ -113,6 +95,22 @@ fun BankCardsScreen(
                             .clickable { onOpen(card.id) },
                     )
                 }
+            }
+
+            // Объяснения — под картами: сначала дело, потом оговорки
+            item {
+                InfoBanner(
+                    title = stringResource(R.string.bank_notice_pos_title),
+                    text = stringResource(R.string.bank_notice_pos_text),
+                    tone = BannerTone.WARNING,
+                )
+            }
+            item {
+                InfoBanner(
+                    title = stringResource(R.string.bank_notice_safe_title),
+                    text = stringResource(R.string.bank_notice_safe_text),
+                    tone = BannerTone.INFO,
+                )
             }
         }
     }

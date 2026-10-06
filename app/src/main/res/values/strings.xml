@@ -204,11 +204,11 @@
     <string name="bank_cards_title">Банковские карты</string>
     <string name="bank_add">Добавить карту</string>
     <string name="bank_empty_title">Банковских карт пока нет</string>
-    <string name="bank_empty_text">Сохраните карту, чтобы не доставать пластик при оплате в интернете: номер будет под рукой и в зашифрованном виде.</string>
+    <string name="bank_empty_text">Сохраните карту — номер будет под рукой при оплате в интернете.</string>
     <string name="bank_notice_pos_title">Оплатить телефоном на кассе нельзя</string>
-    <string name="bank_notice_pos_text">Бесконтактная оплата по NFC работает только в приложениях банков и Google Pay: для неё нужны ключи банка-эмитента, которые стороннему приложению не выдают. Здесь карта хранится для оплаты в интернете — номер можно показать или скопировать в форму оплаты.</string>
+    <string name="bank_notice_pos_text">Для неё нужны ключи банка-эмитента: их выдают только приложениям банков и Google Pay. Здесь карта хранится для оплаты в интернете — номер можно показать или скопировать в форму оплаты.</string>
     <string name="bank_notice_safe_title">Реквизиты зашифрованы</string>
-    <string name="bank_notice_safe_text">Номер, срок и имя держателя шифруются ключом из защищённого хранилища телефона и не покидают устройство. CVV не сохраняется, в экспорт карт через Telegram банковские карты не попадают.</string>
+    <string name="bank_notice_safe_text">Ключ шифрования лежит в защищённом хранилище телефона. CVV не сохраняется, в экспорт карт банковские не попадают. Подробнее — «⋮» → «Как пользоваться».</string>
     <string name="bank_new_title">Новая банковская карта</string>
     <string name="bank_edit_title">Изменение карты</string>
     <string name="bank_number_label">Номер карты</string>
@@ -218,7 +218,7 @@
     <string name="bank_expiry_label">Срок (ММ/ГГ)</string>
     <string name="bank_expiry_invalid">Например, 09/29</string>
     <string name="bank_expiry_expired">Срок действия уже истёк</string>
-    <string name="bank_title_label">Название</string>
+    <string name="bank_title_label">Название карты</string>
     <string name="bank_title_placeholder">Зарплатная</string>
     <string name="bank_holder_label">Держатель (как на карте)</string>
     <string name="bank_bank_label">Банк</string>

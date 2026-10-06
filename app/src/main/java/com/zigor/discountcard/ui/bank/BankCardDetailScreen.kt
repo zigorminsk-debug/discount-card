@@ -190,12 +190,6 @@ fun BankCardDetailScreen(
                     )
                 }
 
-                InfoBanner(
-                    title = stringResource(R.string.bank_notice_pos_title),
-                    text = stringResource(R.string.bank_notice_pos_text),
-                    tone = BannerTone.INFO,
-                )
-
                 if (current.note.isNotBlank()) {
                     Text(current.note, style = MaterialTheme.typography.bodyMedium)
                 }

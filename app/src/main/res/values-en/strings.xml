@@ -197,11 +197,11 @@
     <string name="bank_cards_title">Bank cards</string>
     <string name="bank_add">Add card</string>
     <string name="bank_empty_title">No bank cards yet</string>
-    <string name="bank_empty_text">Save a card so you do not have to dig out the plastic when paying online: the number stays here, encrypted.</string>
+    <string name="bank_empty_text">Save a card and the number is at hand when you pay online.</string>
     <string name="bank_notice_pos_title">Tap-to-pay at the till is not possible</string>
-    <string name="bank_notice_pos_text">Contactless NFC payments only work in bank apps and Google Pay: they need issuer keys that are never handed to third-party apps. Here the card is kept for online payments — show the number or copy it into a checkout form.</string>
+    <string name="bank_notice_pos_text">It needs issuer keys that only bank apps and Google Pay get. Here the card is kept for online payments — show the number or copy it into a checkout form.</string>
     <string name="bank_notice_safe_title">Card details are encrypted</string>
-    <string name="bank_notice_safe_text">The number, expiry date and holder name are encrypted with a key from the phone’s secure storage and never leave the device. The CVV is not stored, and bank cards are excluded from the Telegram export.</string>
+    <string name="bank_notice_safe_text">The encryption key lives in the phone’s secure storage. The CVV is not stored and bank cards are excluded from the card export. Details: “⋮” → “How to use”.</string>
     <string name="bank_new_title">New bank card</string>
     <string name="bank_edit_title">Edit card</string>
     <string name="bank_number_label">Card number</string>
@@ -211,7 +211,7 @@
     <string name="bank_expiry_label">Expiry (MM/YY)</string>
     <string name="bank_expiry_invalid">For example, 09/29</string>
     <string name="bank_expiry_expired">This card has expired</string>
-    <string name="bank_title_label">Name</string>
+    <string name="bank_title_label">Card name</string>
     <string name="bank_title_placeholder">Salary card</string>
     <string name="bank_holder_label">Cardholder (as printed)</string>
     <string name="bank_bank_label">Bank</string>
