@@ -148,6 +148,13 @@ class ScreenshotTest {
         composeRule.waitForIdle()
         Thread.sleep(500)
         shot("09-store-picker")
+
+        // Поиск магазина по названию его карты
+        composeRule.onNodeWithTag("store_picker_search").performTextInput("купилка")
+        composeRule.waitForIdle()
+        Thread.sleep(500)
+        shot("10-picker-by-card-name")
+
         composeRule.onNodeWithText(context.getString(R.string.action_close)).performClick()
         composeRule.waitForIdle()
 
