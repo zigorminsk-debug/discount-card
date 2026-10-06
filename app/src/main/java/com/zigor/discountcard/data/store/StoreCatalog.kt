@@ -29,6 +29,8 @@ data class StoreInfo(
     val name: String,
     val country: String?,
     val colorArgb: Int,
+    /** Название карты лояльности сети: «Купiлка», «Хамелеон», «Еплюс». Пустое, если неизвестно. */
+    val card: String = "",
     /** Ключ раздела каталога: food, pharmacy, tech... Используется только для группировки в списке. */
     val category: String = StoreCatalog.CATEGORY_OTHER,
     val aliases: List<String> = emptyList(),
@@ -106,6 +108,7 @@ class StoreCatalog(private val context: Context) {
 
     private fun StoreInfo.matchesQuery(lowerQuery: String): Boolean =
         name.lowercase().contains(lowerQuery) ||
+            card.lowercase().contains(lowerQuery) ||
             aliases.any { it.lowercase().contains(lowerQuery) } ||
             domains.any { it.contains(lowerQuery) }
 
@@ -173,6 +176,7 @@ class StoreCatalog(private val context: Context) {
                     name = o.getString("name"),
                     country = o.optString("country").takeIf { it.isNotBlank() },
                     colorArgb = parseColor(o.optString("color"), DEFAULT_COLOR),
+                    card = o.optString("card"),
                     category = o.optString("category").lowercase()
                         .takeIf { it in CATEGORY_ORDER } ?: CATEGORY_OTHER,
                     aliases = o.optJSONArray("aliases").toStringList(),

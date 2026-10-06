@@ -131,4 +131,19 @@ class StoreCatalogTest {
         }
         assertTrue("домен записан неверно: ${broken.map { it.id }}", broken.isEmpty())
     }
+
+    @Test
+    fun loyaltyCardNamesAreKnown() {
+        // название карты сети помогает узнать её в кошельке
+        assertEquals("Купiлка", catalog.byId("sosedi")?.card)
+        assertEquals("Хамелеон", catalog.byId("belmarket")?.card)
+        assertEquals("АсобаЯ", catalog.byId("gippo")?.card)
+        assertEquals("Еплюс", catalog.byId("evroopt")?.card)
+        assertEquals("Добрая карта", catalog.byId("dobronom")?.card)
+        // магазин находится и по названию своей карты
+        assertTrue("по «купилка» должны найтись «Соседи»", catalog.search("купилка").any { it.id == "sosedi" })
+        assertTrue(catalog.search("хамелеон").any { it.id == "belmarket" })
+        assertTrue(catalog.search("асобая").any { it.id == "gippo" })
+        assertTrue(catalog.search("еплюс").any { it.id == "evroopt" })
+    }
 }

@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "updated": "2026-10-06",
-  "comment": "Каталог сетей для автоопределения магазина по ссылке из QR и по ключевым словам. Основной упор — Беларусь: продуктовые сети, аптеки, техника, заправки. Префиксы штрих-кодов намеренно не используются: по ним магазин угадать нельзя. Домены проверены обращением к сайту — непроверенные удалены, чтобы не подтянуть чужой логотип.",
+  "comment": "Каталог сетей для автоопределения магазина по ссылке из QR и по ключевым словам. Основной упор — Беларусь: продуктовые сети, аптеки, техника, заправки. Префиксы штрих-кодов намеренно не используются: по ним магазин угадать нельзя. Домены проверены обращением к сайту — непроверенные удалены, чтобы не подтянуть чужой логотип. У сетей указано название их карты лояльности — по нему магазин тоже находится поиском.",
   "issuers": {
     "20-29": "внутренний код магазина (не экспортируется за пределы сети)",
     "460-469": "Россия (GS1 RUS)",
@@ -102,6 +102,7 @@
     {
       "id": "evroopt",
       "name": "Евроопт",
+      "card": "Еплюс",
       "country": "BY",
       "category": "food",
       "color": "#43B02A",
@@ -109,72 +110,92 @@
         "Евроопт",
         "Eurоopt",
         "Eurotorg",
-        "Е-доставка"
+        "Е-доставка",
+        "Еплюс",
+        "Е-плюс",
+        "E-plus"
       ],
       "domains": [
         "evroopt.by",
         "e-dostavka.by",
-        "eurotorg.by"
+        "eurotorg.by",
+        "e-plus.by",
+        "eplus.by"
       ],
       "keywords": [
         "evroopt",
         "евроопт",
         "eurotorg",
-        "edostavka"
+        "edostavka",
+        "еплюс",
+        "е-плюс",
+        "e-plus"
       ],
       "rules": []
     },
     {
       "id": "hit",
       "name": "Хит!",
+      "card": "Еплюс",
       "country": "BY",
       "category": "food",
       "color": "#F7941E",
       "aliases": [
         "Хит!",
         "Хит Экспресс",
-        "Hit"
+        "Hit",
+        "Еплюс"
       ],
       "domains": [],
       "keywords": [
         "хит экспресс",
-        "hit express"
+        "hit express",
+        "еплюс",
+        "e-plus"
       ],
       "rules": []
     },
     {
       "id": "groshyk",
       "name": "Грошык",
+      "card": "Мой Грошык",
       "country": "BY",
       "category": "food",
       "color": "#8DC63F",
       "aliases": [
         "Грошык",
-        "Groshyk"
+        "Groshyk",
+        "Мой Грошык"
       ],
       "domains": [],
       "keywords": [
         "грошык",
-        "groshyk"
+        "groshyk",
+        "мой грошык"
       ],
       "rules": []
     },
     {
       "id": "dobronom",
       "name": "Доброном",
+      "card": "Добрая карта",
       "country": "BY",
       "category": "food",
       "color": "#3FA535",
       "aliases": [
         "Доброном",
-        "Dobronom"
+        "Dobronom",
+        "Добрая карта"
       ],
       "domains": [
-        "dobronom.by"
+        "dobronom.by",
+        "dobraya.by"
       ],
       "keywords": [
         "доброном",
-        "dobronom"
+        "dobronom",
+        "добрая карта",
+        "dobraya"
       ],
       "rules": []
     },
@@ -197,6 +218,25 @@
       "rules": []
     },
     {
+      "id": "oliva",
+      "name": "Oliva",
+      "card": "Добрая карта",
+      "country": "BY",
+      "category": "food",
+      "color": "#6A8F3C",
+      "aliases": [
+        "Oliva",
+        "Олива",
+        "Добрая карта"
+      ],
+      "domains": [],
+      "keywords": [
+        "oliva",
+        "олива"
+      ],
+      "rules": []
+    },
+    {
       "id": "mayak",
       "name": "Маяк",
       "country": "BY",
@@ -214,39 +254,51 @@
     {
       "id": "santa",
       "name": "Санта",
+      "card": "Санта Бонус",
       "country": "BY",
       "category": "food",
       "color": "#00A3E0",
       "aliases": [
         "Санта",
         "Santa",
-        "Санта Ритейл"
+        "Санта Ритейл",
+        "Санта Бонус",
+        "Санта социальная"
       ],
       "domains": [
         "santa.by"
       ],
       "keywords": [
         "санта",
-        "santa"
+        "santa",
+        "санта бонус"
       ],
       "rules": []
     },
     {
       "id": "sosedi",
       "name": "Соседи",
+      "card": "Купiлка",
       "country": "BY",
       "category": "food",
       "color": "#F58220",
       "aliases": [
         "Соседи",
-        "Sosedi"
+        "Sosedi",
+        "Купiлка",
+        "Купилка",
+        "Суперкупилка",
+        "Соседи Экспресс"
       ],
       "domains": [
         "sosedi.by"
       ],
       "keywords": [
         "соседи",
-        "sosedi"
+        "sosedi",
+        "купилка",
+        "купiлка",
+        "суперкупилка"
       ],
       "rules": []
     },
@@ -268,6 +320,7 @@
     {
       "id": "gippo",
       "name": "Гиппо",
+      "card": "АсобаЯ",
       "country": "BY",
       "category": "food",
       "color": "#F07E13",
@@ -275,73 +328,89 @@
         "Гиппо",
         "Gippo",
         "Hippo",
-        "БелВиллесДен"
+        "БелВиллесДен",
+        "АсобаЯ",
+        "Асоба",
+        "Асобая"
       ],
       "domains": [
         "gippo.by"
       ],
       "keywords": [
         "гиппо",
-        "gippo"
+        "gippo",
+        "асобая",
+        "асоба"
       ],
       "rules": []
     },
     {
       "id": "belmarket",
       "name": "Белмаркет",
+      "card": "Хамелеон",
       "country": "BY",
       "category": "food",
       "color": "#95C02C",
       "aliases": [
         "Белмаркет",
-        "BelMarket"
+        "BelMarket",
+        "Хамелеон"
       ],
       "domains": [
         "bel-market.by"
       ],
       "keywords": [
         "белмаркет",
-        "belmarket"
+        "belmarket",
+        "хамелеон"
       ],
       "rules": []
     },
     {
       "id": "korona",
       "name": "Корона",
+      "card": "Магазин приятных покупок",
       "country": "BY",
       "category": "food",
       "color": "#F6610A",
       "aliases": [
         "Корона",
         "Korona",
-        "Табак-инвест"
+        "Табак-инвест",
+        "Магазин приятных покупок"
       ],
       "domains": [
         "korona.by"
       ],
       "keywords": [
         "корона",
-        "korona"
+        "korona",
+        "магазин приятных покупок"
       ],
       "rules": []
     },
     {
       "id": "green",
       "name": "Green",
+      "card": "GREENКАРТА",
       "country": "BY",
       "category": "food",
       "color": "#00A550",
       "aliases": [
         "Green",
         "Грин",
-        "ГРИНрозница"
+        "ГРИНрозница",
+        "GREENКАРТА",
+        "Грин карта"
       ],
       "domains": [
         "green-market.by"
       ],
       "keywords": [
         "green market",
-        "грин"
+        "грин",
+        "greenкарта",
+        "грин карта"
       ],
       "rules": []
     },
@@ -1517,6 +1586,7 @@
       "id": "magnit",
       "name": "Магнит",
       "country": "RU",
+      "category": "food",
       "color": "#E2231A",
       "aliases": [
         "Магнит",
@@ -1531,13 +1601,13 @@
         "magnit",
         "магнит"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "pyaterochka",
       "name": "Пятёрочка",
       "country": "RU",
+      "category": "food",
       "color": "#E30613",
       "aliases": [
         "Пятёрочка",
@@ -1553,13 +1623,13 @@
         "пятёрочка",
         "выручай"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "perekrestok",
       "name": "Перекрёсток",
       "country": "RU",
+      "category": "food",
       "color": "#00843D",
       "aliases": [
         "Перекрёсток",
@@ -1574,13 +1644,13 @@
         "перекресток",
         "перекрёсток"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "lenta",
       "name": "Лента",
       "country": "RU",
+      "category": "food",
       "color": "#0033A0",
       "aliases": [
         "Лента"
@@ -1593,13 +1663,13 @@
         "lenta",
         "лента"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "auchan",
       "name": "Ашан",
       "country": "RU",
+      "category": "food",
       "color": "#E2001A",
       "aliases": [
         "Ашан"
@@ -1611,13 +1681,13 @@
         "auchan",
         "ашан"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "dixy",
       "name": "Дикси",
       "country": "RU",
+      "category": "food",
       "color": "#E4002B",
       "aliases": [
         "Дикси"
@@ -1630,13 +1700,13 @@
         "dixy",
         "дикси"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "monetka",
       "name": "Монетка",
       "country": "RU",
+      "category": "food",
       "color": "#F5A623",
       "aliases": [
         "Монетка"
@@ -1648,13 +1718,13 @@
         "monetka",
         "монетка"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "okey",
       "name": "О’КЕЙ",
       "country": "RU",
+      "category": "food",
       "color": "#E30613",
       "aliases": [
         "О’КЕЙ",
@@ -1667,13 +1737,13 @@
         "okmarket",
         "окей"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "vkusvill",
       "name": "ВкусВилл",
       "country": "RU",
+      "category": "food",
       "color": "#78BE20",
       "aliases": [
         "ВкусВилл"
@@ -1685,13 +1755,13 @@
         "vkusvill",
         "вкусвилл"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "azbuka",
       "name": "Азбука Вкуса",
       "country": "RU",
+      "category": "food",
       "color": "#003A70",
       "aliases": [
         "Азбука Вкуса"
@@ -1704,13 +1774,13 @@
         "azbukavkusa",
         "азбука вкуса"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "metro",
       "name": "METRO",
       "country": "RU",
+      "category": "food",
       "color": "#003D8F",
       "aliases": [
         "METRO Cash & Carry"
@@ -1723,13 +1793,13 @@
         "metro-cc",
         "метро кэш"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "globus",
       "name": "Глобус",
       "country": "RU",
+      "category": "food",
       "color": "#005CA9",
       "aliases": [
         "Глобус"
@@ -1741,13 +1811,13 @@
         "globus",
         "глобус"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "kb",
       "name": "Красное&Белое",
       "country": "RU",
+      "category": "food",
       "color": "#C8102E",
       "aliases": [
         "Красное и Белое"
@@ -1760,13 +1830,13 @@
         "krasnoeibeloe",
         "красное белое"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "bristol",
       "name": "Бристоль",
       "country": "RU",
+      "category": "food",
       "color": "#00529B",
       "aliases": [
         "Бристоль"
@@ -1778,13 +1848,13 @@
         "bristol",
         "бристоль"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "samokat",
       "name": "Самокат",
       "country": "RU",
+      "category": "food",
       "color": "#FF3C7E",
       "aliases": [
         "Самокат"
@@ -1796,13 +1866,13 @@
         "samokat",
         "самокат"
       ],
-      "rules": [],
-      "category": "food"
+      "rules": []
     },
     {
       "id": "yandex_plus",
       "name": "Яндекс Плюс",
       "country": "RU",
+      "category": "other",
       "color": "#FFCC00",
       "aliases": [
         "Яндекс Лавка",
@@ -1818,13 +1888,13 @@
         "яндекс плюс",
         "яндекс лавка"
       ],
-      "rules": [],
-      "category": "other"
+      "rules": []
     },
     {
       "id": "sportmaster",
       "name": "Спортмастер",
       "country": "RU",
+      "category": "clothes",
       "color": "#003E7E",
       "aliases": [
         "Спортмастер"
@@ -1836,13 +1906,13 @@
         "sportmaster",
         "спортмастер"
       ],
-      "rules": [],
-      "category": "clothes"
+      "rules": []
     },
     {
       "id": "letual",
       "name": "Л’Этуаль",
       "country": "RU",
+      "category": "beauty",
       "color": "#000000",
       "aliases": [
         "Летуаль"
@@ -1856,13 +1926,13 @@
         "летуаль",
         "л'этуаль"
       ],
-      "rules": [],
-      "category": "beauty"
+      "rules": []
     },
     {
       "id": "rivegauche",
       "name": "Рив Гош",
       "country": "RU",
+      "category": "beauty",
       "color": "#D4145A",
       "aliases": [
         "Рив Гош"
@@ -1874,13 +1944,13 @@
         "rivegauche",
         "рив гош"
       ],
-      "rules": [],
-      "category": "beauty"
+      "rules": []
     },
     {
       "id": "goldapple",
       "name": "Золотое Яблоко",
       "country": "RU",
+      "category": "beauty",
       "color": "#D9A441",
       "aliases": [
         "Золотое Яблоко"
@@ -1892,13 +1962,13 @@
         "goldapple",
         "золотое яблоко"
       ],
-      "rules": [],
-      "category": "beauty"
+      "rules": []
     },
     {
       "id": "podrygka",
       "name": "Подружка",
       "country": "RU",
+      "category": "beauty",
       "color": "#E6007E",
       "aliases": [
         "Подружка"
@@ -1910,13 +1980,13 @@
         "podrygka",
         "подружка"
       ],
-      "rules": [],
-      "category": "beauty"
+      "rules": []
     },
     {
       "id": "ulybka",
       "name": "Улыбка радуги",
       "country": "RU",
+      "category": "beauty",
       "color": "#F39200",
       "aliases": [
         "Улыбка радуги"
@@ -1928,13 +1998,13 @@
         "ulybka",
         "улыбка радуги"
       ],
-      "rules": [],
-      "category": "beauty"
+      "rules": []
     },
     {
       "id": "mvideo",
       "name": "М.Видео",
       "country": "RU",
+      "category": "tech",
       "color": "#E30613",
       "aliases": [
         "М.Видео"
@@ -1947,13 +2017,13 @@
         "м.видео",
         "м видео"
       ],
-      "rules": [],
-      "category": "tech"
+      "rules": []
     },
     {
       "id": "eldorado",
       "name": "Эльдорадо",
       "country": "RU",
+      "category": "tech",
       "color": "#004C97",
       "aliases": [
         "Эльдорадо"
@@ -1965,13 +2035,13 @@
         "eldorado",
         "эльдорадо"
       ],
-      "rules": [],
-      "category": "tech"
+      "rules": []
     },
     {
       "id": "dns",
       "name": "DNS",
       "country": "RU",
+      "category": "tech",
       "color": "#F8A51B",
       "aliases": [
         "DNS"
@@ -1983,13 +2053,13 @@
         "dns-shop",
         "днс"
       ],
-      "rules": [],
-      "category": "tech"
+      "rules": []
     },
     {
       "id": "citilink",
       "name": "Ситилинк",
       "country": "RU",
+      "category": "tech",
       "color": "#F6A800",
       "aliases": [
         "Ситилинк"
@@ -2001,13 +2071,13 @@
         "citilink",
         "ситилинк"
       ],
-      "rules": [],
-      "category": "tech"
+      "rules": []
     },
     {
       "id": "detmir",
       "name": "Детский мир",
       "country": "RU",
+      "category": "kids",
       "color": "#E4002B",
       "aliases": [
         "Детский мир"
@@ -2019,13 +2089,13 @@
         "detmir",
         "детский мир"
       ],
-      "rules": [],
-      "category": "kids"
+      "rules": []
     },
     {
       "id": "leroy",
       "name": "Леруа Мерлен",
       "country": "RU",
+      "category": "home",
       "color": "#78BE20",
       "aliases": [
         "Лемана ПРО"
@@ -2039,13 +2109,13 @@
         "леруа",
         "лемана"
       ],
-      "rules": [],
-      "category": "home"
+      "rules": []
     },
     {
       "id": "obi",
       "name": "OBI",
       "country": "RU",
+      "category": "home",
       "color": "#FF7900",
       "aliases": [
         "ОБИ"
@@ -2057,13 +2127,13 @@
         "obi.ru",
         "оби"
       ],
-      "rules": [],
-      "category": "home"
+      "rules": []
     },
     {
       "id": "petrovich",
       "name": "Петрович",
       "country": "RU",
+      "category": "home",
       "color": "#F6A800",
       "aliases": [
         "Петрович"
@@ -2075,13 +2145,13 @@
         "petrovich",
         "петрович"
       ],
-      "rules": [],
-      "category": "home"
+      "rules": []
     },
     {
       "id": "fixprice",
       "name": "Fix Price",
       "country": "RU",
+      "category": "home",
       "color": "#E2231A",
       "aliases": [
         "Фикс Прайс"
@@ -2094,13 +2164,13 @@
         "fix-price",
         "фикс прайс"
       ],
-      "rules": [],
-      "category": "home"
+      "rules": []
     },
     {
       "id": "chitaigorod",
       "name": "Читай-город",
       "country": "RU",
+      "category": "other",
       "color": "#E30613",
       "aliases": [
         "Читай-город"
@@ -2112,13 +2182,13 @@
         "chitai-gorod",
         "читай город"
       ],
-      "rules": [],
-      "category": "other"
+      "rules": []
     },
     {
       "id": "bookvoed",
       "name": "Буквоед",
       "country": "RU",
+      "category": "other",
       "color": "#F58220",
       "aliases": [
         "Буквоед"
@@ -2130,13 +2200,13 @@
         "bookvoed",
         "буквоед"
       ],
-      "rules": [],
-      "category": "other"
+      "rules": []
     },
     {
       "id": "4lapy",
       "name": "Четыре лапы",
       "country": "RU",
+      "category": "other",
       "color": "#00A651",
       "aliases": [
         "Четыре лапы"
@@ -2148,13 +2218,13 @@
         "4lapy",
         "четыре лапы"
       ],
-      "rules": [],
-      "category": "other"
+      "rules": []
     },
     {
       "id": "rigla",
       "name": "Ригла",
       "country": "RU",
+      "category": "pharmacy",
       "color": "#009640",
       "aliases": [
         "Ригла"
@@ -2166,13 +2236,13 @@
         "rigla",
         "ригла"
       ],
-      "rules": [],
-      "category": "pharmacy"
+      "rules": []
     },
     {
       "id": "apteka366",
       "name": "Аптека 36,6",
       "country": "RU",
+      "category": "pharmacy",
       "color": "#E2001A",
       "aliases": [
         "36,6"
@@ -2184,13 +2254,13 @@
         "366.ru",
         "аптека 36.6"
       ],
-      "rules": [],
-      "category": "pharmacy"
+      "rules": []
     },
     {
       "id": "burgerking",
       "name": "Burger King",
       "country": "RU",
+      "category": "food_out",
       "color": "#D62300",
       "aliases": [
         "Бургер Кинг"
@@ -2203,13 +2273,13 @@
         "burgerking",
         "бургер кинг"
       ],
-      "rules": [],
-      "category": "food_out"
+      "rules": []
     },
     {
       "id": "dodo",
       "name": "Додо Пицца",
       "country": "RU",
+      "category": "food_out",
       "color": "#FF6900",
       "aliases": [
         "Додо Пицца"
@@ -2222,13 +2292,13 @@
         "dodopizza",
         "додо"
       ],
-      "rules": [],
-      "category": "food_out"
+      "rules": []
     },
     {
       "id": "shokoladnitsa",
       "name": "Шоколадница",
       "country": "RU",
+      "category": "food_out",
       "color": "#6B3F2B",
       "aliases": [
         "Шоколадница"
@@ -2241,13 +2311,13 @@
         "shokoladnitsa",
         "шоколадница"
       ],
-      "rules": [],
-      "category": "food_out"
+      "rules": []
     },
     {
       "id": "ikea",
       "name": "IKEA",
       "country": "INT",
+      "category": "home",
       "color": "#0058A3",
       "aliases": [
         "IKEA Family"
@@ -2260,13 +2330,13 @@
         "ikea",
         "икеа"
       ],
-      "rules": [],
-      "category": "home"
+      "rules": []
     },
     {
       "id": "decathlon",
       "name": "Decathlon",
       "country": "INT",
+      "category": "clothes",
       "color": "#3643BA",
       "aliases": [
         "Декатлон"
@@ -2279,13 +2349,13 @@
         "decathlon",
         "декатлон"
       ],
-      "rules": [],
-      "category": "clothes"
+      "rules": []
     },
     {
       "id": "hm",
       "name": "H&M",
       "country": "INT",
+      "category": "clothes",
       "color": "#E50010",
       "aliases": [
         "H&M"
@@ -2297,13 +2367,13 @@
         "hm.com",
         "h&m"
       ],
-      "rules": [],
-      "category": "clothes"
+      "rules": []
     },
     {
       "id": "zara",
       "name": "ZARA",
       "country": "INT",
+      "category": "clothes",
       "color": "#000000",
       "aliases": [
         "ZARA"
@@ -2315,13 +2385,13 @@
         "zara",
         "зара"
       ],
-      "rules": [],
-      "category": "clothes"
+      "rules": []
     },
     {
       "id": "mcdonalds",
       "name": "McDonald’s",
       "country": "INT",
+      "category": "food_out",
       "color": "#FFC72C",
       "aliases": [
         "Вкусно — и точка"
@@ -2334,13 +2404,13 @@
         "mcdonalds",
         "макдоналдс"
       ],
-      "rules": [],
-      "category": "food_out"
+      "rules": []
     },
     {
       "id": "starbucks",
       "name": "Starbucks",
       "country": "INT",
+      "category": "food_out",
       "color": "#00704A",
       "aliases": [
         "Starbucks Rewards"
@@ -2352,13 +2422,13 @@
         "starbucks",
         "старбакс"
       ],
-      "rules": [],
-      "category": "food_out"
+      "rules": []
     },
     {
       "id": "kfc",
       "name": "KFC / Rostic’s",
       "country": "INT",
+      "category": "food_out",
       "color": "#A4343A",
       "aliases": [
         "Ростикс"
@@ -2372,8 +2442,7 @@
         "ростикс",
         "rostics"
       ],
-      "rules": [],
-      "category": "food_out"
+      "rules": []
     }
   ]
 }

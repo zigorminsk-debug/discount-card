@@ -145,7 +145,11 @@ private fun StoreRow(store: StoreInfo, onClick: () -> Unit) {
         Spacer(Modifier.width(12.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(text = store.name, style = MaterialTheme.typography.bodyLarge)
-            val subtitle = store.domains.firstOrNull()
+            // сначала название карты сети — по нему карту узнают в кошельке
+            val subtitle = listOfNotNull(
+                store.card.takeIf { it.isNotBlank() },
+                store.domains.firstOrNull(),
+            ).joinToString(" · ").takeIf { it.isNotBlank() }
             if (subtitle != null) {
                 Text(
                     text = subtitle,
